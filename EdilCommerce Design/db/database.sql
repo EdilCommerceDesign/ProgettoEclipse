@@ -1,0 +1,95 @@
+DROP DATABASE IF EXISTS edil_commerce_design;
+CREATE DATABASE edil_commerce_design;
+
+DROP USER IF EXISTS 'edil_user'@'localhost';
+CREATE USER 'edil_user'@'localhost'identified BY 'edil_user';
+grant ALL ON edil_commerce_design.* to 'edil_user'@'localhost'; 
+
+USE edil_commerce_design;
+
+DROP TABLE IF EXISTS categoria;
+CREATE TABLE categoria (
+immagine			blob    		not null,
+nome				varchar(20)	    not null,
+descrizione			varchar(50)		not null,
+primary key (nome)
+);
+
+DROP TABLE IF EXISTS articolo;
+CREATE TABLE articolo (
+codiceArticolo		char(5)			not null,
+nome				varchar(30)		not null,
+immagine			blob    		not null,
+descrizione			varchar(30)		not null,
+costo				double			not null,
+nomeCategoria      varchar(20)		not null,
+primary key (codiceArticolo),
+foreign key (nomeCategoria) references categoria (nome)
+);
+
+DROP TABLE IF EXISTS pagamento;
+CREATE TABLE pagamento (
+numeroPagamento		int auto_increment		not null,
+data				date                 	not null,
+modalità    		varchar(20)				not null,
+importo				double					not null,
+primary key (numeroPagamento)
+) auto_increment=1;
+
+DROP TABLE IF EXISTS user;
+CREATE TABLE user (
+username   	    varchar(20)   	not null,
+nome			varchar(20)		not null,
+cognome			varchar(20)		not null,
+email			varchar(20)		not null,
+telefono		varchar(15)		not null,
+indirizzo		varchar(20)		not null,
+userPassword	varchar(20)		not null,
+primary key (username)
+);
+
+DROP TABLE IF EXISTS ruolo;
+CREATE TABLE ruolo (
+nome			varchar(20)		not null,
+primary key (nome)
+);
+
+DROP TABLE IF EXISTS ordine;
+CREATE TABLE ordine (
+numeroOrdine 		int auto_increment		not null,
+data				date 					not null,	
+username			varchar(20)				not null,
+primary key (numeroOrdine),
+foreign key (username) references user (username)
+)    auto_increment=1;
+
+DROP TABLE IF EXISTS compone;
+CREATE TABLE compone (
+numeroOrdine			int		not null,
+codiceArticolo    		char(5)		not null,
+quantità				int			not null,
+primary key (numeroOrdine, codiceArticolo),
+foreign key (numeroOrdine) references ordine (numeroOrdine),
+foreign key (codiceArticolo) references articolo (codiceArticolo)
+);
+
+DROP TABLE IF EXISTS recensisce;
+CREATE TABLE recensisce (
+codiceArticolo    		char(5)						not null,
+username				varchar(20) 				not null,
+data					date						not null,
+valore					enum ("1","2","3","4","5")	not null,
+testo					text(500)					not null,
+primary key (username, codiceArticolo),
+foreign key (username) references user (username),
+foreign key (codiceArticolo) references articolo (codiceArticolo)
+);
+
+DROP TABLE IF EXISTS ruoloUser;
+CREATE TABLE ruoloUser (
+username   	    varchar(20)   	not null,
+nome			varchar(20)		not null,
+primary key (username, nome),
+foreign key (username) references user (username),
+foreign key (nome) references ruolo (nome)
+);
