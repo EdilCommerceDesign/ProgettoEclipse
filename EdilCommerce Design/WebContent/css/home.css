@@ -1,4 +1,17 @@
 @charset "ISO-8859-1";
-img#mainLogo{
-	align-content:center;
+
+.center {
+	text-align: center;
 }
+.center input{
+	display:inline-block;
+}
+
+img#mainLogo {
+	align-content: center;
+	display: block;
+	margin: 0px auto;
+	height: 200px;
+	width: auto;
+}
+
