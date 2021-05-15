@@ -9,12 +9,17 @@
 	<title>Benvenuto in Edil Commerce Design</title>
 </head>
 <body>
-	<img alt="logo-edil" src="./img/logo.png" id="mainLogo">
-	<form action="">
-	<div class="center">
-		<input type="search"  name="search" size="30" placeholder="Cosa cerchi?">
-		<input type="submit" value="Cerca">
-	</div>
+		<img alt="logo-edil" src="./img/logo.png" id="mainLogo">
+		<ul class="rigth">
+			<li><a class="login" href="login.jsp" >Login</a></li>
+			<li><a class="login" href="signup.jsp">Registrati</a></li>
+		</ul>
+
+	<form action="" method="get">
+		<div class="center">
+			<input id="search" type="search"  name="search" size="30" placeholder="Cerca in EdilCommerce Design">
+			<input id="submit" type="submit" value="Cerca">
+		</div>
 	</form>
 </body>
 </html>
