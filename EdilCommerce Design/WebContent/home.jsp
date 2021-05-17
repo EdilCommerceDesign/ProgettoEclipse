@@ -6,8 +6,8 @@
 
 <style>
 	body {
-  	background-image: url("./img/casa.jpg") ; 
-  	<!-- background-repeat: no-repeat; -->
+  		<!--background-image: url("./img/casa.jpg") ; 
+   background-repeat: no-repeat; -->
 	}
 </style>
 	
@@ -29,7 +29,7 @@
 	  <form action="" method="get">
 		<div class="center">
 			<input id="search" type="search"  name="search" size="30" placeholder="Cerca in EdilCommerce Design">
-			<input id="submit" type="submit" value="Cerca">
+			<a href="" ><img alt="" src="./img/lente.png" width=30px heigth=30px></a>
 		</div> 
 	</form> 
 </body>

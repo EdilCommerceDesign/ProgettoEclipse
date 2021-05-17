@@ -9,10 +9,12 @@
 </head>
 <body>
 	<img alt="logo-edil" src="./img/logo.png" id="mainLogo"> 
+	
+	
 	<h1>CREA UN ACCOUNT</h1>
 	<!--<h2>Per effettuare i tuoi magnifici acquisti</h2> -->
 	<form method="post" action="">
-			<fieldset>
+		<fieldset>
 			  <legend>Informazioni Personali:</legend>
 					<table>
 					<tr><td>Nome</td> <td><input type="text" name="Name" placeholder="ex. Mario" required></td></tr>
@@ -26,10 +28,9 @@
 					</table>
 			
 					<input type="submit" value="Regitration"></td> <td><input type="reset" value="Reset">
-			</fieldset>
+		</fieldset>
 		</form>
 	
 	<a href="home.jsp">Torna alla home</a>
-	
 </body>
 </html>
