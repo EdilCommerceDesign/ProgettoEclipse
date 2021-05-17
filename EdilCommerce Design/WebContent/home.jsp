@@ -6,7 +6,7 @@
 
 <style>
 	body {
-  	background-image: url("./img/casa.jpg"); 
+  	background-image: url("./img/casa.jpg") ; 
   	<!-- background-repeat: no-repeat; -->
 	}
 </style>
@@ -18,12 +18,11 @@
 	<title>Benvenuto in Edil Commerce Design</title>
 </head>
 <body>
-		
-		
+	
 		<img alt="logo-edil" src="./img/logo.png" id="mainLogo">
 		<ul class="rigth">
 			<li><a class="login" href="login.jsp" >Login</a></li>
-			<li><a class="login" href="signup.jsp">Registrati</a></li>
+			<li><a class="login" href="registrazione.jsp" >Registrati</a></li>
 		</ul>
 		
 	

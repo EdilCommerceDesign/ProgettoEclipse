@@ -58,7 +58,7 @@ div.center {
 	border: 0;
 	border-left: 1px solid #888;
 	background: white; 
-	background-image: url("./img/lente.jpg") no-repeat 260px 8px;
+	background-image: url("img/lente.jpg") no-repeat  8px;
 	text-indent: -10957px;
 	box-sizing: border-box;
 }
