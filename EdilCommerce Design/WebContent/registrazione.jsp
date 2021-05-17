@@ -23,7 +23,7 @@
 					<tr><td>Nickname</td> <td> <input type="text" name="Nickname" placeholder="ex. Rossi" required></td></tr>
 					<tr><td>E-mail  </td> <td> <input type="email" name="Email" placeholder="mario@ex.com" required></td></tr>
 					<tr><td>Password</td> <td> <input type="password" name="Password" placeholder="Password" required></td></tr>
-					<tr><td>Conferma Password </td> <td><input type="password" name="ConfermaP" placeholder="Password" requiredd></td></tr>
+					<tr><td>Conferma Password </td> <td><input type="password" name="ConfermaP" placeholder="Password" required></td></tr>
 					<tr><td>Indirizzo </td> <td> <input type="text" name="Indirizzo" placeholder="ex. via demanio 7/1" required></td></tr>
 					<tr><td>Telefono  </td> <td><input type="text" name="Telefono" placeholder="ex. 089893888" required></td></tr>
 					</table>
