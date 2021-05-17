@@ -10,7 +10,7 @@
 <body>
 	<img alt="logo-edil" src="./img/logo.png" id="mainLogo"> 
 	
-	
+	<div class="contenitore">
 	<h1>CREA UN ACCOUNT</h1>
 	<!--<h2>Per effettuare i tuoi magnifici acquisti</h2> -->
 	<form method="post" action="">
@@ -32,5 +32,6 @@
 		</form>
 	
 	<a href="home.jsp">Torna alla home</a>
+	</div>
 </body>
 </html>
