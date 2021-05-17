@@ -25,12 +25,13 @@
 			<li><a class="login" href="login.jsp" >Login</a></li>
 			<li><a class="login" href="signup.jsp">Registrati</a></li>
 		</ul>
-
-	<form action="" method="get">
+		
+	
+	  <form action="" method="get">
 		<div class="center">
 			<input id="search" type="search"  name="search" size="30" placeholder="Cerca in EdilCommerce Design">
 			<input id="submit" type="submit" value="Cerca">
-		</div>
-	</form>
+		</div> 
+	</form> 
 </body>
 </html>
