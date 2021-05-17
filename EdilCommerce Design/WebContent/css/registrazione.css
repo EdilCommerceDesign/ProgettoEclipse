@@ -1,6 +1,6 @@
 @charset "ISO-8859-1";
 
-body{ text-align: center;}
+body{ text-align: left;}
 
 table { margin: 0 auto;
 		text-align: left;
@@ -11,10 +11,16 @@ img#mainLogo {
 	margin: right;
 	height: 200px;
 	width: auto;
-	display: block;
+
 }
 
-.contenitore{
+.contenitore1{
+	
+	
+}
+.contenitore2{
 	position: absolute ;
+	display:inline;
+	
 }
 

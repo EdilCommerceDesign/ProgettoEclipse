@@ -8,9 +8,10 @@
 <title>Registrazione</title>
 </head>
 <body>
-	<img alt="logo-edil" src="./img/logo.png" id="mainLogo"> 
-	
-	<div class="contenitore">
+	<div class="contenitore1">
+		<img alt="logo-edil" src="./img/logo.png" id="mainLogo"> 
+	</div>
+	<div class="contenitore2">
 	<h1>CREA UN ACCOUNT</h1>
 	<!--<h2>Per effettuare i tuoi magnifici acquisti</h2> -->
 	<form method="post" action="">
