@@ -18,5 +18,15 @@
 			<input type="submit" value="Login">&nbsp;<input type="reset" value="Reset">
 		</fieldset>
 	</form>
+
+	<%
+	String error = (String) request.getAttribute("error");
+	if (error != null && !error.equals("")) {
+	%>
+	<p style="color: red"><%=error%>
+	<%
+	}
+	%>
+	
 </body>
 </html>
