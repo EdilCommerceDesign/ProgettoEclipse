@@ -7,14 +7,15 @@
 <title>Login</title>
 </head>
 <body>
-	
+	<img alt="logo-edil" src="./img/logo.png" id="mainLogo">
 	<form method="post" action="">
 		<fieldset>
 			<legend>LOGIN</legend>
-			<input type="text" name="username" placeholder="Username"><br>
-			<input type="password" name="password" placeholder="Password"><br>
-			<input type="submit" value="Login">
-			<input type="reset" value="Reset">
+			<table>
+				<tr><td>Username</td><td><input type="text" name="username" placeholder="Username"></td></tr>
+				<tr><td>Password</td><td><input type="password" name="password" placeholder="Password"></td></tr>
+			</table>
+			<input type="submit" value="Login">&nbsp;<input type="reset" value="Reset">
 		</fieldset>
 	</form>
 </body>

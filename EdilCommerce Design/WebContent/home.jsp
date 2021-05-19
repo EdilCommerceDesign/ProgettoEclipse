@@ -28,8 +28,13 @@
 	
 	  <form action="" method="get">
 		<div class="center">
+<<<<<<< HEAD
 			<input id="search" type="search"  name="search" size="30" placeholder="Cerca in EdilCommerce Design">
 			<a href="" ><img alt="" src="./img/lente.png" width=30px height=30px></a>
+=======
+			<input id="search" type="search"  name="search" size="30" placeholder="Cerca in EdilCommerce Design" >
+			<!--  <a href="" ><img alt="" src="./img/lente.png" width=30px height=30px></a>-->
+>>>>>>> branch 'master' of https://gitHub.com/EdilCommerceDesign/ProgettoEclipse
 		</div> 
 	</form> 
 </body>
