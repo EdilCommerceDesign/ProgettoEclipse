@@ -47,6 +47,7 @@
 	
 	  <form action="" method="get">
 		<div class="center">
+
 			<input id="search" type="search"  name="search" size="30" placeholder="Cerca in EdilCommerce Design" >
 			<!--  <a href="" ><img alt="" src="./img/lente.png" width=30px height=30px></a>-->
 		</div> 
