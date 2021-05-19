@@ -93,3 +93,11 @@ primary key (username, nome),
 foreign key (username) references user (username),
 foreign key (nome) references ruolo (nome)
 );
+
+INSERT INTO ruolo(nome) VALUES ("user");
+INSERT INTO ruolo(nome) VALUES ("admin");
+
+INSERT INTO user VALUES ("admin", "nome", "cognome", "admin@email.com", "telefono", "indirizzo", "admin");
+
+INSERT INTO ruoloUser VALUES ("admin", "user");
+INSERT INTO ruoloUser VALUES ("admin", "admin");

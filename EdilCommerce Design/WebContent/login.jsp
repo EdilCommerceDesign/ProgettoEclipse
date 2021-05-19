@@ -8,7 +8,7 @@
 </head>
 <body>
 	<img alt="logo-edil" src="./img/logo.png" id="mainLogo">
-	<form method="post" action="">
+	<form method="post" action="./Login">
 		<fieldset>
 			<legend>LOGIN</legend>
 			<table>

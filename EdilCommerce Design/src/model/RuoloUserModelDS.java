@@ -5,46 +5,50 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
+import java.util.LinkedList;
+
 import javax.sql.DataSource;
 
 import utils.Utility;
 
-public class UserModelDS implements ModelInterface<UserBean> {
+public class RuoloUserModelDS implements ModelRelationInterface<RuoloUserBean> {
 	
 	private DataSource ds = null;
 	
-	public UserModelDS(DataSource ds) {
+	public RuoloUserModelDS(DataSource ds) {
 		this.ds = ds;
 	}
 
 	@Override
-	public UserBean doRetriveByKey(String code) throws SQLException {
+	public RuoloUserBean doRetriveByKey(String code1, String code2) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Collection<RuoloUserBean> doRetriveByOneKey(String code) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		
-		String selectCodeSQL = "SELECT * FROM user WHERE username=?";
+		String selectCodeSQL = "SELECT * FROM ruoloUser WHERE username=?";
 		
-		UserBean bean = new UserBean();
-		
+		Collection<RuoloUserBean> collection = new LinkedList<RuoloUserBean>();
 		try {
 			con = ds.getConnection();
 			ps = con.prepareStatement(selectCodeSQL);
 			
 			ps.setString(1, code);
 			
-			Utility.print("doRetriveByKey: " + ps.toString());
+			Utility.print("doRetriveByOneKey: " + ps.toString());
 			
 			rs = ps.executeQuery();
 			
-			if(rs.next()) {
+			while(rs.next()) {
+				RuoloUserBean bean = new RuoloUserBean();
 				bean.setUsername(rs.getString("username"));
 				bean.setNome(rs.getString("nome"));
-				bean.setCognome(rs.getString("cognome"));
-				bean.setEmail(rs.getString("email"));
-				bean.setTelefono(rs.getString("telefono"));
-				bean.setIndirizzo(rs.getString("indirizzo"));
-				bean.setUserPassword(rs.getString("userPassword"));
+				collection.add(bean);
 			}
 		} finally {
 			try {
@@ -57,38 +61,31 @@ public class UserModelDS implements ModelInterface<UserBean> {
 					rs.close();
 			}
 		}
-		
-		return bean;
+		return collection;
 	}
 
 	@Override
-	public Collection<UserBean> doRetriveAll(String order) throws SQLException {
+	public Collection<RuoloUserBean> doRetriveAll(String order) throws SQLException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void doSave(UserBean item) throws SQLException {
+	public void doSave(RuoloUserBean item) throws SQLException {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void doUpdate(UserBean item) throws SQLException {
+	public void doUpdate(RuoloUserBean item) throws SQLException {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void doDelete(UserBean item) throws SQLException {
+	public void doDelete(RuoloUserBean item) throws SQLException {
 		// TODO Auto-generated method stub
 		
-	}
-
-	@Override
-	public UserBean doRetriveByKey(int code) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }
