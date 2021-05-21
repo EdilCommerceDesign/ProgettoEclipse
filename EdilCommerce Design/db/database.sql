@@ -60,7 +60,7 @@ numeroOrdine 		int auto_increment		not null,
 data				date 					not null,	
 username			varchar(20)				not null,
 primary key (numeroOrdine),
-foreign key (username) references user (username)
+foreign key (username) references user (username) ON UPDATE CASCADE
 )    auto_increment=1;
 
 DROP TABLE IF EXISTS compone;
@@ -81,7 +81,7 @@ data					date						not null,
 valore					enum ("1","2","3","4","5")	not null,
 testo					text(500)					not null,
 primary key (username, codiceArticolo),
-foreign key (username) references user (username),
+foreign key (username) references user (username) ON UPDATE CASCADE,
 foreign key (codiceArticolo) references articolo (codiceArticolo)
 );
 
@@ -90,7 +90,7 @@ CREATE TABLE ruoloUser (
 username   	    varchar(20)   	not null,
 nome			varchar(20)		not null,
 primary key (username, nome),
-foreign key (username) references user (username),
+foreign key (username) references user (username) ON UPDATE CASCADE,
 foreign key (nome) references ruolo (nome)
 );
 

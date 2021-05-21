@@ -13,7 +13,7 @@ public interface ModelInterface<T> {
 	
 	public void doSave(T item) throws SQLException;
 	
-	public void doUpdate(T item) throws SQLException;
+	public void doUpdate(T item, String code) throws SQLException;
 	
 	public void doDelete(T item) throws SQLException;
 }
