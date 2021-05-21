@@ -72,8 +72,31 @@ public class RuoloUserModelDS implements ModelRelationInterface<RuoloUserBean> {
 
 	@Override
 	public void doSave(RuoloUserBean item) throws SQLException {
-		// TODO Auto-generated method stub
+		Connection con = null;
+		PreparedStatement ps = null;
 		
+		String InsertSQL = "INSERT INTO ruoloUser VALUES (?,?)";
+		
+		try {
+			con = ds.getConnection();
+			ps = con.prepareStatement(InsertSQL);
+			
+			ps.setString(1, item.getUsername());
+			ps.setString(2, item.getNome());
+			
+			Utility.print("doSave: " + ps.toString());
+			
+			ps.executeUpdate();
+
+		} finally {
+			try {
+				if(ps != null)
+					ps.close();
+			} finally {
+				if(con != null)
+					con.close();
+			}
+		}
 	}
 
 	@Override

@@ -74,7 +74,7 @@ public class ArticoloBean {
 	@Override
 	public boolean equals(Object obj) {
 		// TODO Auto-generated method stub
-		return this.getCodiceArticolo() ==  ((ArticoloBean) obj).getCodiceArticolo() ;
+		return this.getCodiceArticolo().equals(((ArticoloBean) obj).getCodiceArticolo()) ;
 	}
 
 

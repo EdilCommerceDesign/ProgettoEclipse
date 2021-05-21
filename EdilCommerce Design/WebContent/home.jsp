@@ -29,8 +29,9 @@
 		if(userRole != null && adminRole != null){
 			if(userRole.equals(true) || adminRole.equals(true) ){
 		%>
-			<ul class="rigth">
+		<ul class="rigth">
 			<li>Ciao <a class="login" href="" ><%=username%></a></li>
+			<li><a class="login" href="./Logout" >Logout</a></li>
 			<li><a class="login" href="" >Carrello</a></li>
 		</ul>
 		<% 	

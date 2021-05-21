@@ -52,7 +52,9 @@ public class Login extends HttpServlet {
 						}
 					}
 					request.getSession().setAttribute("loggedUsername", bean.getUsername());
-					dispatcher = getServletContext().getRequestDispatcher("/home.jsp");
+					response.sendRedirect("home.jsp");
+					//dispatcher = getServletContext().getRequestDispatcher("/home.jsp");
+					return;
 				} catch (SQLException e) {
 					Utility.print(e);
 					request.setAttribute("error", e.getMessage());
@@ -60,14 +62,13 @@ public class Login extends HttpServlet {
 			} else {
 				request.setAttribute("error", "Username o Password incoretta. Riprova.");
 				dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
+				dispatcher.include(request, response);
 			}
 		} else {
 			request.setAttribute("error", "Username o Password incoretta. Riprova.");
 			dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
+			dispatcher.include(request, response);
 		}
-		
-		
-		dispatcher.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
