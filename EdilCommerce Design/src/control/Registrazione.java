@@ -57,7 +57,7 @@ public class Registrazione extends HttpServlet {
 				return;
 			} else {
 				request.setAttribute("error", "Username già in uso");
-				getServletContext().getRequestDispatcher("/registrazione.jsp").include(request, response);;
+				getServletContext().getRequestDispatcher("/registrazione.jsp").include(request, response);
 			}
 		} catch (SQLException e) {
 			Utility.print(e);

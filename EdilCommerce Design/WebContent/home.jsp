@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1" import="model.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +21,7 @@
 	<%
 	Boolean userRole = (Boolean) request.getSession().getAttribute("userRole"); 
 	Boolean adminRole = (Boolean) request.getSession().getAttribute("adminRole"); 
-	String username= (String) request.getSession().getAttribute("loggedUsername");
+	UserBean username = (UserBean) request.getSession().getAttribute("loggedUser");
 	%>
 	
 		<img alt="logo-edil" src="./img/logo.png" id="mainLogo">
@@ -30,7 +30,7 @@
 			if(userRole.equals(true) || adminRole.equals(true) ){
 		%>
 		<ul class="rigth">
-			<li>Ciao <a class="login" href="./user/profilo.jsp" ><%=username%></a></li>
+			<li>Ciao <a class="login" href="./user/profilo.jsp" ><%=username.getUsername()%></a></li>
 			<li><a class="login" href="./Logout" >Logout</a></li>
 			<li><a class="login" href="" >Carrello</a></li>
 		</ul>

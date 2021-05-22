@@ -35,7 +35,6 @@ public class Login extends HttpServlet {
 			Utility.print(e);
 			request.setAttribute("error", e.getMessage());
 		}
-		Utility.print(bean.toString());
 		
 		if(!bean.isEmpty()) {
 			if((request.getParameter("password")).equals(bean.getUserPassword())) {
@@ -51,10 +50,16 @@ public class Login extends HttpServlet {
 							request.getSession().setAttribute("adminRole", true);
 						}
 					}
-					request.getSession().setAttribute("loggedUsername", bean.getUsername());
-					response.sendRedirect("home.jsp");
-					//dispatcher = getServletContext().getRequestDispatcher("/home.jsp");
-					return;
+					try {
+						UserBean saveBean = model.doRetriveByKey(bean.getUsername());
+						request.getSession().setAttribute("loggedUser", saveBean);
+						response.sendRedirect("home.jsp");
+						// dispatcher = getServletContext().getRequestDispatcher("/home.jsp");
+						return;
+					} catch(SQLException e) {
+						Utility.print(e);
+						request.setAttribute("error", e.getMessage());
+					}
 				} catch (SQLException e) {
 					Utility.print(e);
 					request.setAttribute("error", e.getMessage());

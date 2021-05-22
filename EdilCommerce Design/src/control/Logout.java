@@ -14,6 +14,7 @@ public class Logout extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getSession().removeAttribute("adminRole");
 		request.getSession().removeAttribute("userRole");
+		request.getSession().removeAttribute("loggedUser");
 		request.getSession().invalidate();
 		
 		response.sendRedirect(request.getContextPath());

@@ -26,23 +26,55 @@ public class Modifica extends HttpServlet {
 		String original = request.getParameter("originalUsername");
 		
 		bean.setUsername(request.getParameter("username"));
-		bean.setNome(request.getParameter("nome"));
-		bean.setCognome(request.getParameter("cognome"));
-		bean.setEmail(request.getParameter("email"));
-		bean.setUserPassword(request.getParameter("password"));
-		bean.setTelefono(request.getParameter("telefono"));
-		bean.setIndirizzo(request.getParameter("indirizzo"));
-		
-		try {
-			model.doUpdate(bean, original);
-		} catch (SQLException e) {
-			Utility.print(e);
-			request.setAttribute("error", e.getMessage());
+		if(bean.getUsername().equals(original)) {
+			
+			bean.setNome(request.getParameter("nome"));
+			bean.setCognome(request.getParameter("cognome"));
+			bean.setEmail(request.getParameter("email"));
+			bean.setUserPassword(request.getParameter("password"));
+			bean.setTelefono(request.getParameter("telefono"));
+			bean.setIndirizzo(request.getParameter("indirizzo"));
+			try {
+				model.doUpdate(bean, original);
+			} catch (SQLException e) {
+				Utility.print(e);
+				request.setAttribute("error", e.getMessage());
+			}
+			request.getSession().setAttribute("loggedUser", bean);
+			response.sendRedirect("./user/profilo.jsp");
+			return;
+		} else {
+			UserBean checkBean = new UserBean();
+			try {
+				checkBean = model.doRetriveByKey(bean.getUsername());
+
+				if (!(checkBean.equals(bean))) {
+					bean.setNome(request.getParameter("nome"));
+					bean.setCognome(request.getParameter("cognome"));
+					bean.setEmail(request.getParameter("email"));
+					bean.setUserPassword(request.getParameter("password"));
+					bean.setTelefono(request.getParameter("telefono"));
+					bean.setIndirizzo(request.getParameter("indirizzo"));
+					try {
+						model.doUpdate(bean, original);
+					} catch (SQLException e) {
+						Utility.print(e);
+						request.setAttribute("error", e.getMessage());
+					}
+					request.getSession().setAttribute("loggedUser", bean);
+					response.sendRedirect("./user/profilo.jsp");
+					return;
+
+				} else {
+					request.setAttribute("error", "Username già in uso");
+					getServletContext().getRequestDispatcher("/user/profilo.jsp").include(request, response);
+					return;
+				}
+			} catch (SQLException e) {
+				Utility.print(e);
+				request.setAttribute("error", e.getMessage());
+			}
 		}
-		
-		request.getSession().setAttribute("loggedUsername", bean.getUsername());
-		response.sendRedirect("./user/profilo.jsp");
-		return;
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -53,7 +53,9 @@ public class MainContext implements ServletContextListener {
 
 	@Override
 	public void contextDestroyed(ServletContextEvent sce) {
-		// TODO Auto-generated method stub
+		ServletContext context = sce.getServletContext();
+		context.removeAttribute("DataSource");
+		Utility.print("Shutdown web application");
 		ServletContextListener.super.contextDestroyed(sce);
 	}
 }
