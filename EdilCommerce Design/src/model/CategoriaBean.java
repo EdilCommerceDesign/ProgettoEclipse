@@ -47,7 +47,7 @@ public class CategoriaBean {
 	
 	@Override
 	public boolean equals(Object obj) {
-		return this.getNome() == ((CategoriaBean) obj).getNome();
+		return this.getNome().equals(((CategoriaBean) obj).getNome());
 	}
 	
 	public boolean isEmpty(Object obj) {

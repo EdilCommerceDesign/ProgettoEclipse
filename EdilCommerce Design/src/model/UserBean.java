@@ -74,7 +74,7 @@ public class UserBean {
 	
 	@Override
 	public boolean equals(Object obj) {
-		return this.getUsername() == ((UserBean) obj).getUsername();
+		return this.getUsername().equals(((UserBean) obj).getUsername());
 	}
 	
 	@Override

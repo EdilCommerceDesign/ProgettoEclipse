@@ -69,14 +69,71 @@ public class UserModelDS implements ModelInterface<UserBean> {
 
 	@Override
 	public void doSave(UserBean item) throws SQLException {
-		// TODO Auto-generated method stub
+		Connection con = null;
+		PreparedStatement ps = null;
 		
+		String InsertSQL = "INSERT INTO user VALUES (?,?,?,?,?,?,?)";
+		
+			try {
+				con = ds.getConnection();
+				ps = con.prepareStatement(InsertSQL);
+
+				ps.setString(1, item.getUsername());
+				ps.setString(2, item.getNome());
+				ps.setString(3, item.getCognome());
+				ps.setString(4, item.getEmail());
+				ps.setString(5, item.getTelefono());
+				ps.setString(6, item.getIndirizzo());
+				ps.setString(7, item.getUserPassword());
+
+				Utility.print("doSave: " + ps.toString());
+
+				ps.executeUpdate();
+
+			} finally {
+				try {
+					if (ps != null)
+						ps.close();
+				} finally {
+					if (con != null)
+						con.close();
+				}
+			}
 	}
 
 	@Override
-	public void doUpdate(UserBean item) throws SQLException {
-		// TODO Auto-generated method stub
+	public void doUpdate(UserBean item, String code) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
 		
+		String UpdateSQL = "UPDATE user SET username=?, nome=?, cognome=?, email=?, telefono=?, indirizzo=?, userPassword=? WHERE username=?";
+		
+			try {
+				con = ds.getConnection();
+				ps = con.prepareStatement(UpdateSQL);
+
+				ps.setString(1, item.getUsername());
+				ps.setString(2, item.getNome());
+				ps.setString(3, item.getCognome());
+				ps.setString(4, item.getEmail());
+				ps.setString(5, item.getTelefono());
+				ps.setString(6, item.getIndirizzo());
+				ps.setString(7, item.getUserPassword());
+				ps.setString(8, code);
+
+				Utility.print("doUpdate: " + ps.toString());
+
+				ps.executeUpdate();
+
+			} finally {
+				try {
+					if (ps != null)
+						ps.close();
+				} finally {
+					if (con != null)
+						con.close();
+				}
+			}
 	}
 
 	@Override
