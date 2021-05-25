@@ -3,8 +3,9 @@
 header {
 	border-style: solid;
 	border-width: 2px;
-	height: 60px;
+	height: 80px;
 	text-align: center;
+	background-color: #064c9e;
 }
 
 header > * {

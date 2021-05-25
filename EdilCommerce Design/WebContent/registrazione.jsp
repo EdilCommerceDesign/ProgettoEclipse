@@ -8,6 +8,8 @@
 <title>Registrazione</title>
 </head>
 <body>
+	<%@ include file="../header.jsp" %>
+
 	<script type="text/javascript" src="./script/profiloScripts.js"></script>
 	<div class="contenitore1">
 		<img alt="logo-edil" src="./img/logo.png" id="mainLogo"> 

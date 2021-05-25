@@ -13,9 +13,9 @@ if((userRole == null) || (!userRole.booleanValue())) {
 <%
 UserBean bean = (UserBean) request.getSession().getAttribute("loggedUser");
 if (bean == null) {
-	request.getSession().removeAttribute("userRole");
-	request.getSession().removeAttribute("adminRole");
-	request.getSession().invalidate();
+	session.removeAttribute("userRole");
+	session.removeAttribute("adminRole");
+	session.invalidate();
 	response.sendRedirect("../login.jsp");
 	return;
 }
@@ -24,41 +24,10 @@ if (bean == null) {
 <head>
 <meta charset="ISO-8859-1">
 <title><%=bean.getUsername()%></title>
-<link href="../css/header.css" rel="stylesheet" type="text/css">
+
 </head>
 <body>
-	<% 
-	Boolean adminRole = (Boolean) request.getSession().getAttribute("adminRole");
-	%>
-	<script type="text/javascript" src="../script/profiloScripts.js"></script>
-	
-	<header>
-		<div id="left"><a href="../home.jsp"><img alt="ECD_Logo" src="../img/logo_mini.png"></a></div>
-		<div id="centro"> <img alt="lente" src="../img/lente.png" width=30px height=30px>
-		<input id="search" type="search"  name="search" size="30" placeholder="Cerca in EdilCommerce Design"></div>
-		<div id = "rigth">
-		<% 
-		if(userRole != null && adminRole != null){
-			if(userRole.equals(true) || adminRole.equals(true) ){
-		%>
-		<ul>
-			<li>Ciao <a class="login" href="./profilo.jsp" ><%=bean.getUsername()%> <img alt="profilo" src="../img/profilo.jpg"></a></li>
-			<li><a class="login" href="../Logout" ><img alt="logout" src="../img/logout.jpg"></a></li>
-			<li><a class="login" href="" ><img alt="carrello" src="../img/carrello.jpg"></a></li>
-		</ul>
-		<% 	
-				}
-			} else {
-		%>
-		<ul>
-			<li><a href="login.jsp" >Login</a></li>
-			<li><a href="registrazione.jsp" >Registrati</a></li>
-		</ul>
-		<% 
-		}
-		%>
-		</div>
-	</header>
+	<%@ include file="../header.jsp" %>
 	<%
 	String error = (String) request.getAttribute("error");
 	if (error != null && !error.equals("")) {
