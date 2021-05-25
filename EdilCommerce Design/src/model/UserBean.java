@@ -68,8 +68,17 @@ public class UserBean {
 		this.userPassword = userPassword;
 	}
 	
+	public boolean isEmpty() {
+		return username == "";
+	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		return this.getUsername() == ((UserBean) obj).getUsername();
+	}
+	
+	@Override
+	public String toString() {
+		return username + ", " + nome + ", " + cognome + ", " +  email + ", " + indirizzo  + ", " +  telefono + ", " +  userPassword;
 	}
 }

@@ -8,7 +8,7 @@
 </head>
 <body>
 	<img alt="logo-edil" src="./img/logo.png" id="mainLogo">
-	<form method="post" action="">
+	<form method="post" action="./Login">
 		<fieldset>
 			<legend>LOGIN</legend>
 			<table>
@@ -18,5 +18,15 @@
 			<input type="submit" value="Login">&nbsp;<input type="reset" value="Reset">
 		</fieldset>
 	</form>
+
+	<%
+	String error = (String) request.getAttribute("error");
+	if (error != null && !error.equals("")) {
+	%>
+	<p style="color: red"><%=error%>
+	<%
+	}
+	%>
+	
 </body>
 </html>
