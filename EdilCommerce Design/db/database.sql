@@ -9,7 +9,7 @@ USE edil_commerce_design;
 
 DROP TABLE IF EXISTS categoria;
 CREATE TABLE categoria (
-immagine			blob    		not null,
+immagine			varchar(50)    		not null,
 nome				varchar(20)	    not null,
 descrizione			varchar(50)		not null,
 primary key (nome)
@@ -103,23 +103,23 @@ INSERT INTO ruoloUser VALUES ("admin", "user");
 INSERT INTO ruoloUser VALUES ("admin", "admin");
 
 insert into categoria values
-("LOAD_FILE('C:/Users/Angelo/Desktop/immagini_categoria')", "Arredamento interno", "");
+("arredamento_interno.jpg", "Arredamento interno", "Mobili e accessori per ambienti interni ");
 insert into categoria values
-("", "Arredamento esterno", "");
+("esterno.jpg", "Arredamento esterno", "Mobili e accessori per ambienti esterni");
 insert into categoria values
-("", "Rivestimento", "");
+("rivestimento.jpg", "Rivestimento", "");
 insert into categoria values
-("", "Vernici", "");
+("vernici.jpg", "Vernici", "");
 insert into categoria values
-("", "Ferramnenta", "");
+("ferramenta.jpg", "Ferramnenta", "");
 insert into categoria values
-("", "Utensileria", "");
+("utensileria.jpg", "Utensileria", "");
 insert into categoria values
-("", "Materiali", "");
+("materiali.jpg", "Materiali", "");
 insert into categoria values
-("", "Copertura", "");
+("copertua.jpg", "Copertura", "");
 insert into categoria values
-("", "Struttura", "")
+("strutture.jpg", "Struttura", "")
 
 
 
