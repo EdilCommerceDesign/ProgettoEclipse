@@ -67,7 +67,7 @@ DROP TABLE IF EXISTS compone;
 CREATE TABLE compone (
 numeroOrdine			int		not null,
 codiceArticolo    		char(5)		not null,
-quantit√†				int			not null,
+quantit‡†				int			not null,
 primary key (numeroOrdine, codiceArticolo),
 foreign key (numeroOrdine) references ordine (numeroOrdine),
 foreign key (codiceArticolo) references articolo (codiceArticolo)
@@ -101,3 +101,25 @@ INSERT INTO user VALUES ("admin", "nome", "cognome", "admin@email.com", "telefon
 
 INSERT INTO ruoloUser VALUES ("admin", "user");
 INSERT INTO ruoloUser VALUES ("admin", "admin");
+
+insert into categoria values
+("LOAD_FILE('C:/Users/Angelo/Desktop/immagini_categoria')", "Arredamento interno", "");
+insert into categoria values
+("", "Arredamento esterno", "");
+insert into categoria values
+("", "Rivestimento", "");
+insert into categoria values
+("", "Vernici", "");
+insert into categoria values
+("", "Ferramnenta", "");
+insert into categoria values
+("", "Utensileria", "");
+insert into categoria values
+("", "Materiali", "");
+insert into categoria values
+("", "Copertura", "");
+insert into categoria values
+("", "Struttura", "")
+
+
+

@@ -3,7 +3,7 @@ package model;
 import java.sql.Blob;
 
 public class CategoriaBean {
-	Blob immagine;
+	String immagine;
 	String nome;
 	String descrizione;
 
@@ -15,12 +15,12 @@ public class CategoriaBean {
 	}
 
 
-	public Blob getImmagine() {
+	public String getImmagine() {
 		return immagine;
 	}
 
 
-	public void setImmagine(Blob immagine) {
+	public void setImmagine(String immagine) {
 		this.immagine = immagine;
 	}
 
