@@ -1,26 +1,28 @@
 @charset "ISO-8859-1";
 
-body{ text-align: left;}
+body { 
+	text-align: left;
+}
 
-table { margin: 0 auto;
-		text-align: left;
-	  }
+.body {
+	display: block;
+	text-align: center;	
+}
+
+table {
+	margin: 0 auto;
+	text-align: left;
+}
 	  
 img#mainLogo {
+	padding: 40px;
 	align-content: left;
 	margin: right;
 	height: 200px;
 	width: auto;
-
 }
 
-.contenitore1{
-	
-	
+.input fieldset {
+	margin: auto;
+	width: 0px;
 }
-.contenitore2{
-	position: absolute ;
-	display:inline;
-	
-}
-

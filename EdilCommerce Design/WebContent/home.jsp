@@ -22,30 +22,40 @@
 	<%
 	Boolean userRole = (Boolean) request.getSession().getAttribute("userRole"); 
 	Boolean adminRole = (Boolean) request.getSession().getAttribute("adminRole"); 
-	UserBean username = (UserBean) request.getSession().getAttribute("loggedUser");
+	UserBean bean = (UserBean) request.getSession().getAttribute("loggedUser");
 	%>
 	
-		<img alt="logo-edil" src="/EdilCommerce_Design/img/logo.png" id="mainLogo">
+		
+		<header>
+		<div id="left"><abb title="Home"><a href="/EdilCommerce_Design/home.jsp"><img alt="ECD_Logo" src="/EdilCommerce_Design/img/logo_mini.png"></a></abb></div>
+		
 		<% 
 		if(userRole != null && adminRole != null){
 			if(userRole.equals(true) || adminRole.equals(true) ){
 		%>
-		<ul class="rigth">
-			<li>Ciao <a class="login" href="/EdilCommerce_Design/user/profilo.jsp" ><%=username.getUsername()%></a></li>
-			<li><a class="login" href="/EdilCommerce_Design/Logout" >Logout</a></li>
-			<li><a class="login" href="" >Carrello</a></li>
-		</ul>
+		<div id="rigth">
+			<ul>
+				<li><abb title="Profilo di <%=bean.getUsername()%>"><a href="/EdilCommerce_Design/user/profilo.jsp"><img alt="profilo" src="/EdilCommerce_Design/img/profilo.jpg"></a></abb></li>
+				<li><abb title="Logout"><a href="/EdilCommerce_Design/Logout" ><img alt="logout" src="/EdilCommerce_Design/img/logout.jpg"></a></abb></li>
+				<li><abb title="Carrello"><a href="" ><img alt="carrello" src="/EdilCommerce_Design/img/carrello.jpg"></a></abb></li>
+			</ul>
+		</div>
 		<% 	
 				}
 			} else {
 		%>
-		<ul class="rigth">
-			<li><a class="login" href="login.jsp" >Login</a></li>
-			<li><a class="login" href="registrazione.jsp" >Registrati</a></li>
-		</ul>
-		<% 
+		<div id="rigth">
+			<ul >
+				<li><a class="login" href="login.jsp">Login</a></li>
+				<li><a class="login" href="registrazione.jsp">Registrati</a></li>
+			</ul>
+		</div>
+		<%
 		}
 		%>
+		</header>
+		
+		<img alt="logo-edil" src="/EdilCommerce_Design/img/logo.png" id="mainLogo">
 	
 	  <form action="" method="get">
 		<div class="center">
