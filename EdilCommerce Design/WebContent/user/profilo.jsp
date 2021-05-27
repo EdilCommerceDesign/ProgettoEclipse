@@ -55,7 +55,7 @@ if (bean == null) {
 					</table>
 					<input type="hidden" name="originalUsername" value ="<%=bean.getUsername() %>">
 					
-					<input type="submit" id="salva" value="Salva" disabled="disabled">&nbsp;<input type="reset" value="Reset">
+					<input type="submit" id="salva" value="Salva" >&nbsp;<input type="reset" value="Reset">
 		</fieldset>
 		</form>
 </body>

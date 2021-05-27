@@ -7,6 +7,7 @@ function setModificable(name) {
 }
 
 function controllaPass(pass1, pass2, mes, sub) {
+    
 	var e1 = document.getElementById(pass1).value;
 	var e2 = document.getElementById(pass2).value;
 	if (e1 != e2) {
