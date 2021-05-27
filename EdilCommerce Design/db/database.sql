@@ -119,7 +119,7 @@ insert into categoria values
 insert into categoria values
 ("copertua.jpg", "Copertura", "");
 insert into categoria values
-("strutture.jpg", "Struttura", "")
+("strutture.jpg", "Struttura", "");
 
 
 
