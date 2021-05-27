@@ -67,7 +67,7 @@ DROP TABLE IF EXISTS compone;
 CREATE TABLE compone (
 numeroOrdine			int		not null,
 codiceArticolo    		char(5)		not null,
-quantit√†				int			not null,
+quantit‡†				int			not null,
 primary key (numeroOrdine, codiceArticolo),
 foreign key (numeroOrdine) references ordine (numeroOrdine),
 foreign key (codiceArticolo) references articolo (codiceArticolo)
