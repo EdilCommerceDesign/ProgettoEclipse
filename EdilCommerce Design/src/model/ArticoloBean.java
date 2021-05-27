@@ -5,7 +5,7 @@ import java.sql.Blob;
 public class ArticoloBean {
 	String codiceArticolo;		
 	String nome;				
-	Blob immagine;			
+	String immagine;			
 	String descrizione;		
 	double costo;				
 	String nomeCategoria;
@@ -35,11 +35,11 @@ public class ArticoloBean {
 		this.nome = nome;
 	}
 
-	public Blob getImmagine() {
+	public String getImmagine() {
 		return immagine;
 	}
 
-	public void setImmagine(Blob immagine) {
+	public void setImmagine(String immagine) {
 		this.immagine = immagine;
 	}
 
