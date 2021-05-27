@@ -14,7 +14,8 @@
 	<!-- <link rel="stylesheet" type="text/css" href="home.css"/> -->
 	<meta charset="ISO-8859-1">
 	<meta lang="it">
-	<link href="./css/home.css" rel="stylesheet" type="text/css">
+	<link href="/EdilCommerce_Design/css/default.css" rel="stylesheet" type="text/css">
+	<link href="/EdilCommerce_Design/css/home.css" rel="stylesheet" type="text/css">
 	<title>Benvenuto in Edil Commerce Design</title>
 </head>
 <body>
@@ -24,14 +25,14 @@
 	UserBean username = (UserBean) request.getSession().getAttribute("loggedUser");
 	%>
 	
-		<img alt="logo-edil" src="./img/logo.png" id="mainLogo">
+		<img alt="logo-edil" src="/EdilCommerce_Design/img/logo.png" id="mainLogo">
 		<% 
 		if(userRole != null && adminRole != null){
 			if(userRole.equals(true) || adminRole.equals(true) ){
 		%>
 		<ul class="rigth">
-			<li>Ciao <a class="login" href="./user/profilo.jsp" ><%=username.getUsername()%></a></li>
-			<li><a class="login" href="./Logout" >Logout</a></li>
+			<li>Ciao <a class="login" href="/EdilCommerce_Design/user/profilo.jsp" ><%=username.getUsername()%></a></li>
+			<li><a class="login" href="/EdilCommerce_Design/Logout" >Logout</a></li>
 			<li><a class="login" href="" >Carrello</a></li>
 		</ul>
 		<% 	

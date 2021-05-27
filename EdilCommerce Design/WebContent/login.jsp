@@ -4,11 +4,14 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link href="/EdilCommerce_Design/css/default.css" rel="stylesheet" type="text/css">
 <title>Login</title>
 </head>
 <body>
-	<img alt="logo-edil" src="./img/logo.png" id="mainLogo">
-	<form method="post" action="./Login">
+	<%@ include file="./header.jsp" %>
+
+	<img alt="logo-edil" src="/EdilCommerce_Design/img/logo.png" id="mainLogo">
+	<form method="post" action="/EdilCommerce_Design/Login">
 		<fieldset>
 			<legend>LOGIN</legend>
 			<table>
