@@ -9,7 +9,7 @@ USE edil_commerce_design;
 
 DROP TABLE IF EXISTS categoria;
 CREATE TABLE categoria (
-immagine			blob    		not null,
+immagine			varchar(100)    not null,
 nome				varchar(20)	    not null,
 descrizione			varchar(50)		not null,
 primary key (nome)
@@ -19,7 +19,7 @@ DROP TABLE IF EXISTS articolo;
 CREATE TABLE articolo (
 codiceArticolo		char(5)			not null,
 nome				varchar(30)		not null,
-immagine			blob    		not null,
+immagine			varchar(100)	not null,
 descrizione			varchar(30)		not null,
 costo				double			not null,
 nomeCategoria      varchar(20)		not null,
@@ -31,7 +31,7 @@ DROP TABLE IF EXISTS pagamento;
 CREATE TABLE pagamento (
 numeroPagamento		int auto_increment		not null,
 data				date                 	not null,
-modalit√†    		varchar(20)				not null,
+modalit‡†    		varchar(20)				not null,
 importo				double					not null,
 primary key (numeroPagamento)
 ) auto_increment=1;
@@ -103,23 +103,23 @@ INSERT INTO ruoloUser VALUES ("admin", "user");
 INSERT INTO ruoloUser VALUES ("admin", "admin");
 
 insert into categoria values
-("LOAD_FILE('C:/Users/Angelo/Desktop/immagini_categoria')", "Arredamento interno", "");
+("/EdilComerce_Design/img/categoria/arredamento_interno.jpg", "Arredamento interno", "");
 insert into categoria values
-("", "Arredamento esterno", "");
+("/EdilComerce_Design/img/categoria/esterno.jpg", "Arredamento esterno", "");
 insert into categoria values
-("", "Rivestimento", "");
+("/EdilComerce_Design/img/categoria/rivestimento.jpg", "Rivestimento", "");
 insert into categoria values
-("", "Vernici", "");
+("/EdilComerce_Design/img/categoria/vernici.jpg", "Vernici", "");
 insert into categoria values
-("", "Ferramnenta", "");
+("/EdilComerce_Design/img/categoria/ferramenta.jpg", "Ferramnenta", "");
 insert into categoria values
-("", "Utensileria", "");
+("/EdilComerce_Design/img/categoria/utensileria.jpg", "Utensileria", "");
 insert into categoria values
-("", "Materiali", "");
+("/EdilComerce_Design/img/categoria/materiali.jpg", "Materiali", "");
 insert into categoria values
-("", "Copertura", "");
+("/EdilComerce_Design/img/categoria/copertura.jpg", "Copertura", "");
 insert into categoria values
-("", "Struttura", "")
+("/EdilComerce_Design/img/categoria/strutture.jpg", "Struttura", "")
 
 
 
