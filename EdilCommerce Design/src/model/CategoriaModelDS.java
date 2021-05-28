@@ -88,7 +88,7 @@ public class CategoriaModelDS implements ModelInterface<CategoriaBean> {
 			while (rs.next()) {
 				CategoriaBean bean = new CategoriaBean();
 				
-				bean.setImmagine(rs.getString("imagine"));
+				bean.setImmagine(rs.getString("immagine"));
 				bean.setNome(rs.getString("nome"));
 				bean.setDescrizione(rs.getString("descrizione"));
 				

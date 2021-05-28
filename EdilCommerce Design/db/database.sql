@@ -31,7 +31,7 @@ DROP TABLE IF EXISTS pagamento;
 CREATE TABLE pagamento (
 numeroPagamento		int auto_increment		not null,
 data				date                 	not null,
-modalit�    		varchar(20)				not null,
+modalità     		varchar(20)				not null,
 importo				double					not null,
 primary key (numeroPagamento)
 ) auto_increment=1;
@@ -67,7 +67,7 @@ DROP TABLE IF EXISTS compone;
 CREATE TABLE compone (
 numeroOrdine			int		not null,
 codiceArticolo    		char(5)		not null,
-quantit�				int			not null,
+quantità 				int			not null,
 primary key (numeroOrdine, codiceArticolo),
 foreign key (numeroOrdine) references ordine (numeroOrdine),
 foreign key (codiceArticolo) references articolo (codiceArticolo)
@@ -103,23 +103,23 @@ INSERT INTO ruoloUser VALUES ("admin", "user");
 INSERT INTO ruoloUser VALUES ("admin", "admin");
 
 insert into categoria values
-("/EdilComerce_Design/img/categoria/arredamento_interno.jpg", "Arredamento interno", "");
+("/EdilCommerce_Design/img/categoria/arredamento_interno.jpg", "Arredamento interno", "");
 insert into categoria values
-("/EdilComerce_Design/img/categoria/esterno.jpg", "Arredamento esterno", "");
+("/EdilCommerce_Design/img/categoria/esterno.jpg", "Arredamento esterno", "");
 insert into categoria values
-("/EdilComerce_Design/img/categoria/rivestimento.jpg", "Rivestimento", "");
+("/EdilCommerce_Design/img/categoria/rivestimento.jpg", "Rivestimento", "");
 insert into categoria values
-("/EdilComerce_Design/img/categoria/vernici.jpg", "Vernici", "");
+("/EdilCommerce_Design/img/categoria/vernici.jpg", "Vernici", "");
 insert into categoria values
-("/EdilComerce_Design/img/categoria/ferramenta.jpg", "Ferramnenta", "");
+("/EdilCommerce_Design/img/categoria/ferramenta.jpg", "Ferramnenta", "");
 insert into categoria values
-("/EdilComerce_Design/img/categoria/utensileria.jpg", "Utensileria", "");
+("/EdilCommerce_Design/img/categoria/utensileria.jpg", "Utensileria", "");
 insert into categoria values
-("/EdilComerce_Design/img/categoria/materiali.jpg", "Materiali", "");
+("/EdilCommerce_Design/img/categoria/materiali.jpg", "Materiali", "");
 insert into categoria values
-("/EdilComerce_Design/img/categoria/copertura.jpg", "Copertura", "");
+("/EdilCommerce_Design/img/categoria/copertura.jpg", "Copertura", "");
 insert into categoria values
-("/EdilComerce_Design/img/categoria/strutture.jpg", "Struttura", "")
+("/EdilCommerce_Design/img/categoria/strutture.jpg", "Struttura", "")
 
 
 

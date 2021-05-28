@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="model.*,utils.*"%>
+    pageEncoding="ISO-8859-1" import="model.*,utils.*,java.util.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +12,7 @@
 	Boolean headerUserRole = (Boolean) session.getAttribute("userRole");
 	Boolean headerAdminRole = (Boolean) session.getAttribute("adminRole");
 	UserBean headerBean = (UserBean) session.getAttribute("loggedUser");
+	Collection<CategoriaBean> headerCollection = (Collection<CategoriaBean>) getServletContext().getAttribute("Categorie");
 	
 	%>
 		
@@ -41,6 +42,21 @@
 		}
 		%>
 		</div>
+		<ul class="bottom">
+		<%
+			if(headerCollection != null){
+				if(!headerCollection.isEmpty()) {
+					Iterator<CategoriaBean> it = headerCollection.iterator();
+					while(it.hasNext()){
+						CategoriaBean catBean = it.next();
+		%>
+		<li><a href=""><%=catBean.getNome() %></a></li>			
+		<% 			
+					}		
+				}
+			}
+		%>
+		</ul>
 	</header>
 </body>
 </html>

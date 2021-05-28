@@ -1,5 +1,9 @@
+<%@page import="java.util.Iterator"%>
+<%@page import="java.sql.SQLException"%>
+<%@page import="java.util.LinkedList"%>
+<%@page import="java.util.Collection"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1" import="model.*"%>
+	pageEncoding="ISO-8859-1" import="model.*,javax.sql.*,utils.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,6 +27,7 @@
 	Boolean userRole = (Boolean) request.getSession().getAttribute("userRole"); 
 	Boolean adminRole = (Boolean) request.getSession().getAttribute("adminRole"); 
 	UserBean bean = (UserBean) request.getSession().getAttribute("loggedUser");
+	Collection<CategoriaBean> collection = (Collection<CategoriaBean>) getServletContext().getAttribute("Categorie");
 	%>
 	
 		
@@ -70,10 +75,29 @@
 		</div> 
 	</form> 
 	
-	<div calss="categorie">
+	<div class="categorie">
 		<%
-		
+			
+			if(collection != null){
+				if(!collection.isEmpty()) {
+					Iterator<CategoriaBean> it = collection.iterator();
+					while(it.hasNext()){
+						CategoriaBean catBean = it.next();
+		%>
+		<abb title="<%=catBean.getNome() %>"><img alt="<%=catBean.getNome() %>" src="<%=catBean.getImmagine()%>"></abb>
+			
+		<% 			
+					}		
+				}
+			}
 		%>
 	</div>
+	
+	<script type="text/javascript">
+	function scrollRight(){
+		  document.getElementByClass('categorie').scrollRight -= 15; // vertical scroll increments
+		  timerScrollUp = setTimeout('scrollRight()',2);
+		}
+	</script>
 </body>
 </html>
