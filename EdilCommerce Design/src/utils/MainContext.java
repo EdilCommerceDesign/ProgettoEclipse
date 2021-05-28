@@ -71,6 +71,7 @@ public class MainContext implements ServletContextListener {
 	public void contextDestroyed(ServletContextEvent sce) {
 		ServletContext context = sce.getServletContext();
 		context.removeAttribute("DataSource");
+		context.removeAttribute("Categorie");
 		Utility.print("Shutdown web application");
 		ServletContextListener.super.contextDestroyed(sce);
 	}

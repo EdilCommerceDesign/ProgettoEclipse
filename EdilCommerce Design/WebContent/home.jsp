@@ -75,29 +75,27 @@
 		</div> 
 	</form> 
 	
-	<div class="categorie">
-		<%
-			
-			if(collection != null){
-				if(!collection.isEmpty()) {
-					Iterator<CategoriaBean> it = collection.iterator();
-					while(it.hasNext()){
-						CategoriaBean catBean = it.next();
-		%>
-		<abb title="<%=catBean.getNome() %>"><img alt="<%=catBean.getNome() %>" src="<%=catBean.getImmagine()%>"></abb>
-			
-		<% 			
-					}		
+	<script type="text/javascript" src="/EdilCommerce_Design/script/scroll.js"></script>
+	<div class="slideCategorie">
+		<input type="button" value="&lt" onclick="scrollL()">
+		<div id="categorie">
+			<%
+				
+				if(collection != null){
+					if(!collection.isEmpty()) {
+						Iterator<CategoriaBean> it = collection.iterator();
+						while(it.hasNext()){
+							CategoriaBean catBean = it.next();
+			%>
+			<abb title="<%=catBean.getNome() %>"><img alt="<%=catBean.getNome() %>" src="<%=catBean.getImmagine()%>"></abb>
+				
+			<% 			
+						}		
+					}
 				}
-			}
-		%>
+			%>
+		</div>
+		<input type="button" value="&gt" onclick="scrollR()">
 	</div>
-	
-	<script type="text/javascript">
-	function scrollRight(){
-		  document.getElementByClass('categorie').scrollRight -= 15; // vertical scroll increments
-		  timerScrollUp = setTimeout('scrollRight()',2);
-		}
-	</script>
 </body>
 </html>

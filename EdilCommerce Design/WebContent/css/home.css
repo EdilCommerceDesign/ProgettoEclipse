@@ -99,16 +99,17 @@ div.center {
 	background: white;
 }
 
-.categorie {
-	margin-top: 50px;
-	margin-left: auto;
-	margin-right:auto;
+#categorie {
+	
+	/*margin-left: auto;
+	margin-right:auto;*/
 	width: 1000px;
-	overflow: auto;
+	overflow: hidden;
 	white-space: nowrap;
+	scroll-behavior:smooth;
 }
 
-.categorie img {
+#categorie img {
 	border: 2px;
 	border-style: solid;
 	border-color: #272F38;
@@ -118,3 +119,24 @@ div.center {
 	height: 200px;
 }
 
+.slideCategorie {
+	margin-top: 50px;
+	text-align: center;
+}
+
+.slideCategorie *{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.slideCategorie input{
+	padding: 7px 10px;
+	border-style: solid;
+	border-radius: 100px;
+	border-color: #272F38;
+}
+
+.slideCategorie input:active{
+	border-color: white;
+	
+}
