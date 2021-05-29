@@ -1,0 +1,14 @@
+@charset "ISO-8859-1";
+
+h3 {
+	text-align: center;
+}
+
+.result *{
+	display:inline-block;
+}
+
+.result img{
+	width: 100px;
+	height: 100px;
+}
