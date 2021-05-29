@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" import="java.text.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,16 +27,25 @@
 		%>
 		<h3>Nessun articolo trovato</h3>
 		<%
+	
 				}
+		%>
+		<table>
+		<%
 				Iterator<ArticoloBean> it = collection.iterator();
 			
 				while(it.hasNext()) {
 					bean=it.next();
 		%>
-		<img alt="<%=bean.getNome()%>" src="<%=bean.getImmagine()%>"><h4><%=bean.getNome()%></h4><h5><%=bean.getCosto()%></h5>
+		<tr><td><img alt="<%=bean.getNome()%>" src="<%=bean.getImmagine()%>"></td>
+		<td><h4><%=bean.getNome()%></h4>
+		<h5><%DecimalFormat df=new DecimalFormat("#.00");%><%=df.format(bean.getCosto())%>&euro;</h5></td></tr>
 		
 		<%				
-				}
+				}		
+		%>
+		</table>
+		<%
 			}
 		%>
 	</div>

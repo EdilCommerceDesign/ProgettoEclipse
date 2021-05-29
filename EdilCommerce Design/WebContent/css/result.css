@@ -4,9 +4,15 @@ h3 {
 	text-align: center;
 }
 
-.result *{
-	display:inline-block;
+table{
+	margin-top:20px;
 }
+
+/*tr {
+	border-color:  #272F38;
+	border-bottom: 10px;
+	border-bottom-style: solid;
+}*/
 
 .result img{
 	width: 100px;

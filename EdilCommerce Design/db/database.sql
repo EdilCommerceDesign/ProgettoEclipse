@@ -123,17 +123,17 @@ insert into categoria values
 
 # arredamento Interno
 insert into articolo values 
-("ART00", "poltrona bianca", "/EdilCommerce_Design/img/categoria/arredamentoInterno/poltrona.jpg", "poltrona in pelle bianca, dotata di un ottimo comfort ed eleganza (90x150)", "79.99", "Arredamento interno");
+("ART00", "poltrona bianca", "/EdilCommerce_Design/img/categoria/ArredamentoInterno/poltrona.jpg", "poltrona in pelle bianca, dotata di un ottimo comfort ed eleganza (90x150)", "79.99", "Arredamento interno");
 insert into articolo values 
-("ART01", "tavolo", "/EdilCommerce_Design/img/categoria/arredamentoInterno/tavolo.jpg", "tavolo in stile classico in legno di faggio (100x200)", "144.90", "Arredamento interno");
+("ART01", "tavolo", "/EdilCommerce_Design/img/categoria/ArredamentoInterno/tavolo.jpg", "tavolo in stile classico in legno di faggio (100x200)", "144.90", "Arredamento interno");
 insert into articolo values
-("ART02", "tavolino", "/EdilCommerce_Design/img/categoria/arredamentoInterno/tavolino.jpg", "tavolino da salotto in stile moderno ed elegante (70x90)", "99.90", "Arredamento interno");
+("ART02", "tavolino", "/EdilCommerce_Design/img/categoria/ArredamentoInterno/tavolino.jpg", "tavolino da salotto in stile moderno ed elegante (70x90)", "99.90", "Arredamento interno");
 
 #arredamento Esterno
 insert into articolo values
-("ART03", "sdraio", "/EdilCommerce_Design/img/categoria/arredamentoEsterno/sdraio.jpg", "sdraio per coppie dotato di copertuta per il sole (200x190)", "339.90", "Arredamento esterno");
+("ART03", "sdraio", "/EdilCommerce_Design/img/categoria/ArredamentoEsterno/sdraio.jpg", "sdraio per coppie dotato di copertuta per il sole (200x190)", "339.90", "Arredamento esterno");
 insert into articolo values
-("ART04", "barbecue", "/EdilCommerce_Design/img/categoria/arredamentoEsterno/barbecue.jpg", "barbecue moderno adatto a tutte le fasce di età e facile da utlizzare", "289.99", "Arredamento esterno");
+("ART04", "barbecue", "/EdilCommerce_Design/img/categoria/ArredamentoEsterno/barbecue.jpg", "barbecue moderno adatto a tutte le fasce di età e facile da utlizzare", "289.99", "Arredamento esterno");
 
 #Rivestimento
 insert into articolo values 
@@ -143,13 +143,13 @@ insert into articolo values
 
 # Vernici
 insert into articolo values
-("ART07", "vernice verde", "/EdilCommerce_Design/img/categoria/vernici/verde.jpg", "vernice adatta a qualsiasi tipo di superficie", "14.90", "Vernici");
+("ART07", "vernice verde", "/EdilCommerce_Design/img/categoria/Vernici/verde.jpg", "vernice adatta a qualsiasi tipo di superficie", "14.90", "Vernici");
 insert into articolo values
-("ART08", "vernice rossa", "/EdilCommerce_Design/img/categoria/vernici/rosso.jpg", "vernice adatta a qualsiasi tipo di superficie", "14.90", "Vernici");
+("ART08", "vernice rossa", "/EdilCommerce_Design/img/categoria/Vernici/rosso.jpg", "vernice adatta a qualsiasi tipo di superficie", "14.90", "Vernici");
 
 # Ferramenta
 insert into articolo values
-("ART09", "chiodo liscio", "/EdilCommerce_Design/img/categoria/ferramenta/chiodoLiscio.jpg", "chiodo liscio da 9 cm con testina piatta", "20.00", "Ferramenta");
+("ART09", "chiodo liscio", "/EdilCommerce_Design/img/categoria/Ferramenta/chiodoLiscio.jpg", "chiodo liscio da 9 cm con testina piatta", "20.00", "Ferramenta");
 
 # Utensileria
 
