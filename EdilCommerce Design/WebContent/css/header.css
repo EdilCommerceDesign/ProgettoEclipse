@@ -20,7 +20,7 @@ header > * {
 
 #left img {
 	padding-left: 5px;
-	padding-top: 5px;
+	padding-top: 10px;
 	height: 57px;
 	width: auto;
 }
@@ -68,4 +68,22 @@ li a img {
 
 header a {
 	color: #acd0fa;
+}
+
+.bottom {
+	background-color: grey;
+	width:100%;
+	margin: 0;
+	margin-top: 8px;
+	list-style-type: none;
+	padding: 0px;
+} 
+
+.bottom li {
+	padding-right: 10px;
+	display:inline;
+}
+
+.bottom li a{
+	color: #272F38;
 }

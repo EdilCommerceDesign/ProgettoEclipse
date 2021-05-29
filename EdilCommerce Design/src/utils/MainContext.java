@@ -3,6 +3,8 @@ package utils;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.SQLException;
+import java.util.Collection;
+import java.util.LinkedList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -12,6 +14,8 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 import javax.sql.DataSource;
+
+import model.*;
 
 @WebListener
 public class MainContext implements ServletContextListener {
@@ -47,6 +51,18 @@ public class MainContext implements ServletContextListener {
 		} catch (NamingException e) {
 			utils.Utility.print(e);
 		}
+		
+		try {
+			CategoriaModelDS model = new CategoriaModelDS(ds);
+			Collection<CategoriaBean> collection = new LinkedList<CategoriaBean>();
+			
+			collection = model.doRetriveAll("");
+			context.setAttribute("Categorie", collection);
+			
+			Utility.print("Attribute categorie created");
+		} catch(SQLException e) {
+			Utility.print(e);
+		}
 		context.setAttribute("DataSource", ds);
 		utils.Utility.print("DataSource creation: " + ds.toString());
 	}
@@ -55,6 +71,7 @@ public class MainContext implements ServletContextListener {
 	public void contextDestroyed(ServletContextEvent sce) {
 		ServletContext context = sce.getServletContext();
 		context.removeAttribute("DataSource");
+		context.removeAttribute("Categorie");
 		Utility.print("Shutdown web application");
 		ServletContextListener.super.contextDestroyed(sce);
 	}

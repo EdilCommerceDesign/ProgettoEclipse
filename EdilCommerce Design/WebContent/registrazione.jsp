@@ -12,10 +12,9 @@
 	<%@ include file="./header.jsp" %>
 
 	<script type="text/javascript" src="/EdilCommerce_Design/script/profiloScripts.js"></script>
-	<div class="contenitore1">
+	<div class="body">
 		<img alt="logo-edil" src="/EdilCommerce_Design/img/logo.png" id="mainLogo"> 
-	</div>
-	<div class="contenitore2">
+	<div class="input">
 	<h1>CREA UN ACCOUNT</h1>
 	<!--<h2>Per effettuare i tuoi magnifici acquisti</h2> -->
 	<%
@@ -45,6 +44,8 @@
 		</form>
 	
 	<a href="home.jsp">Torna alla home</a>
+	</div>
+	
 	</div>
 </body>
 </html>

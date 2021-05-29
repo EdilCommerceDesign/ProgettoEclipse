@@ -9,7 +9,7 @@ USE edil_commerce_design;
 
 DROP TABLE IF EXISTS categoria;
 CREATE TABLE categoria (
-immagine			varchar(50)    		not null,
+immagine			varchar(100)    not null,
 nome				varchar(20)	    not null,
 descrizione			varchar(50)		not null,
 primary key (nome)
@@ -19,7 +19,7 @@ DROP TABLE IF EXISTS articolo;
 CREATE TABLE articolo (
 codiceArticolo		char(5)			not null,
 nome				varchar(30)		not null,
-immagine			blob    		not null,
+immagine			varchar(100)	not null,
 descrizione			varchar(30)		not null,
 costo				double			not null,
 nomeCategoria      varchar(20)		not null,
@@ -31,7 +31,7 @@ DROP TABLE IF EXISTS pagamento;
 CREATE TABLE pagamento (
 numeroPagamento		int auto_increment		not null,
 data				date                 	not null,
-modalità    		varchar(20)				not null,
+modalità     		varchar(20)				not null,
 importo				double					not null,
 primary key (numeroPagamento)
 ) auto_increment=1;
@@ -67,7 +67,7 @@ DROP TABLE IF EXISTS compone;
 CREATE TABLE compone (
 numeroOrdine			int		not null,
 codiceArticolo    		char(5)		not null,
-quantità				int			not null,
+quantità 				int			not null,
 primary key (numeroOrdine, codiceArticolo),
 foreign key (numeroOrdine) references ordine (numeroOrdine),
 foreign key (codiceArticolo) references articolo (codiceArticolo)
@@ -103,23 +103,24 @@ INSERT INTO ruoloUser VALUES ("admin", "user");
 INSERT INTO ruoloUser VALUES ("admin", "admin");
 
 insert into categoria values
-("arredamento_interno.jpg", "Arredamento interno", "Mobili e accessori per ambienti interni ");
+("/EdilCommerce_Design/img/categoria/arredamento_interno.jpg", "Arredamento interno", "");
 insert into categoria values
-("esterno.jpg", "Arredamento esterno", "Mobili e accessori per ambienti esterni");
+("/EdilCommerce_Design/img/categoria/esterno.jpg", "Arredamento esterno", "");
 insert into categoria values
-("rivestimento.jpg", "Rivestimento", "");
+("/EdilCommerce_Design/img/categoria/rivestimento.jpg", "Rivestimento", "");
 insert into categoria values
-("vernici.jpg", "Vernici", "");
+("/EdilCommerce_Design/img/categoria/vernici.jpg", "Vernici", "");
 insert into categoria values
-("ferramenta.jpg", "Ferramnenta", "");
+("/EdilCommerce_Design/img/categoria/ferramenta.jpg", "Ferramnenta", "");
 insert into categoria values
-("utensileria.jpg", "Utensileria", "");
+("/EdilCommerce_Design/img/categoria/utensileria.jpg", "Utensileria", "");
 insert into categoria values
-("materiali.jpg", "Materiali", "");
+("/EdilCommerce_Design/img/categoria/materiali.jpg", "Materiali", "");
 insert into categoria values
-("copertua.jpg", "Copertura", "");
+("/EdilCommerce_Design/img/categoria/copertura.jpg", "Copertura", "");
 insert into categoria values
-("strutture.jpg", "Struttura", ""); 
+("/EdilCommerce_Design/img/categoria/strutture.jpg", "Struttura", "")
+
 
 
 

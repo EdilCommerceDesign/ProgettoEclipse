@@ -2,7 +2,7 @@
 <%
 Boolean userRole = (Boolean) session.getAttribute("userRole");
 if((userRole == null) || (!userRole.booleanValue())) {
-	response.sendRedirect("../login.jsp");
+	response.sendRedirect("/EdilCommerce_Design/login.jsp");
 	return;
 }
 %>
@@ -16,7 +16,7 @@ if (bean == null) {
 	session.removeAttribute("userRole");
 	session.removeAttribute("adminRole");
 	session.invalidate();
-	response.sendRedirect("../login.jsp");
+	response.sendRedirect("/EdilCommerce_Design/login.jsp");
 	return;
 }
 %>

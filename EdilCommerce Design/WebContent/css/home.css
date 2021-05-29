@@ -1,14 +1,50 @@
 @charset "ISO-8859-1";
 
-img#mainLogo {
-	align-content: center;
-	margin: 0px auto;
-	height: 200px;
-	width: auto;
-	display: block;
+header {
+	height: 80px;
+	text-align: center;
+	background-color: #272F38;
 }
 
-.rigth{
+header a {
+	color: #acd0fa;
+}
+
+#left {
+	float: left;
+}
+
+#left img {
+	padding-left: 5px;
+	padding-top: 10px;
+	height: 57px;
+	width: auto;
+}
+
+#rigth  {
+	margin: 0;
+	padding-top: 20px;
+	padding-right: 10px;
+	float:right;
+}
+#rigth ul {
+	margin: 0;
+	list-style-type: none;
+	padding: 0px;
+}
+
+#rigth ul li{
+	padding-left: 8px;
+	display:inline;
+}
+
+li a img {
+	height: 30px;
+	width: auto;
+}
+
+/*
+#rigth{
 	position:absolute;
 	top:10px;
 	right: 20px;
@@ -16,6 +52,15 @@ img#mainLogo {
 	padding: 0px;
 	list-style-type: none;
 	display:inline-block;
+}*/
+
+img#mainLogo {
+	padding-top: 40px;
+	align-content: center;
+	margin: 0px auto;
+	height: 200px;
+	width: auto;
+	display: block;
 }
 
 #search::placeholder{
@@ -27,16 +72,15 @@ img#mainLogo {
 }
 
 div.center {
-	position: absolute;
+	position: relative;
 	left: calc(50% - 150px);
 	margin-top:70px;
 	text-align:center;
-	margin-top:70px;
+	margin-top:50px;
 	padding: 0;
 	border: 1px solid #888;
 	width: 300px;
 }
-
 
 #search {
 	width: 100%;
@@ -44,7 +88,6 @@ div.center {
 	padding: 0 10px;
 	background: white;
 	border: 0;
-	float: left;
 	box-sizing: border-box;
 	background-repeat: no-repeat;
 	background-position: right;
@@ -53,6 +96,47 @@ div.center {
 }
 
 #search:focus {
-	background: transparent;
+	background: white;
 }
 
+#categorie {
+	
+	/*margin-left: auto;
+	margin-right:auto;*/
+	width: 1000px;
+	overflow: hidden;
+	white-space: nowrap;
+	scroll-behavior:smooth;
+}
+
+#categorie img {
+	border: 2px;
+	border-style: solid;
+	border-color: #272F38;
+	border-radius: 100px;
+	margin-right: 20px;
+	width: 200px; 
+	height: 200px;
+}
+
+.slideCategorie {
+	margin-top: 50px;
+	text-align: center;
+}
+
+.slideCategorie *{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.slideCategorie input{
+	padding: 7px 10px;
+	border-style: solid;
+	border-radius: 100px;
+	border-color: #272F38;
+}
+
+.slideCategorie input:active{
+	border-color: white;
+	
+}
