@@ -87,7 +87,7 @@
 						while(it.hasNext()){
 							CategoriaBean catBean = it.next();
 			%>
-			<abb title="<%=catBean.getNome() %>"><img alt="<%=catBean.getNome() %>" src="<%=catBean.getImmagine()%>"></abb>
+			<a title="<%=catBean.getNome() %>" href="/EdilCommerce_Design/Search?criterioRicerca=<%=catBean.getNome()%>"><img alt="<%=catBean.getNome() %>" src="<%=catBean.getImmagine()%>"></a>
 				
 			<% 			
 						}		
