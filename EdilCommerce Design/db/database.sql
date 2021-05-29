@@ -18,9 +18,9 @@ primary key (nome)
 DROP TABLE IF EXISTS articolo;
 CREATE TABLE articolo (
 codiceArticolo		char(5)			not null,
-nome				varchar(30)		not null,
+nome				varchar(50)		not null,
 immagine			varchar(100)	not null,
-descrizione			varchar(30)		not null,
+descrizione			varchar(300)		not null,
 costo				double			not null,
 nomeCategoria      varchar(20)		not null,
 primary key (codiceArticolo),
@@ -111,7 +111,7 @@ insert into categoria values
 insert into categoria values
 ("/EdilCommerce_Design/img/categoria/vernici.jpg", "Vernici", "");
 insert into categoria values
-("/EdilCommerce_Design/img/categoria/ferramenta.jpg", "Ferramnenta", "");
+("/EdilCommerce_Design/img/categoria/ferramenta.jpg", "Ferramenta", "");
 insert into categoria values
 ("/EdilCommerce_Design/img/categoria/utensileria.jpg", "Utensileria", "");
 insert into categoria values
@@ -119,8 +119,46 @@ insert into categoria values
 insert into categoria values
 ("/EdilCommerce_Design/img/categoria/copertura.jpg", "Copertura", "");
 insert into categoria values
-("/EdilCommerce_Design/img/categoria/strutture.jpg", "Struttura", "")
+("/EdilCommerce_Design/img/categoria/strutture.jpg", "Struttura", "");
 
+# arredamento Interno
+insert into articolo values 
+("ART00", "poltrona bianca", "/EdilCommerce_Design/img/categoria/arredamentoInterno/poltrona.jpg", "poltrona in pelle bianca, dotata di un ottimo comfort ed eleganza (90x150)", "79.99", "Arredamento interno");
+insert into articolo values 
+("ART01", "tavolo", "/EdilCommerce_Design/img/categoria/arredamentoInterno/tavolo.jpg", "tavolo in stile classico in legno di faggio (100x200)", "144.90", "Arredamento interno");
+insert into articolo values
+("ART02", "tavolino", "/EdilCommerce_Design/img/categoria/arredamentoInterno/tavolino.jpg", "tavolino da salotto in stile moderno ed elegante (70x90)", "99.90", "Arredamento interno");
+
+#arredamento Esterno
+insert into articolo values
+("ART03", "sdraio", "/EdilCommerce_Design/img/categoria/arredamentoEsterno/sdraio.jpg", "sdraio per coppie dotato di copertuta per il sole (200x190)", "339.90", "Arredamento esterno");
+insert into articolo values
+("ART04", "barbecue", "/EdilCommerce_Design/img/categoria/arredamentoEsterno/barbecue.jpg", "barbecue moderno adatto a tutte le fasce di età e facile da utlizzare", "289.99", "Arredamento esterno");
+
+#Rivestimento
+insert into articolo values 
+("ART05", "paraschizzi da cucina", "/EdilCommerce_Design/img/categoria/Rivestimento/paraschizzi.jpg", "paraschizzi in marmo di calcare binaco con rifinture grigie", "29.90", "Rivestimento");
+insert into articolo values 
+("ART06", "paraschizzi per bagni", "/EdilCommerce_Design/img/categoria/Rivestimento/paraschizziBagno.jpg", "elegante paraschizzi di intarsio grigio", "24.90", "Rivestimento");
+
+# Vernici
+insert into articolo values
+("ART07", "vernice verde", "/EdilCommerce_Design/img/categoria/vernici/verde.jpg", "vernice adatta a qualsiasi tipo di superficie", "14.90", "Vernici");
+insert into articolo values
+("ART08", "vernice rossa", "/EdilCommerce_Design/img/categoria/vernici/rosso.jpg", "vernice adatta a qualsiasi tipo di superficie", "14.90", "Vernici");
+
+# Ferramenta
+insert into articolo values
+("ART09", "chiodo liscio", "/EdilCommerce_Design/img/categoria/ferramenta/chiodoLiscio.jpg", "chiodo liscio da 9 cm con testina piatta", "20.00", "Ferramenta");
+
+# Utensileria
+
+
+# Materiali
+
+# Copertura 
+
+#Struttura
 
 
 
