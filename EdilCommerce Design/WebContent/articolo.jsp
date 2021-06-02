@@ -1,3 +1,5 @@
+<%@page import="javax.swing.text.Document"%>
+<%@page import="java.awt.Window"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="javax.sql.*"%>
 <!DOCTYPE html>
@@ -15,6 +17,8 @@
 	ArticoloModelDS model = new ArticoloModelDS((DataSource)getServletContext().getAttribute("DataSource"));
 	ArticoloBean bean = new ArticoloBean();
 	bean=model.doRetriveByKey(request.getParameter("articolo"));
+	Carrello<ArticoloBean> carrello = new Carrello<ArticoloBean>();
+	carrello = (Carrello<ArticoloBean>) getServletContext().getAttribute("Carrello");
 	%>
 	
 	
@@ -22,8 +26,11 @@
 	 <div class="checkout">
 		<h3><%=bean.getCosto() %>&euro;</h3>
 		<p>Spedizione gratuita per ordini oltre i 20&euro;</p>
-		<label>Quantità: <input type="number" value="1" min="1" class="quantità"></label>
-	 	<input type="button" value="Aggiungi al carrello" onclick="addToCart()" class="aggiungi">
+		<form action="/Aggiungi" method="post">
+			<input type="hidden" name="codice" value="<%=bean.getCodiceArticolo() %>">
+			<label>Quantità: <input name="quantità" type="number" value="1" min="1" class="quantità"></label>
+		 	<input type="submit" value="Aggiungi al carrello" class="aggiungi">
+	 	</form>
 	 </div>
 	<h2><%=bean.getNome() %></h2>
 	<p><%=bean.getDescrizione()%></p>

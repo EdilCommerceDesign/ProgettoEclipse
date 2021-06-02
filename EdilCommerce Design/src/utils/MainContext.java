@@ -65,13 +65,20 @@ public class MainContext implements ServletContextListener {
 		}
 		context.setAttribute("DataSource", ds);
 		utils.Utility.print("DataSource creation: " + ds.toString());
+		
+		Carrello<ArticoloBean> carrello = new Carrello<ArticoloBean>();
+		context.setAttribute("Carrello", carrello);
+		utils.Utility.print("Cart creation: " + carrello.toString());
 	}
 
 	@Override
 	public void contextDestroyed(ServletContextEvent sce) {
 		ServletContext context = sce.getServletContext();
+		
 		context.removeAttribute("DataSource");
 		context.removeAttribute("Categorie");
+		context.removeAttribute("Carrello");
+		
 		Utility.print("Shutdown web application");
 		ServletContextListener.super.contextDestroyed(sce);
 	}
