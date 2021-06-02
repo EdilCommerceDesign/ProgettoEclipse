@@ -37,8 +37,8 @@
 				while(it.hasNext()) {
 					bean=it.next();
 		%>
-		<tr><td><img alt="<%=bean.getNome()%>" src="<%=bean.getImmagine()%>"></td>
-		<td><h4><%=bean.getNome()%></h4>
+		<tr><td><a href="/EdilCommerce_Design/articolo.jsp?articolo=<%=bean.getCodiceArticolo()%>"><img alt="<%=bean.getNome()%>" src="<%=bean.getImmagine()%>"></a></td>
+		<td><a href="/EdilCommerce_Design/articolo.jsp?articolo=<%=bean.getCodiceArticolo()%>"><h4><%=bean.getNome()%></a></h4>
 		<h5><%DecimalFormat df=new DecimalFormat("#.00");%><%=df.format(bean.getCosto())%>&euro;</h5></td></tr>
 		
 		<%				

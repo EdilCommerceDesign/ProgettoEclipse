@@ -25,7 +25,7 @@ public class ArticoloModelDS implements ModelInterface<ArticoloBean> {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		
-		String selectCodeSQL = "SELECT * FROM articolo WHERE username=?";
+		String selectCodeSQL = "SELECT * FROM articolo WHERE codiceArticolo=?";
 		
 		ArticoloBean bean = new ArticoloBean();
 		

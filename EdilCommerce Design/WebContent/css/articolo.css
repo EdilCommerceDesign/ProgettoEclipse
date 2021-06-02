@@ -1,0 +1,21 @@
+@charset "ISO-8859-1";
+
+img.articolo {
+	height: 500px;
+	width: 500px;
+	float:left;
+	margin-right: 15px;
+	box-shadow: gray  10px 10px 10px;
+}
+
+h2, p {
+	text-transform: capitalize;
+}
+
+div.checkout {
+	margin-top: 40px;
+	width: 150px;
+	height: 500px;;
+	background-color: gray;
+	float: right;
+}
