@@ -50,7 +50,7 @@
 					while(it.hasNext()){
 						CategoriaBean catBean = it.next();
 		%>
-		<li><a href=""><%=catBean.getNome() %></a></li>			
+		<li><a href="/EdilCommerce_Design/Search?criterioRicerca=<%=catBean.getNome()%>"><%=catBean.getNome() %></a></li>			
 		<% 			
 					}		
 				}

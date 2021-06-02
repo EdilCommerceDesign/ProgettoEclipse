@@ -20,7 +20,7 @@ CREATE TABLE articolo (
 codiceArticolo		char(5)			not null,
 nome				varchar(50)		not null,
 immagine			varchar(100)	not null,
-descrizione			varchar(300)		not null,
+descrizione			varchar(1000)		not null,
 costo				double			not null,
 nomeCategoria      varchar(20)		not null,
 primary key (codiceArticolo),
@@ -150,15 +150,30 @@ insert into articolo values
 # Ferramenta
 insert into articolo values
 ("ART09", "chiodo liscio", "/EdilCommerce_Design/img/categoria/Ferramenta/chiodoLiscio.jpg", "chiodo liscio da 9 cm con testina piatta", "20.00", "Ferramenta");
+insert into articolo values
+("ART10", "chiodo elicoidale", "/EdilCommerce_Design/img/categoria/Ferramenta/chiodoelicoidale.jpg", "chiodo elicoidale da 11 cm", "19.90", "Ferramenta");
 
 # Utensileria
-
+insert into articolo values
+("ART11", "trapano a percussione", "/EdilCommerce_Design/img/categoria/Utensileria/trapanopercussione.jpg", "trapano a percussione adatto a materiali più resistenti", "136.04", "Utensileria");
+insert into articolo values
+("ART12", "trapano a batterie", "/EdilCommerce_Design/img/categoria/Utensileria/trapanobatteria.jpg", "trapano a batteria per fissaggi di qualunque tipo", "59.90", "Utensileria");
 
 # Materiali
+insert into articolo values
+("ART13", "mattoni", "/EdilCommerce_Design/img/categoria/Materiali/mattone.jpg", "mattone di dimensione 15x18", "2.99", "Materiali");
+insert into articolo values
+("ART14", "cemento", "/EdilCommerce_Design/img/categoria/Materiali/cemento.jpg", "cemento da 25 kg", "11.90", "Materiali");
 
 # Copertura 
+insert into articolo values
+("ART15", "tegole", "/EdilCommerce_Design/img/categoria/Copertura/tegola.jpg", "tegola da 12x17", "3.00", "Copertura");
+insert into articolo values
+("ART16", "pannelli", "/EdilCommerce_Design/img/categoria/Copertura/pannello.jpg", "panello da 15x19", "4.00", "Copertura");
 
 #Struttura
-
-
+insert into articolo values
+("ART17", "puntello", "/EdilCommerce_Design/img/categoria/Struttura/puntello.jpg", "I puntelli vengono usati prevalentemente per sostenere le casseforme per solai. Molti dettagli pratici ne accelerano l'impiego e ne aumentano la sicurezza: dalla forma della ghiera di regolazione, che indica il corretto verso di rotazione, alla spina di sicurezza ergonomica, a forma di G, progettata per non incepparsi. Inoltre, la zincatura a caldo garantisce una lunga durata. Nel caso in cui i puntelli vengano comunque danneggiati dalle rigide condizioni d'impiego in cantiere, il tubo esterno e quello interno possono essere sostituiti separatamente.", "17.99", "Struttura");
+insert into articolo values
+("ART18", "trave", "/EdilCommerce_Design/img/categoria/Struttura/trave.jpg", "La trave per casseforme ha una capacità di carico e resistenza a flessione elevata. Abbinata a casseforme per pareti, pilastri e solai oppure a casseforme speciali, permette di ridurre sia la quantità di attrezzatura necessaria che i tempi di lavoro.", "14.90", "Struttura");
 
