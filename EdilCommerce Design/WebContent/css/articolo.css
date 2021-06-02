@@ -5,17 +5,28 @@ img.articolo {
 	width: 500px;
 	float:left;
 	margin-right: 15px;
-	box-shadow: gray  10px 10px 10px;
+	box-shadow: grey  10px 10px 10px;
 }
 
-h2, p {
+h2 {
 	text-transform: capitalize;
 }
 
 div.checkout {
+	padding-left: 3px;
 	margin-top: 40px;
 	width: 150px;
 	height: 500px;;
-	background-color: gray;
+	background-color: grey;
 	float: right;
+	position: sticky;
+	top: 120px;
+}
+
+div.checkout input.quantità {
+	width: 30px;
+}
+
+div.checkout input.aggiungi {
+	margin-top: 5px;
 }

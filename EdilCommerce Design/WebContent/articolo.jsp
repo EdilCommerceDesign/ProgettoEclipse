@@ -19,14 +19,19 @@
 	
 	
 	<img alt="<%=bean.getNome()%>" src="<%=bean.getImmagine()%>" class="articolo">
-	<div class="checkout">
+	 <div class="checkout">
 		<h3><%=bean.getCosto() %>&euro;</h3>
-	 	<input type="button" value="Aggiungi al carrello" onclick="addToCart()">
+		<p>Spedizione gratuita per ordini oltre i 20&euro;</p>
+		<label>Quantità: <input type="number" value="1" min="1" class="quantità"></label>
+	 	<input type="button" value="Aggiungi al carrello" onclick="addToCart()" class="aggiungi">
 	 </div>
 	<h2><%=bean.getNome() %></h2>
 	<p><%=bean.getDescrizione()%></p>
 	
-	 
+	<div class="recensioni">
+		
+	</div>
+
 
 </body>
 </html>

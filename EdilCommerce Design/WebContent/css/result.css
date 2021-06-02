@@ -23,3 +23,7 @@ table{
 	width: 100px;
 	height: 100px;
 }
+
+h4 {
+	text-transform: capitalize;
+}
