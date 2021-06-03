@@ -160,20 +160,15 @@ insert into articolo values
 ("ART05", "paraschizzi da cucina", "/EdilCommerce_Design/img/categoria/Rivestimento/paraschizzi.jpg", "paraschizzi in marmo di calcare binaco con rifinture grigie", "29.90", "Rivestimento");
 insert into articolo values 
 ("ART06", "paraschizzi per bagni", "/EdilCommerce_Design/img/categoria/Rivestimento/paraschizziBagno.jpg", "elegante paraschizzi di intarsio grigio", "24.90", "Rivestimento");
-/*
 insert into articolo values
-("ART37", "", "/EdilCommerce_Design/img/categoria/Rivestimento/", "", "", "Rivestimento");
+("ART37", "rivestimento in pietra naturale", "/EdilCommerce_Design/img/categoria/Rivestimento/rivestimentipietra.jpg", "Se si punta su un design ricercato, una delle idee più affascinanti è quello della pietra naturale, un materiale che offre vantaggi relativi alla facile adattabilità ed usabilità, ma che allo stesso tempo riesce ad essere molto elegante.", "34.90", "Rivestimento");
 insert into articolo values
-("ART38", "", "/EdilCommerce_Design/img/categoria/Rivestimento/", "", "", "Rivestimento");
+("ART38", "rivestimento in pietra di Stone Age", "/EdilCommerce_Design/img/categoria/Rivestimento/stoneage.jpg", "rivestimento in pietra di Stone Age 15X60 in pietra naturale quarzite bianca", "59.90", "Rivestimento");
 insert into articolo values
-("ART39", "", "/EdilCommerce_Design/img/categoria/Rivestimento/", "", "", "Rivestimento");
+("ART39", "Rivestimento Natstone Black", "/EdilCommerce_Design/img/categoria/Rivestimento/stoneblack.jpg", "Rivestimento Natstone Black 15X60 Pietra Naturale Ardesia Nera", "59.60", "Rivestimento");
 insert into articolo values
-("ART40", "", "/EdilCommerce_Design/img/categoria/Rivestimento/", "", "", "Rivestimento");
-insert into articolo values
-("ART40", "", "/EdilCommerce_Design/img/categoria/Rivestimento/", "", "", "Rivestimento");
-insert into articolo values
-("ART41", "", "/EdilCommerce_Design/img/categoria/Rivestimento/", "", "", "Rivestimento");
-*/
+("ART40", "Rivestimento Stone Age Taupe", "/EdilCommerce_Design/img/categoria/Rivestimento/rivnaturale.jpg", "Rivestimento Stone Age Taupe 15X60 Pietra Naturale Marmo Tortora", "69.90", "Rivestimento");
+
 # Vernici
 insert into articolo values
 ("ART07", "vernice verde", "/EdilCommerce_Design/img/categoria/Vernici/verde.jpg", "vernice adatta a qualsiasi tipo di superficie", "14.90", "Vernici");
@@ -197,27 +192,22 @@ insert into articolo values
 ("ART09", "chiodo liscio", "/EdilCommerce_Design/img/categoria/Ferramenta/chiodoLiscio.jpg", "chiodo liscio da 9 cm con testina piatta", "20.00", "Ferramenta");
 insert into articolo values
 ("ART10", "chiodo elicoidale", "/EdilCommerce_Design/img/categoria/Ferramenta/chiodoelicoidale.jpg", "chiodo elicoidale da 11 cm", "19.90", "Ferramenta");
-/*
 insert into articolo values
-("ART42", "", "/EdilCommerce_Design/img/categoria/Ferramenta/", "", "", "Ferramenta");
+("ART42", "bulloni esagonali", "/EdilCommerce_Design/img/categoria/Ferramenta/bullone.jpg", "bulloni esagonali M30", "2.90", "Ferramenta");
 insert into articolo values
-("ART43", "", "/EdilCommerce_Design/img/categoria/Ferramenta/", "", "", "Ferramenta");
+("ART43", "bulloni esagonali in acciao zincato 8.8", "/EdilCommerce_Design/img/categoria/Ferramenta/bullone8.jpg", "bulloni esagonali in acciao zincato 8.8", "3.90", "Ferramenta");
 insert into articolo values
-("ART", "", "/EdilCommerce_Design/img/categoria/Ferramenta/", "", "", "Ferramenta");
+("ART55", "viti svasate truciolari", "/EdilCommerce_Design/img/categoria/Ferramenta/viti.jpg", "viti svasate truciolari", "4.50", "Ferramenta");
 insert into articolo values
-("ART44", "", "/EdilCommerce_Design/img/categoria/Ferramenta/", "", "", "Ferramenta");
-insert into articolo values
-("ART45", "", "/EdilCommerce_Design/img/categoria/Ferramenta/", "", "", "Ferramenta");
-insert into articolo values
-("ART46", "", "/EdilCommerce_Design/img/categoria/Ferramenta/", "", "", "Ferramenta");
-*/
+("ART44", "viti per legno", "/EdilCommerce_Design/img/categoria/Ferramenta/vitilegno.jpg", "Vite per fissaggi di Staffe, collari e supporti per tubi, Questa specifico tipo di vite è indicata per realizzare fissaggi di collari, staffe, ...", "3.50", "Ferramenta");
+
 # Utensileria
 insert into articolo values
 ("ART11", "trapano a percussione", "/EdilCommerce_Design/img/categoria/Utensileria/trapanopercussione.jpg", "trapano a percussione adatto a materiali più resistenti", "136.04", "Utensileria");
 insert into articolo values
 ("ART12", "trapano a batterie", "/EdilCommerce_Design/img/categoria/Utensileria/trapanobatteria.jpg", "trapano a batteria per fissaggi di qualunque tipo", "59.90", "Utensileria");
 insert into articolo values
-("ART", "smerigliatrice", "/EdilCommerce_Design/img/categoria/Utensileria/smerigliatrice.jpg", "Smerigliatrice Angolare, 230 V, 850 W, Diametro disco 125 mm", "26.90", "Utensileria");
+("ART46", "smerigliatrice", "/EdilCommerce_Design/img/categoria/Utensileria/smerigliatrice.jpg", "Smerigliatrice Angolare, 230 V, 850 W, Diametro disco 125 mm", "26.90", "Utensileria");
 insert into articolo values
 ("ART47", "pinza per tubi", "/EdilCommerce_Design/img/categoria/Utensileria/pinzatubi.jpg", "Pinza regolabile per tubi e dadi (400 mm) 87 01 400", "50.75", "Utensileria");
 insert into articolo values
