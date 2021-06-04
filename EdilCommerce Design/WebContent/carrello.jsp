@@ -17,7 +17,7 @@
 	%>
 	
 	<fieldset>
-		<legend>Carrello<button>Svuota</button></legend>
+		<legend>Carrello<button onclick='deleteItem("ALL", "carrello")'>Svuota</button></legend>
 		<table id="carrello">
 			<%
 			String messaggio = (String)request.getParameter("messaggio");

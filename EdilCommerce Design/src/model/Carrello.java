@@ -31,10 +31,11 @@ public class Carrello<T> {
 		}
 	}
 	
-	public void deleteItem(T item) {
+	public int deleteItem(T item) {
 		int i = items.lastIndexOf(item);
 		items.remove(i);
 		quantità.remove(i);
+		return i;
 	}
 	
 	public void deleteItems() {
