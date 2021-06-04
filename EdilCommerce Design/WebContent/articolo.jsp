@@ -26,7 +26,7 @@
 	 <div class="checkout">
 		<h3><%=bean.getCosto() %>&euro;</h3>
 		<p>Spedizione gratuita per ordini oltre i 20&euro;</p>
-		<form action="/Aggiungi" method="post">
+		<form action="/EdilCommerce_Design/Aggiungi" method="post">
 			<input type="hidden" name="codice" value="<%=bean.getCodiceArticolo() %>">
 			<label>Quantità: <input name="quantità" type="number" value="1" min="1" class="quantità"></label>
 		 	<input type="submit" value="Aggiungi al carrello" class="aggiungi">

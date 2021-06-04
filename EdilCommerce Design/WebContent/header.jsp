@@ -28,7 +28,7 @@
 		<ul>
 			<li><abb title="Profilo di <%=headerBean.getUsername()%>"><a href="/EdilCommerce_Design/user/profilo.jsp"><img alt="profilo" src="/EdilCommerce_Design/img/profilo.jpg"></a></abb></li>
 			<li><abb title="Logout"><a href="/EdilCommerce_Design/Logout" ><img alt="logout" src="/EdilCommerce_Design/img/logout.jpg"></a></abb></li>
-			<li><abb title="Carrello"><a href="" ><img alt="carrello" src="/EdilCommerce_Design/img/carrello.jpg"></a></abb></li>
+			<li><abb title="Carrello"><a href="/EdilCommerce_Design/carrello.jsp" ><img alt="carrello" src="/EdilCommerce_Design/img/carrello.jpg"></a></abb></li>
 		</ul>
 		<% 	
 				}
