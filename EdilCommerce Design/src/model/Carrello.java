@@ -21,8 +21,14 @@ public class Carrello<T> {
 	}
 	
 	public void addItem(T item, int q) {
-		items.add(item);
-		quantità.add(q);
+		if(items.contains(item)) {
+			int i = items.indexOf(item);
+			int tot = quantità.remove(i) + q;
+			quantità.add(i, tot);
+		} else {
+			items.add(item);
+			quantità.add(q);
+		}
 	}
 	
 	public void deleteItem(T item) {
