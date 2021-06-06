@@ -1,6 +1,26 @@
+
+<%@page import="java.sql.SQLException"%>
+<%
+Boolean userRole = (Boolean) session.getAttribute("userRole");
+if((userRole == null) || (!userRole.booleanValue())) {
+	response.sendRedirect("/EdilCommerce_Design/login.jsp");
+	return;
+}
+%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="java.text.*"%>
+    pageEncoding="ISO-8859-1" import="javax.sql.*,model.*,utils.*,java.text.*"%>
 <!DOCTYPE html>
+<%
+UserBean bean1 = (UserBean) request.getSession().getAttribute("loggedUser");
+if (bean1 == null) {
+	session.removeAttribute("userRole");
+	session.removeAttribute("adminRole");
+	session.invalidate();
+	response.sendRedirect("/EdilCommerce_Design/login.jsp");
+	return;
+}
+%>
 <html>
 <head>
 <meta charset="ISO-8859-1">
