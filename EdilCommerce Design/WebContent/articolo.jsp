@@ -18,8 +18,6 @@
 	ArticoloModelDS model = new ArticoloModelDS((DataSource)getServletContext().getAttribute("DataSource"));
 	ArticoloBean bean = new ArticoloBean();
 	bean=model.doRetriveByKey(request.getParameter("articolo"));
-	Carrello<ArticoloBean> carrello = new Carrello<ArticoloBean>();
-	carrello = (Carrello<ArticoloBean>) request.getSession(false).getAttribute("Carrello");
 	%>
 	
 	
@@ -27,9 +25,9 @@
 	 <div class="checkout">
 		<h3><%=bean.getCosto() %>&euro;</h3>
 		<p>Spedizione gratuita per ordini oltre i 20&euro;</p>
-		<form action="<%=response.encodeURL("/EdilCommerce_Design/Aggiungi")%>" method="post">
+		<form action="<%=response.encodeURL("/EdilCommerce_Design/Aggiungi")%>" method="get">
 			<input type="hidden" name="codice" value="<%=bean.getCodiceArticolo() %>">
-			<label>Quantità: <input name="quantità" type="number" value="1" min="1" class="quantità"></label>
+			<label>Quantità: <input name="quantita" type="number" value="1" min="1" class="quantità"></label>
 		 	<input type="submit" value="Aggiungi al carrello" class="aggiungi">
 	 	</form>
 	 </div>

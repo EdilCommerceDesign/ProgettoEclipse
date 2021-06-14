@@ -29,7 +29,7 @@ public class Rimuovi extends HttpServlet {
 		ArticoloModelDS model = new ArticoloModelDS(ds);
 		
 		String codice = (String) request.getParameter("codice");
-		Carrello<ArticoloBean> carrello = (Carrello<ArticoloBean>) getServletContext().getAttribute("Carrello");
+		Carrello<ArticoloBean> carrello = (Carrello<ArticoloBean>) request.getSession(false).getAttribute("Carrello");
 		ArticoloBean removeBean = new ArticoloBean();
 		
 		try {

@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 import model.ArticoloBean;
@@ -26,10 +27,27 @@ public class Aggiungi extends HttpServlet {
 		DataSource ds = (DataSource) getServletContext().getAttribute("DataSource");
 		ArticoloModelDS model = new ArticoloModelDS(ds);
 		
-		int quantità = Integer.parseInt((String) request.getParameter("quantità"));
+		int quantità = Integer.parseInt((String) request.getParameter("quantita"));
 		String codice = (String) request.getParameter("codice");
-		@SuppressWarnings("unchecked")
-		Carrello<ArticoloBean> carrello = (Carrello<ArticoloBean>) request.getSession().getAttribute("Carrello");
+		
+		
+		HttpSession session =  request.getSession(false);
+		if(session == null) {
+			session = request.getSession(true);
+			String parameters = request.getQueryString();	
+			if(parameters == null)
+				parameters= "";
+			session.setAttribute("loginRedirect", request.getRequestURI() + "?" +  parameters);
+			response.sendRedirect(response.encodeRedirectURL("/EdilCommerce_Design/login.jsp"));
+			return;
+		} else if(session.getAttribute("userRole").equals(false)) {
+			session = request.getSession(true);
+			session.setAttribute("loginRedirect", request.getRequestURI());
+			response.sendRedirect(response.encodeRedirectURL("/EdilCommerce_Design/login.jsp"));
+			return;
+		}
+		
+		Carrello<ArticoloBean> carrello = (Carrello<ArticoloBean>) session.getAttribute("Carrello");
 		ArticoloBean bean = new ArticoloBean();
 		
 		try {
@@ -42,7 +60,7 @@ public class Aggiungi extends HttpServlet {
 		
 		carrello.addItem(bean, quantità);
 		
-		getServletContext().setAttribute("Carrello", carrello);
+		request.getSession(false).setAttribute("Carrello", carrello);
 		response.sendRedirect(response.encodeRedirectURL("carrello.jsp?messaggio=" + "Articolo " + bean.getNome() + " aggiunto al carrello"));
 		return;
 	}

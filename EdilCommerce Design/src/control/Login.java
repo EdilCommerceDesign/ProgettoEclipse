@@ -53,8 +53,13 @@ public class Login extends HttpServlet {
 					try {
 						UserBean saveBean = model.doRetriveByKey(bean.getUsername());
 						session.setAttribute("loggedUser", saveBean);
-						response.sendRedirect(response.encodeURL("home.jsp"));
-						// dispatcher = getServletContext().getRequestDispatcher("/home.jsp");
+						
+						String redirect = (String) session.getAttribute("loginRedirect");
+						session.removeAttribute("loginRedirect");
+						if(redirect == null) {
+							redirect="home.jsp";
+						}
+						response.sendRedirect(response.encodeURL(redirect));
 						return;
 					} catch(SQLException e) {
 						Utility.print(e);
@@ -77,7 +82,6 @@ public class Login extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 	

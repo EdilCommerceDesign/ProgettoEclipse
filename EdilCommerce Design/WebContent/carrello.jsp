@@ -8,7 +8,7 @@
 <link type="text/css" rel="stylesheet" href="/EdilCommerce_Design/css/default.css">
 <title>Il tuo carrello</title>
 </head>
-<body>
+<body onunload="">
 	<%@include file="header.jsp" %>
 	
 	<script type="text/javascript" src="/EdilCommerce_Design/script/carrello.js"></script>

@@ -11,6 +11,15 @@
 </head>
 <body>
 	<%@ include file="./header.jsp" %>
+	<%
+		HttpSession session = request.getSession(true);
+		if(session != null){
+			String redirect = (String) session.getAttribute("logginRedirect");
+		if(redirect == null)
+				Utility.print(request.getHeader("Referer"));
+				session.setAttribute("loginRedirect", request.getHeader("Referer"));
+		}
+	%>
 
 	<div class=body>
 		<img alt="logo-edil" src="/EdilCommerce_Design/img/logo.png" id="mainLogo">
