@@ -34,8 +34,8 @@
 						<tr><td>Cognome </td> <td> <input type="text" name="cognome" placeholder="ex. Rossi" required></td></tr>
 						<tr><td>Username</td> <td> <input type="text" name="username" placeholder="ex. Rossi" required></td></tr>
 						<tr><td>E-mail  </td> <td> <input type="email" name="email" placeholder="mario@ex.com" required></td></tr>
-						<tr><td>Password</td> <td> <input id="pass"type="password" name="password" placeholder="Password" required onblur="controllaPass('pass', 'confermaPass','messaggioPass', 'salva')"></td></tr>
-						<tr><td>Conferma Password </td> <td><input id="confermaPass" type="password" name="confermaP" placeholder="Password" required onblur="controllaPass('pass', 'confermaPass','messaggioPass', 'salva')"></td><td><p hidden="true" id="messaggioPass" style="color:red;margin:0">X</td></tr>
+						<tr><td>Password</td> <td> <input id="pass"type="password" name="password" placeholder="Password" required onkeyup="controllaPass('pass', 'confermaPass','messaggioPass', 'salva')"></td></tr>
+						<tr><td>Conferma Password </td> <td><input id="confermaPass" type="password" name="confermaP" placeholder="Password" required onkeyup="controllaPass('pass', 'confermaPass','messaggioPass', 'salva')"></td><td><p hidden="true" id="messaggioPass" style="color:red;margin:0">X</td></tr>
 						<tr><td>Indirizzo </td> <td> <input type="text" name="indirizzo" placeholder="ex. via demanio 7/1" required></td></tr>
 						<tr><td>Telefono  </td> <td><input type="text" name="telefono" placeholder="ex. 089893888" required></td></tr>
 					</table>
