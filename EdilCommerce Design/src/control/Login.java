@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 import model.RuoloUserBean;
@@ -40,20 +41,19 @@ public class Login extends HttpServlet {
 			if((request.getParameter("password")).equals(bean.getUserPassword())) {
 				try {
 					Collection<RuoloUserBean> collection = modelRuolo.doRetriveByOneKey(bean.getUsername());
-					request.getSession().setAttribute("userRole", false);
-					request.getSession().setAttribute("adminRole", false);
+					HttpSession session = request.getSession(true);
 					
 					for(RuoloUserBean userBean: collection) {
 						if(userBean.getNome().equals("user")) {
-							request.getSession().setAttribute("userRole", true);
+							session.setAttribute("userRole", true);
 						} if(userBean.getNome().equals("admin")) {
-							request.getSession().setAttribute("adminRole", true);
+							session.setAttribute("adminRole", true);
 						}
 					}
 					try {
 						UserBean saveBean = model.doRetriveByKey(bean.getUsername());
-						request.getSession().setAttribute("loggedUser", saveBean);
-						response.sendRedirect("home.jsp");
+						session.setAttribute("loggedUser", saveBean);
+						response.sendRedirect(response.encodeURL("home.jsp"));
 						// dispatcher = getServletContext().getRequestDispatcher("/home.jsp");
 						return;
 					} catch(SQLException e) {
@@ -66,12 +66,12 @@ public class Login extends HttpServlet {
 				}
 			} else {
 				request.setAttribute("error", "Username o Password incoretta. Riprova.");
-				dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
+				dispatcher = getServletContext().getRequestDispatcher(response.encodeRedirectURL("/login.jsp"));
 				dispatcher.include(request, response);
 			}
 		} else {
 			request.setAttribute("error", "Username o Password incoretta. Riprova.");
-			dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
+			dispatcher = getServletContext().getRequestDispatcher(response.encodeRedirectURL("/login.jsp"));
 			dispatcher.include(request, response);
 		}
 	}

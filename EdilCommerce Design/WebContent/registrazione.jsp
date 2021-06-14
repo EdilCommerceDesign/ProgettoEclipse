@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@page session="false" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,7 +26,7 @@
 	<%
 	}
 	%>
-	<form method="post" action="/EdilCommerce_Design/Registrazione">
+	<form method="post" action="<%=response.encodeURL("/EdilCommerce_Design/Registrazione")%>">
 		<fieldset>
 			  <legend>Informazioni Personali:</legend>
 					<table>
@@ -43,7 +44,7 @@
 		</fieldset>
 		</form>
 	
-	<a href="home.jsp">Torna alla home</a>
+	<a href="<%=response.encodeURL("home.jsp")%>">Torna alla home</a>
 	</div>
 	
 	</div>

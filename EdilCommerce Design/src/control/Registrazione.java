@@ -53,11 +53,11 @@ public class Registrazione extends HttpServlet {
 					request.setAttribute("error", e.getMessage());
 				}
 
-				response.sendRedirect("login.jsp");
+				response.sendRedirect(response.encodeRedirectURL("login.jsp"));
 				return;
 			} else {
 				request.setAttribute("error", "Username già in uso");
-				getServletContext().getRequestDispatcher("/registrazione.jsp").include(request, response);
+				getServletContext().getRequestDispatcher(response.encodeURL("/registrazione.jsp")).include(request, response);
 			}
 		} catch (SQLException e) {
 			Utility.print(e);

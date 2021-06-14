@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="java.text.*"%>
+<%@page session="false" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +14,8 @@
 	<script type="text/javascript" src="/EdilCommerce_Design/script/carrello.js"></script>
 	
 	<%
-	Carrello<ArticoloBean> carrello = (Carrello<ArticoloBean>) getServletContext().getAttribute("Carrello");
+	HttpSession session = request.getSession(false);
+	Carrello<ArticoloBean> carrello = (Carrello<ArticoloBean>) session.getAttribute("Carrello");
 	%>
 	
 	<fieldset>
@@ -40,8 +42,8 @@
 				bean=it1.next();
 				q=it2.next();
 				%>
-				<tr><td><a href="/EdilCommerce_Design/articolo.jsp?articolo=<%=bean.getCodiceArticolo()%>"><img alt="<%=bean.getNome()%>" src="<%=bean.getImmagine()%>"></a></td>
-				<td><h4><a href="/EdilCommerce_Design/articolo.jsp?articolo=<%=bean.getCodiceArticolo()%>"><%=bean.getNome()%></a></h4>
+				<tr><td><a href="<%= response.encodeURL("/EdilCommerce_Design/articolo.jsp?articolo=" + bean.getCodiceArticolo())%>"><img alt="<%=bean.getNome()%>" src="<%=bean.getImmagine()%>"></a></td>
+				<td><h4><a href="<%= response.encodeURL("/EdilCommerce_Design/articolo.jsp?articolo=" + bean.getCodiceArticolo())%>"><%=bean.getNome()%></a></h4>
 				<h5><%DecimalFormat df=new DecimalFormat("#.00");%><%=df.format(bean.getCosto())%>&euro;</h5>
 				<label>Quantità</label><input type="number" value="<%=q%>"></td>
 				<td><button onclick='deleteItem("<%=bean.getCodiceArticolo()%>", "carrello")'>X</button></td></tr>

@@ -1,9 +1,16 @@
 <%@page import="java.sql.SQLException"%>
+<%@page session="false" %>
 <%
-Boolean userRole = (Boolean) session.getAttribute("userRole");
-if((userRole == null) || (!userRole.booleanValue())) {
+HttpSession session = request.getSession(false);
+if(session == null) {
 	response.sendRedirect("/EdilCommerce_Design/login.jsp");
 	return;
+} else {
+	Boolean userRole = (Boolean) session.getAttribute("userRole");
+	if((userRole == null) || (!userRole.booleanValue())) {
+		response.sendRedirect("/EdilCommerce_Design/login.jsp");
+		return;
+	}
 }
 %>
 
@@ -40,7 +47,7 @@ if (bean == null) {
 	%>
 	<h1>AREA UTENTE</h1>
 	<p>Benvenuto <%=bean.getUsername() %>, qui puoi modificare le tue informazioni personali</p>
-	<form method="post" action="/EdilCommerce_Design//Modifica">
+	<form method="post" action="<%=response.encodeURL("/EdilCommerce_Design//Modifica")%>">
 		<fieldset>
 			  <legend>Informazioni Personali:</legend>
 					<table>

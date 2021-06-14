@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="java.text.*"%>
+<%@page session="false" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,8 +38,8 @@
 				while(it.hasNext()) {
 					bean=it.next();
 		%>
-		<tr><td><a href="/EdilCommerce_Design/articolo.jsp?articolo=<%=bean.getCodiceArticolo()%>"><img alt="<%=bean.getNome()%>" src="<%=bean.getImmagine()%>"></a></td>
-		<td><h4><a href="/EdilCommerce_Design/articolo.jsp?articolo=<%=bean.getCodiceArticolo()%>"><%=bean.getNome()%></a></h4>
+		<tr><td><a href="<%=response.encodeURL("/EdilCommerce_Design/articolo.jsp?articolo=" + bean.getCodiceArticolo())%>"><img alt="<%=bean.getNome()%>" src="<%=bean.getImmagine()%>"></a></td>
+		<td><h4><a href="<%=response.encodeURL("/EdilCommerce_Design/articolo.jsp?articolo=" + bean.getCodiceArticolo())%>"><%=bean.getNome()%></a></h4>
 		<h5><%DecimalFormat df=new DecimalFormat("#.00");%><%=df.format(bean.getCosto())%>&euro;</h5></td></tr>
 		
 		<%				

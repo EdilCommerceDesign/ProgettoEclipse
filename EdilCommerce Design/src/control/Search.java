@@ -26,7 +26,6 @@ public class Search extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		DataSource ds = (DataSource) getServletContext().getAttribute("DataSource");
-		UserModelDS model = new UserModelDS(ds);
 		Collection<ArticoloBean> collection = new LinkedList<ArticoloBean>();
 		
 		CategoriaModelDS modelC = new CategoriaModelDS(ds);
@@ -55,7 +54,7 @@ public class Search extends HttpServlet {
 		}
 		
 		request.setAttribute("risultato", collection);
-		getServletContext().getRequestDispatcher("/result.jsp").include(request, response);
+		getServletContext().getRequestDispatcher(response.encodeURL("/result.jsp")).include(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

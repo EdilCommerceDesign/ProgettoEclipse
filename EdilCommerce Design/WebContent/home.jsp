@@ -2,20 +2,12 @@
 <%@page import="java.sql.SQLException"%>
 <%@page import="java.util.LinkedList"%>
 <%@page import="java.util.Collection"%>
+<%@page session="false" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" import="model.*,javax.sql.*,utils.*"%>
 <!DOCTYPE html>
 <html>
 <head>
-
-<style>
-	body {
-  		<!--background-image: url("./img/casa.jpg") ; 
-   background-repeat: no-repeat; -->
-	}
-</style>
-	
-	<!-- <link rel="stylesheet" type="text/css" href="home.css"/> -->
 	<meta charset="ISO-8859-1">
 	<meta lang="it">
 	<link href="/EdilCommerce_Design/css/default.css" rel="stylesheet" type="text/css">
@@ -24,13 +16,18 @@
 </head>
 <body>
 	<%
-	Boolean userRole = (Boolean) request.getSession().getAttribute("userRole"); 
-	Boolean adminRole = (Boolean) request.getSession().getAttribute("adminRole"); 
-	UserBean bean = (UserBean) request.getSession().getAttribute("loggedUser");
+	HttpSession session = request.getSession(false);
+	Boolean userRole  =  null;
+	Boolean adminRole =  null;
+	UserBean bean =  null;
+	if(session != null){
+		userRole = (Boolean) session.getAttribute("userRole"); 
+		adminRole = (Boolean) session.getAttribute("adminRole"); 
+		bean = (UserBean) session.getAttribute("loggedUser");
+	}
 	Collection<CategoriaBean> collection = (Collection<CategoriaBean>) getServletContext().getAttribute("Categorie");
 	%>
-	
-		
+	 
 		<header>
 		<div id="left"><abb title="Home"><a href="/EdilCommerce_Design/home.jsp"><img alt="ECD_Logo" src="/EdilCommerce_Design/img/logo_mini.png"></a></abb></div>
 		
@@ -40,14 +37,15 @@
 		%>
 		<div id="rigth">
 			<ul>
-				<li><abb title="Profilo di <%=bean.getUsername()%>"><a href="/EdilCommerce_Design/user/profilo.jsp"><img alt="profilo" src="/EdilCommerce_Design/img/profilo.jpg"></a></abb></li>
-				<li><abb title="Logout"><a href="/EdilCommerce_Design/Logout" ><img alt="logout" src="/EdilCommerce_Design/img/logout.jpg"></a></abb></li>
-				<li><abb title="Carrello"><a href="/EdilCommerce_Design/carrello.jsp" ><img alt="carrello" src="/EdilCommerce_Design/img/carrello.jpg"></a></abb></li>
+				<li><a href="<%=response.encodeRedirectURL("/EdilCommerce_Design/user/profilo.jsp")%>" title="Profilo di <%=bean.getUsername()%>"><img alt="profilo" src="/EdilCommerce_Design/img/profilo.jpg"></a></li>
+				<li><a href="<%=response.encodeRedirectURL("/EdilCommerce_Design/Logout")%>" title="Logout"><img alt="logout" src="/EdilCommerce_Design/img/logout.jpg"></a></li>
+				<li><a href="<%=response.encodeRedirectURL("/EdilCommerce_Design/carrello.jsp")%>" title="Carrello"><img alt="carrello" src="/EdilCommerce_Design/img/carrello.jpg"></a></li>
 			</ul>
 		</div>
-		<% 	
-				}
-			} else {
+		<%
+			}
+		} else {
+			
 		%>
 		<div id="rigth">
 			<ul >
@@ -62,16 +60,9 @@
 		
 		<img alt="logo-edil" src="/EdilCommerce_Design/img/logo.png" id="mainLogo">
 	
-	  <form action="" method="get">
+	<form action="" method="get">
 		<div class="center">
-
-
 			<input id="search" type="search"  name="search" size="30" placeholder="Cerca in EdilCommerce Design" >
-
-			<!--  <a href="" ><img alt="" src="./img/lente.png" width=30px height=30px></a>-->
-
-			<!--  <a href="" ><img alt="" src="./img/lente.png" width=30px height=30px></a>-->
-
 		</div> 
 	</form> 
 	
@@ -87,7 +78,7 @@
 						while(it.hasNext()){
 							CategoriaBean catBean = it.next();
 			%>
-			<a title="<%=catBean.getNome() %>" href="/EdilCommerce_Design/Search?criterioRicerca=<%=catBean.getNome()%>"><img alt="<%=catBean.getNome() %>" src="<%=catBean.getImmagine()%>"></a>
+			<a title="<%=catBean.getNome() %>" href="<%=response.encodeURL("/EdilCommerce_Design/Search?criterioRicerca=" + catBean.getNome()) %>"><img alt="<%=catBean.getNome() %>" src="<%=catBean.getImmagine()%>"></a>
 				
 			<% 			
 						}		

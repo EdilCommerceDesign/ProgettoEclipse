@@ -41,7 +41,7 @@ public class Modifica extends HttpServlet {
 				request.setAttribute("error", e.getMessage());
 			}
 			request.getSession().setAttribute("loggedUser", bean);
-			response.sendRedirect("./user/profilo.jsp");
+			response.sendRedirect(response.encodeRedirectURL("./user/profilo.jsp"));
 			return;
 		} else {
 			UserBean checkBean = new UserBean();
@@ -62,12 +62,12 @@ public class Modifica extends HttpServlet {
 						request.setAttribute("error", e.getMessage());
 					}
 					request.getSession().setAttribute("loggedUser", bean);
-					response.sendRedirect("./user/profilo.jsp");
+					response.sendRedirect(response.encodeRedirectURL("./user/profilo.jsp"));
 					return;
 
 				} else {
 					request.setAttribute("error", "Username già in uso");
-					getServletContext().getRequestDispatcher("/user/profilo.jsp").include(request, response);
+					getServletContext().getRequestDispatcher(response.encodeURL("/user/profilo.jsp")).include(request, response);
 					return;
 				}
 			} catch (SQLException e) {

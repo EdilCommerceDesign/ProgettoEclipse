@@ -28,7 +28,8 @@ public class Aggiungi extends HttpServlet {
 		
 		int quantità = Integer.parseInt((String) request.getParameter("quantità"));
 		String codice = (String) request.getParameter("codice");
-		Carrello<ArticoloBean> carrello = (Carrello<ArticoloBean>) getServletContext().getAttribute("Carrello");
+		@SuppressWarnings("unchecked")
+		Carrello<ArticoloBean> carrello = (Carrello<ArticoloBean>) request.getSession().getAttribute("Carrello");
 		ArticoloBean bean = new ArticoloBean();
 		
 		try {
@@ -42,7 +43,7 @@ public class Aggiungi extends HttpServlet {
 		carrello.addItem(bean, quantità);
 		
 		getServletContext().setAttribute("Carrello", carrello);
-		response.sendRedirect("carrello.jsp?messaggio=" + "Articolo " + bean.getNome() + " aggiunto al carrello");
+		response.sendRedirect(response.encodeRedirectURL("carrello.jsp?messaggio=" + "Articolo " + bean.getNome() + " aggiunto al carrello"));
 		return;
 	}
 

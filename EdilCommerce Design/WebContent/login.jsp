@@ -1,3 +1,4 @@
+<%@page session="false" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -14,7 +15,7 @@
 	<div class=body>
 		<img alt="logo-edil" src="/EdilCommerce_Design/img/logo.png" id="mainLogo">
 		<div class="input">
-			<form method="post" action="/EdilCommerce_Design/Login">
+			<form method="post" action="<%=response.encodeURL("/EdilCommerce_Design/Login") %>">
 				<fieldset>
 					<legend>LOGIN</legend>
 					<table>
@@ -36,7 +37,7 @@
 		
 		<h4>Oppure</h4><br>
 		
-		<input type="button" value="Registrati" onclick="window.location.href='/EdilCommerce_Design/registrazione.jsp'">
+		<input type="button" value="Registrati" onclick="window.location.href='<%=response.encodeURL("/EdilCommerce_Design/registrazione.jsp")%>'">
 	</div>
 </body>
 </html>
