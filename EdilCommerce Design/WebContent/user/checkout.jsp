@@ -28,7 +28,7 @@ if(session == null) {
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-	<%@ include file="./header.jsp" %>
+	<%@ include file="../header.jsp" %>
 	<h2>Riepilogo carrello</h2>
 
 <div class="row">
