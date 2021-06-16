@@ -3,12 +3,12 @@
 <%
 HttpSession session = request.getSession(false);
 if(session == null) {
-	response.sendRedirect("/EdilCommerce_Design/login.jsp");
+	response.sendRedirect(response.encodeRedirectURL("/EdilCommerce_Design/login.jsp"));
 	return;
 } else {
 	Boolean userRole = (Boolean) session.getAttribute("userRole");
 	if((userRole == null) || (!userRole.booleanValue())) {
-		response.sendRedirect("/EdilCommerce_Design/login.jsp");
+		response.sendRedirect(response.encodeRedirectURL("/EdilCommerce_Design/login.jsp"));
 		return;
 	}
 }
@@ -23,7 +23,7 @@ if (bean == null) {
 	session.removeAttribute("userRole");
 	session.removeAttribute("adminRole");
 	session.invalidate();
-	response.sendRedirect("/EdilCommerce_Design/login.jsp");
+	response.sendRedirect(response.encodeRedirectURL("/EdilCommerce_Design/login.jsp"));
 	return;
 }
 %>
