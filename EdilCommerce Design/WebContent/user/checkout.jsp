@@ -6,12 +6,12 @@
 <%
 HttpSession session = request.getSession(false);
 if(session == null) {
-	response.sendRedirect("/EdilCommerce_Design/login.jsp");
+	response.sendRedirect(response.encodeRedirectURL("/EdilCommerce_Design/login.jsp"));
 	return;
 } else {
 	Boolean userRole = (Boolean) session.getAttribute("userRole");
 	if((userRole == null) || (!userRole.booleanValue())) {
-		response.sendRedirect(response.encodeRedirectUrl("/EdilCommerce_Design/login.jsp"));
+		response.sendRedirect(response.encodeRedirectURL("/EdilCommerce_Design/login.jsp"));
 		return;
 	}
 }
