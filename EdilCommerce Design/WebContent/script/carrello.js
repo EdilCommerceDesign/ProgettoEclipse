@@ -30,9 +30,6 @@ function deleteItem(codice, id) {
 			document.getElementById(id).innerHTML = xhttp.responseText;
 		}
 	};
-	xhttp.open("GET", "Rimuovi?codice=" + codice, true);
+	xhttp.open("GET", "/EdilCommerce_Design/Rimuovi?codice=" + codice, true);
 	xhttp.send();
-	setTimeOut(function() {
-	xhttp.abort();	
-	}, 5000)
 }
