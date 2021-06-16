@@ -31,10 +31,12 @@ DROP TABLE IF EXISTS pagamento;
 CREATE TABLE pagamento (
 numeroPagamento		int auto_increment		not null,
 data				date                 	not null,
-modalità     		varchar(20)				not null,
+modalità    		varchar(20)				not null,
 importo				double					not null,
 primary key (numeroPagamento)
 ) auto_increment=1;
+
+
 
 DROP TABLE IF EXISTS user;
 CREATE TABLE user (
