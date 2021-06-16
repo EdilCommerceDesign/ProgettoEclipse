@@ -61,7 +61,7 @@ public class Aggiungi extends HttpServlet {
 		carrello.addItem(bean, quantità);
 		
 		request.getSession(false).setAttribute("Carrello", carrello);
-		response.sendRedirect(response.encodeRedirectURL("carrello.jsp?messaggio=" + "Articolo " + bean.getNome() + " aggiunto al carrello"));
+		response.sendRedirect(response.encodeRedirectURL("user/carrello.jsp?messaggio=" + "Articolo " + bean.getNome() + " aggiunto al carrello"));
 		return;
 	}
 

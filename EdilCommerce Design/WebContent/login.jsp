@@ -13,11 +13,12 @@
 	<%@ include file="./header.jsp" %>
 	<%
 		HttpSession session = request.getSession(true);
-		if(session != null){
-			String redirect = (String) session.getAttribute("logginRedirect");
-		if(redirect == null)
-				Utility.print(request.getHeader("Referer"));
-				session.setAttribute("loginRedirect", request.getHeader("Referer"));
+		if(session != null) {
+			String redirect = (String) session.getAttribute("loginRedirect");
+			if(redirect == null) {
+					redirect = request.getHeader("Referer");
+					session.setAttribute("loginRedirect", redirect);
+			}
 		}
 	%>
 

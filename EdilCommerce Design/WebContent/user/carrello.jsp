@@ -8,13 +8,23 @@
 <link type="text/css" rel="stylesheet" href="/EdilCommerce_Design/css/default.css">
 <title>Il tuo carrello</title>
 </head>
-<body onunload="">
-	<%@include file="header.jsp" %>
+<body>
+	<%@include file="../header.jsp" %>
 	
 	<script type="text/javascript" src="/EdilCommerce_Design/script/carrello.js"></script>
 	
 	<%
 	HttpSession session = request.getSession(false);
+	if(session == null) {
+		response.sendRedirect(response.encodeRedirectURL("/EdilCommerce_Design/login.jsp"));
+		return;
+	} else {
+		Boolean userRole = (Boolean) session.getAttribute("userRole");
+		if((userRole == null) || (!userRole.booleanValue())) {
+			response.sendRedirect(response.encodeRedirectURL("/EdilCommerce_Design/login.jsp"));
+			return;
+		}
+	}
 	Carrello<ArticoloBean> carrello = (Carrello<ArticoloBean>) session.getAttribute("Carrello");
 	%>
 	

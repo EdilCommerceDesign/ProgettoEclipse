@@ -56,6 +56,7 @@ public class Login extends HttpServlet {
 						
 						String redirect = (String) session.getAttribute("loginRedirect");
 						session.removeAttribute("loginRedirect");
+						
 						if(redirect == null) {
 							redirect="home.jsp";
 						}

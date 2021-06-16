@@ -30,6 +30,8 @@ public class Rimuovi extends HttpServlet {
 		
 		String codice = (String) request.getParameter("codice");
 		Carrello<ArticoloBean> carrello = (Carrello<ArticoloBean>) request.getSession(false).getAttribute("Carrello");
+		
+		
 		ArticoloBean removeBean = new ArticoloBean();
 		
 		try {
