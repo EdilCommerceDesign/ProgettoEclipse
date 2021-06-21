@@ -35,6 +35,9 @@ cognome			varchar(20)		not null,
 email			varchar(20)		not null,
 telefono		varchar(15)		not null,
 indirizzo		varchar(20)		not null,
+città			varchar(20)		not null,
+stato			varchar(20)		not null,
+cap				varchar(20)		not null,
 userPassword	varchar(20)		not null,
 primary key (username)
 );
@@ -131,10 +134,13 @@ foreign key (nome) references ruolo (nome)
 INSERT INTO ruolo(nome) VALUES ("user");
 INSERT INTO ruolo(nome) VALUES ("admin");
 
-INSERT INTO user VALUES ("admin", "nome", "cognome", "admin@email.com", "telefono", "indirizzo", "admin");
+INSERT INTO user VALUES ("admin", "nome", "cognome", "admin@email.com", "telefono", "indirizzo", "città", "stato", "84085", "admin");
 
 INSERT INTO ruoloUser VALUES ("admin", "user");
 INSERT INTO ruoloUser VALUES ("admin", "admin");
+
+INSERT INTO user VALUES ("mario", "Mario", "Rossi", "marioRossi@email.com", "089788998", "via Roma", "Fisciano", "Italia", "84085", "rossi");
+INSERT INTO ruoloUser VALUES ("mario", "user");
 
 insert into categoria values
 ("/EdilCommerce_Design/img/categoria/arredamento_interno.jpg", "Arredamento interno", "");
