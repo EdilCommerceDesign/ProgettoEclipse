@@ -8,3 +8,4 @@ Fare la parte dell'admin
 Aggiustare i CSS generali
 Aggiungere controlli ai form
 Aggiungere il carrello ai cookie quando si invalida la sessione
+Modificare schema ER con aggiunta di "info fatturazione" e aggiungere a cliente la città stato e cap
