@@ -27,13 +27,51 @@ primary key (codiceArticolo),
 foreign key (nomeCategoria) references categoria (nome)
 );
 
+DROP TABLE IF EXISTS user;
+CREATE TABLE user (
+username   	    varchar(20)   	not null,
+nome			varchar(20)		not null,
+cognome			varchar(20)		not null,
+email			varchar(20)		not null,
+telefono		varchar(15)		not null,
+indirizzo		varchar(20)		not null,
+userPassword	varchar(20)		not null,
+primary key (username)
+);
+
+DROP TABLE IF EXISTS ordine;
+CREATE TABLE ordine (
+numeroOrdine 		int auto_increment		not null,
+data				date 					not null,	
+username			varchar(20)				not null,
+primary key (numeroOrdine),
+foreign key (username) references user (username) ON UPDATE CASCADE
+)    auto_increment=1;
+
 DROP TABLE IF EXISTS pagamento;
 CREATE TABLE pagamento (
 numeroPagamento		int auto_increment		not null,
+numeroOrdine		int						not null,
 data				date                 	not null,
 importo				double					not null,
-primary key (numeroPagamento)
+primary key (numeroPagamento),
+foreign key (numeroOrdine) references ordine (numeroOrdine)
 ) auto_increment=1;
+
+DROP TABLE IF EXISTS infoFatturazione;
+CREATE TABLE infoFatturazione (
+numeroPagamento      int 					not null,
+nome				varchar(20)				not null,
+cognome				varchar(20)				not null,
+email				varchar(50)				not null,
+telefono			varchar(20)				not null,
+indirizzo			varchar(100)			not null,
+città			    varchar(20)				not null,
+stato				varchar(20)				not null,
+cap					varchar(20)				not null,
+primary key (numeroPagamento),
+foreign key (numeroPagamento) references pagamento (numeroPagamento)
+);
 
 DROP TABLE IF EXISTS contrassegno;
 CREATE TABLE contrassegno (
@@ -53,33 +91,11 @@ primary key (numeroPagamento),
 foreign key (numeroPagamento) references pagamento (numeroPagamento)
 );
 
-
-DROP TABLE IF EXISTS user;
-CREATE TABLE user (
-username   	    varchar(20)   	not null,
-nome			varchar(20)		not null,
-cognome			varchar(20)		not null,
-email			varchar(20)		not null,
-telefono		varchar(15)		not null,
-indirizzo		varchar(20)		not null,
-userPassword	varchar(20)		not null,
-primary key (username)
-);
-
 DROP TABLE IF EXISTS ruolo;
 CREATE TABLE ruolo (
 nome			varchar(20)		not null,
 primary key (nome)
 );
-
-DROP TABLE IF EXISTS ordine;
-CREATE TABLE ordine (
-numeroOrdine 		int auto_increment		not null,
-data				date 					not null,	
-username			varchar(20)				not null,
-primary key (numeroOrdine),
-foreign key (username) references user (username) ON UPDATE CASCADE
-)    auto_increment=1;
 
 DROP TABLE IF EXISTS compone;
 CREATE TABLE compone (
