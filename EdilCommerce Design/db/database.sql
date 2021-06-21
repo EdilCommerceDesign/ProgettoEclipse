@@ -31,11 +31,27 @@ DROP TABLE IF EXISTS pagamento;
 CREATE TABLE pagamento (
 numeroPagamento		int auto_increment		not null,
 data				date                 	not null,
-modalità    		varchar(20)				not null,
 importo				double					not null,
 primary key (numeroPagamento)
 ) auto_increment=1;
 
+DROP TABLE IF EXISTS contrassegno;
+CREATE TABLE contrassegno (
+numeroPagamento      int 					not null,
+primary key (numeroPagamento),
+foreign key (numeroPagamento) references pagamento (numeroPagamento)
+);
+
+DROP TABLE IF EXISTS carta;
+CREATE TABLE carta (
+numeroPagamento      int 					not null,
+numero				varchar(100)			not null,
+intestatario		varchar(100)			not null,
+dataScadenza        date					not null,
+cvv					varchar(10)				not null,
+primary key (numeroPagamento),
+foreign key (numeroPagamento) references pagamento (numeroPagamento)
+);
 
 
 DROP TABLE IF EXISTS user;
