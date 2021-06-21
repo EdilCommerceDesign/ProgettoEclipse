@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@page import="java.sql.SQLException"%>
+<%@page import="java.sql.SQLException" import="java.text.*"%>
 <%@page session="false" %>
 
 <%
@@ -15,6 +15,7 @@ if(session == null) {
 		return;
 	}
 }
+Carrello<ArticoloBean> carrello = (Carrello<ArticoloBean>) session.getAttribute("Carrello");
 %>
 <!DOCTYPE html>
 <html>
@@ -68,11 +69,11 @@ if(session == null) {
               </div>
             </div>
           </div>
-
+		<script type="text/javascript" src="/EdilCommerce_Design/script/checkout.js"></script>
           <div class="col-50">
             <h3>Pagamento con carta o contrassegno</h3>
-             <label><h4><input type="radio" checked="checked" name="metodo"> Carta </h4></label>
-             <label><h4><input type="radio"  name="metodo"> Contrassegno </h4></label>
+             <label><h4><input type="radio" checked="checked" name="metodo" onclick="abilita()"> Carta </h4></label>
+             <label><h4><input type="radio"  name="metodo" onclick="disabilita()"> Contrassegno </h4></label>
             <label for="fname">Carte Accettate</label>
             <div class="icon-container">
               <i class="fa fa-cc-visa" style="color:navy;"></i>
@@ -106,15 +107,33 @@ if(session == null) {
       </form>
     </div>
   </div>
-   <div class="col-25">
+  <div class="col-25">
     <div class="container">
-      <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
-      <p><a href="#">Product 1</a> <span class="price">$15</span></p>
-      <p><a href="#">Product 2</a> <span class="price">$5</span></p>
-      <p><a href="#">Product 3</a> <span class="price">$8</span></p>
-      <p><a href="#">Product 4</a> <span class="price">$2</span></p>
+	<%
+	List<ArticoloBean> articoli = carrello.getItems();
+	List<Integer> quantità = carrello.getQuantità();
+	Iterator<ArticoloBean> it1 = articoli.iterator();
+	Iterator<Integer> it2 = quantità.iterator();
+	DecimalFormat df = new DecimalFormat("#.00");
+		
+	ArticoloBean bean = new ArticoloBean();
+	Integer q = 0;
+	double totale = 0;
+	%>
+	<h4><a class="link-nero" href="<%= response.encodeURL("/EdilCommerce_Design/user/carrello.jsp")%>">Carrello</a> <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <%=articoli.size()%></span></h4>
+	<%
+			
+	while(it1.hasNext() && it2.hasNext()){
+		bean=it1.next();
+		q=it2.next();
+	%>
+      <p><%=q%> <a href="<%= response.encodeURL("/EdilCommerce_Design/articolo.jsp?articolo=" + bean.getCodiceArticolo())%>"><%=bean.getNome() %></a>  <span class="price"><%=df.format(bean.getCosto() * q)%>&euro;</span></p>
+    <%
+   	 totale = totale + (q * bean.getCosto());
+	}
+    %>    
       <hr>
-      <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
+      <p>Totale <span class="price" style="color:black"><%=df.format(totale)%>&euro;</span></p>
     </div>
   </div>
 </div>
