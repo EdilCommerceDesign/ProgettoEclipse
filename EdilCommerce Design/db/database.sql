@@ -27,17 +27,6 @@ primary key (codiceArticolo),
 foreign key (nomeCategoria) references categoria (nome)
 );
 
-DROP TABLE IF EXISTS pagamento;
-CREATE TABLE pagamento (
-numeroPagamento		int auto_increment		not null,
-data				date                 	not null,
-modalit√†    		varchar(20)				not null,
-importo				double					not null,
-primary key (numeroPagamento)
-) auto_increment=1;
-
-
-
 DROP TABLE IF EXISTS user;
 CREATE TABLE user (
 username   	    varchar(20)   	not null,
@@ -46,14 +35,11 @@ cognome			varchar(20)		not null,
 email			varchar(20)		not null,
 telefono		varchar(15)		not null,
 indirizzo		varchar(20)		not null,
+citt‡			varchar(20)		not null,
+stato			varchar(20)		not null,
+cap				varchar(20)		not null,
 userPassword	varchar(20)		not null,
 primary key (username)
-);
-
-DROP TABLE IF EXISTS ruolo;
-CREATE TABLE ruolo (
-nome			varchar(20)		not null,
-primary key (nome)
 );
 
 DROP TABLE IF EXISTS ordine;
@@ -64,6 +50,55 @@ username			varchar(20)				not null,
 primary key (numeroOrdine),
 foreign key (username) references user (username) ON UPDATE CASCADE
 )    auto_increment=1;
+
+DROP TABLE IF EXISTS pagamento;
+CREATE TABLE pagamento (
+numeroPagamento		int auto_increment		not null,
+numeroOrdine		int						not null,
+data				date                 	not null,
+importo				double					not null,
+primary key (numeroPagamento),
+foreign key (numeroOrdine) references ordine (numeroOrdine)
+) auto_increment=1;
+
+DROP TABLE IF EXISTS infoFatturazione;
+CREATE TABLE infoFatturazione (
+numeroPagamento      int 					not null,
+nome				varchar(20)				not null,
+cognome				varchar(20)				not null,
+email				varchar(50)				not null,
+telefono			varchar(20)				not null,
+indirizzo			varchar(100)			not null,
+citt‡			    varchar(20)				not null,
+stato				varchar(20)				not null,
+cap					varchar(20)				not null,
+primary key (numeroPagamento),
+foreign key (numeroPagamento) references pagamento (numeroPagamento)
+);
+
+DROP TABLE IF EXISTS contrassegno;
+CREATE TABLE contrassegno (
+numeroPagamento      int 					not null,
+primary key (numeroPagamento),
+foreign key (numeroPagamento) references pagamento (numeroPagamento)
+);
+
+DROP TABLE IF EXISTS carta;
+CREATE TABLE carta (
+numeroPagamento      int 					not null,
+numero				varchar(100)			not null,
+intestatario		varchar(100)			not null,
+dataScadenza        date					not null,
+cvv					varchar(10)				not null,
+primary key (numeroPagamento),
+foreign key (numeroPagamento) references pagamento (numeroPagamento)
+);
+
+DROP TABLE IF EXISTS ruolo;
+CREATE TABLE ruolo (
+nome			varchar(20)		not null,
+primary key (nome)
+);
 
 DROP TABLE IF EXISTS compone;
 CREATE TABLE compone (
@@ -99,10 +134,13 @@ foreign key (nome) references ruolo (nome)
 INSERT INTO ruolo(nome) VALUES ("user");
 INSERT INTO ruolo(nome) VALUES ("admin");
 
-INSERT INTO user VALUES ("admin", "nome", "cognome", "admin@email.com", "telefono", "indirizzo", "admin");
+INSERT INTO user VALUES ("admin", "nome", "cognome", "admin@email.com", "telefono", "indirizzo", "citt‡", "stato", "84085", "admin");
 
 INSERT INTO ruoloUser VALUES ("admin", "user");
 INSERT INTO ruoloUser VALUES ("admin", "admin");
+
+INSERT INTO user VALUES ("mario", "Mario", "Rossi", "marioRossi@email.com", "089788998", "via Roma", "Fisciano", "Italia", "84085", "rossi");
+INSERT INTO ruoloUser VALUES ("mario", "user");
 
 insert into categoria values
 ("/EdilCommerce_Design/img/categoria/arredamento_interno.jpg", "Arredamento interno", "");
