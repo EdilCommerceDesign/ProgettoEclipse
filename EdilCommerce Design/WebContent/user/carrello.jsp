@@ -29,10 +29,10 @@
 	}
 	Carrello<ArticoloBean> carrello = (Carrello<ArticoloBean>) session.getAttribute("Carrello");
 	%>
-	<div class="carrello">
+	<div id="carrello">
 		<fieldset>
 			<legend>Carrello<button onclick='deleteItem("ALL", "carrello")'>Svuota</button></legend>
-			<table id="carrello">
+			<table>
 				<%
 				String messaggio = (String)session.getAttribute("messaggio-carrello");
 				session.removeAttribute("messaggio-carrello");

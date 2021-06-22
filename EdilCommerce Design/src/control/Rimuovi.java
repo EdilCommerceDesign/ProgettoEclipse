@@ -33,8 +33,17 @@ public class Rimuovi extends HttpServlet {
 		HttpSession session = request.getSession(false);
 		Carrello<ArticoloBean> carrello = (Carrello<ArticoloBean>) session.getAttribute("Carrello");
 		
+		List<ArticoloBean> articoli = carrello.getItems();
+		List<Integer> artQuantità = carrello.getQuantità();
+		DecimalFormat df=new DecimalFormat("#.00");
+		double totale = 0;
+		
 		StringBuffer buffer = new StringBuffer();
 		response.setContentType("text/xml");
+		
+		buffer.append("<fieldset>\r\n"
+				+ "			<legend>Carrello<button onclick='deleteItem(\"ALL\", \"carrello\")'>Svuota</button></legend>\r\n"
+				+ "			<table>");
 		
 		if(codice.equals("ALL")) {
 			carrello.deleteItems();
@@ -56,14 +65,13 @@ public class Rimuovi extends HttpServlet {
 			
 			ArticoloBean bean = new ArticoloBean();
 			
-			List<ArticoloBean> articoli = carrello.getItems();
-			List<Integer> artQuantità = carrello.getQuantità();
 			Iterator<ArticoloBean> it1 = articoli.iterator();
 			Iterator<Integer> it2 = artQuantità.iterator();
 			
 			Integer q = 0;
-			DecimalFormat df=new DecimalFormat("#.00");
 			int i = 1;
+			
+			int j = 0;
 			if(index==0) {
 				buffer.append("<tr><td><h2>"+ removeBean.getNome() + " rimosso dal carrello</h2></td><td></td><td></td></tr>");
 			}
@@ -75,7 +83,7 @@ public class Rimuovi extends HttpServlet {
 				buffer.append("<tr><td><a href=\"/EdilCommerce_Design/articolo.jsp?articolo=" + bean.getCodiceArticolo() + "\"><img alt=\"" + bean.getNome() + "\" src=\"" + bean.getImmagine() + "\"></a></td>");
 				buffer.append("<td><h4><a href=\"/EdilCommerce_Design/articolo.jsp?articolo=" + bean.getCodiceArticolo() + "\">" + bean.getNome() + "</a></h4>");
 				buffer.append("<h5>" + df.format(bean.getCosto()) + "&euro;</h5>");
-				buffer.append("<label>Quantità</label><input type=\"number\" value=\"" + q + "\"></td>");
+				buffer.append("<label>Quantità</label><input type=\"number\" value=\"" + q + "\"  onchange='aggiornaQuantita(" + j + ")'\"></td>");
 				buffer.append("<td><button onclick='deleteItem(\"" + bean.getCodiceArticolo() + "\", \"carrello\")'>X</button></td></tr>");		
 			
 				if(i == index) {
@@ -83,13 +91,25 @@ public class Rimuovi extends HttpServlet {
 				}
 				i++;
 			}
+			j = j+1;
+			totale = totale + (q * bean.getCosto());
 		}
+		
+
+		buffer.append("</table>\r\n"
+			+ "		</fieldset>\r\n"
+			+ "		<div class=\"box-checkout\">\r\n"
+			+ "			<div id=\"checkout\">"
+			+ "				<h4>Carrello <span class=\"prezzo\" style=\"color:black\"><i class=\"fa fa-shopping-cart\"></i> " + articoli.size() + "</span></h4>\r\n"
+			+ "				<h4>Totale: <span class=\"prezzo\" style=\"color:black\">" + df.format(totale) + " &euro;</span></h4>\r\n"
+			+ "				<a href=\" " + response.encodeURL("/EdilCommerce_Design/user/checkout.jsp") + "\"><button class=\"bottone\" >Procedi al pagamento</button></a>\r\n"
+			+ "			</div>\r\n"
+			+ "		</div>"	);
 		
 		response.getWriter().write(buffer.toString());
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
