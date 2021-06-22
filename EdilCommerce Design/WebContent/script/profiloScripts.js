@@ -2,19 +2,25 @@
  * 
  */
 
-function setModificable(name) {
-	document.getElementsByName(name)[0].removeAttribute("readonly");
+function setModificable() {
+	var form = document.forms["profilo"];
+	var l = form.elements.length;
+	for(var i = 0; i < l; i++) {
+		form.elements[i].removeAttribute("readonly");
+	}
 }
 
-function controllaPass(pass1, pass2, mes, sub) {
+function controllaPass(pass1, pass2, sub) {
     
-	var e1 = document.getElementById(pass1).value;
-	var e2 = document.getElementById(pass2).value;
-	if (e1 != e2) {
-		document.getElementById(mes).removeAttribute("hidden");
+	var e1 = document.getElementById(pass1);
+	var e2 = document.getElementById(pass2);
+	if (e1.value != e2.value) {
+		e1.style.borderColor = "red";
+		e2.style.borderColor = "red";
 		document.getElementById(sub).setAttribute("disabled", "disabled");
 	} else {
-		document.getElementById(mes).setAttribute("hidden", true);
+		e1.style.borderColor = "#ccc";
+		e2.style.borderColor = "#ccc";
 		document.getElementById(sub).removeAttribute("disabled");
 		
 	}

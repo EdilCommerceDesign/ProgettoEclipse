@@ -48,10 +48,11 @@ if (bean == null) {
 	}
 	%>
 	<h1>AREA UTENTE</h1>
-	<p>Benvenuto <%=bean.getUsername() %>, qui puoi modificare le tue informazioni personali</p>
+	<h2>Benvenuto <%=bean.getUsername() %>, qui puoi modificare le tue informazioni personali</h2>
 	
 	<div class="container">
-		<form method="post" action="<%=response.encodeURL("/EdilCommerce_Design//Modifica")%>">
+		<h2>Informazioni personali</h2>
+		<form id="profilo" method="post" action="<%=response.encodeURL("/EdilCommerce_Design//Modifica")%>">
 			<div class="flex">
 				  	<div class="col-50">
 							<label for="nome"><i class="fa fa-user"></i> Nome</label>
@@ -67,10 +68,10 @@ if (bean == null) {
 							<input type="email" name="email" placeholder="mario@ex.com" required readonly value="<%= bean.getEmail()%>">
 							
 							<label for="password"><i class="fa fa-lock"></i> Password</label>
-							<input id="pass" type="password" name="password" placeholder="Password" required readonly value="<%= bean.getUserPassword() %>" onkeyup="controllaPass('pass', 'confermaPass','messaggioPass', 'salva')">
+							<input id="pass" type="password" name="password" placeholder="Password" required readonly value="<%= bean.getUserPassword() %>" onkeyup="controllaPass('pass', 'confermaPass', 'salva')">
 							
 							<label for="confermaPass"><i class="fa fa-lock"></i> Conferma Password</label>
-							<input id="confermaPass" type="password" name="confermaP" placeholder="Password" required readonly value="<%= bean.getUserPassword() %>" onkeyup="controllaPass('pass', 'confermaPass','messaggioPass', 'salva')"><p hidden="true" id="messaggioPass" style="color:red;margin:0">X</p>
+							<input id="confermaPass" type="password" name="confermaP" placeholder="Password" required readonly value="<%= bean.getUserPassword() %>" onkeyup="controllaPass('pass', 'confermaPass', 'salva')">
 					</div>
 							
 					<div class="col-50">		
@@ -80,7 +81,7 @@ if (bean == null) {
 							<label for="telefono"><i class="fa fa-phone"></i> Telefono</label>
 							<input type="text" name="telefono" placeholder="ex. 089893888" required readonly value="<%= bean.getTelefono() %>">
 						
-							<label for="citta"><i class="fa fa-home"></i> Città</label>
+							<label for="citta"><i class="fa fa-institution"></i> Città</label>
 							<input type="text" name="citta" placeholder="Salerno" required readonly value="<%= bean.getCittà() %>">
 							
 							<label for="cap"><i class="fa fa-home"></i> Cap</label>
@@ -92,7 +93,7 @@ if (bean == null) {
 							<input type="hidden" name="originalUsername" value ="<%=bean.getUsername() %>">
 					</div>
 						
-							<br><input type="submit" id="salva" value="Salva" >&nbsp;<input type="reset" value="Reset">
+							<br><input type="submit" id="salva" value="Salva" >&nbsp;<input type="reset" value="Reset">&nbsp;<input type="button" onclick='setModificable()' value="Modifica">
 			</div>
 		</form>
 	</div>

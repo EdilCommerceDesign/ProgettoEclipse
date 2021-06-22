@@ -34,6 +34,9 @@ public class Modifica extends HttpServlet {
 			bean.setUserPassword(request.getParameter("password"));
 			bean.setTelefono(request.getParameter("telefono"));
 			bean.setIndirizzo(request.getParameter("indirizzo"));
+			bean.setCittà(request.getParameter("citta"));
+			bean.setCap(request.getParameter("cap"));
+			bean.setStato(request.getParameter("stato"));
 			try {
 				model.doUpdate(bean, original);
 			} catch (SQLException e) {
@@ -55,6 +58,9 @@ public class Modifica extends HttpServlet {
 					bean.setUserPassword(request.getParameter("password"));
 					bean.setTelefono(request.getParameter("telefono"));
 					bean.setIndirizzo(request.getParameter("indirizzo"));
+					bean.setCittà(request.getParameter("citta"));
+					bean.setCap(request.getParameter("cap"));
+					bean.setStato(request.getParameter("stato"));
 					try {
 						model.doUpdate(bean, original);
 					} catch (SQLException e) {
