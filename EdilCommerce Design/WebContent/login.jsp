@@ -6,10 +6,12 @@
 <head>
 <meta charset="ISO-8859-1">
 <link href="/EdilCommerce_Design/css/default.css" rel="stylesheet" type="text/css">
-<link href="/EdilCommerce_Design/css/registrazione.css" rel="stylesheet" type="text/css">
+<link href="/EdilCommerce_Design/css/login.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <title>Login</title>
 </head>
-<body>
+<body class="all">
 	<%@ include file="./header.jsp" %>
 	<%
 		HttpSession session = request.getSession(true);
@@ -22,20 +24,22 @@
 		}
 	%>
 
-	<div class=body>
-		<img alt="logo-edil" src="/EdilCommerce_Design/img/logo.png" id="mainLogo">
-		<div class="input">
+	<img alt="logo-edil" src="/EdilCommerce_Design/img/logo.png" id="mainLogo">
+	<div class="container">
+		
 			<form method="post" action="<%=response.encodeURL("/EdilCommerce_Design/Login") %>">
-				<fieldset>
-					<legend>LOGIN</legend>
-					<table>
-						<tr><td>Username</td><td><input type="text" name="username" placeholder="Username"></td></tr>
-						<tr><td>Password</td><td><input type="password" name="password" placeholder="Password"></td></tr>
-					</table>
-					<input type="submit" value="Login">&nbsp;<input type="reset" value="Reset">
-				</fieldset>
+				
+					<h1 class="all">LOGIN</h1>
+						<label for="username"><i class="fa fa-user"></i> Username</label>
+						<input type="text" name="username" placeholder="ex. Rossi" required >
+						
+						<label for="password"><i class="fa fa-lock"></i> Password</label>
+						<input id="pass" type="password" name="password" placeholder="Password" required >
+							
+					<div class="all"><br><input type="submit" value="Login">&nbsp;<input type="reset" value="Reset"></div>
+				
 			</form>
-		</div>
+		
 		<%
 		String error = (String) request.getAttribute("error");
 		if (error != null && !error.equals("")) {
@@ -46,8 +50,8 @@
 		%>
 		
 		<h4>Oppure</h4><br>
-		
 		<input type="button" value="Registrati" onclick="window.location.href='<%=response.encodeURL("/EdilCommerce_Design/registrazione.jsp")%>'">
+		
 	</div>
 </body>
 </html>

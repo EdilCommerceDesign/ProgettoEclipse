@@ -7,15 +7,15 @@
 <meta charset="ISO-8859-1">
 <link href="/EdilCommerce_Design/css/default.css" rel="stylesheet" type="text/css">
 <link href="/EdilCommerce_Design/css/registrazione.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>Registrazione</title>
 </head>
 <body>
 	<%@ include file="./header.jsp" %>
 
 	<script type="text/javascript" src="/EdilCommerce_Design/script/profiloScripts.js"></script>
-	<div class="body">
-		<img alt="logo-edil" src="/EdilCommerce_Design/img/logo.png" id="mainLogo"> 
-	<div class="input">
+	
+	<div class="all">
 	<h1>CREA UN ACCOUNT</h1>
 	<!--<h2>Per effettuare i tuoi magnifici acquisti</h2> -->
 	<%
@@ -25,28 +25,52 @@
 	<p style="color: red"><%=error%>
 	<%
 	}
-	%>
-	<form method="post" action="<%=response.encodeURL("/EdilCommerce_Design/Registrazione")%>">
-		<fieldset>
-			  <legend>Informazioni Personali:</legend>
-					<table>
-						<tr><td>Nome</td> <td><input type="text" name="nome" placeholder="ex. Mario" required></td></tr>
-						<tr><td>Cognome </td> <td> <input type="text" name="cognome" placeholder="ex. Rossi" required></td></tr>
-						<tr><td>Username</td> <td> <input type="text" name="username" placeholder="ex. Rossi" required></td></tr>
-						<tr><td>E-mail  </td> <td> <input type="email" name="email" placeholder="mario@ex.com" required></td></tr>
-						<tr><td>Password</td> <td> <input id="pass"type="password" name="password" placeholder="Password" required onkeyup="controllaPass('pass', 'confermaPass','messaggioPass', 'salva')"></td></tr>
-						<tr><td>Conferma Password </td> <td><input id="confermaPass" type="password" name="confermaP" placeholder="Password" required onkeyup="controllaPass('pass', 'confermaPass','messaggioPass', 'salva')"></td><td><p hidden="true" id="messaggioPass" style="color:red;margin:0">X</td></tr>
-						<tr><td>Indirizzo </td> <td> <input type="text" name="indirizzo" placeholder="ex. via demanio 7/1" required></td></tr>
-						<tr><td>Telefono  </td> <td><input type="text" name="telefono" placeholder="ex. 089893888" required></td></tr>
-					</table>
-			
-					<input type="submit" id="salva" value="Registrati">&nbsp;<input type="reset" value="Reset">
-		</fieldset>
-		</form>
-	
+	%>		
+		<div class="container">		
+		<form id="registrazione" method="post" action="<%=response.encodeURL("/EdilCommerce_Design/Registrazione")%>">
+			<div class="flex">
+				  	<div class="col-50">
+							<label for="nome"><i class="fa fa-user"></i> Nome</label>
+							<input type="text" name="nome" placeholder="ex. Mario" required>
+							
+							<label for="cognome"><i class="fa fa-user"></i> Cognome</label>
+							<input type="text" name="cognome" placeholder="ex. Rossi" required >
+							
+							<label for="username"><i class="fa fa-user"></i> Username</label>
+							<input type="text" name="username" placeholder="ex. Rossi" required >
+							
+							<label for="email"><i class="fa fa-envelope"></i> E-mail</label>
+							<input type="email" name="email" placeholder="mario@ex.com" required >
+							
+							<label for="password"><i class="fa fa-lock"></i> Password</label>
+							<input id="pass" type="password" name="password" placeholder="Password" required onkeyup="controllaPass('pass', 'confermaPass', 'salva')" >
+							
+							<label for="confermaPass"><i class="fa fa-lock"></i> Conferma Password</label>
+							<input id="confermaPass" type="password" name="confermaP" placeholder="Password" required onkeyup="controllaPass('pass', 'confermaPass', 'salva')">
+					</div>
+							
+					<div class="col-50">		
+							<label for="indirizzo"><i class="fa fa-address-card-o"></i> Indirizzo</label>
+							<input type="text" name="indirizzo" placeholder="ex. via demanio 7/1" required >
+							
+							<label for="telefono"><i class="fa fa-phone"></i> Telefono</label>
+							<input type="text" name="telefono" placeholder="ex. 089893888" required >
+						
+							<label for="citta"><i class="fa fa-institution"></i> Città</label>
+							<input type="text" name="citta" placeholder="Salerno" required >
+							
+							<label for="cap"><i class="fa fa-home"></i> Cap</label>
+							<input type="text" name="cap" placeholder="800000" required >
+							
+							<label for="stato"><i class="fa fa-home"></i> Stato</label>
+							<input type="text" name="stato" placeholder="IT" required >
+							
+					</div>
+							<br><div class="all"><input type="submit" id="salva" value="Registrati">&nbsp;<input type="reset" value="Reset"></div>
+			</div>
+		</form>	
+	</div>
 	<a href="<%=response.encodeURL("home.jsp")%>">Torna alla home</a>
-	</div>
-	
-	</div>
+	</div>	
 </body>
 </html>

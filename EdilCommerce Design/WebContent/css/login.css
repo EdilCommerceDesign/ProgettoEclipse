@@ -1,0 +1,33 @@
+@charset "ISO-8859-1";
+.all {
+	text-align: center;
+}
+
+
+.container {
+ 	margin: auto;
+ 	width: 500px;
+  
+}
+
+input[type=text], input[type=password]{
+  width: 70%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+}
+input:focus{
+ box-shadow: 0 0 0 1pt black;
+ outline: none;
+
+}
+
+label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+h4 {
+	margin-bottom: 0;
+}
