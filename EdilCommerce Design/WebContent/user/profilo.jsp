@@ -18,7 +18,7 @@ if(session == null) {
     pageEncoding="ISO-8859-1" import="javax.sql.*,model.*,utils.*"%>
 <!DOCTYPE html>
 <%
-UserBean bean = (UserBean) request.getSession().getAttribute("loggedUser");
+UserBean bean = (UserBean) session.getAttribute("loggedUser");
 if (bean == null) {
 	session.removeAttribute("userRole");
 	session.removeAttribute("adminRole");

@@ -35,37 +35,37 @@ Carrello<ArticoloBean> carrello = (Carrello<ArticoloBean>) session.getAttribute(
 <div class="row">
   <div class="col-75">
     <div class="container">
-      <form action="">
+      <form method="post" action="<%=response.encodeURL("/EdilCommerce_Design/ComputaOrdine")%>">
       
         <div class="row">
           <div class="col-50">
             <h3>Indirizzo di fatturazione</h3>
-            <label for="fname"><i class="fa fa-user"></i> Nome</label>
-            <input type="text" id="fname" name="firstname" placeholder="Mario">
+            <label for="nome"><i class="fa fa-user"></i> Nome</label>
+            <input type="text" id="nome" name="nome" placeholder="Mario">
             
-            <label for="lname"><i class="fa fa-user"></i> Cognome</label>
-            <input type="text" id="lname" name="laststname" placeholder="Rossi">
+            <label for="cognome"><i class="fa fa-user"></i> Cognome</label>
+            <input type="text" id="cognome" name="cognome" placeholder="Rossi">
             
             <label for="email"><i class="fa fa-envelope"></i> Email</label>
             <input type="text" id="email" name="email" placeholder="marioRossi@example.com">
             
-            <label for="adr"><i class="fa fa-phone"></i> Telefono</label>
-            <input type="text" id="tel" name="telefono" placeholder="088-8888">
+            <label for="telefono"><i class="fa fa-phone"></i> Telefono</label>
+            <input type="text" id="telefono" name="telefono" placeholder="088-8888">
             
-            <label for="adr"><i class="fa fa-address-card-o"></i> Indirizzo</label>
-            <input type="text" id="adr" name="address" placeholder="via umberto I">
+            <label for="indirizzo"><i class="fa fa-address-card-o"></i> Indirizzo</label>
+            <input type="text" id="indirizzo" name="indirizzo" placeholder="via umberto I">
             
-            <label for="city"><i class="fa fa-institution"></i> Città</label>
-            <input type="text" id="city" name="city" placeholder="Salerno">
+            <label for="citta"><i class="fa fa-institution"></i> Città</label>
+            <input type="text" id="citta" name="citta" placeholder="Salerno">
 
             <div class="row">
               <div class="col-50">
-                <label for="state">Stato</label>
-                <input type="text" id="state" name="state" placeholder="IT">
+                <label for="stato">Stato</label>
+                <input type="text" id="stato" name="stato" placeholder="IT">
               </div>
               <div class="col-50">
-                <label for="zip">CAP</label>
-                <input type="text" id="zip" name="cap" placeholder="84085">
+                <label for="cap">CAP</label>
+                <input type="text" id="cap" name="cap" placeholder="84085">
               </div>
             </div>
           </div>
@@ -81,20 +81,33 @@ Carrello<ArticoloBean> carrello = (Carrello<ArticoloBean>) session.getAttribute(
               <i class="fa fa-cc-mastercard" style="color:red;"></i>
               <i class="fa fa-cc-discover" style="color:orange;"></i>
             </div>
-            <label for="cname">Intestatario della carta</label>
-            <input type="text" id="cname" name="cardname" placeholder="Mario Rossi">
-            <label for="ccnum">Numero carta</label>
-            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+            <label for="cnome">Intestatario della carta</label>
+            <input type="text" id="cnome" name="cardname" placeholder="Mario Rossi" required>
+            <label for="cnum">Numero carta</label>
+            <input type="text" id="cnum" name="cardnumber" placeholder="1111-2222-3333-4444" required>
             <label for="expmonth">Validità (mese)</label>
-            <input type="text" id="expmonth" name="expmonth" placeholder="Settembre">
+            <select name="expmonth" id="expmonth" required>
+			  <option value="01">Gennaio</option>
+			  <option value="02">Febbraio</option>
+			  <option value="03">Marzo</option>
+			  <option value="04">Aprile</option>
+			  <option value="05">Maggio</option>
+			  <option value="06">Giugno</option>
+			  <option value="07">Luglio</option>
+			  <option value="08">Agosto</option>
+			  <option value="09">Settembre</option>
+			  <option value="10">Ottobre</option>
+			  <option value="11">Novembre</option>
+			  <option value="12">Dicembre</option>
+			</select>
             <div class="row">
               <div class="col-50">
                 <label for="expyear">Validità (anno)</label>
-                <input type="text" id="expyear" name="expyear" placeholder="2022">
+                <input type="text" id="expyear" name="expyear" placeholder="2022" required>
               </div>
               <div class="col-50">
                 <label for="cvv">CVV</label>
-                <input type="text" id="cvv" name="cvv" placeholder="352">
+                <input type="text" id="cvv" name="cvv" placeholder="352" required>
               </div>
             </div>
           </div>
