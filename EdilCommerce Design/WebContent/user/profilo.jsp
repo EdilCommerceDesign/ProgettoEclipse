@@ -49,53 +49,56 @@ if (bean == null) {
 	%>
 	<h1>AREA UTENTE</h1>
 	<h2>Benvenuto <%=bean.getUsername() %>, qui puoi modificare le tue informazioni personali</h2>
-	
-	<div class="container">
-		<h2>Informazioni personali</h2>
-		<form id="profilo" method="post" action="<%=response.encodeURL("/EdilCommerce_Design//Modifica")%>">
-			<div class="flex">
-				  	<div class="col-50">
-							<label for="nome"><i class="fa fa-user"></i> Nome</label>
-							<input type="text" name="nome" placeholder="ex. Mario" required readonly  value="<%= bean.getNome() %>">
+	<ul>
+		<li onclick="visualizza('infoP')"><h2>Informazioni personali</h2></li>
+		<div class="container" id="infoP" style="display: none;">
+			<h2 style="text-align: center">Informazioni personali</h2>
+			<form id="profilo" method="post" action="<%=response.encodeURL("/EdilCommerce_Design//Modifica")%>">
+				<div class="flex">
+					  	<div class="col-50">
+								<label for="nome"><i class="fa fa-user"></i> Nome</label>
+								<input type="text" name="nome" placeholder="ex. Mario" required readonly  value="<%= bean.getNome() %>">
+								
+								<label for="cognome"><i class="fa fa-user"></i> Cognome</label>
+								<input type="text" name="cognome" placeholder="ex. Rossi" required readonly value="<%= bean.getCognome() %>">
+								
+								<label for="username"><i class="fa fa-user"></i> Username</label>
+								<input type="text" name="username" placeholder="ex. Rossi" required readonly value="<%= bean.getUsername() %>">
+								
+								<label for="email"><i class="fa fa-envelope"></i> E-mail</label>
+								<input type="email" name="email" placeholder="mario@ex.com" required readonly value="<%= bean.getEmail()%>">
+								
+								<label for="password"><i class="fa fa-lock"></i> Password</label>
+								<input id="pass" type="password" name="password" placeholder="Password" required readonly value="<%= bean.getUserPassword() %>" onkeyup="controllaPass('pass', 'confermaPass', 'salva')">
+								
+								<label for="confermaPass"><i class="fa fa-lock"></i> Conferma Password</label>
+								<input id="confermaPass" type="password" name="confermaP" placeholder="Password" required readonly value="<%= bean.getUserPassword() %>" onkeyup="controllaPass('pass', 'confermaPass', 'salva')">
+						</div>
+								
+						<div class="col-50">		
+								<label for="indirizzo"><i class="fa fa-address-card-o"></i> Indirizzo</label>
+								<input type="text" name="indirizzo" placeholder="ex. via demanio 7/1" required readonly value="<%= bean.getIndirizzo() %>">
+								
+								<label for="telefono"><i class="fa fa-phone"></i> Telefono</label>
+								<input type="text" name="telefono" placeholder="ex. 089893888" required readonly value="<%= bean.getTelefono() %>">
 							
-							<label for="cognome"><i class="fa fa-user"></i> Cognome</label>
-							<input type="text" name="cognome" placeholder="ex. Rossi" required readonly value="<%= bean.getCognome() %>">
+								<label for="citta"><i class="fa fa-institution"></i> Città</label>
+								<input type="text" name="citta" placeholder="Salerno" required readonly value="<%= bean.getCittà() %>">
+								
+								<label for="cap"><i class="fa fa-home"></i> Cap</label>
+								<input type="text" name="cap" placeholder="800000" required readonly value="<%= bean.getCap() %>">
+								
+								<label for="stato"><i class="fa fa-home"></i> Stato</label>
+								<input type="text" name="stato" placeholder="IT" required readonly value="<%= bean.getStato() %>">
+								
+								<input type="hidden" name="originalUsername" value ="<%=bean.getUsername() %>">
+						</div>
 							
-							<label for="username"><i class="fa fa-user"></i> Username</label>
-							<input type="text" name="username" placeholder="ex. Rossi" required readonly value="<%= bean.getUsername() %>">
-							
-							<label for="email"><i class="fa fa-envelope"></i> E-mail</label>
-							<input type="email" name="email" placeholder="mario@ex.com" required readonly value="<%= bean.getEmail()%>">
-							
-							<label for="password"><i class="fa fa-lock"></i> Password</label>
-							<input id="pass" type="password" name="password" placeholder="Password" required readonly value="<%= bean.getUserPassword() %>" onkeyup="controllaPass('pass', 'confermaPass', 'salva')">
-							
-							<label for="confermaPass"><i class="fa fa-lock"></i> Conferma Password</label>
-							<input id="confermaPass" type="password" name="confermaP" placeholder="Password" required readonly value="<%= bean.getUserPassword() %>" onkeyup="controllaPass('pass', 'confermaPass', 'salva')">
-					</div>
-							
-					<div class="col-50">		
-							<label for="indirizzo"><i class="fa fa-address-card-o"></i> Indirizzo</label>
-							<input type="text" name="indirizzo" placeholder="ex. via demanio 7/1" required readonly value="<%= bean.getIndirizzo() %>">
-							
-							<label for="telefono"><i class="fa fa-phone"></i> Telefono</label>
-							<input type="text" name="telefono" placeholder="ex. 089893888" required readonly value="<%= bean.getTelefono() %>">
-						
-							<label for="citta"><i class="fa fa-institution"></i> Città</label>
-							<input type="text" name="citta" placeholder="Salerno" required readonly value="<%= bean.getCittà() %>">
-							
-							<label for="cap"><i class="fa fa-home"></i> Cap</label>
-							<input type="text" name="cap" placeholder="800000" required readonly value="<%= bean.getCap() %>">
-							
-							<label for="stato"><i class="fa fa-home"></i> Stato</label>
-							<input type="text" name="stato" placeholder="IT" required readonly value="<%= bean.getStato() %>">
-							
-							<input type="hidden" name="originalUsername" value ="<%=bean.getUsername() %>">
-					</div>
-						
-							<br><input type="submit" id="salva" value="Salva" >&nbsp;<input type="reset" value="Reset">&nbsp;<input type="button" onclick='setModificable()' value="Modifica">
-			</div>
-		</form>
-	</div>
+								<br><input type="submit" id="salva" value="Salva" >&nbsp;<input type="reset" value="Reset">&nbsp;<input type="button" onclick='setModificable()' value="Modifica">
+				</div>
+			</form>
+		</div>
+		<li onclick="visualizza('')"><h2>Ordini effettuati</h2></li>
+	</ul>
 </body>
 </html>

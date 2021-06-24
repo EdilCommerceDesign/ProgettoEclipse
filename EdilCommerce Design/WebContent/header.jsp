@@ -6,6 +6,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <link href="/EdilCommerce_Design/css/header.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>Insert title here</title>
 </head>
 <body>
@@ -58,7 +59,7 @@
 		</div>
 	</header>
 	
-	<nav><ul class="bottom">
+	<nav class="bottom" id="topNav">
 	<%
 		if(headerCollection != null){
 			if(!headerCollection.isEmpty()) {
@@ -66,12 +67,25 @@
 				while(it.hasNext()){
 					CategoriaBean catBean = it.next();
 	%>
-	<li><a href="<%=response.encodeURL("/EdilCommerce_Design/Search?criterioRicerca=" + catBean.getNome()) %>"><%=catBean.getNome() %></a></li>			
-	<% 			
+	<a href="<%=response.encodeURL("/EdilCommerce_Design/Search?criterioRicerca=" + catBean.getNome()) %>"><%=catBean.getNome() %></a>		
+	<% 	
 				}		
 			}
 		}
 	%>
-	</ul></nav>
+	<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+	</nav>
+	<script>
+function myFunction() {
+  var x = document.getElementById("topNav");
+  if (x.className === "bottom") {
+    x.className += " responsive";
+  } else {
+    x.className = "bottom";
+  }
+}
+</script>
 </body>
 </html>
