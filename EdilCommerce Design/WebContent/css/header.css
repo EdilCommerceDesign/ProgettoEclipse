@@ -75,14 +75,53 @@ header a {
 	padding: 0px;
 	text-align: center;
 	border-radius: 0 0 3px 3px;
+	
+  	overflow: hidden;
 } 
-
-.bottom li {
-	padding-right: 10px;
-	display:inline;
+.bottom a {
+  float: left;
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
 }
 
-.bottom li a{
-	color: #272F38;
-	text-decoration: none;
+.bottom a{
+	color: black;
 }
+.bottom a:visited{
+	color: black;
+}
+
+.bottom a:hover {
+  background-color: #206dcb;
+  color:  #f2f2f2;
+}
+
+
+.bottom .icon {
+  display: none;
+}
+
+@media all and (max-width: 600px) {
+  .bottom a:not(:first-child) {display: none;}
+  .bottom a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .bottom.responsive {position: relative;}
+  .bottom.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .bottom.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  }
