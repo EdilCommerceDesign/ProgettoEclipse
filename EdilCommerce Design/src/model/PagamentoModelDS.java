@@ -11,28 +11,27 @@ import javax.sql.DataSource;
 
 import utils.Utility;
 
-public class OrdineModelDS implements ModelInterface<OrdineBean> {
-	
+public class PagamentoModelDS implements ModelInterface<PagamentoBean> {
 	private DataSource ds = null;
 	
-	public OrdineModelDS(DataSource ds) {
+	public PagamentoModelDS(DataSource ds) {
 		this.ds = ds;
 	}
 
 	@Override
-	public OrdineBean doRetriveByKey(String code) throws SQLException {
+	public PagamentoBean doRetriveByKey(String code) throws SQLException {
 		return null;
 	}
 
 	@Override
-	public OrdineBean doRetriveByKey(int code) throws SQLException {
+	public PagamentoBean doRetriveByKey(int code) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		
-		String selectCodeSQL = "SELECT * FROM ordine WHERE numeroOrdine=?";
+		String selectCodeSQL = "SELECT * FROM pagamento WHERE numeroPagamento=?";
 		
-		OrdineBean bean = new OrdineBean();
+		PagamentoBean bean = new PagamentoBean();
 		
 		try {
 			con = ds.getConnection();
@@ -45,9 +44,9 @@ public class OrdineModelDS implements ModelInterface<OrdineBean> {
 			rs = ps.executeQuery();
 			
 			if(rs.next()) {
-				bean.setUsername(rs.getString("username"));
-				bean.setData(rs.getDate("data"));
-				bean.setNumeroOrdine(rs.getInt("cognome"));
+				bean.setNumeroPagamento(rs.getInt("numeroPagamento"));
+				bean.setNumeroOrdine(rs.getInt("numeroOrdine"));
+				bean.setImporto(rs.getDouble("numeroOrdine"));
 			}
 		} finally {
 			try {
@@ -65,27 +64,28 @@ public class OrdineModelDS implements ModelInterface<OrdineBean> {
 	}
 
 	@Override
-	public Collection<OrdineBean> doRetriveAll(String order) throws SQLException {
+	public Collection<PagamentoBean> doRetriveAll(String order) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		
-		String selectCodeSQL = "SELECT * FROM ordine";
+		String selectCodeSQL = "SELECT * FROM pagamento";
 		
-		Collection<OrdineBean> collection = new LinkedList<OrdineBean>();
+		Collection<PagamentoBean> collection = new LinkedList<PagamentoBean>();
+		
 		try {
 			con = ds.getConnection();
 			ps = con.prepareStatement(selectCodeSQL);
 			
-			Utility.print("doRetriveByOneKey: " + ps.toString());
+			Utility.print("doRetriveAll: " + ps.toString());
 			
 			rs = ps.executeQuery();
 			
 			while(rs.next()) {
-				OrdineBean bean = new OrdineBean();
-				bean.setUsername(rs.getString("username"));
-				bean.setData(rs.getDate("data"));
+				PagamentoBean bean = new PagamentoBean();
+				bean.setNumeroPagamento(rs.getInt("numeroPagamento"));
 				bean.setNumeroOrdine(rs.getInt("numeroOrdine"));
+				bean.setImporto(rs.getDouble("numeroOrdine"));
 				collection.add(bean);
 			}
 		} finally {
@@ -99,21 +99,23 @@ public class OrdineModelDS implements ModelInterface<OrdineBean> {
 					rs.close();
 			}
 		}
+		
 		return collection;
 	}
 
 	@Override
-	public void doSave(OrdineBean item) throws SQLException {
+	public void doSave(PagamentoBean item) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
 		
-		String InsertSQL = "INSERT INTO ordine (data, username) VALUES (NOW(),?)";
+		String InsertSQL = "INSERT INTO pagamento (numeroOrdine, importo) VALUES (?,?)";
 		
 			try {
 				con = ds.getConnection();
 				ps = con.prepareStatement(InsertSQL);
 				
-				ps.setString(1, item.getUsername());
+				ps.setInt(1, item.getNumeroOrdine());
+				ps.setDouble(2, item.getImporto());
 
 				Utility.print("doSave: " + ps.toString());
 
@@ -128,19 +130,17 @@ public class OrdineModelDS implements ModelInterface<OrdineBean> {
 						con.close();
 				}
 			}
-		
 	}
 
 	@Override
-	public void doUpdate(OrdineBean item, String code) throws SQLException {
+	public void doUpdate(PagamentoBean item, String code) throws SQLException {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void doDelete(OrdineBean item) throws SQLException {
+	public void doDelete(PagamentoBean item) throws SQLException {
 		// TODO Auto-generated method stub
 		
 	}
-
 }

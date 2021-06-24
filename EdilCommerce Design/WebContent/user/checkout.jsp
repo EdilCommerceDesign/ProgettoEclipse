@@ -15,6 +15,15 @@ if(session == null) {
 		return;
 	}
 }
+
+UserBean bean = (UserBean) session.getAttribute("loggedUser");
+if (bean == null) {
+	session.removeAttribute("userRole");
+	session.removeAttribute("adminRole");
+	session.invalidate();
+	response.sendRedirect(response.encodeRedirectURL("/EdilCommerce_Design/login.jsp"));
+	return;
+}
 Carrello<ArticoloBean> carrello = (Carrello<ArticoloBean>) session.getAttribute("Carrello");
 %>
 <!DOCTYPE html>
@@ -35,45 +44,45 @@ Carrello<ArticoloBean> carrello = (Carrello<ArticoloBean>) session.getAttribute(
 <div class="row">
   <div class="col-75">
     <div class="container">
-      <form method="post" action="<%=response.encodeURL("/EdilCommerce_Design/ComputaOrdine")%>">
+      <form  method="post" action="<%=response.encodeURL("/EdilCommerce_Design/ComputaOrdine")%>">
       
         <div class="row">
           <div class="col-50">
             <h3>Indirizzo di fatturazione</h3>
             <label for="nome"><i class="fa fa-user"></i> Nome</label>
-            <input type="text" id="nome" name="nome" placeholder="Mario">
+            <input type="text" id="nome" name="nome" placeholder="Mario" value="<%=bean.getNome()%>">
             
             <label for="cognome"><i class="fa fa-user"></i> Cognome</label>
-            <input type="text" id="cognome" name="cognome" placeholder="Rossi">
+            <input type="text" id="cognome" name="cognome" placeholder="Rossi" value="<%=bean.getCognome()%>">
             
             <label for="email"><i class="fa fa-envelope"></i> Email</label>
-            <input type="text" id="email" name="email" placeholder="marioRossi@example.com">
+            <input type="text" id="email" name="email" placeholder="marioRossi@example.com" value="<%=bean.getEmail()%>">
             
             <label for="telefono"><i class="fa fa-phone"></i> Telefono</label>
-            <input type="text" id="telefono" name="telefono" placeholder="088-8888">
+            <input type="text" id="telefono" name="telefono" placeholder="088-8888" value="<%=bean.getTelefono()%>">
             
             <label for="indirizzo"><i class="fa fa-address-card-o"></i> Indirizzo</label>
-            <input type="text" id="indirizzo" name="indirizzo" placeholder="via umberto I">
+            <input type="text" id="indirizzo" name="indirizzo" placeholder="via umberto I" value="<%=bean.getIndirizzo()%>">
             
             <label for="citta"><i class="fa fa-institution"></i> Città</label>
-            <input type="text" id="citta" name="citta" placeholder="Salerno">
+            <input type="text" id="citta" name="citta" placeholder="Salerno" value="<%=bean.getCittà()%>">
 
             <div class="row">
               <div class="col-50">
                 <label for="stato">Stato</label>
-                <input type="text" id="stato" name="stato" placeholder="IT">
+                <input type="text" id="stato" name="stato" placeholder="IT" value="<%=bean.getStato()%>">
               </div>
               <div class="col-50">
                 <label for="cap">CAP</label>
-                <input type="text" id="cap" name="cap" placeholder="84085">
+                <input type="text" id="cap" name="cap" placeholder="84085" value="<%=bean.getCap()%>">
               </div>
             </div>
           </div>
 		<script type="text/javascript" src="/EdilCommerce_Design/script/checkout.js"></script>
           <div class="col-50">
             <h3>Pagamento con carta o contrassegno</h3>
-             <label><h4><input type="radio" checked="checked" name="metodo" onclick="abilita()"> Carta </h4></label>
-             <label><h4><input type="radio"  name="metodo" onclick="disabilita()"> Contrassegno </h4></label>
+             <label><h4><input type="radio" checked="checked" name="metodo" value="1" onclick="abilita()"> Carta </h4></label>
+             <label><h4><input type="radio"  name="metodo" value="2" onclick="disabilita()"> Contrassegno </h4></label>
             <label for="fname">Carte Accettate</label>
             <div class="icon-container">
               <i class="fa fa-cc-visa" style="color:navy;"></i>
@@ -82,9 +91,9 @@ Carrello<ArticoloBean> carrello = (Carrello<ArticoloBean>) session.getAttribute(
               <i class="fa fa-cc-discover" style="color:orange;"></i>
             </div>
             <label for="cnome">Intestatario della carta</label>
-            <input type="text" id="cnome" name="cardname" placeholder="Mario Rossi" required>
+            <input type="text" id="cnome" name="cnome" placeholder="Mario Rossi" required>
             <label for="cnum">Numero carta</label>
-            <input type="text" id="cnum" name="cardnumber" placeholder="1111-2222-3333-4444" required>
+            <input type="text" id="cnum" name="cnum" placeholder="1111-2222-3333-4444" required>
             <label for="expmonth">Validità (mese)</label>
             <select name="expmonth" id="expmonth" required>
 			  <option value="01">Gennaio</option>
@@ -129,7 +138,7 @@ Carrello<ArticoloBean> carrello = (Carrello<ArticoloBean>) session.getAttribute(
 	Iterator<Integer> it2 = quantità.iterator();
 	DecimalFormat df = new DecimalFormat("#.00");
 		
-	ArticoloBean bean = new ArticoloBean();
+	ArticoloBean aBean = new ArticoloBean();
 	Integer q = 0;
 	double totale = 0;
 	%>
@@ -137,12 +146,12 @@ Carrello<ArticoloBean> carrello = (Carrello<ArticoloBean>) session.getAttribute(
 	<%
 			
 	while(it1.hasNext() && it2.hasNext()){
-		bean=it1.next();
+		aBean=it1.next();
 		q=it2.next();
 	%>
-      <p><%=q%> <a href="<%= response.encodeURL("/EdilCommerce_Design/articolo.jsp?articolo=" + bean.getCodiceArticolo())%>"><%=bean.getNome() %></a>  <span class="price"><%=df.format(bean.getCosto() * q)%>&euro;</span></p>
+      <p><%=q%> <a href="<%= response.encodeURL("/EdilCommerce_Design/articolo.jsp?articolo=" + aBean.getCodiceArticolo())%>"><%=aBean.getNome() %></a>  <span class="price"><%=df.format(aBean.getCosto() * q)%>&euro;</span></p>
     <%
-   	 totale = totale + (q * bean.getCosto());
+   	 totale = totale + (q * aBean.getCosto());
 	}
     %>    
       <hr>

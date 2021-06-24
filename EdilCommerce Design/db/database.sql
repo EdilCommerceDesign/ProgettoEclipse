@@ -55,7 +55,6 @@ DROP TABLE IF EXISTS pagamento;
 CREATE TABLE pagamento (
 numeroPagamento		int auto_increment		not null,
 numeroOrdine		int						not null,
-data				date                 	not null,
 importo				double					not null,
 primary key (numeroPagamento),
 foreign key (numeroOrdine) references ordine (numeroOrdine)
@@ -88,7 +87,7 @@ CREATE TABLE carta (
 numeroPagamento      int 					not null,
 numero				varchar(100)			not null,
 intestatario		varchar(100)			not null,
-dataScadenza        date					not null,
+dataScadenza        char(7)					not null,
 cvv					varchar(10)				not null,
 primary key (numeroPagamento),
 foreign key (numeroPagamento) references pagamento (numeroPagamento)

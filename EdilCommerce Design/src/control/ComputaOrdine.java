@@ -15,13 +15,20 @@ import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 import model.ArticoloBean;
+import model.ArticoloModelDS;
 import model.Carrello;
+import model.CartaBean;
+import model.CartaModelDS;
 import model.ComponeBean;
 import model.ComponeModelDS;
+import model.ContrassegnoBean;
+import model.ContrassegnoModelDS;
 import model.InfoFatturazioneBean;
+import model.InfoFatturazioneModelDS;
 import model.OrdineBean;
 import model.OrdineModelDS;
 import model.PagamentoBean;
+import model.PagamentoModelDS;
 import model.UserBean;
 import utils.Utility;
 
@@ -56,20 +63,77 @@ public class ComputaOrdine extends HttpServlet {
 				Iterator<ArticoloBean> it1 = items.iterator();
 				Iterator<Integer> it2 = quantità.iterator();
 				
+				ArticoloModelDS aModel = new ArticoloModelDS(ds);
+				double importo = 0.0;
+				
 				while(it1.hasNext() && it2.hasNext()) {
 					ComponeBean cBean = new ComponeBean();
 					cBean.setNumeroOrdine(oBean.getNumeroOrdine());
-					cBean.setCodiceArticolo(it1.next().getCodiceArticolo());
-					cBean.setQuantità(it2.next());
+					String codice = it1.next().getCodiceArticolo();
+					int q = it2.next();
+					cBean.setCodiceArticolo(codice);
+					cBean.setQuantità(q);
 					cModel.doSave(cBean);
+					importo = importo + aModel.doRetriveByKey(codice).getCosto() * q;
+					
 				}
 				
-				//Fare PagamentoModelDS InfoModelDS CartaModelDS ContrassegnoModelDS poi continuare con l'inserimento da pagamento in poi
+				PagamentoModelDS pModel = new PagamentoModelDS(ds);
+				
+				pBean.setImporto(importo);
+				pBean.setNumeroOrdine(oBean.getNumeroOrdine());
+				
+				pModel.doSave(pBean);
+				
+				LinkedList<PagamentoBean> pag = (LinkedList<PagamentoBean>) pModel.doRetriveAll("");
+				pBean.setNumeroPagamento(pag.getLast().getNumeroPagamento());
+				
+				InfoFatturazioneModelDS ifModel = new InfoFatturazioneModelDS(ds);
+				
+				ifBean.setNumeroPagamento(pBean.getNumeroPagamento());
+				ifBean.setNome(request.getParameter("nome"));
+				ifBean.setCognome(request.getParameter("cognome"));
+				ifBean.setEmail(request.getParameter("email"));
+				ifBean.setTelefono(request.getParameter("telefono"));
+				ifBean.setIndirizzo(request.getParameter("indirizzo"));
+				ifBean.setCittà(request.getParameter("citta"));
+				ifBean.setStato(request.getParameter("stato"));
+				ifBean.setCap(request.getParameter("cap"));
+				
+				ifModel.doSave(ifBean);
+				
+				String metodo = request.getParameter("metodo");
+				if(metodo.equals("1")) {
+					CartaModelDS caModel = new CartaModelDS(ds);
+					
+					CartaBean caBean = new CartaBean();
+					
+					caBean.setNumeroPagamento(pBean.getNumeroPagamento());
+					caBean.setNumero(request.getParameter("cnum"));
+					caBean.setIntestatario(request.getParameter("cnome"));
+					caBean.setDataScadenza(request.getParameter("expmonth") + "/" + request.getParameter("expyear"));
+					caBean.setCvv(request.getParameter("cvv"));
+					
+					caModel.doSave(caBean);
+				} else if(metodo.equals("2")) {
+					ContrassegnoModelDS coModel = new ContrassegnoModelDS(ds);
+					
+					ContrassegnoBean coBean = new ContrassegnoBean();
+					
+					coBean.setNumeroPagamento(pBean.getNumeroPagamento());
+					
+					coModel.doSave(coBean);
+				}
+				carrello.deleteItems();
+				session.setAttribute("Carrello", carrello);
+				
 				
 			} catch (SQLException e) {
 				Utility.print(e);
 				request.setAttribute("error", e.getMessage());
 			}
+			
+			response.sendRedirect(response.encodeRedirectURL("/EdilCommerce_Design/user/ordineEffettuato.jsp?suc=1"));
 			
 		} 
 		

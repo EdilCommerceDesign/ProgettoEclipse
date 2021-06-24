@@ -6,7 +6,7 @@ public class CartaBean {
 	int numeroPagamento;
 	String numero;
 	String intestatario;
-	Date dataScadenza;
+	String dataScadenza;
 	String cvv;
 	
     public CartaBean() {
@@ -34,10 +34,10 @@ public class CartaBean {
 	public void setIntestatario(String intestatario) {
 		this.intestatario = intestatario;
 	}
-	public Date getDataScadenza() {
+	public String getDataScadenza() {
 		return dataScadenza;
 	}
-	public void setDataScadenza(Date dataScadenza) {
+	public void setDataScadenza(String dataScadenza) {
 		this.dataScadenza = dataScadenza;
 	}
 	public String getCvv() {
