@@ -35,7 +35,7 @@ cognome			varchar(20)		not null,
 email			varchar(20)		not null,
 telefono		varchar(15)		not null,
 indirizzo		varchar(20)		not null,
-città			varchar(20)		not null,
+cittÃ 			varchar(20)		not null,
 stato			varchar(20)		not null,
 cap				varchar(20)		not null,
 userPassword	varchar(20)		not null,
@@ -68,7 +68,7 @@ cognome				varchar(20)				not null,
 email				varchar(50)				not null,
 telefono			varchar(20)				not null,
 indirizzo			varchar(100)			not null,
-città			    varchar(20)				not null,
+cittÃ 			    varchar(20)				not null,
 stato				varchar(20)				not null,
 cap					varchar(20)				not null,
 primary key (numeroPagamento),
@@ -103,7 +103,7 @@ DROP TABLE IF EXISTS compone;
 CREATE TABLE compone (
 numeroOrdine			int		not null,
 codiceArticolo    		char(5)		not null,
-quantità 				int			not null,
+quantita				int			not null,
 primary key (numeroOrdine, codiceArticolo),
 foreign key (numeroOrdine) references ordine (numeroOrdine),
 foreign key (codiceArticolo) references articolo (codiceArticolo)
@@ -133,7 +133,7 @@ foreign key (nome) references ruolo (nome)
 INSERT INTO ruolo(nome) VALUES ("user");
 INSERT INTO ruolo(nome) VALUES ("admin");
 
-INSERT INTO user VALUES ("admin", "nome", "cognome", "admin@email.com", "telefono", "indirizzo", "città", "stato", "84085", "admin");
+INSERT INTO user VALUES ("admin", "nome", "cognome", "admin@email.com", "telefono", "indirizzo", "cittÃ ", "stato", "84085", "admin");
 
 INSERT INTO ruoloUser VALUES ("admin", "user");
 INSERT INTO ruoloUser VALUES ("admin", "admin");
@@ -176,7 +176,7 @@ insert into articolo values
 insert into articolo values
 ("ART28", "sedie moderne", "/EdilCommerce_Design/img/categoria/ArredamentoInterno/sediemoderne.jpg", "stile ed eleganza con il nostro nuovo set di sedie per sala da pranzo. Dotata di solida struttura in metallo", "89.90", "Arredamento interno");
 insert into articolo values
-("ART29", "sedie classiche", "/EdilCommerce_Design/img/categoria/ArredamentoInterno/sedieclassiche.jpg", "Questo set classico composto da 6 sedie per sala da pranzo, con dettagli in ghisa, aggiungerÃ  un tocco di eleganza all'arredamento della vostra casa! ", "95.30", "Arredamento interno");
+("ART29", "sedie classiche", "/EdilCommerce_Design/img/categoria/ArredamentoInterno/sedieclassiche.jpg", "Questo set classico composto da 6 sedie per sala da pranzo, con dettagli in ghisa, aggiungerÃÂ  un tocco di eleganza all'arredamento della vostra casa! ", "95.30", "Arredamento interno");
 insert into articolo values
 ("ART30", "lampada moderna", "/EdilCommerce_Design/img/categoria/ArredamentoInterno/lampadamoderna.jpg", "lampada a sospensione a led oro 80cm / 60cm / 40cm Anello a 3 luci cerchio oro spazzolato opaco finiture verniciate alluminio dimmerabile con telecomando", "204.95", "Arredamento interno");
 
@@ -184,13 +184,13 @@ insert into articolo values
 insert into articolo values
 ("ART03", "sdraio", "/EdilCommerce_Design/img/categoria/ArredamentoEsterno/sdraio.jpg", "sdraio per coppie dotato di copertuta per il sole (200x190)", "339.90", "Arredamento esterno");
 insert into articolo values
-("ART04", "barbecue", "/EdilCommerce_Design/img/categoria/ArredamentoEsterno/barbecue.jpg", "barbecue moderno adatto a tutte le fasce di età e facile da utlizzare", "289.99", "Arredamento esterno");
+("ART04", "barbecue", "/EdilCommerce_Design/img/categoria/ArredamentoEsterno/barbecue.jpg", "barbecue moderno adatto a tutte le fasce di etÃ  e facile da utlizzare", "289.99", "Arredamento esterno");
 insert into articolo values
-("ART31", "gazebo", "/EdilCommerce_Design/img/categoria/ArredamentoEsterno/gazebo.jpg", "Struttura in acciaio, copertura in poliestere da 180 g/m² L'ampia superficie lo rende ideale per riparare dal sole un tavolo o un coffee set", "179.90", "Arredamento esterno");
+("ART31", "gazebo", "/EdilCommerce_Design/img/categoria/ArredamentoEsterno/gazebo.jpg", "Struttura in acciaio, copertura in poliestere da 180 g/mÂ² L'ampia superficie lo rende ideale per riparare dal sole un tavolo o un coffee set", "179.90", "Arredamento esterno");
 insert into articolo values
 ("ART32", "tavolo esterno", "/EdilCommerce_Design/img/categoria/ArredamentoEsterno/tavoloesterno.jpg", "Tavolo da giardino rettangolare alluminio, 160/240X 90", "399.00", "Arredamento esterno");
 insert into articolo values
-("ART33", "sedie esterno", "/EdilCommerce_Design/img/categoria/ArredamentoEsterno/sedieesterno.jpg", "Comode sedie che invitano al relax. Grazie al peso ridotto possono essere trasportate con facilità  con i comodissimi cuscini in poliestere", "79.00", "Arredamento esterno");
+("ART33", "sedie esterno", "/EdilCommerce_Design/img/categoria/ArredamentoEsterno/sedieesterno.jpg", "Comode sedie che invitano al relax. Grazie al peso ridotto possono essere trasportate con facilitÃ Â  con i comodissimi cuscini in poliestere", "79.00", "Arredamento esterno");
 insert into articolo values
 ("ART34", "sdraio esterno", "/EdilCommerce_Design/img/categoria/ArredamentoEsterno/sdraioesterno.jpg", "Set 2 Poltroncine da Giardino Reclinabili con Poggiapiedi e Tavolino in PE Rattan Marrone", "599.95", "Arredamento esterno");
 
@@ -200,7 +200,7 @@ insert into articolo values
 insert into articolo values 
 ("ART06", "paraschizzi per bagni", "/EdilCommerce_Design/img/categoria/Rivestimento/paraschizziBagno.jpg", "elegante paraschizzi di intarsio grigio", "24.90", "Rivestimento");
 insert into articolo values
-("ART37", "rivestimento in pietra naturale", "/EdilCommerce_Design/img/categoria/Rivestimento/rivestimentipietra.jpg", "Se si punta su un design ricercato, una delle idee più affascinanti, quello della pietra naturale è un materiale che offre vantaggi relativi alla facile adattabilità  ed usabilità , ma che allo stesso tempo riesce ad essere molto elegante.", "34.90", "Rivestimento");
+("ART37", "rivestimento in pietra naturale", "/EdilCommerce_Design/img/categoria/Rivestimento/rivestimentipietra.jpg", "Se si punta su un design ricercato, una delle idee piÃ¹ affascinanti, quello della pietra naturale Ã¨ un materiale che offre vantaggi relativi alla facile adattabilitÃ Â  ed usabilitÃ Â , ma che allo stesso tempo riesce ad essere molto elegante.", "34.90", "Rivestimento");
 insert into articolo values
 ("ART38", "rivestimento in pietra di Stone Age", "/EdilCommerce_Design/img/categoria/Rivestimento/stoneage.jpg", "rivestimento in pietra di Stone Age 15X60 in pietra naturale quarzite bianca", "59.90", "Rivestimento");
 insert into articolo values
@@ -238,11 +238,11 @@ insert into articolo values
 insert into articolo values
 ("ART55", "viti svasate truciolari", "/EdilCommerce_Design/img/categoria/Ferramenta/viti.jpg", "viti svasate truciolari", "4.50", "Ferramenta");
 insert into articolo values
-("ART44", "viti per legno", "/EdilCommerce_Design/img/categoria/Ferramenta/vitilegno.jpg", "Vite per fissaggi di Staffe, collari e supporti per tubi, Questa specifico tipo di vite Ã¨ indicata per realizzare fissaggi di collari, staffe, ...", "3.50", "Ferramenta");
+("ART44", "viti per legno", "/EdilCommerce_Design/img/categoria/Ferramenta/vitilegno.jpg", "Vite per fissaggi di Staffe, collari e supporti per tubi, Questa specifico tipo di vite ÃÂ¨ indicata per realizzare fissaggi di collari, staffe, ...", "3.50", "Ferramenta");
 
 # Utensileria
 insert into articolo values
-("ART11", "trapano a percussione", "/EdilCommerce_Design/img/categoria/Utensileria/trapanopercussione.jpg", "trapano a percussione adatto a materiali più resistenti", "136.04", "Utensileria");
+("ART11", "trapano a percussione", "/EdilCommerce_Design/img/categoria/Utensileria/trapanopercussione.jpg", "trapano a percussione adatto a materiali piÃ¹ resistenti", "136.04", "Utensileria");
 insert into articolo values
 ("ART12", "trapano a batterie", "/EdilCommerce_Design/img/categoria/Utensileria/trapanobatteria.jpg", "trapano a batteria per fissaggi di qualunque tipo", "59.90", "Utensileria");
 insert into articolo values
@@ -263,11 +263,11 @@ insert into articolo values
 insert into articolo values
 ("ART14", "cemento", "/EdilCommerce_Design/img/categoria/Materiali/cemento.jpg", "cemento da 25 kg", "11.90", "Materiali");
 insert into articolo values
-("ART52", "calcestruzzo", "/EdilCommerce_Design/img/categoria/Materiali/calce.jpg", "La vendita di questo prodotto è possibile solo su richiesta", "12.00", "Materiali");
+("ART52", "calcestruzzo", "/EdilCommerce_Design/img/categoria/Materiali/calce.jpg", "La vendita di questo prodotto Ã¨ possibile solo su richiesta", "12.00", "Materiali");
 insert into articolo values
-("ART53", "marmo", "/EdilCommerce_Design/img/categoria/Materiali/marmo.jpg", "La vendita di questo prodotto è possibile solo su richiesta", "11.50", "Materiali");
+("ART53", "marmo", "/EdilCommerce_Design/img/categoria/Materiali/marmo.jpg", "La vendita di questo prodotto Ã¨ possibile solo su richiesta", "11.50", "Materiali");
 insert into articolo values
-("ART54", "granito", "/EdilCommerce_Design/img/categoria/Materiali/granito.jpg", "La vendita di questo prodotto è possibile solo su richiesta", "14.90", "Materiali");
+("ART54", "granito", "/EdilCommerce_Design/img/categoria/Materiali/granito.jpg", "La vendita di questo prodotto Ã¨ possibile solo su richiesta", "14.90", "Materiali");
 
 # Copertura 
 insert into articolo values
@@ -277,15 +277,15 @@ insert into articolo values
 insert into articolo values
 ("ART58", "copertura per terrazzi", "/EdilCommerce_Design/img/categoria/Copertura/coperturaterrazzo.jpg", "copertura da esterni elegante e ben raffinato in legno di betulla", "339.00", "Copertura");
 insert into articolo values
-("ART59", "copertura in vetro", "/EdilCommerce_Design/img/categoria/Copertura/coperturavetro.jpg", "copertura in vetro poliestere per resistere ad alte temperatura estive e rigide temperature invernali, così da garantire sicurezza e affidabilità", "359.90", "Copertura");
+("ART59", "copertura in vetro", "/EdilCommerce_Design/img/categoria/Copertura/coperturavetro.jpg", "copertura in vetro poliestere per resistere ad alte temperatura estive e rigide temperature invernali, cosÃ¬ da garantire sicurezza e affidabilitÃ ", "359.90", "Copertura");
 insert into articolo values
 ("ART60", "tendone automatico", "/EdilCommerce_Design/img/categoria/Copertura/tendone.jpg", "tendone automatico utile per garantire una giornata all'aperto e proteggersi dal calore", "235.00", "Copertura");
 
 #Struttura
 insert into articolo values
-("ART17", "puntello", "/EdilCommerce_Design/img/categoria/Struttura/puntello.jpg", "I puntelli vengono usati prevalentemente per sostenere le casseforme per solai. Molti dettagli pratici ne accelerano l'impiego e ne aumentano la sicurezza: dalla forma della ghiera di regolazione, che indica il corretto verso di rotazione, alla spina di sicurezza ergonomica, a forma di G, progettata per non incepparsi. Inoltre, la zincatura a caldo garantisce una lunga durata. Nel caso in cui i puntelli vengano comunque danneggiati dalle rigide condizioni d'impiego in cantiere, il tubo esterno e quello interno possono essere sostituiti separatamente.", "17.99", "Struttura");
+("ART17", "puntello", "/EdilCommerce_Design/img/categoria/Struttura/puntello.jpg", "IÂ puntelli vengono usati prevalentemente per sostenere le casseforme per solai. Molti dettagli pratici ne accelerano l'impiego e ne aumentano la sicurezza: dalla forma della ghiera di regolazione, che indica il corretto verso di rotazione, alla spina di sicurezza ergonomica, a forma di G, progettata per non incepparsi. Inoltre, la zincatura a caldo garantisce una lunga durata. Nel caso in cui i puntelli vengano comunque danneggiati dalle rigide condizioni d'impiego in cantiere, il tubo esterno e quello interno possono essere sostituiti separatamente.", "17.99", "Struttura");
 insert into articolo values
-("ART18", "trave", "/EdilCommerce_Design/img/categoria/Struttura/trave.jpg", "La trave per casseforme ha una capacità  di carico e resistenza a flessione elevata. Abbinata a casseforme per pareti, pilastri e solai oppure a casseforme speciali, permette di ridurre sia la quantità di attrezzatura necessaria che i tempi di lavoro.", "14.90", "Struttura");
+("ART18", "trave", "/EdilCommerce_Design/img/categoria/Struttura/trave.jpg", "La trave per casseforme ha una capacitÃ Â  di carico e resistenza a flessione elevata. Abbinata a casseforme per pareti, pilastri e solai oppure a casseforme speciali, permette di ridurre sia la quantitÃ  di attrezzatura necessaria che i tempi di lavoro.", "14.90", "Struttura");
 /*
 insert into articolo values
 ("ART65", "", "/EdilCommerce_Design/img/categoria/Struttura/", "", "", "Struttura");
