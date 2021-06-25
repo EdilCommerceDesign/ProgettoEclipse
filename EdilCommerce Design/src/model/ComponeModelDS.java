@@ -38,7 +38,7 @@ public class ComponeModelDS implements ModelRelationInterface<ComponeBean>{
 			con = ds.getConnection();
 			ps = con.prepareStatement(selectCodeSQL);
 			
-			ps.setString(1, code);
+			ps.setInt(1, Integer.parseInt(code));
 			
 			Utility.print("doRetriveByOneKey: " + ps.toString());
 			

@@ -17,8 +17,16 @@
 	
 	<div class="all">
 	<h1>CREA UN ACCOUNT</h1>
-	<!--<h2>Per effettuare i tuoi magnifici acquisti</h2> -->
 	<%
+	HttpSession session = request.getSession(false);
+	if(session != null) {
+		Boolean uRole =  (Boolean) headerSession.getAttribute("userRole"); 
+		Boolean aRole = (Boolean) headerSession.getAttribute("adminRole"); 
+		if((aRole.booleanValue() || uRole.booleanValue())){
+			response.sendRedirect(response.encodeRedirectURL("/EdilCommerce_Design/"));
+		}
+	}
+	
 	String error = (String) request.getAttribute("error");
 	if (error != null && !error.equals("")) {
 	%>

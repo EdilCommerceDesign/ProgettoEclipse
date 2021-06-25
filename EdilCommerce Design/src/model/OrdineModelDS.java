@@ -77,7 +77,7 @@ public class OrdineModelDS implements ModelInterface<OrdineBean> {
 			con = ds.getConnection();
 			ps = con.prepareStatement(selectCodeSQL);
 			
-			Utility.print("doRetriveByOneKey: " + ps.toString());
+			Utility.print("doRetriveAll: " + ps.toString());
 			
 			rs = ps.executeQuery();
 			
@@ -143,4 +143,42 @@ public class OrdineModelDS implements ModelInterface<OrdineBean> {
 		
 	}
 
+	public Collection<OrdineBean> doRetriveByUser(String code) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+		String selectCodeSQL = "SELECT * FROM ordine WHERE username=?";
+		
+		Collection<OrdineBean> collection = new LinkedList<OrdineBean>();
+		try {
+			con = ds.getConnection();
+			ps = con.prepareStatement(selectCodeSQL);
+			
+			ps.setString(1, code);
+			
+			Utility.print("doRetriveByUser: " + ps.toString());
+			
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				OrdineBean bean = new OrdineBean();
+				bean.setUsername(rs.getString("username"));
+				bean.setData(rs.getDate("data"));
+				bean.setNumeroOrdine(rs.getInt("numeroOrdine"));
+				collection.add(bean);
+			}
+		} finally {
+			try {
+				if(ps != null)
+					ps.close();
+			} finally {
+				if(con != null)
+					con.close();
+				if (rs != null)
+					rs.close();
+			}
+		}
+		return collection;
+	}
 }

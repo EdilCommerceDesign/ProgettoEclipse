@@ -98,7 +98,68 @@ if (bean == null) {
 				</div>
 			</form>
 		</div>
-		<li onclick="visualizza('')"><h2>Ordini effettuati</h2></li>
+		<li onclick="visualizza('ordiniE')"><h2>Ordini effettuati</h2></li>
+			<div class="container" id="ordiniE" style="display:none">
+				<%
+					DataSource ds = (DataSource) getServletContext().getAttribute("DataSource");
+				
+					OrdineModelDS oModel = new OrdineModelDS(ds);
+					PagamentoModelDS pModel = new PagamentoModelDS(ds);
+					ComponeModelDS cModel = new ComponeModelDS(ds);
+					CartaModelDS caModel = new CartaModelDS(ds);
+					ContrassegnoModelDS coModel = new ContrassegnoModelDS(ds);
+					ArticoloModelDS aModel = new ArticoloModelDS(ds);
+					
+					LinkedList<OrdineBean> oList = (LinkedList<OrdineBean>) oModel.doRetriveByUser(bean.getUsername());
+				
+					Iterator<OrdineBean> it = oList.iterator();
+					while(it.hasNext()) {		
+						OrdineBean oBean = it.next();
+					
+						PagamentoBean pBean = (PagamentoBean) pModel.doRetriveByNumeroOrdine(oBean.getNumeroOrdine());
+						
+						CartaBean caBean = caModel.doRetriveByKey(pBean.getNumeroPagamento());
+						ContrassegnoBean coBean = coModel.doRetriveByKey(pBean.getNumeroPagamento());
+						
+				%>
+					<div>
+					<h2>Codice Ordine: <%=oBean.getNumeroOrdine()%></h2>
+					<h3>Metodo di pagamento: 
+				<%
+					if(caBean.isEmpty()){ 
+				%> 
+						Contrassegno
+				<%
+					}else{
+				%> 
+						<%="Carta NumeroCarta:****" + caBean.getNumero().substring(caBean.getNumero().length() - 4) + " Intestario carta:" + caBean.getIntestatario()%>
+				<%
+					}
+				 %>
+					</h3>
+					<h3>Importo ordine: <%=pBean.getImporto()%>&euro;</h3>
+				<%
+						
+						LinkedList<ComponeBean> cList = (LinkedList<ComponeBean>) cModel.doRetriveByOneKey(oBean.getNumeroOrdine() + "");
+						Iterator<ComponeBean> it1 = cList.iterator(); 
+				%>
+					<h3>Articoli che compongono l'ordine:</h3><ul>
+				<%		
+				
+						while(it1.hasNext()){
+							ComponeBean cBean = it1.next();
+							ArticoloBean aBean = aModel.doRetriveByKey(cBean.getCodiceArticolo()); 
+				%>
+					<li><a href="<%=response.encodeURL("/EdilCommerce_Design/articolo.jsp?articolo=" + aBean.getCodiceArticolo())%>"><%=aBean.getNome()%></a>, quantità:<%=cBean.getQuantità()%></li>
+				<%			
+						}
+				%>
+					</ul></div><hr>
+				<%
+					}
+					
+				%>
+			</div>
 	</ul>
 </body>
 </html>

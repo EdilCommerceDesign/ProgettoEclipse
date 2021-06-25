@@ -21,6 +21,11 @@
 					redirect = request.getHeader("Referer");
 					session.setAttribute("loginRedirect", redirect);
 			}
+			Boolean uRole =  (Boolean) session.getAttribute("userRole"); 
+			Boolean aRole = (Boolean) session.getAttribute("adminRole"); 
+			if((aRole.booleanValue() || uRole.booleanValue())){
+				response.sendRedirect(response.encodeRedirectURL("/EdilCommerce_Design/"));
+			}
 		}
 	%>
 

@@ -46,7 +46,7 @@ public class PagamentoModelDS implements ModelInterface<PagamentoBean> {
 			if(rs.next()) {
 				bean.setNumeroPagamento(rs.getInt("numeroPagamento"));
 				bean.setNumeroOrdine(rs.getInt("numeroOrdine"));
-				bean.setImporto(rs.getDouble("numeroOrdine"));
+				bean.setImporto(rs.getDouble("importo"));
 			}
 		} finally {
 			try {
@@ -85,7 +85,7 @@ public class PagamentoModelDS implements ModelInterface<PagamentoBean> {
 				PagamentoBean bean = new PagamentoBean();
 				bean.setNumeroPagamento(rs.getInt("numeroPagamento"));
 				bean.setNumeroOrdine(rs.getInt("numeroOrdine"));
-				bean.setImporto(rs.getDouble("numeroOrdine"));
+				bean.setImporto(rs.getDouble("importo"));
 				collection.add(bean);
 			}
 		} finally {
@@ -142,5 +142,44 @@ public class PagamentoModelDS implements ModelInterface<PagamentoBean> {
 	public void doDelete(PagamentoBean item) throws SQLException {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public PagamentoBean doRetriveByNumeroOrdine(int code) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+		String selectCodeSQL = "SELECT * FROM pagamento WHERE numeroOrdine=?";
+		
+		PagamentoBean bean = new PagamentoBean();
+		
+		try {
+			con = ds.getConnection();
+			ps = con.prepareStatement(selectCodeSQL);
+			
+			ps.setInt(1, code);
+			
+			Utility.print("doRetriveByKey: " + ps.toString());
+			
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				bean.setNumeroPagamento(rs.getInt("numeroPagamento"));
+				bean.setNumeroOrdine(rs.getInt("numeroOrdine"));
+				bean.setImporto(rs.getDouble("importo"));
+			}
+		} finally {
+			try {
+				if(ps != null)
+					ps.close();
+			} finally {
+				if(con != null)
+					con.close();
+				if (rs != null)
+					rs.close();
+			}
+		}
+		
+		return bean;
 	}
 }
