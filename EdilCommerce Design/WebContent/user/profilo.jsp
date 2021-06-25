@@ -100,5 +100,6 @@ if (bean == null) {
 		</div>
 		<li onclick="visualizza('')"><h2>Ordini effettuati</h2></li>
 	</ul>
+	<%@ include file="../footer.jsp" %>;
 </body>
 </html>

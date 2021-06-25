@@ -58,7 +58,6 @@
 		%>
 		</div>
 	</header>
-	
 	<nav class="bottom" id="topNav">
 	<%
 		if(headerCollection != null){

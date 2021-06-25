@@ -70,6 +70,7 @@ header a {
 	background-color: #f2f2f2;
 	width:100%;
 	margin: 0;
+	height: 40px;
 	margin-bottom: 5px;
 	list-style-type: none;
 	padding: 0px;
@@ -79,17 +80,14 @@ header a {
   	overflow: hidden;
 } 
 .bottom a {
-  float: left;
-  display: block;
+  display: inline-block;
   text-align: center;
-  padding: 14px 16px;
+  padding: 10px 16px;
   text-decoration: none;
   font-size: 17px;
+  color: black;
 }
 
-.bottom a{
-	color: black;
-}
 .bottom a:visited{
 	color: black;
 }

@@ -71,6 +71,7 @@
 		</form>	
 	</div>
 	<a href="<%=response.encodeURL("home.jsp")%>">Torna alla home</a>
-	</div>	
+	</div>
+	<%@ include file="./footer.jsp" %>	
 </body>
 </html>

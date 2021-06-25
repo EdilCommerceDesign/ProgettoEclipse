@@ -159,6 +159,6 @@ Carrello<ArticoloBean> carrello = (Carrello<ArticoloBean>) session.getAttribute(
     </div>
   </div>
 </div>
-
+<%@ include file="../footer.jsp" %>;
 </body>
 </html>

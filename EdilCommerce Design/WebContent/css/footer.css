@@ -1,0 +1,28 @@
+@charset "ISO-8859-1";
+footer{
+  position: fixed; 
+  bottom: 0;
+  width: 100%;
+  background-color: #272F38;
+  color: white;
+ 
+}
+
+.icon{
+	float: right;
+	margin-right: 30px
+}
+
+.icon h3{
+	text-align: left;
+}
+.icon i{
+	width: 30px;
+	height: 30px;
+}
+
+.infoL{
+	text-align: center;
+	font-size: 10px;
+    padding-top: 100px;
+}
