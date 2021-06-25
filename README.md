@@ -6,6 +6,8 @@
   <li>Fare i form come il form di checkout✅</li>
   <li>Fare il form di pagamento✅</li>
   <li>Fare la visualizzazione degli ordini✅</li>
+  <li>Controllare la visualizzazione degli ordini nel caso in cui non ce ne siano e rimuovere l'ultima hr</li>
+  <li>Controllare il carrello quando non c'è niente nel carrello, e quindi non procedere al pagamento e visualizzare il totale come 0.00 e non .00</li>
   <li>Fare la parte dell'admin</li>
   <li>Aggiustare i CSS generali</li>
   <li>Aggiungere controlli ai form</li>
