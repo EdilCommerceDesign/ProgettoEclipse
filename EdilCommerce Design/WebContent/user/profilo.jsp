@@ -161,5 +161,6 @@ if (bean == null) {
 				%>
 			</div>
 	</ul>
+	<%@ include file="../footer.jsp" %>;
 </body>
 </html>

@@ -58,5 +58,6 @@
 		<input type="button" value="Registrati" onclick="window.location.href='<%=response.encodeURL("/EdilCommerce_Design/registrazione.jsp")%>'">
 		
 	</div>
+	<%@ include file="./footer.jsp" %>
 </body>
 </html>

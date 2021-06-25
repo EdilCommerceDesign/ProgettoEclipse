@@ -14,7 +14,7 @@
 	<link href="/EdilCommerce_Design/css/home.css" rel="stylesheet" type="text/css">
 	<title>Benvenuto in Edil Commerce Design</title>
 </head>
-<body>
+<body>	
 	<%
 	HttpSession session = request.getSession(false);
 	Boolean userRole  =  null;
@@ -97,5 +97,6 @@
 		</div>
 		<input type="button" value="&gt" onclick="scrollR()">
 	</div>
+	<%@ include file="./footer.jsp" %>
 </body>
 </html>
