@@ -69,11 +69,12 @@
 		
 		<img alt="logo-edil" src="/EdilCommerce_Design/img/logo.png" id="mainLogo">
 	
-	<form action="" method="get">
 		<div class="center">
-			<input id="search" type="search"  name="search" size="30" placeholder="Cerca in EdilCommerce Design" >
+		<form action="<%=response.encodeURL("/EdilCommerce_Design/SearchParziale")%>" method="get">
+		<input id="search" type="search"  name="criterioRicerca" size="30" placeholder="Cerca in EdilCommerce Design">
+		</form>
 		</div> 
-	</form> 
+	 
 	
 	<script type="text/javascript" src="/EdilCommerce_Design/script/scroll.js"></script>
 	<div class="slideCategorie">
