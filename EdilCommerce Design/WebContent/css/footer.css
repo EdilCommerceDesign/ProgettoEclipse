@@ -1,19 +1,54 @@
 @charset "ISO-8859-1";
 footer{
-  margin-top: 100%;
-  bottom: 0;
+  margin-top: 60px;
+  top: 100%;
   width: 100%;
   background-color: #272F38;
   color: white;
+  text-align: center;
  
+}
+.generic{
+	display: inline-block;
+	width: 30%;
+    text-align: left;
+    float: left;
+}
+
+.generic h4{
+	margin: 0;
+    margin-bottom: 5px;
+}
+.generic ul {
+  	list-style: none;
+  	padding: 0;
+  	margin: 0;
+}
+.generic li {
+  	padding-left: 1.3em;
+}
+.generic li:before{
+	 content: "\f007";
+	 font-family: FontAwesome;
+	 margin-left: -1.3em;
+     width: 1.3em;
+     padding: 5px;
+}
+
+.contatti{
+	display: inline-block;
+	text-align: left;
+	
 }
 
 .icon{
 	float: right;
-	margin-right: 30px
+    text-align: left;
+    padding-left: 120px;
+    width: calc(30% - 120px);
 }
 
-.icon h3{
+ h3{
 	text-align: left;
 }
 .icon i{
@@ -24,5 +59,9 @@ footer{
 .infoL{
 	text-align: center;
 	font-size: 10px;
-    padding-top: 100px;
+    padding-top: 30px;
+}
+a{
+	 color: white;
+	 text-decoration: none;
 }

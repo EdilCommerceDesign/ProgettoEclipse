@@ -44,16 +44,6 @@ li a img {
 	width: auto;
 }
 
-/*
-#rigth{
-	position:absolute;
-	top:10px;
-	right: 20px;
-	margin: 0px;
-	padding: 0px;
-	list-style-type: none;
-	display:inline-block;
-}*/
 
 img#mainLogo {
 	padding-top: 40px;
@@ -102,12 +92,12 @@ div.center {
 
 #categorie {
 	
-	/*margin-left: auto;
-	margin-right:auto;*/
 	width: 700px;
 	overflow: hidden;
 	white-space: nowrap;
 	scroll-behavior:smooth;
+	padding: 10px;
+	
 }
 
 #categorie img {
@@ -119,7 +109,13 @@ div.center {
 	width: 200px; 
 	height: 200px;
 }
+#categorie a{
+	vertical-align: middle;
+}
 
+#categorie a:hover{
+	transform: scale(1.05);
+}
 .slideCategorie {
 	margin-top: 50px;
 	text-align: center;
@@ -139,5 +135,7 @@ div.center {
 
 .slideCategorie input:active{
 	border-color: white;
-	
+}
+.slideCategorie input:hover{
+	transform: scale(1.05);
 }
