@@ -6,7 +6,7 @@ footer{
   background-color: #272F38;
   color: white;
   text-align: center;
- 
+  clear: both;
 }
 .generic{
 	display: inline-block;
@@ -61,7 +61,7 @@ footer{
 	font-size: 10px;
     padding-top: 30px;
 }
-a{
+.generic a{
 	 color: white;
 	 text-decoration: none;
 }

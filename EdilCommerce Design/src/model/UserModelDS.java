@@ -45,7 +45,7 @@ public class UserModelDS implements ModelInterface<UserBean> {
 				bean.setTelefono(rs.getString("telefono"));
 				bean.setIndirizzo(rs.getString("indirizzo"));
 				bean.setUserPassword(rs.getString("userPassword"));
-				bean.setCittà(rs.getString("città"));
+				bean.setCittà(rs.getString("citta"));
 				bean.setCap(rs.getString("cap"));
 				bean.setStato(rs.getString("stato"));
 			}
