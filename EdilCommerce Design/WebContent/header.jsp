@@ -27,7 +27,7 @@
 	<header>
 		<div id="left"><a href="/EdilCommerce_Design/home.jsp" title="Home"><img alt="ECD_Logo" src="/EdilCommerce_Design/img/logo_mini.png"></a></div>
 		<div id="centro"> <img alt="lente" src="/EdilCommerce_Design/img/lente.png" width=30px height=30px>
-		<form action="<%=response.encodeURL("/EdilCommerce_Design/SearchParziale")%>" method="get">
+		<form action="<%=response.encodeURL("/EdilCommerce_Design/Search")%>" method="get">
 		<input id="search" type="search"  name="criterioRicerca" size="30" placeholder="Cerca in EdilCommerce Design">
 		</form>
 		</div>

@@ -70,7 +70,7 @@
 		<img alt="logo-edil" src="/EdilCommerce_Design/img/logo.png" id="mainLogo">
 	
 		<div class="center">
-		<form action="<%=response.encodeURL("/EdilCommerce_Design/SearchParziale")%>" method="get">
+		<form action="<%=response.encodeURL("/EdilCommerce_Design/Search")%>" method="get">
 		<input id="search" type="search"  name="criterioRicerca" size="30" placeholder="Cerca in EdilCommerce Design">
 		</form>
 		</div> 

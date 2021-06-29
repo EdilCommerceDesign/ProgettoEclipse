@@ -32,6 +32,11 @@ public class Search extends HttpServlet {
 		ArticoloModelDS modelA = new ArticoloModelDS(ds);
 		
 		String criterio = request.getParameter("criterioRicerca");
+		if(criterio== null) {
+			response.sendRedirect(response.encodeRedirectURL("/EdilCommerce_Design/"));
+		}else if(criterio.isBlank()) {
+			response.sendRedirect(response.encodeRedirectURL("/EdilCommerce_Design/"));
+		}
 		boolean isCategory= false;
 		
 		Collection<CategoriaBean> collectionC = new LinkedList<CategoriaBean>();
@@ -46,6 +51,8 @@ public class Search extends HttpServlet {
 			
 			if(isCategory==true) {
 				collection=modelA.doRetriveByCategory(criterio);
+			}else {
+				collection=modelA.doSearchByNome(criterio);
 			}
 			
 		} catch (SQLException e) {
