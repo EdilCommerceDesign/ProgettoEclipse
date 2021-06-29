@@ -35,7 +35,7 @@ public class Rimuovi extends HttpServlet {
 		
 		List<ArticoloBean> articoli = carrello.getItems();
 		List<Integer> artQuantità = carrello.getQuantità();
-		DecimalFormat df=new DecimalFormat("#.00");
+		DecimalFormat df=new DecimalFormat("#0.00");
 		double totale = 0;
 		
 		StringBuffer buffer = new StringBuffer();
@@ -101,9 +101,14 @@ public class Rimuovi extends HttpServlet {
 			+ "		<div class=\"box-checkout\">\r\n"
 			+ "			<div id=\"checkout\">"
 			+ "				<h4>Carrello <span class=\"prezzo\" style=\"color:black\"><i class=\"fa fa-shopping-cart\"></i> " + articoli.size() + "</span></h4>\r\n"
-			+ "				<h4>Totale: <span class=\"prezzo\" style=\"color:black\">" + df.format(totale) + " &euro;</span></h4>\r\n"
-			+ "				<a href=\" " + response.encodeURL("/EdilCommerce_Design/user/checkout.jsp") + "\"><button class=\"bottone\" >Procedi al pagamento</button></a>\r\n"
-			+ "			</div>\r\n"
+			+ "				<h4>Totale: <span class=\"prezzo\" style=\"color:black\">" + df.format(totale) + "&euro;</span></h4>\r\n");
+		if(totale == 0){
+			buffer.append("				<a href=\" " + response.encodeURL("") + "\"><button class=\"bottone\" >Procedi al pagamento</button></a>\r\n");
+		} else {
+			buffer.append("				<a href=\" " + response.encodeURL("/EdilCommerce_Design/user/checkout.jsp") + "\"><button class=\"bottone\" >Procedi al pagamento</button></a>\r\n");
+		}
+		
+		buffer.append( "			</div>\r\n"
 			+ "		</div>"	);
 		
 		response.getWriter().write(buffer.toString());

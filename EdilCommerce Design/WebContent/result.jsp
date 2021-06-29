@@ -16,8 +16,23 @@
 		ArticoloBean bean = new ArticoloBean();
 		Collection<ArticoloBean> collection = (Collection<ArticoloBean>)request.getAttribute("risultato"); 
 	%>
+	<script type="text/javascript" src="/EdilCommerce_Design/script/result.js"></script>
+	<div id="scelte">
+		<b>Ordine Alfabetico</b><br>
+		<label><input type="radio" name="ordine" value="nome ASC" onchange="aggiorna('<%=request.getParameter("criterioRicerca")%>')">Crescente</label><br>
+		<label><input type="radio" name="ordine" value="nome DESC" onchange="aggiorna('<%=request.getParameter("criterioRicerca")%>')">Decrescente</label><br>
+		<hr>
+		<b>Ordina Prezzo</b><br>
+		<label><input type="radio" name="ordine" value="costo ASC" onchange="aggiorna('<%=request.getParameter("criterioRicerca")%>')">Crescente</label><br>
+		<label><input type="radio" name="ordine" value="costo DESC" onchange="aggiorna('<%=request.getParameter("criterioRicerca")%>')">Decrescente</label><br>
+		<hr>
+		<b>Prezzo</b><br>
+		<label><input type="checkbox" name="prezzo" value="BETWEEN 0.0 AND 50.0" onchange="aggiorna('<%=request.getParameter("criterioRicerca")%>')">0-50&euro;</label><br>
+		<label><input type="checkbox" name="prezzo" value="BETWEEN 50.01 AND 200.0" onchange="aggiorna('<%=request.getParameter("criterioRicerca")%>')">50-200&euro;</label><br>
+		<label><input type="checkbox" name="prezzo" value="BETWEEN 200.01 AND 99999.0" onchange="aggiorna('<%=request.getParameter("criterioRicerca")%>')">&lt;200&euro;</label><br>
+	</div>
 	
-	<div class="result">
+	<div id="result">
 		<%
 			if(collection == null) {
 		%>
@@ -40,7 +55,7 @@
 		%>
 		<tr><td><a href="<%=response.encodeURL("/EdilCommerce_Design/articolo.jsp?articolo=" + bean.getCodiceArticolo())%>"><img alt="<%=bean.getNome()%>" src="<%=bean.getImmagine()%>"></a></td>
 		<td><h4><a href="<%=response.encodeURL("/EdilCommerce_Design/articolo.jsp?articolo=" + bean.getCodiceArticolo())%>"><%=bean.getNome()%></a></h4>
-		<h5><%DecimalFormat df=new DecimalFormat("#.00");%><%=df.format(bean.getCosto())%>&euro;</h5></td></tr>
+		<h5><%DecimalFormat df=new DecimalFormat("#0.00");%><%=df.format(bean.getCosto())%>&euro;</h5></td></tr>
 		
 		<%				
 				}		

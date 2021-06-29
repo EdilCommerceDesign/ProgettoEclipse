@@ -2,6 +2,7 @@ package control;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -17,13 +18,15 @@ import model.ArticoloBean;
 import model.ArticoloModelDS;
 import model.CategoriaBean;
 import model.CategoriaModelDS;
-import model.UserModelDS;
 import utils.Utility;
 
-@WebServlet("/Search")
-public class Search extends HttpServlet {
+/**
+ * Servlet implementation class AggiornaSearch
+ */
+@WebServlet("/AggiornaSearch")
+public class AggiornaSearch extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		DataSource ds = (DataSource) getServletContext().getAttribute("DataSource");
 		Collection<ArticoloBean> collection = new LinkedList<ArticoloBean>();
@@ -32,6 +35,8 @@ public class Search extends HttpServlet {
 		ArticoloModelDS modelA = new ArticoloModelDS(ds);
 		
 		String criterio = request.getParameter("criterioRicerca");
+		String ordine = request.getParameter("ordine");
+		String prezzo = request.getParameter("prezzo");
 		if(criterio== null) {
 			response.sendRedirect(response.encodeRedirectURL("/EdilCommerce_Design/"));
 		}else if(criterio.isBlank()) {
@@ -50,9 +55,9 @@ public class Search extends HttpServlet {
 			}
 			
 			if(isCategory==true) {
-				collection=modelA.doRetriveByCategory(criterio, "", "");
+				collection=modelA.doRetriveByCategory(criterio, prezzo, ordine);
 			}else {
-				collection=modelA.doSearchByNome(criterio, "", "");
+				collection=modelA.doSearchByNome(criterio, prezzo, ordine);
 			}
 			
 		} catch (SQLException e) {
@@ -60,11 +65,33 @@ public class Search extends HttpServlet {
 			request.setAttribute("error", e.getMessage());
 		}
 		
-		request.setAttribute("risultato", collection);
-		getServletContext().getRequestDispatcher(response.encodeURL("/result.jsp")).include(request, response);
+		StringBuffer buffer = new StringBuffer();
+		response.setContentType("text/xml");
+		
+		
+			if(collection == null) {
+				buffer.append("		<h3>Nessun articolo trovato</h3>\n");
+				
+			} else if(collection.isEmpty()){
+				buffer.append("		<h3>Nessun articolo trovato</h3>\n");
+			} else {
+				buffer.append( "		<table>\r\n");
+				Iterator<ArticoloBean> it = collection.iterator();
+				ArticoloBean bean = new ArticoloBean();
+				DecimalFormat df=new DecimalFormat("#0.00");
+				while(it.hasNext()) {
+				bean=it.next();
+				buffer.append("		<tr><td><a href=\"" + response.encodeURL("/EdilCommerce_Design/articolo.jsp?articolo=\"" + bean.getCodiceArticolo()) + "\"><img alt=\"" + bean.getNome() + "\" src=\"" + bean.getImmagine() + "\"></a></td>\r\n"
+				+ "		<td><h4><a href=\"" + response.encodeURL("/EdilCommerce_Design/articolo.jsp?articolo=" + bean.getCodiceArticolo()) + "\">" + bean.getNome() + "</a></h4>\r\n"
+				+ "		<h5>" + df.format(bean.getCosto()) + "&euro;</h5></td></tr>\r\n");
+				}
+				buffer.append("		</table>");
+			}
+			response.getWriter().write(buffer.toString());
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

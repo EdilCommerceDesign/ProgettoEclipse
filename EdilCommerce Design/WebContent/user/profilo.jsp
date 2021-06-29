@@ -111,9 +111,21 @@ if (bean == null) {
 					ArticoloModelDS aModel = new ArticoloModelDS(ds);
 					
 					LinkedList<OrdineBean> oList = (LinkedList<OrdineBean>) oModel.doRetriveByUser(bean.getUsername());
+					
+					boolean primoOrdine = true;
 				
 					Iterator<OrdineBean> it = oList.iterator();
-					while(it.hasNext()) {		
+					if(!it.hasNext()) {
+				%>
+				<h3>Non hai ancora effettuato un ordine</h3>
+				<%			
+					}
+					while(it.hasNext()) {
+						 if(primoOrdine==true) {
+							 primoOrdine = false;
+						 } else {
+						%><hr><%
+						 }
 						OrdineBean oBean = it.next();
 					
 						PagamentoBean pBean = (PagamentoBean) pModel.doRetriveByNumeroOrdine(oBean.getNumeroOrdine());
@@ -154,7 +166,7 @@ if (bean == null) {
 				<%			
 						}
 				%>
-					</ul></div><hr>
+					</ul></div>
 				<%
 					}
 					

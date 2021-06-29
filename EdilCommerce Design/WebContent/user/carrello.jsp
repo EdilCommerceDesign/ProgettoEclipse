@@ -47,7 +47,7 @@
 				List<Integer> quantità = carrello.getQuantità();
 				Iterator<ArticoloBean> it1 = articoli.iterator();
 				Iterator<Integer> it2 = quantità.iterator();
-				DecimalFormat df = new DecimalFormat("#.00");
+				DecimalFormat df = new DecimalFormat("#0.00");
 				
 				ArticoloBean bean = new ArticoloBean();
 				Integer q = 0;
@@ -75,7 +75,17 @@
 			<div id="checkout">
 				<h4>Carrello <span class="prezzo" style="color:black"><i class="fa fa-shopping-cart"></i> <%=articoli.size()%></span></h4>
 				<h4>Totale: <span class="prezzo" style="color:black"><%=df.format(totale)%>&euro;</span></h4>
-				<a href="<%= response.encodeURL("/EdilCommerce_Design/user/checkout.jsp")%>"><button class="bottone" >Procedi al pagamento</button></a>
+				<%
+					if(totale == 0){
+				%>
+					<a href="<%= response.encodeURL("")%>"><button class="bottone" >Procedi al pagamento</button></a>
+				<%
+				} else {
+				%>
+					<a href="<%= response.encodeURL("/EdilCommerce_Design/user/checkout.jsp")%>"><button class="bottone" >Procedi al pagamento</button></a>
+				<%
+				}
+				 %>
 			</div>
 		</div>
 	</div>

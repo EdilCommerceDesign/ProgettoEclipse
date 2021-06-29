@@ -13,17 +13,26 @@ table{
 	border-bottom: 10px;
 	border-bottom-style: solid;
 }*/
-.result{
+#result{
 	border: 2px solid;
 	margin-left:250px;
 	margin-right: 250px;
 }
 
-.result img{
+#result img{
 	width: 100px;
 	height: 100px;
 }
 
 h4 {
 	text-transform: capitalize;
+}
+
+#scelte {
+	float: left;
+	width: 150px;
+	padding: 5px;
+	margin-left: 5px;
+	margin-top: 20px;
+	background-color: #f2f2f2;
 }

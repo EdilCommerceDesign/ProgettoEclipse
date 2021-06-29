@@ -25,6 +25,9 @@ if (bean == null) {
 	return;
 }
 Carrello<ArticoloBean> carrello = (Carrello<ArticoloBean>) session.getAttribute("Carrello");
+if(carrello.getItems().isEmpty()) {
+	response.sendRedirect(response.encodeRedirectURL("/EdilCommerce_Design/"));
+}
 %>
 <!DOCTYPE html>
 <html>

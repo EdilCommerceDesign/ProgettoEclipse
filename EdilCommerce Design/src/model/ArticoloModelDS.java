@@ -92,13 +92,21 @@ public class ArticoloModelDS implements ModelInterface<ArticoloBean> {
 		
 	}
 	
-	public Collection<ArticoloBean> doRetriveByCategory(String code) throws SQLException {
+	public Collection<ArticoloBean> doRetriveByCategory(String code, String prezzo, String ordine) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		Collection<ArticoloBean> collection = new LinkedList<ArticoloBean>();
 		
-		String selectCodeSQL = "SELECT * FROM articolo WHERE nomeCategoria=?";
+		String selectCodeSQL = "SELECT * FROM articolo WHERE ";
+		
+		if(!(prezzo.isBlank())) 
+			selectCodeSQL = selectCodeSQL + " costo " + prezzo + " AND "; 
+		
+		selectCodeSQL = selectCodeSQL + " nomeCategoria=? ";
+		
+		if(!(ordine.isBlank())) 
+			selectCodeSQL = selectCodeSQL + " ORDER BY " + ordine;
 		
 		try {
 			con = ds.getConnection();
@@ -136,13 +144,23 @@ public class ArticoloModelDS implements ModelInterface<ArticoloBean> {
 		
 		return collection;
 	}
-	public Collection<ArticoloBean> doSearchByNome(String code) throws SQLException {
+	
+	public Collection<ArticoloBean> doSearchByNome(String code, String prezzo, String ordine) throws SQLException {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		Collection<ArticoloBean> collection = new LinkedList<ArticoloBean>();
 		
-		String selectCodeSQL = "SELECT * FROM articolo WHERE nome like ?";
+		String selectCodeSQL = "SELECT * FROM articolo WHERE ";
+		
+		if(!(prezzo.isBlank())) 
+			selectCodeSQL = selectCodeSQL + " prezzo " + prezzo + " AND "; 
+		
+		selectCodeSQL = selectCodeSQL + " nome like ? ";
+		
+		if(!(ordine.isBlank())) 
+			selectCodeSQL = selectCodeSQL + " ORDER BY " + ordine;
+		
 		
 		try {
 			con = ds.getConnection();
