@@ -53,3 +53,60 @@ function aggiorna(codice) {
 	xhttp.open("GET", "/EdilCommerce_Design/AggiornaSearch?criterioRicerca=" + codice + "&prezzo=" + prezzo + "&ordine=" + ordine, true);
 	xhttp.send();
 }
+
+function mutua(value) {
+	var check = document.getElementsByName("prezzo");
+	var l=check.length;
+	for(var i=0; i<l; i++) {
+		if(check[i].value != value){
+			check[i].checked = false;
+		}
+	}
+}
+
+var currpage = 1;
+
+function cambiaPag(n) {
+	currpage = n;
+	var p = "pagina" + n;
+	var righe = document.getElementsByClassName("pagina");
+	var l= righe.length;
+	for(var i=0; i<l; i++) {
+		if(righe[i].classList[0] == p)
+			righe[i].style.display = "table-row";
+		else 
+			righe[i].style.display = "none";
+	}
+}
+
+function succPag() {
+	currpage = (currpage + 1) 
+	var maxPage = Math.ceil(((document.getElementsByClassName("pagina").length)/7));
+	if(currpage > maxPage)
+		currpage = currpage % maxPage;
+	var p = "pagina" + currpage;
+	var righe = document.getElementsByClassName("pagina");
+	var l= righe.length;
+	for(var i=0; i<l; i++) {
+		if(righe[i].classList[0] == p)
+			righe[i].style.display = "table-row";
+		else 
+			righe[i].style.display = "none";
+	}
+}
+
+function prevPag() {
+	currpage = (currpage - 1) 
+	var maxPage = Math.ceil(((document.getElementsByClassName("pagina").length)/7));
+	if(currpage <= 0)
+		currpage = maxPage;
+	var p = "pagina" + currpage;
+	var righe = document.getElementsByClassName("pagina");
+	var l= righe.length;
+	for(var i=0; i<l; i++) {
+		if(righe[i].classList[0] == p)
+			righe[i].style.display = "table-row";
+		else 
+			righe[i].style.display = "none";
+	}	
+}

@@ -8,11 +8,14 @@ table{
 	margin-top:20px;
 }
 
-/*tr {
-	border-color:  #272F38;
-	border-bottom: 10px;
-	border-bottom-style: solid;
-}*/
+tr {
+	display:none;
+}
+
+tr.pagina1{
+	display: table-row;
+}
+
 #result{
 	border: 2px solid;
 	margin-left:250px;
@@ -35,4 +38,25 @@ h4 {
 	margin-left: 5px;
 	margin-top: 20px;
 	background-color: #f2f2f2;
+}
+
+div.paginazione {
+	text-align: center;
+}
+
+div.paginazione a{
+	background-color: white;
+	color: black;
+	padding: 8px 16px;
+	text-decoration: none;
+	transition: background-color .3s;
+}
+
+.paginazione a.active {
+	background-color: dodgerblue;
+	color: white;
+}
+
+.paginazione a:hover:not(.active) {
+	background-color: #ddd;
 }
