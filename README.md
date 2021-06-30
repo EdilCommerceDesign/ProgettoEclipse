@@ -16,7 +16,7 @@
   <li>Aggiustare i CSS generali</li>
   <li>Aggiungere controlli ai form</li>
   <li>Aggiungere il carrello ai cookie quando si invalida la sessione</li>
-  <li>Modificare schema ER con aggiunta di "info fatturazione" e aggiungere a cliente la città stato e cap</li>
+  <li>Modificare schema ER con aggiunta di "info fatturazione" e aggiungere a cliente la città stato e cap✅</li>
   <li>Creare Footer✅</li>
   <li>Ordinamenti degli articoli con un div float a sinistra✅</li>
   <li>Fare le recensioni</li>
