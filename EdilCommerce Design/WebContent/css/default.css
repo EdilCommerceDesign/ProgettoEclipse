@@ -3,3 +3,7 @@
 body {
 	background-color: #acd0fa;
 }
+
+.error{
+	border-color: red !important;
+}
