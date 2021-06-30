@@ -57,7 +57,7 @@ function checkCarta(inputtxt){
 		return true;
 	 return false;
 }
-
+//da fare
 function validateLogin(obj){
 	var valid= true;
 	
