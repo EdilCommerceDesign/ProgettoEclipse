@@ -11,8 +11,10 @@
 <title>Registrazione</title>
 </head>
 <body>
+	<div id="holder">
+		
 	<%@ include file="./header.jsp" %>
-
+	<div id="body">
 	<script type="text/javascript" src="/EdilCommerce_Design/script/profiloScripts.js"></script>
 	
 	<div class="all">
@@ -80,6 +82,8 @@
 	</div>
 	<a href="<%=response.encodeURL("home.jsp")%>">Torna alla home</a>
 	</div>
+	</div>
 	<%@ include file="./footer.jsp" %>	
+	</div>
 </body>
 </html>

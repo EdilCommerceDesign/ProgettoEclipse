@@ -37,7 +37,10 @@ if (bean == null) {
 </head>
 
 <body>
+	<div id="holder">
+		
 	<%@ include file="../header.jsp" %>
+	<div id="body">
 	<script type="text/javascript" src="/EdilCommerce_Design/script/profiloScripts.js"></script>
 	<%
 	String error = (String) request.getAttribute("error");
@@ -173,6 +176,8 @@ if (bean == null) {
 				%>
 			</div>
 	</ul>
+	</div>
 	<%@ include file="../footer.jsp" %>
+	</div>
 </body>
 </html>

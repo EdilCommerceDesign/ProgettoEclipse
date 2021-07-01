@@ -11,8 +11,10 @@
 <title>Il tuo carrello</title>
 </head>
 <body>
+	<div id="holder">
+		
 	<%@include file="../header.jsp" %>
-	
+	<div id="body">
 	<script type="text/javascript" src="/EdilCommerce_Design/script/carrello.js"></script>
 	
 	<%
@@ -89,6 +91,8 @@
 			</div>
 		</div>
 	</div>
+	</div>
 	<%@ include file="../footer.jsp" %>
+	</div>
 </body>
 </html>

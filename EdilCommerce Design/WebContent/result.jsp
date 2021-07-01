@@ -10,7 +10,10 @@
 <title>EdilCommerce Design</title>
 </head>
 <body>
+	<div id="holder">
+		
 	<%@ include file="./header.jsp" %>
+	<div id="body">
 	<%
 		ArticoloBean bean = new ArticoloBean();
 		Collection<ArticoloBean> collection = (Collection<ArticoloBean>)request.getAttribute("risultato"); 
@@ -59,9 +62,9 @@
 					count++;
 		%>
 		
-		<tr class="<%="pagina"+ pag%> pagina">
-		<td><a href="<%=response.encodeURL("/EdilCommerce_Design/articolo.jsp?articolo=" + bean.getCodiceArticolo())%>"><img alt="<%=bean.getNome()%>" src="<%=bean.getImmagine()%>"></a></td>
-		<td><h4><a href="<%=response.encodeURL("/EdilCommerce_Design/articolo.jsp?articolo=" + bean.getCodiceArticolo())%>"><%=bean.getNome()%></a></h4>
+		<tr class="<%="pagina"+ pag%> pagina" onclick="document.location = '<%=response.encodeURL("/EdilCommerce_Design/articolo.jsp?articolo=" + bean.getCodiceArticolo())%>';">
+		<td><img alt="<%=bean.getNome()%>" src="<%=bean.getImmagine()%>"></td>
+		<td><h4><%=bean.getNome()%></h4>
 		<h5><%DecimalFormat df=new DecimalFormat("#0.00");%><%=df.format(bean.getCosto())%>&euro;</h5>
 		</td></tr>
 		
@@ -90,6 +93,8 @@
 			}
 		%>
 	</div>
+	</div>
 	<%@ include file="./footer.jsp" %>
+	</div>
 </body>
 </html>

@@ -12,7 +12,10 @@
 <title>Login</title>
 </head>
 <body class="all">
+<div id="holder">
+		
 	<%@ include file="./header.jsp" %>
+	<div id="body">
 	<script type="text/javascript" src="/EdilCommerce_Design/script/regularExpressions.js"></script>
 	<%
 		HttpSession session = request.getSession(true);
@@ -59,6 +62,8 @@
 		<input type="button" value="Registrati" onclick="window.location.href='<%=response.encodeURL("/EdilCommerce_Design/registrazione.jsp")%>'">
 		
 	</div>
+	</div>
 	<%@ include file="./footer.jsp" %>
+	</div>
 </body>
 </html>
