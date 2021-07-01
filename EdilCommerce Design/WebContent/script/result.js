@@ -73,7 +73,7 @@ function cambiaPag(n) {
 	var l= righe.length;
 	for(var i=0; i<l; i++) {
 		if(righe[i].classList[0] == p)
-			righe[i].style.display = "table-row";
+			righe[i].style.display = "block";
 		else 
 			righe[i].style.display = "none";
 	}
@@ -92,7 +92,7 @@ function succPag() {
 	var l= righe.length;
 	for(var i=0; i<l; i++) {
 		if(righe[i].classList[0] == p)
-			righe[i].style.display = "table-row";
+			righe[i].style.display = "block";
 		else 
 			righe[i].style.display = "none";
 	}
@@ -109,7 +109,7 @@ function prevPag() {
 	var l= righe.length;
 	for(var i=0; i<l; i++) {
 		if(righe[i].classList[0] == p)
-			righe[i].style.display = "table-row";
+			righe[i].style.display = "block";
 		else 
 			righe[i].style.display = "none";
 	}

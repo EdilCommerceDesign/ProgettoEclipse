@@ -88,9 +88,9 @@ public class AggiornaSearch extends HttpServlet {
 					}
 				bean=it.next();
 				count++;
-				buffer.append("		<tr class=\"pagina" + pag +" pagina\"><td><a href=\"" + response.encodeURL("/EdilCommerce_Design/articolo.jsp?articolo=\"" + bean.getCodiceArticolo()) + "\"><img alt=\"" + bean.getNome() + "\" src=\"" + bean.getImmagine() + "\"></a></td>\r\n"
-				+ "		<td><h4><a href=\"" + response.encodeURL("/EdilCommerce_Design/articolo.jsp?articolo=" + bean.getCodiceArticolo()) + "\">" + bean.getNome() + "</a></h4>\r\n"
-				+ "		<h5>" + df.format(bean.getCosto()) + "&euro;</h5></td></tr>\r\n");
+				buffer.append("		<tr class=\"pagina" + pag +" pagina\"onclick=\"document.location = '" + response.encodeURL("/EdilCommerce_Design/articolo.jsp?articolo=" + bean.getCodiceArticolo()) + "';\"><td><img alt=\"" + bean.getNome() + "\" src=\"" + bean.getImmagine() + "\"></td>\n"
+				+ "		<td><h4>" + bean.getNome() + "</h4>\n"
+				+ "		<h5>" + df.format(bean.getCosto()) + "&euro;</h5></td></tr>\n");
 				}
 				buffer.append("		</table>"
 						+ "		</div>"

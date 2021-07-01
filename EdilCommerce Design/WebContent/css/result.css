@@ -20,23 +20,36 @@ tr {
 }
 
 tr.pagina1{
-	display: table-row;
+	display: block;
 }
 
 tr:nth-child(even) {
   background-color: #f2f2f2;;
 }
 
+tr:nth-child(odd) {
+  background-color: #acd0fa;
+}
+
+tr:hover{
+	border-top:1px solid;
+	transform: scale(1.03);
+}
+
+tr:first-of-type{
+	border-top: 1px solid;
+}
+
 td:first-of-type{
 	width: 175px;
 }
 
-td {
-	vertical-align: top;
+td:not(first-of-type) {
+    width: 100%;
 }
 
-tr:hover{
-	transform: scale(1.03);
+td {
+	vertical-align: top;
 }
 
 #result{
@@ -55,12 +68,6 @@ td h4 {
     font-size: 150%;
     text-transform: capitalize;
     
-}
-
-h4 a{
-     text-decoration: none;
-     color: black;
-   
 }
 
 td h5{
