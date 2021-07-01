@@ -78,16 +78,16 @@
 		%>
 		<br>
 		<div class="paginazione">
-		<a href="javascript:void(0);" onclick="prevPag()">&lt;</a>
+		<a href="#holder" onclick="prevPag()">&lt;</a>
 		<%
 				int i;
 				for(i=0; i<pag; i++) {
 		%>
-		<a class="pagButton<%=i==0?" current":"" %>" href="javascript:void(0);" onclick="cambiaPag('<%=i+1%>')"><%="" + (i+1)%></a>
+		<a class="pagButton<%=i==0?" current":"" %>" href="#holder" onclick="cambiaPag('<%=i+1%>')"><%="" + (i+1)%></a>
 		<%			
 				}
 		%>
-		<a href="javascript:void(0);" onclick="succPag()">&gt;</a>
+		<a href="#holder" onclick="succPag()">&gt;</a>
 		</div>
 		<%
 			}

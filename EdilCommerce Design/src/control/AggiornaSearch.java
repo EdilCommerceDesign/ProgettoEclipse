@@ -96,12 +96,12 @@ public class AggiornaSearch extends HttpServlet {
 						+ "		</div>"
 						+ "		<br>\r\n"
 						+ "		<div class=\"paginazione\">\r\n"
-						+ "		<a href=\"javascript:void(0);\" onclick=\"prevPag()\">&lt;</a>\r\n");
+						+ "		<a href=\"#holder\" onclick=\"prevPag()\">&lt;</a>\r\n");
 				int i;
 				for(i=0; i<pag; i++) {
-					buffer.append("		<a href=\"javascript:void(0);\" onclick=\"cambiaPag('" + (i+1) + "')\">" +  (i+1) + "</a>\n");
+					buffer.append("		<a class=\"pagButton"+ (i==0?" current":"") + "\"href=\"#holder\" onclick=\"cambiaPag('" + (i+1) + "')\">" +  (i+1) + "</a>\n");
 				}
-				buffer.append("		<a href=\"javascript:void(0);\" onclick=\"succPag()\">&gt;</a>\r\n"
+				buffer.append("		<a href=\"#holder\" onclick=\"succPag()\">&gt;</a>\r\n"
 						+ "		</div>\r\n");
 				
 			}
