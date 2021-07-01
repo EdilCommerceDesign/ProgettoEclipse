@@ -77,12 +77,15 @@ function cambiaPag(n) {
 		else 
 			righe[i].style.display = "none";
 	}
+	setCurrPage(currpage);
 }
 
 function succPag() {
 	currpage = (currpage + 1) 
 	var maxPage = Math.ceil(((document.getElementsByClassName("pagina").length)/7));
-	if(currpage > maxPage)
+	if(maxPage==1){
+		currpage = maxPage;
+	} else if(currpage > maxPage)
 		currpage = currpage % maxPage;
 	var p = "pagina" + currpage;
 	var righe = document.getElementsByClassName("pagina");
@@ -93,6 +96,7 @@ function succPag() {
 		else 
 			righe[i].style.display = "none";
 	}
+	setCurrPage(currpage);
 }
 
 function prevPag() {
@@ -108,5 +112,18 @@ function prevPag() {
 			righe[i].style.display = "table-row";
 		else 
 			righe[i].style.display = "none";
-	}	
+	}
+	setCurrPage(currpage);
+}
+
+function setCurrPage(pag){
+	var buttons = document.getElementsByClassName("pagButton");
+	var l=buttons.length;
+	for(var i=0; i<l; i++) {
+		if(i==pag-1) {
+			buttons[i].classList.add("current");
+		} else {
+		buttons[i].classList.remove("current");
+		}
+	}
 }

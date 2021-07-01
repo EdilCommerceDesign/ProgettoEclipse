@@ -64,3 +64,8 @@ div.paginazione a{
 .standard-table-size {
 	height: 758px;
 }
+
+.current {
+	background-color: #272F38 !important;
+	color: white !important;
+}

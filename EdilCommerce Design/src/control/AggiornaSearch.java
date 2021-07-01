@@ -75,17 +75,35 @@ public class AggiornaSearch extends HttpServlet {
 			} else if(collection.isEmpty()){
 				buffer.append("		<h3>Nessun articolo trovato</h3>\n");
 			} else {
-				buffer.append( "		<table>\r\n");
+				buffer.append( "		<div class=\"standard-table-size\">"
+						+ "		<table>\r\n");
 				Iterator<ArticoloBean> it = collection.iterator();
 				ArticoloBean bean = new ArticoloBean();
 				DecimalFormat df=new DecimalFormat("#0.00");
+				int pag = 1, count=0;
 				while(it.hasNext()) {
+					if(count==7) {
+						count=0;
+						pag++;
+					}
 				bean=it.next();
-				buffer.append("		<tr><td><a href=\"" + response.encodeURL("/EdilCommerce_Design/articolo.jsp?articolo=\"" + bean.getCodiceArticolo()) + "\"><img alt=\"" + bean.getNome() + "\" src=\"" + bean.getImmagine() + "\"></a></td>\r\n"
+				count++;
+				buffer.append("		<tr class=\"pagina" + pag +" pagina\"><td><a href=\"" + response.encodeURL("/EdilCommerce_Design/articolo.jsp?articolo=\"" + bean.getCodiceArticolo()) + "\"><img alt=\"" + bean.getNome() + "\" src=\"" + bean.getImmagine() + "\"></a></td>\r\n"
 				+ "		<td><h4><a href=\"" + response.encodeURL("/EdilCommerce_Design/articolo.jsp?articolo=" + bean.getCodiceArticolo()) + "\">" + bean.getNome() + "</a></h4>\r\n"
 				+ "		<h5>" + df.format(bean.getCosto()) + "&euro;</h5></td></tr>\r\n");
 				}
-				buffer.append("		</table>");
+				buffer.append("		</table>"
+						+ "		</div>"
+						+ "		<br>\r\n"
+						+ "		<div class=\"paginazione\">\r\n"
+						+ "		<a href=\"javascript:void(0);\" onclick=\"prevPag()\">&lt;</a>\r\n");
+				int i;
+				for(i=0; i<pag; i++) {
+					buffer.append("		<a href=\"javascript:void(0);\" onclick=\"cambiaPag('" + (i+1) + "')\">" +  (i+1) + "</a>\n");
+				}
+				buffer.append("		<a href=\"javascript:void(0);\" onclick=\"succPag()\">&gt;</a>\r\n"
+						+ "		</div>\r\n");
+				
 			}
 			response.getWriter().write(buffer.toString());
 	}

@@ -80,7 +80,7 @@
 				int i;
 				for(i=0; i<pag; i++) {
 		%>
-		<a href="javascript:void(0);" onclick="cambiaPag('<%=i+1%>')"><%="" + (i+1)%></a>
+		<a class="pagButton<%=i==0?" current":"" %>" href="javascript:void(0);" onclick="cambiaPag('<%=i+1%>')"><%="" + (i+1)%></a>
 		<%			
 				}
 		%>
