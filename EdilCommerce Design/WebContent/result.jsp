@@ -45,6 +45,7 @@
 	
 				}
 		%>
+		<div class="standard-table-size">
 		<table>
 		<%
 				Iterator<ArticoloBean> it = collection.iterator();
@@ -68,6 +69,7 @@
 				}		
 		%>
 		</table>
+		</div>
 		<%
 		
 		%>

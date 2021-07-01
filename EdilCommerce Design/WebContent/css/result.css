@@ -60,3 +60,7 @@ div.paginazione a{
 .paginazione a:hover:not(.active) {
 	background-color: #ddd;
 }
+
+.standard-table-size {
+	height: 758px;
+}
