@@ -8,7 +8,8 @@
 <title>Ordine Effettuato</title>
 </head>
 <body>
-
+	<div id="holder">
+		
 	<%
 	HttpSession session = request.getSession(false);
 	if(session == null) {
@@ -24,7 +25,7 @@
 	%>
 	
 	<%@ include file="../header.jsp" %>
-	
+	<div id="body">
 	<%
 	if(Integer.parseInt( request.getParameter("suc")) == 1) {
 	%>
@@ -36,5 +37,9 @@
 	<%		
 	}
 	%>
+	</p>
+	</div>
+	<%@ include file="../footer.jsp" %>
+	</div>
 </body>
 </html>

@@ -1,12 +1,14 @@
 @charset "ISO-8859-1";
-footer{
-  margin-top: 60px;
-  top: 100%;
-  width: 100%;
+footer{ 
+  width:100%;
+  position: absolute;
+  left: 0;
+  bottom: 0; 
   background-color: #272F38;
   color: white;
   text-align: center;
   clear: both;
+  margin-left: 5px;
 }
 .generic{
 	display: inline-block;

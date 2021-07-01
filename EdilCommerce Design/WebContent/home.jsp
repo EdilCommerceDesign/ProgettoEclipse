@@ -15,6 +15,8 @@
 	<title>Benvenuto in Edil Commerce Design</title>
 </head>
 <body>	
+	<div id="holder">
+		
 	<%
 	HttpSession session = request.getSession(false);
 	Boolean userRole  =  null;
@@ -66,7 +68,7 @@
 		}
 		%>
 		</header>
-		
+		<div id="body">
 		<img alt="logo-edil" src="/EdilCommerce_Design/img/logo.png" id="mainLogo">
 	
 		<div class="center">
@@ -98,6 +100,8 @@
 		</div>
 		<input type="button" value="&gt" onclick="scrollR()">
 	</div>
+	</div>
 	<%@ include file="./footer.jsp" %>
+	</div>
 </body>
 </html>
