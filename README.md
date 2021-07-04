@@ -23,4 +23,5 @@
   <li>Animazione per il profilo quando si apre un div(informazioni personali)</li>
   <li>Proteggere registrati e login, quando il login è già stato effettuato✅</li>
   <li>Aggiornare i bean di cliente e aggiungere i nuovi bean di info fatturazione, carta e contrassegno✅</li>
+  <li>Controllare la ricerca con i criteri di ordine</li>
 </ul>
