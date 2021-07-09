@@ -26,16 +26,6 @@ footer{
   	padding: 0;
   	margin: 0;
 }
-.generic li {
-  	padding-left: 1.3em;
-}
-.generic li:before{
-	 content: "\f007";
-	 font-family: FontAwesome;
-	 margin-left: -1.3em;
-     width: 1.3em;
-     padding: 5px;
-}
 
 .contatti{
 	display: inline-block;
@@ -61,7 +51,7 @@ footer{
 .infoL{
 	text-align: center;
 	font-size: 10px;
-    padding-top: 30px;
+    padding-top: 90px;
 }
 .generic a{
 	 color: white;

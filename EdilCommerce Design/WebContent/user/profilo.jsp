@@ -42,6 +42,8 @@ if (bean == null) {
 	<%@ include file="../header.jsp" %>
 	<div id="body">
 	<script type="text/javascript" src="/EdilCommerce_Design/script/profiloScripts.js"></script>
+	<script type="text/javascript" src="/EdilCommerce_Design/script/regularExpressions.js"></script>
+	
 	<%
 	String error = (String) request.getAttribute("error");
 	if (error != null && !error.equals("")) {
@@ -56,7 +58,7 @@ if (bean == null) {
 		<li onclick="visualizza('infoP')"><h2>Informazioni personali</h2></li>
 		<div class="container" id="infoP" style="display: none;">
 			<h2 style="text-align: center">Informazioni personali</h2>
-			<form id="profilo" method="post" action="<%=response.encodeURL("/EdilCommerce_Design//Modifica")%>">
+			<form id="profilo" method="post" action="<%=response.encodeURL("/EdilCommerce_Design//Modifica")%>" onsubmit="event.preventDefault(); validateRegistrazione(this)">
 				<div class="flex">
 					  	<div class="col-50">
 								<label for="nome"><i class="fa fa-user"></i> Nome</label>

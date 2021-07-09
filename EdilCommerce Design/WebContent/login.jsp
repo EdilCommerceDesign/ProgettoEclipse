@@ -16,7 +16,6 @@
 		
 	<%@ include file="./header.jsp" %>
 	<div id="body">
-	<script type="text/javascript" src="/EdilCommerce_Design/script/regularExpressions.js"></script>
 	<%
 		HttpSession session = request.getSession(true);
 		if(session != null) {
@@ -36,7 +35,7 @@
 	<img alt="logo-edil" src="/EdilCommerce_Design/img/logo.png" id="mainLogo">
 	<div class="container">
 		
-			<form method="post" action="<%=response.encodeURL("/EdilCommerce_Design/Login") %>" onsubmit="event.preventDefault(); validateLogin(this)">
+			<form method="post" action="<%=response.encodeURL("/EdilCommerce_Design/Login") %>" >
 				
 					<h1 class="all">LOGIN</h1>
 						<label for="username"><i class="fa fa-user"></i> Username</label>

@@ -16,7 +16,7 @@
 	<%@ include file="./header.jsp" %>
 	<div id="body">
 	<script type="text/javascript" src="/EdilCommerce_Design/script/profiloScripts.js"></script>
-	
+	<script type="text/javascript" src="/EdilCommerce_Design/script/regularExpressions.js"></script>
 	<div class="all">
 	<h1>CREA UN ACCOUNT</h1>
 	<%
@@ -37,7 +37,7 @@
 	}
 	%>		
 		<div class="container">		
-		<form id="registrazione" method="post" action="<%=response.encodeURL("/EdilCommerce_Design/Registrazione")%>">
+		<form id="registrazione" method="post" action="<%=response.encodeURL("/EdilCommerce_Design/Registrazione")%>"onsubmit="event.preventDefault(); validateRegistrazione(this)">
 			<div class="flex">
 				  	<div class="col-50">
 							<label for="nome"><i class="fa fa-user"></i> Nome</label>
@@ -64,13 +64,13 @@
 							<input type="text" name="indirizzo" placeholder="ex. via demanio 7/1" required >
 							
 							<label for="telefono"><i class="fa fa-phone"></i> Telefono</label>
-							<input type="text" name="telefono" placeholder="ex. 089893888" required >
+							<input type="text" name="telefono" placeholder="ex. 320-3895666" required >
 						
 							<label for="citta"><i class="fa fa-institution"></i> Città</label>
 							<input type="text" name="citta" placeholder="Salerno" required >
 							
 							<label for="cap"><i class="fa fa-home"></i> Cap</label>
-							<input type="text" name="cap" placeholder="800000" required >
+							<input type="text" name="cap" placeholder="82345" required >
 							
 							<label for="stato"><i class="fa fa-home"></i> Stato</label>
 							<input type="text" name="stato" placeholder="IT" required >

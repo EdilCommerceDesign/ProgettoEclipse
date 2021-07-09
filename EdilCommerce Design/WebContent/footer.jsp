@@ -14,11 +14,12 @@
 	   		
 	   	 <h3><i class="fa fa-home" ></i> <a href="<%=response.encodeURL("/EdilCommerce_Design/") %>">Ritorna alla home</a></h3>
 	   	 <h4>Contatti:</h4>
-	   	 <ul>
-	   	 	<li>Luigi De Chiara</li>
-	   	 	<li>Francesco Fasolino</li>
-	   	 	<li>Angelo Giaquinto</li>
-	   	 </ul>
+
+	   	 	<img src="https://img.icons8.com/color/48/000000/admin-settings-male.png"/> Luigi De Chiara
+	   	 	<img src="https://img.icons8.com/color/48/000000/admin-settings-male.png"/> Francesco Fasolino<br>
+	   	 	<img src="https://img.icons8.com/color/48/000000/admin-settings-male.png"/> Angelo Giaquinto
+	   	 	<img src="https://img.icons8.com/color/48/000000/admin-settings-male.png"/> ...
+	   	 
 	   </div>
 	
 	   <div class="contatti">
@@ -32,17 +33,22 @@
 	   </div>
 	   
 	   <div class="icon">
-	     <h3>Seguici sui social</h3>
-		 <i class="fa fa-facebook" ></i>
-		 <i class="fa fa-instagram" ></i>
-		 <i class="fa fa-whatsapp"></i>
-		 <i class="fa fa-twitter" ></i>
-		 <i class="fa fa-cc-visa"></i>
-         <i class="fa fa-cc-amex"></i>
-         <i class="fa fa-cc-mastercard"></i>
-         <i class="fa fa-cc-discover"></i>
+	   	<div>
+	     <h3>Seguici sui social:</h3>
+	     <img src="https://img.icons8.com/color/48/000000/facebook-circled--v3.png"/>
+	     <img src="https://img.icons8.com/color/48/000000/whatsapp--v2.png"/>
+	     <img src="https://img.icons8.com/color/48/000000/twitter.png"/>
+	     <img src="https://img.icons8.com/color/48/000000/instagram-new--v2.png"/>
+		</div>
+		<div>
+	     <h3>Metodi di pagamento:</h3>
+         <img src="https://img.icons8.com/color/48/000000/visa.png"/>
+         <img src="https://img.icons8.com/color/48/000000/mastercard.png"/>
+         <img src="https://img.icons8.com/fluent/48/000000/paypal.png"/>
+         <img src="https://img.icons8.com/fluent/48/000000/amex.png"/>
+         </div>
 	   </div>
-	   
+	   <br>
 	   <div class="infoL">
 	   	 © Inter EdilCommerceDesign Systems B.V. 1999-2021
 	   </div>
