@@ -154,7 +154,7 @@ public class ArticoloModelDS implements ModelInterface<ArticoloBean> {
 		String selectCodeSQL = "SELECT * FROM articolo WHERE ";
 		
 		if(!(prezzo.isBlank())) 
-			selectCodeSQL = selectCodeSQL + " prezzo " + prezzo + " AND "; 
+			selectCodeSQL = selectCodeSQL + " costo " + prezzo + " AND "; 
 		
 		selectCodeSQL = selectCodeSQL + " nome like ? ";
 		

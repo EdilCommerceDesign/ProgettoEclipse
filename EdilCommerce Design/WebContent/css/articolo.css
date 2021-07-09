@@ -31,3 +31,15 @@ div.checkout input.quantità {
 div.checkout input.aggiungi {
 	margin-top: 5px;
 }
+
+div.recensioni {
+	clear: both;
+}
+
+.fa-star {
+	color: grey;
+}
+
+.checked {
+	color: orange;
+}

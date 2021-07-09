@@ -1,4 +1,4 @@
-<%@page import="java.sql.SQLException"%>
+<%@page import="java.sql.SQLException, java.text.*"%>
 <%@page session="false" %>
 <%
 HttpSession session = request.getSession(false);
@@ -112,6 +112,7 @@ if (bean == null) {
 					CartaModelDS caModel = new CartaModelDS(ds);
 					ContrassegnoModelDS coModel = new ContrassegnoModelDS(ds);
 					ArticoloModelDS aModel = new ArticoloModelDS(ds);
+					DecimalFormat df = new DecimalFormat("#0.00");
 					
 					LinkedList<OrdineBean> oList = (LinkedList<OrdineBean>) oModel.doRetriveByUser(bean.getUsername());
 					
@@ -152,7 +153,7 @@ if (bean == null) {
 					}
 				 %>
 					</h3>
-					<h3>Importo ordine: <%=pBean.getImporto()%>&euro;</h3>
+					<h3>Importo ordine: <%=df.format(pBean.getImporto())%>&euro;</h3>
 				<%
 						
 						LinkedList<ComponeBean> cList = (LinkedList<ComponeBean>) cModel.doRetriveByOneKey(oBean.getNumeroOrdine() + "");

@@ -135,7 +135,6 @@ public class ComponeModelDS implements ModelRelationInterface<ComponeBean>{
 
 	@Override
 	public void doUpdate(ComponeBean item) throws SQLException {
-		// TODO Auto-generated method stub
 		
 	}
 
