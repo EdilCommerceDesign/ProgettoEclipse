@@ -101,6 +101,9 @@ header a {
 .bottom .icon {
   display: none;
 }
+#search:focus-visible {
+    outline: 0;
+}
 
 @media all and (max-width: 600px) {
   .bottom a:not(:first-child) {display: none;}

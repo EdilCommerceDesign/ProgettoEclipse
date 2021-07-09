@@ -44,13 +44,15 @@ if(carrello.getItems().isEmpty()) {
 	<div id="holder">
 		
 		<%@ include file="../header.jsp" %>
+		<script type="text/javascript" src="/EdilCommerce_Design/script/regularExpressions.js"></script>
+		
 		<div id="body">
 		<h2>Riepilogo carrello</h2>
 	
 	<div class="row">
 	  <div class="col-75">
 	    <div class="container">
-	      <form  method="post" action="<%=response.encodeURL("/EdilCommerce_Design/ComputaOrdine")%>">
+	      <form  method="post" action="<%=response.encodeURL("/EdilCommerce_Design/ComputaOrdine")%>"onsubmit="event.preventDefault(); validateCheckout(this)">
 	      
 	        <div class="row">
 	          <div class="col-50">
