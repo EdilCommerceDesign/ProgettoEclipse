@@ -14,7 +14,7 @@
   <li>Fare https per il form di pagamento, il login e la registrazione(OPZIONALE)</li>
   <li>Fare la parte dell'admin</li>
   <li>Aggiustare i CSS generali</li>
-  <li>Aggiungere controlli ai form</li>
+  <li>Aggiungere controlli ai form✅</li>
   <li>Aggiungere il carrello ai cookie quando si invalida la sessione</li>
   <li>Modificare schema ER con aggiunta di "info fatturazione" e aggiungere a cliente la città stato e cap✅</li>
   <li>Creare Footer✅</li>
@@ -23,5 +23,7 @@
   <li>Animazione per il profilo quando si apre un div(informazioni personali)</li>
   <li>Proteggere registrati e login, quando il login è già stato effettuato✅</li>
   <li>Aggiornare i bean di cliente e aggiungere i nuovi bean di info fatturazione, carta e contrassegno✅</li>
-  <li>Controllare la ricerca con i criteri di ordine, fare l'arrotondamento al 2° numero decimale per gli ordini</li>
+  <li>Controllare la ricerca con i criteri di ordine, fare l'arrotondamento al 2° numero decimale per gli ordini✅</li>
+  <li>Fare le funzioni js per le stelle e poi per la submit della recensione</li>
+  <li>Controllo password</li>
 </ul>
