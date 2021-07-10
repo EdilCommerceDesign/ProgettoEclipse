@@ -35,9 +35,9 @@
 			if(headerUserRole.equals(true) || headerAdminRole.equals(true) ){
 		%>
 		<ul>
-			<li><a href="<%=response.encodeURL("/EdilCommerce_Design/user/profilo.jsp")%>" title="Profilo di <%=headerBean.getUsername()%>"><img alt="profilo" src="/EdilCommerce_Design/img/profilo.jpg"></a></li>
-			<li><a href="<%=response.encodeURL("/EdilCommerce_Design/Logout")%>" title="Logout"><img alt="logout" src="/EdilCommerce_Design/img/logout.jpg"></a></li>
-			<li><a href="<%=response.encodeURL("/EdilCommerce_Design/user/carrello.jsp")%>" title="Carrello"><img alt="carrello" src="/EdilCommerce_Design/img/carrello.jpg"></a></li>
+			<li><a href="<%=response.encodeURL("/EdilCommerce_Design/user/profilo.jsp")%>" title="Profilo di <%=headerBean.getUsername()%>"><img alt="profilo" src="/EdilCommerce_Design/img/profilo.png"></a></li>
+			<li><a href="<%=response.encodeURL("/EdilCommerce_Design/Logout")%>" title="Logout"><img alt="logout" src="/EdilCommerce_Design/img/logout.png"></a></li>
+			<li><a href="<%=response.encodeURL("/EdilCommerce_Design/user/carrello.jsp")%>" title="Carrello">  <img alt="carrello" src="/EdilCommerce_Design/img/carrello.png"></a></li>
 		</ul>
 		<% 	
 				}else {
