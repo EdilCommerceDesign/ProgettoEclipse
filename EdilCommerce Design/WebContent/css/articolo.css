@@ -37,6 +37,7 @@ div.recensioni {
 }
 
 .fa-star {
+	cursor: pointer;
 	color: grey;
 }
 

@@ -13,13 +13,18 @@
 </head>
 <body>
 	<div id="holder">
-		
+		<script type="text/javascript" src="/EdilCommerce_Design/script/articolo.js"></script>
 		<%@include file="header.jsp" %>
 		<div id="body">
 		<%
 		ArticoloModelDS model = new ArticoloModelDS((DataSource)getServletContext().getAttribute("DataSource"));
 		ArticoloBean bean = new ArticoloBean();
 		bean=model.doRetriveByKey(request.getParameter("articolo"));
+		HttpSession session = request.getSession(false);
+		UserBean user = new UserBean();
+		if(session != null){
+			user = (UserBean) session.getAttribute("loggedUser");
+		}
 		%>
 		
 		<div class="visualizzazione">
@@ -39,7 +44,7 @@
 		<div class="recensioni">
 		<div id="scriviRecensione">
 		<h3>Lascia qui una recensione del prodotto</h3>
-		<%HttpSession session = request.getSession(false);
+		<%
 		if(session==null) {
 		%>
 		<textarea rows="5" cols="50" maxlength="500" placeholder="Effettua il login per scrivere una recensione" disabled></textarea><br>
@@ -53,25 +58,29 @@
 		<%
 			} else {
 				RecensisceModelDS rModel = new RecensisceModelDS((DataSource)getServletContext().getAttribute("DataSource"));
-				UserBean user = (UserBean) session.getAttribute("loggedUser");
 				RecensisceBean rBean = rModel.doRetriveByKey(user.getUsername(), bean.getCodiceArticolo());
 				if(!rBean.isEmpty()){
 		%>
-			<input type="button" value="X" title="Cancella recensione" onclick="CancellaRecensione()">
+		
+			<input type="button" value="X" title="Cancella recensione" onclick="CancellaRecensione('<%=bean.getCodiceArticolo()%>')">
 			<textarea id="testoRecensione" rows="5" cols="50" maxlength="500" placeholder="Inserisci qui la tua recensione"><%=rBean.getTesto()%></textarea><br>
-			<input type="button" value="Aggiorna recensione" onclick="AggiornaRecensione()">
+			<input type="button" value="Aggiorna recensione" onclick="AggiornaRecensione('<%=bean.getCodiceArticolo()%>')">
 		<%
-				} else {		
+				} else {
+		%>
+		<span onmouseout="SetDefaultStelle()">
+		<%
 			for(int i=1; i<6; i++) {
 				%>
 				<span class="fa fa-star" onmouseover="Seleziona('<%=i%>')" onclick="SetSelezionati('<%=i%>')"></span>
 				<%
 			}
 			%>
+			</span>
 			<br>
-			<input id="stelle" type="number" hidden="true" min="1" max="5">
-			<textarea rows="5" cols="50" maxlength="500" placeholder="Inserisci qui la tua recensione"></textarea><br>
-			<input type="button" value="Invia recensione" onclick="InviaRecensione()">
+			<input id="stelle" type="number" hidden="true" value="0" min="0" max="5">
+			<textarea id="testo" rows="5" cols="50" maxlength="500"  placeholder="Inserisci qui la tua recensione"></textarea><br>
+			<input type="button" value="Invia recensione" onclick="InviaRecensione('<%=bean.getCodiceArticolo()%>')">
 		<%
 				}	
 			}
@@ -91,10 +100,14 @@
 			while(it.hasNext()){
 				RecensisceBean rBean = new RecensisceBean();
 				rBean = it.next();
+				if(!rBean.getUsername().equals(user.getUsername())){
 		%>
-			<h4><%=rBean.getUsername()%></h4><h5><%=rBean.getDate()%></h5>
-			<p class="recensione"><%=rBean.getTesto()%></p>	
+			<div class="recensione">
+				<h4><%=rBean.getUsername()%></h4><h5><%=rBean.getDate()%></h5>
+				<p class="recensione"><%=rBean.getTesto()%></p>	
+			</div>
 		<%		
+				}
 			}	
 		}
 		%>

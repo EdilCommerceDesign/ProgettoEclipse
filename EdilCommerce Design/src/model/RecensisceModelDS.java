@@ -156,7 +156,7 @@ public class RecensisceModelDS implements ModelRelationInterface<RecensisceBean>
 		Connection con = null;
 		PreparedStatement ps = null;
 		
-		String InsertSQL = "INSERT INTO recensisce VALUES (?,?,?,?,?)";
+		String InsertSQL = "INSERT INTO recensisce VALUES (?,?,NOW() ,?,?)";
 		
 		try {
 			con = ds.getConnection();
@@ -164,9 +164,8 @@ public class RecensisceModelDS implements ModelRelationInterface<RecensisceBean>
 			
 			ps.setString(1, item.getCodiceArticolo());
 			ps.setString(2, item.getUsername());
-			ps.setDate(3, item.getDate());
-			ps.setInt(4, item.getValore());
-			ps.setString(5, item.getTesto());
+			ps.setInt(3, item.getValore());
+			ps.setString(4, item.getTesto());
 			
 			Utility.print("doSave: " + ps.toString());
 			
@@ -188,16 +187,15 @@ public class RecensisceModelDS implements ModelRelationInterface<RecensisceBean>
 		Connection con = null;
 		PreparedStatement ps = null;
 		
-		String UpdateSQL = "UPDATE recensisce SET codiceArticolo=?, data=?, valore=?, testo=? WHERE username=?";
+		String UpdateSQL = "UPDATE recensisce SET codiceArticolo=?, data=NOW(), valore=?, testo=? WHERE username=?";
 		
 			try {
 				con = ds.getConnection();
 				ps = con.prepareStatement(UpdateSQL);
 
 				ps.setString(1, item.getCodiceArticolo());
-				ps.setDate(2, item.getDate());
-				ps.setInt(3, item.getValore());
-				ps.setString(4, item.getTesto());
+				ps.setInt(2, item.getValore());
+				ps.setString(3, item.getTesto());
 				Utility.print("doUpdate: " + ps.toString());
 
 				ps.executeUpdate();
