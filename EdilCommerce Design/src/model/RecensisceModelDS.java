@@ -187,15 +187,16 @@ public class RecensisceModelDS implements ModelRelationInterface<RecensisceBean>
 		Connection con = null;
 		PreparedStatement ps = null;
 		
-		String UpdateSQL = "UPDATE recensisce SET codiceArticolo=?, data=NOW(), valore=?, testo=? WHERE username=?";
+		String UpdateSQL = "UPDATE recensisce SET data=NOW(), valore=?, testo=? WHERE username=? AND codiceArticolo=?";
 		
 			try {
 				con = ds.getConnection();
 				ps = con.prepareStatement(UpdateSQL);
 
-				ps.setString(1, item.getCodiceArticolo());
-				ps.setInt(2, item.getValore());
-				ps.setString(3, item.getTesto());
+				ps.setInt(1, item.getValore());
+				ps.setString(2, item.getTesto());
+				ps.setString(3, item.getUsername());
+				ps.setString(4, item.getCodiceArticolo());
 				Utility.print("doUpdate: " + ps.toString());
 
 				ps.executeUpdate();

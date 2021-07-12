@@ -60,11 +60,20 @@
 				RecensisceModelDS rModel = new RecensisceModelDS((DataSource)getServletContext().getAttribute("DataSource"));
 				RecensisceBean rBean = rModel.doRetriveByKey(user.getUsername(), bean.getCodiceArticolo());
 				if(!rBean.isEmpty()){
-		%>
-		
-			<input type="button" value="X" title="Cancella recensione" onclick="CancellaRecensione('<%=bean.getCodiceArticolo()%>')">
-			<textarea id="testoRecensione" rows="5" cols="50" maxlength="500" placeholder="Inserisci qui la tua recensione"><%=rBean.getTesto()%></textarea><br>
-			<input type="button" value="Aggiorna recensione" onclick="AggiornaRecensione('<%=bean.getCodiceArticolo()%>')">
+					%>
+					<span onmouseout="SetDefaultStelle()">
+					<input id="stelle" type="number" hidden="true" value="<%=rBean.getValore() %>" min="0" max="5">
+					<%
+						for(int i=1; i<6; i++) {
+							%>
+							<span class="fa fa-star <%=rBean.getValore()>=i?"checked":"" %>" onmouseover="Seleziona('<%=i%>')" onclick="SetSelezionati('<%=i%>')"></span>
+							<%
+						}
+						%>
+			
+			</span><input id="x" type="button" value="X" title="Cancella recensione" onclick="CancellaRecensione('<%=bean.getCodiceArticolo()%>')"><br>
+			<textarea id="testo" rows="5" cols="50" maxlength="500" placeholder="Inserisci qui la tua recensione"><%=rBean.getTesto()%></textarea><br>
+			<input id="submit" type="button" value="Aggiorna recensione" onclick="AggiornaRecensione('<%=bean.getCodiceArticolo()%>')">
 		<%
 				} else {
 		%>
@@ -80,7 +89,7 @@
 			<br>
 			<input id="stelle" type="number" hidden="true" value="0" min="0" max="5">
 			<textarea id="testo" rows="5" cols="50" maxlength="500"  placeholder="Inserisci qui la tua recensione"></textarea><br>
-			<input type="button" value="Invia recensione" onclick="InviaRecensione('<%=bean.getCodiceArticolo()%>')">
+			<input id="submit" type="button" value="Invia recensione" onclick="InviaRecensione('<%=bean.getCodiceArticolo()%>')">
 		<%
 				}	
 			}

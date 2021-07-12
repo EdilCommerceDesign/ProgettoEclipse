@@ -44,3 +44,15 @@ div.recensioni {
 .checked {
 	color: orange;
 }
+
+#scriviRecensione {
+	width: fit-content;
+}
+
+#x {
+	float: right;
+	background-color: red;
+	border-radius: 9999px;
+    color: white;
+	border-style: none;
+}

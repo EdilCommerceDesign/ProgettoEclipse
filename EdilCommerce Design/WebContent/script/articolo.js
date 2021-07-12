@@ -39,6 +39,28 @@ function InviaRecensione(codiceArticolo){
 		xhttp.onreadystatechange = function() {
 		if(xhttp.readyState == 4 && xhttp.status == 200) {
 			alert("Recensione registrata");
+			
+			var recensione = document.getElementById('scriviRecensione');
+			var button = document.createElement("input");
+			button.type = "button";
+			button.id = "x";
+			button.value = "X";
+			button.title = "Cancella recensione";
+			button.addEventListener("click", function(){
+				CancellaRecensione(codiceArticolo + "")
+			},false);
+			
+			recensione.childNodes[3].after(button);
+			recensione.removeChild(document.getElementById("submit"));
+			var sub = document.createElement("input");
+			sub.id = "submit";
+			sub.type = "button";
+			sub.value = "Aggiorna recensione";
+			sub.addEventListener("click", function() {
+				AggiornaRecensione(codiceArticolo + "");
+			})
+			
+			recensione.appendChild(sub);
 		}
 	};
 	xhttp.open("POST", "/EdilCommerce_Design/OperaRecensione", true);
@@ -58,6 +80,7 @@ function AggiornaRecensione(codiceArticolo){
 		xhttp.onreadystatechange = function() {
 		if(xhttp.readyState == 4 && xhttp.status == 200) {
 			alert("Recensione modificata");
+			
 		}
 	};
 	xhttp.open("POST", "/EdilCommerce_Design/OperaRecensione", true);
@@ -77,6 +100,25 @@ function CancellaRecensione(codiceArticolo){
 		xhttp.onreadystatechange = function() {
 		if(xhttp.readyState == 4 && xhttp.status == 200) {
 			alert("Recensione cancellata");
+			
+			var recensione = document.getElementById('scriviRecensione');
+			
+			document.getElementById("testo").value = '';
+			document.getElementById("stelle").value = 0;
+			
+			recensione.removeChild(document.getElementById("submit"));
+			var sub = document.createElement("input");
+			sub.id = "submit";
+			sub.type = "button";
+			sub.value = "Invia recensione";
+			sub.addEventListener("click", function() {
+				InviaRecensione(codiceArticolo + "");
+			})
+			
+			recensione.appendChild(sub);
+			
+			recensione.removeChild(document.getElementById("x"));
+			SetDefaultStelle();
 		}
 	};
 	xhttp.open("POST", "/EdilCommerce_Design/OperaRecensione", true);
