@@ -60,7 +60,7 @@ public class Login extends HttpServlet {
 						if(redirect == null) {
 							redirect="home.jsp";
 						}
-						response.sendRedirect(response.encodeURL(redirect));
+						response.sendRedirect(response.encodeRedirectURL(redirect));
 						return;
 					} catch(SQLException e) {
 						Utility.print(e);

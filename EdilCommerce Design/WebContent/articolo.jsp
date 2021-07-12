@@ -96,6 +96,7 @@
 		}
 		%>
 		</div>
+		<hr>
 		<div>
 		<%
 		RecensisceModelDS rModel = new RecensisceModelDS((DataSource)getServletContext().getAttribute("DataSource"));
@@ -105,19 +106,37 @@
 		 <h4>Nessuna recensione per questo articolo</h4>
 		<%	
 		} else {
+			int k = 0;
+			RecensisceBean lastBean = new RecensisceBean();
 			Iterator<RecensisceBean> it = recensioni.iterator();
 			while(it.hasNext()){
+				k++;
 				RecensisceBean rBean = new RecensisceBean();
 				rBean = it.next();
+				lastBean = rBean;
 				if(!rBean.getUsername().equals(user.getUsername())){
 		%>
 			<div class="recensione">
-				<h4><%=rBean.getUsername()%></h4><h5><%=rBean.getDate()%></h5>
+				<h4><span class="data"><%=rBean.getDate()%></span> <%=rBean.getUsername()%></h4>
+				<span class="stelle">
+				<%
+				for(int i=1; i<6; i++) {
+					%>
+					<span class="fa fa-star <%=rBean.getValore()>=i?"checked":"" %>"></span>
+					<%
+				}
+				%>
+				</span>
 				<p class="recensione"><%=rBean.getTesto()%></p>	
 			</div>
 		<%		
 				}
-			}	
+			}
+			/*
+			if(k == 1 && lastBean.getUsername().equals(user.getUsername()))
+			%>
+			 <h4>Nessuna recensione per questo articolo</h4>
+			<%*/	
 		}
 		%>
 		
