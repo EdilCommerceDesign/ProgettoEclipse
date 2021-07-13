@@ -9,6 +9,7 @@ public class ArticoloBean {
 	String descrizione;		
 	double costo;				
 	String nomeCategoria;
+	int mediaRecensioni;
 	
 	public ArticoloBean(){
 		codiceArticolo= "";
@@ -17,6 +18,7 @@ public class ArticoloBean {
 		descrizione= "";
 		costo= 0;
 		nomeCategoria= "";
+		mediaRecensioni = 0;
 	}
 
 	public String getCodiceArticolo() {
@@ -66,6 +68,14 @@ public class ArticoloBean {
 	public void setNomeCategoria(String nomeCategoria) {
 		this.nomeCategoria = nomeCategoria;
 	}
+
+	public int getMediaRecensioni() {
+		return mediaRecensioni;
+	}
+
+	public void setMediaRecensioni(int mediaRecensioni) {
+		this.mediaRecensioni = mediaRecensioni;
+	}
 	
 	public boolean isEmpty() {
 		return codiceArticolo == "";
@@ -81,7 +91,7 @@ public class ArticoloBean {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return nome+","+"("+ codiceArticolo +")" +", "+ immagine +", "+ descrizione+", " + costo +", "+ nomeCategoria;
+		return nome + "," + "(" + codiceArticolo + ")" + ", " + immagine + ", " + descrizione + ", " + costo + ", " + nomeCategoria + "," + mediaRecensioni;
 	}
 	
 	

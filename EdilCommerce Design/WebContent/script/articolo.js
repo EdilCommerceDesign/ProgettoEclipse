@@ -127,7 +127,7 @@ function CancellaRecensione(codiceArticolo){
 	var valutazione = document.getElementById("stelle").value;
 	
 	if(testo != "" && valutazione != "0")
-		xhttp.send("testo= &valutazione=1&codiceArticolo=" + codiceArticolo + "&op=delete");
+		xhttp.send("testo=" + testo + "&valutazione=" + valutazione + "&codiceArticolo=" + codiceArticolo + "&op=delete");
 	else{
 		alert("Testo e valutazione richiesti, per favore assicurarsi di scegliere una valutazione e inserire un testo");
 	}

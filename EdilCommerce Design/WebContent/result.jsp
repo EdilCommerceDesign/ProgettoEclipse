@@ -65,6 +65,15 @@
 		<tr class="<%="pagina"+ pag%> pagina" onclick="document.location = '<%=response.encodeURL("/EdilCommerce_Design/articolo.jsp?articolo=" + bean.getCodiceArticolo())%>';">
 		<td><img alt="<%=bean.getNome()%>" src="<%=bean.getImmagine()%>"></td>
 		<td><h4><%=bean.getNome()%></h4>
+		<span class="float-left">
+		<%
+		for(int i=1; i<6; i++) {
+			%>
+			<span class="fa fa-star <%=bean.getMediaRecensioni()>=i?"checked":"" %>"></span>
+			<%
+		}
+		%>
+		</span>
 		<h5><%DecimalFormat df=new DecimalFormat("#0.00");%><%=df.format(bean.getCosto())%>&euro;</h5>
 		</td></tr>
 		

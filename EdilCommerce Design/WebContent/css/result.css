@@ -52,6 +52,19 @@ td {
 	vertical-align: top;
 }
 
+td .fa-star {
+	color: grey;
+	font-size: 18px;
+}
+
+td .checked {
+	color: orange;
+}
+
+.float-left {
+	float: left;
+}
+
 #result{
 	
 	margin-left:250px;

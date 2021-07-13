@@ -46,6 +46,7 @@ public class ArticoloModelDS implements ModelInterface<ArticoloBean> {
 				bean.setDescrizione(rs.getString("descrizione"));
 				bean.setCosto(rs.getDouble("costo"));
 				bean.setNomeCategoria(rs.getString("nomeCategoria"));
+				bean.setMediaRecensioni(rs.getInt("mediaRecensioni"));
 			}
 		} finally {
 			try {
@@ -127,6 +128,7 @@ public class ArticoloModelDS implements ModelInterface<ArticoloBean> {
 				bean.setDescrizione(rs.getString("descrizione"));
 				bean.setCosto(rs.getDouble("costo"));
 				bean.setNomeCategoria(rs.getString("nomeCategoria"));
+				bean.setMediaRecensioni(rs.getInt("mediaRecensioni"));
 				
 				collection.add(bean);
 			}
@@ -181,6 +183,7 @@ public class ArticoloModelDS implements ModelInterface<ArticoloBean> {
 				bean.setDescrizione(rs.getString("descrizione"));
 				bean.setCosto(rs.getDouble("costo"));
 				bean.setNomeCategoria(rs.getString("nomeCategoria"));
+				bean.setMediaRecensioni(rs.getInt("mediaRecensioni"));
 				
 				collection.add(bean);
 			}
