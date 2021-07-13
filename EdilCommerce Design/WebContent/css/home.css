@@ -13,7 +13,7 @@ header a {
 #body{
 	background-repeat: no-repeat;
 	background-image: url("/EdilCommerce_Design/img/home01.jpg");
-	background-size: 2000px 680px;
+	background-size: 2000px 700px;
 	
 }
 #left {
@@ -108,7 +108,7 @@ div.center {
 
 hr{
 	margin-bottom: 40px;
-	margin-top: 90px;
+	margin-top: 140px;
 }
 
 .chiSiamoL img{
