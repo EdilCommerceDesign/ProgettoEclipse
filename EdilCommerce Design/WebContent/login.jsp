@@ -31,6 +31,7 @@
 			}
 		}
 	%>
+	<script type="text/javascript" src="/EdilCommerce_Design/script/login.js"></script>
 
 	<img alt="logo-edil" src="/EdilCommerce_Design/img/logo.png" id="mainLogo">
 	<div class="container">

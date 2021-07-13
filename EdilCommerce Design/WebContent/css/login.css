@@ -31,3 +31,9 @@ label {
 h4 {
 	margin-bottom: 0;
 }
+#pass {
+	background-repeat: no-repeat;
+	background-position: right;
+	background-image: url("../img/occhio.png");
+	background-size: 50px;
+}

@@ -15,6 +15,8 @@
 	<title>Benvenuto in Edil Commerce Design</title>
 </head>
 <body>	
+	<script type="text/javascript" src="/EdilCommerce_Design/script/home.js"></script>
+	
 	<div id="holder">
 		
 	<%
@@ -32,7 +34,7 @@
 	 
 		<header>
 		<div id="left"><abb title="Home"><a href="/EdilCommerce_Design/home.jsp"><img alt="ECD_Logo" src="/EdilCommerce_Design/img/logo_mini.png"></a></abb></div>
-		
+		<div id="center">Benvenuto in Edil Commerce Design</div>
 		<% 
 		if(userRole != null && adminRole != null){
 			if(userRole.equals(true) || adminRole.equals(true) ){
@@ -100,7 +102,38 @@
 		</div>
 		<input type="button" value="&gt" onclick="scrollR()">
 	</div>
+	<hr>
+	<div class="slideshow-container">
+
+		<div class="mySlides fade">
+		  <div class="numbertext">1 / 3</div>
+		  <img src="/EdilCommerce_Design/img/home1.jpg" style="width:800px; height: 500px">
+		</div>
+		
+		<div class="mySlides fade">
+		  <div class="numbertext">2 / 3</div>
+		  <img src="/EdilCommerce_Design/img/home2.jpg" style="width:800px; height: 500px">
+		</div>
+		
+		<div class="mySlides fade">
+		  <div class="numbertext">3 / 3</div>
+		  <img src="/EdilCommerce_Design/img/home3.jpg" style="width:800px; height: 500px">
+		</div>
+		
+		</div>
+		<br>
+		
+		<div style="text-align:center">
+		  <span class="dot"></span> 
+		  <span class="dot"></span> 
+		  <span class="dot"></span> 
+	
 	</div>
+	<script type="text/javascript">
+		var slideIndex = 0;
+		showSlides();
+	</script>
+
 	<%@ include file="./footer.jsp" %>
 	</div>
 </body>

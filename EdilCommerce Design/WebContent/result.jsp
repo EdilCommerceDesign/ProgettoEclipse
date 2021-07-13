@@ -31,7 +31,7 @@
 		<b>Prezzo</b><br>
 		<label><input type="checkbox" name="prezzo" value="BETWEEN 0.0 AND 50.0" onclick="mutua('BETWEEN 0.0 AND 50.0')" onchange="aggiorna('<%=request.getParameter("criterioRicerca")%>')">0-50&euro;</label><br>
 		<label><input type="checkbox" name="prezzo" value="BETWEEN 50.01 AND 200.0" onclick="mutua('BETWEEN 50.01 AND 200.0')" onchange="aggiorna('<%=request.getParameter("criterioRicerca")%>')">50-200&euro;</label><br>
-		<label><input type="checkbox" name="prezzo" value="BETWEEN 200.01 AND 99999.0" onclick="mutua('BETWEEN 200.01 AND 99999.0')" onchange="aggiorna('<%=request.getParameter("criterioRicerca")%>')">&lt;200&euro;</label><br>
+		<label><input type="checkbox" name="prezzo" value="BETWEEN 200.01 AND 99999.0" onclick="mutua('BETWEEN 200.01 AND 99999.0')" onchange="aggiorna('<%=request.getParameter("criterioRicerca")%>')">>200&euro;</label><br>
 	</div>
 	
 	<div id="result">
