@@ -69,7 +69,7 @@ cognome				varchar(20)				not null,
 email				varchar(50)				not null,
 telefono			varchar(20)				not null,
 indirizzo			varchar(100)			not null,
-citta�			    varchar(20)				not null,
+citta 			    varchar(20)				not null,
 stato				varchar(20)				not null,
 cap					varchar(20)				not null,
 primary key (numeroPagamento),
@@ -134,7 +134,7 @@ foreign key (nome) references ruolo (nome)
 INSERT INTO ruolo(nome) VALUES ("user");
 INSERT INTO ruolo(nome) VALUES ("admin");
 
-INSERT INTO user VALUES ("admin", "nome", "cognome", "admin@email.com", "telefono", "indirizzo", "cittÃÂ ", "stato", "84085", "admin");
+INSERT INTO user VALUES ("admin", "nome", "cognome", "admin@email.com", "telefono", "indirizzo", "citta", "stato", "84085", "admin");
 
 INSERT INTO ruoloUser VALUES ("admin", "user");
 INSERT INTO ruoloUser VALUES ("admin", "admin");
@@ -163,130 +163,130 @@ insert into categoria values
 
 # arredamento Interno
 insert into articolo values 
-("ART00", "poltrona bianca", "/EdilCommerce_Design/img/categoria/ArredamentoInterno/poltrona.jpg", "poltrona in pelle bianca, dotata di un ottimo comfort ed eleganza (90x150)", "79.99", "Arredamento interno");
+("ART00", "poltrona bianca", "/EdilCommerce_Design/img/categoria/ArredamentoInterno/poltrona.jpg", "poltrona in pelle bianca, dotata di un ottimo comfort ed eleganza (90x150)", "79.99", "Arredamento interno",0);
 insert into articolo values 
-("ART01", "tavolo", "/EdilCommerce_Design/img/categoria/ArredamentoInterno/tavolo.jpg", "tavolo in stile classico in legno di faggio (100x200)", "144.90", "Arredamento interno");
+("ART01", "tavolo", "/EdilCommerce_Design/img/categoria/ArredamentoInterno/tavolo.jpg", "tavolo in stile classico in legno di faggio (100x200)", "144.90", "Arredamento interno",0);
 insert into articolo values
-("ART02", "tavolino", "/EdilCommerce_Design/img/categoria/ArredamentoInterno/tavolino.jpg", "tavolino da salotto in stile moderno ed elegante (70x90)", "99.90", "Arredamento interno");
+("ART02", "tavolino", "/EdilCommerce_Design/img/categoria/ArredamentoInterno/tavolino.jpg", "tavolino da salotto in stile moderno ed elegante (70x90)", "99.90", "Arredamento interno",0);
 insert into articolo values
-("ART25", "divano con penisola", "/EdilCommerce_Design/img/categoria/ArredamentoInterno/divanopenisola.jpg", "Divano con penisola reversibile con pianetto L.cm 250 P.cm 160 completamente sfoderabile, poggiatesta reclinabili. Disponibile in vari tessuti.", "250.50", "Arredamento interno");
+("ART25", "divano con penisola", "/EdilCommerce_Design/img/categoria/ArredamentoInterno/divanopenisola.jpg", "Divano con penisola reversibile con pianetto L.cm 250 P.cm 160 completamente sfoderabile, poggiatesta reclinabili. Disponibile in vari tessuti.", "250.50", "Arredamento interno",0);
 insert into articolo values
-("ART26", "divano letto", "/EdilCommerce_Design/img/categoria/ArredamentoInterno/divanoletto.jpg", "Divano-letto 3 posti in tessuto grigio ardesia Duke", "200.00", "Arredamento interno");
+("ART26", "divano letto", "/EdilCommerce_Design/img/categoria/ArredamentoInterno/divanoletto.jpg", "Divano-letto 3 posti in tessuto grigio ardesia Duke", "200.00", "Arredamento interno",0);
 insert into articolo values
-("ART27", "cassettoni da cucina", "/EdilCommerce_Design/img/categoria/ArredamentoInterno/cassettonicucina.jpg", "Cassettoni da cucina funzionali, silenziosi e scorrevoli con guide a estrazione totale per aperture comode e chiusure rallentate e morbide, perfettamente ammortizzate.", "152.39", "Arredamento interno");
+("ART27", "cassettoni da cucina", "/EdilCommerce_Design/img/categoria/ArredamentoInterno/cassettonicucina.jpg", "Cassettoni da cucina funzionali, silenziosi e scorrevoli con guide a estrazione totale per aperture comode e chiusure rallentate e morbide, perfettamente ammortizzate.", "152.39", "Arredamento interno",0);
 insert into articolo values
-("ART28", "sedie moderne", "/EdilCommerce_Design/img/categoria/ArredamentoInterno/sediemoderne.jpg", "stile ed eleganza con il nostro nuovo set di sedie per sala da pranzo. Dotata di solida struttura in metallo", "89.90", "Arredamento interno");
+("ART28", "sedie moderne", "/EdilCommerce_Design/img/categoria/ArredamentoInterno/sediemoderne.jpg", "stile ed eleganza con il nostro nuovo set di sedie per sala da pranzo. Dotata di solida struttura in metallo", "89.90", "Arredamento interno",0);
 insert into articolo values
-("ART29", "sedie classiche", "/EdilCommerce_Design/img/categoria/ArredamentoInterno/sedieclassiche.jpg", "Questo set classico composto da 6 sedie per sala da pranzo, con dettagli in ghisa, aggiungerÃÂÃÂ  un tocco di eleganza all'arredamento della vostra casa! ", "95.30", "Arredamento interno");
+("ART29", "sedie classiche", "/EdilCommerce_Design/img/categoria/ArredamentoInterno/sedieclassiche.jpg", "Questo set classico composto da 6 sedie per sala da pranzo, con dettagli in ghisa, aggiungerÃÂÃÂÃÂÃÂ  un tocco di eleganza all'arredamento della vostra casa! ", "95.30", "Arredamento interno",0);
 insert into articolo values
-("ART30", "lampada moderna", "/EdilCommerce_Design/img/categoria/ArredamentoInterno/lampadamoderna.jpg", "lampada a sospensione a led oro 80cm / 60cm / 40cm Anello a 3 luci cerchio oro spazzolato opaco finiture verniciate alluminio dimmerabile con telecomando", "204.95", "Arredamento interno");
+("ART30", "lampada moderna", "/EdilCommerce_Design/img/categoria/ArredamentoInterno/lampadamoderna.jpg", "lampada a sospensione a led oro 80cm / 60cm / 40cm Anello a 3 luci cerchio oro spazzolato opaco finiture verniciate alluminio dimmerabile con telecomando", "204.95", "Arredamento interno",0);
 
 #arredamento Esterno
 insert into articolo values
-("ART03", "sdraio", "/EdilCommerce_Design/img/categoria/ArredamentoEsterno/sdraio.jpg", "sdraio per coppie dotato di copertuta per il sole (200x190)", "339.90", "Arredamento esterno");
+("ART03", "sdraio", "/EdilCommerce_Design/img/categoria/ArredamentoEsterno/sdraio.jpg", "sdraio per coppie dotato di copertuta per il sole (200x190)", "339.90", "Arredamento esterno",0);
 insert into articolo values
-("ART04", "barbecue", "/EdilCommerce_Design/img/categoria/ArredamentoEsterno/barbecue.jpg", "barbecue moderno adatto a tutte le fasce di etÃÂ  e facile da utlizzare", "289.99", "Arredamento esterno");
+("ART04", "barbecue", "/EdilCommerce_Design/img/categoria/ArredamentoEsterno/barbecue.jpg", "barbecue moderno adatto a tutte le fasce di etÃÂÃÂ  e facile da utlizzare", "289.99", "Arredamento esterno",0);
 insert into articolo values
-("ART31", "gazebo", "/EdilCommerce_Design/img/categoria/ArredamentoEsterno/gazebo.jpg", "Struttura in acciaio, copertura in poliestere da 180 g/mÃÂ² L'ampia superficie lo rende ideale per riparare dal sole un tavolo o un coffee set", "179.90", "Arredamento esterno");
+("ART31", "gazebo", "/EdilCommerce_Design/img/categoria/ArredamentoEsterno/gazebo.jpg", "Struttura in acciaio, copertura in poliestere da 180 g/mÃÂÃÂ² L'ampia superficie lo rende ideale per riparare dal sole un tavolo o un coffee set", "179.90", "Arredamento esterno",0);
 insert into articolo values
-("ART32", "tavolo esterno", "/EdilCommerce_Design/img/categoria/ArredamentoEsterno/tavoloesterno.jpg", "Tavolo da giardino rettangolare alluminio, 160/240X 90", "399.00", "Arredamento esterno");
+("ART32", "tavolo esterno", "/EdilCommerce_Design/img/categoria/ArredamentoEsterno/tavoloesterno.jpg", "Tavolo da giardino rettangolare alluminio, 160/240X 90", "399.00", "Arredamento esterno",0);
 insert into articolo values
-("ART33", "sedie esterno", "/EdilCommerce_Design/img/categoria/ArredamentoEsterno/sedieesterno.jpg", "Comode sedie che invitano al relax. Grazie al peso ridotto possono essere trasportate con facilitÃÂ ÃÂ  con i comodissimi cuscini in poliestere", "79.00", "Arredamento esterno");
+("ART33", "sedie esterno", "/EdilCommerce_Design/img/categoria/ArredamentoEsterno/sedieesterno.jpg", "Comode sedie che invitano al relax. Grazie al peso ridotto possono essere trasportate con facilitÃÂÃÂ ÃÂÃÂ  con i comodissimi cuscini in poliestere", "79.00", "Arredamento esterno",0);
 insert into articolo values
-("ART34", "sdraio esterno", "/EdilCommerce_Design/img/categoria/ArredamentoEsterno/sdraioesterno.jpg", "Set 2 Poltroncine da Giardino Reclinabili con Poggiapiedi e Tavolino in PE Rattan Marrone", "599.95", "Arredamento esterno");
+("ART34", "sdraio esterno", "/EdilCommerce_Design/img/categoria/ArredamentoEsterno/sdraioesterno.jpg", "Set 2 Poltroncine da Giardino Reclinabili con Poggiapiedi e Tavolino in PE Rattan Marrone", "599.95", "Arredamento esterno",0);
 
 #Rivestimento
 insert into articolo values 
-("ART05", "paraschizzi da cucina", "/EdilCommerce_Design/img/categoria/Rivestimento/paraschizzi.jpg", "paraschizzi in marmo di calcare binaco con rifinture grigie", "29.90", "Rivestimento");
+("ART05", "paraschizzi da cucina", "/EdilCommerce_Design/img/categoria/Rivestimento/paraschizzi.jpg", "paraschizzi in marmo di calcare binaco con rifinture grigie", "29.90", "Rivestimento",0);
 insert into articolo values 
-("ART06", "paraschizzi per bagni", "/EdilCommerce_Design/img/categoria/Rivestimento/paraschizziBagno.jpg", "elegante paraschizzi di intarsio grigio", "24.90", "Rivestimento");
+("ART06", "paraschizzi per bagni", "/EdilCommerce_Design/img/categoria/Rivestimento/paraschizziBagno.jpg", "elegante paraschizzi di intarsio grigio", "24.90", "Rivestimento",0);
 insert into articolo values
-("ART37", "rivestimento in pietra naturale", "/EdilCommerce_Design/img/categoria/Rivestimento/rivestimentipietra.jpg", "Se si punta su un design ricercato, una delle idee piÃÂ¹ affascinanti, quello della pietra naturale ÃÂ¨ un materiale che offre vantaggi relativi alla facile adattabilitÃÂ ÃÂ  ed usabilitÃÂ ÃÂ , ma che allo stesso tempo riesce ad essere molto elegante.", "34.90", "Rivestimento");
+("ART37", "rivestimento in pietra naturale", "/EdilCommerce_Design/img/categoria/Rivestimento/rivestimentipietra.jpg", "Se si punta su un design ricercato, una delle idee piÃÂÃÂ¹ affascinanti, quello della pietra naturale ÃÂÃÂ¨ un materiale che offre vantaggi relativi alla facile adattabilitÃÂÃÂ ÃÂÃÂ  ed usabilitÃÂÃÂ ÃÂÃÂ , ma che allo stesso tempo riesce ad essere molto elegante.", "34.90", "Rivestimento",0);
 insert into articolo values
-("ART38", "rivestimento in pietra di Stone Age", "/EdilCommerce_Design/img/categoria/Rivestimento/stoneage.jpg", "rivestimento in pietra di Stone Age 15X60 in pietra naturale quarzite bianca", "59.90", "Rivestimento");
+("ART38", "rivestimento in pietra di Stone Age", "/EdilCommerce_Design/img/categoria/Rivestimento/stoneage.jpg", "rivestimento in pietra di Stone Age 15X60 in pietra naturale quarzite bianca", "59.90", "Rivestimento",0);
 insert into articolo values
-("ART39", "Rivestimento Natstone Black", "/EdilCommerce_Design/img/categoria/Rivestimento/stoneblack.jpg", "Rivestimento Natstone Black 15X60 Pietra Naturale Ardesia Nera", "59.60", "Rivestimento");
+("ART39", "Rivestimento Natstone Black", "/EdilCommerce_Design/img/categoria/Rivestimento/stoneblack.jpg", "Rivestimento Natstone Black 15X60 Pietra Naturale Ardesia Nera", "59.60", "Rivestimento",0);
 insert into articolo values
-("ART40", "Rivestimento Stone Age Taupe", "/EdilCommerce_Design/img/categoria/Rivestimento/rivnaturale.jpg", "Rivestimento Stone Age Taupe 15X60 Pietra Naturale Marmo Tortora", "69.90", "Rivestimento");
+("ART40", "Rivestimento Stone Age Taupe", "/EdilCommerce_Design/img/categoria/Rivestimento/rivnaturale.jpg", "Rivestimento Stone Age Taupe 15X60 Pietra Naturale Marmo Tortora", "69.90", "Rivestimento",0);
 
 # Vernici
 insert into articolo values
-("ART07", "vernice verde", "/EdilCommerce_Design/img/categoria/Vernici/verde.jpg", "vernice adatta a qualsiasi tipo di superficie", "14.90", "Vernici");
+("ART07", "vernice verde", "/EdilCommerce_Design/img/categoria/Vernici/verde.jpg", "vernice adatta a qualsiasi tipo di superficie", "14.90", "Vernici",0);
 insert into articolo values
-("ART08", "vernice rossa", "/EdilCommerce_Design/img/categoria/Vernici/rosso.jpg", "vernice adatta a qualsiasi tipo di superficie", "14.90", "Vernici");
+("ART08", "vernice rossa", "/EdilCommerce_Design/img/categoria/Vernici/rosso.jpg", "vernice adatta a qualsiasi tipo di superficie", "14.90", "Vernici",0);
 insert into articolo values
-("ART19", "vernice gialla", "/EdilCommerce_Design/img/categoria/Vernici/giallo.jpg", "vernice adatta a qualsiasi tipo di superficie", "14.90", "Vernici");
+("ART19", "vernice gialla", "/EdilCommerce_Design/img/categoria/Vernici/giallo.jpg", "vernice adatta a qualsiasi tipo di superficie", "14.90", "Vernici",0);
 insert into articolo values
-("ART20", "vernice arancione", "/EdilCommerce_Design/img/categoria/Vernici/arancione.jpg", "vernice adatta a qualsiasi tipo di superficie", "14.90", "Vernici");
+("ART20", "vernice arancione", "/EdilCommerce_Design/img/categoria/Vernici/arancione.jpg", "vernice adatta a qualsiasi tipo di superficie", "14.90", "Vernici",0);
 insert into articolo values
-("ART21", "vernice marrone", "/EdilCommerce_Design/img/categoria/Vernici/marrone.jpg", "vernice adatta a qualsiasi tipo di superficie", "14.90", "Vernici");
+("ART21", "vernice marrone", "/EdilCommerce_Design/img/categoria/Vernici/marrone.jpg", "vernice adatta a qualsiasi tipo di superficie", "14.90", "Vernici",0);
 insert into articolo values
-("ART22", "vernice nera", "/EdilCommerce_Design/img/categoria/Vernici/nero.jpg", "vernice adatta a qualsiasi tipo di superficie", "9.90", "Vernici");
+("ART22", "vernice nera", "/EdilCommerce_Design/img/categoria/Vernici/nero.jpg", "vernice adatta a qualsiasi tipo di superficie", "9.90", "Vernici",0);
 insert into articolo values
-("ART23", "vernice grigia", "/EdilCommerce_Design/img/categoria/Vernici/grigio.jpg", "vernice adatta a qualsiasi tipo di superficie", "9.90", "Vernici");
+("ART23", "vernice grigia", "/EdilCommerce_Design/img/categoria/Vernici/grigio.jpg", "vernice adatta a qualsiasi tipo di superficie", "9.90", "Vernici",0);
 insert into articolo values
-("ART24", "vernice blu", "/EdilCommerce_Design/img/categoria/Vernici/blu.jpg", "vernice adatta a qualsiasi tipo di superficie", "14.90", "Vernici");
+("ART24", "vernice blu", "/EdilCommerce_Design/img/categoria/Vernici/blu.jpg", "vernice adatta a qualsiasi tipo di superficie", "14.90", "Vernici",0);
 
 # Ferramenta
 insert into articolo values
-("ART09", "chiodo liscio", "/EdilCommerce_Design/img/categoria/Ferramenta/chiodoLiscio.jpg", "chiodo liscio da 9 cm con testina piatta", "20.00", "Ferramenta");
+("ART09", "chiodo liscio", "/EdilCommerce_Design/img/categoria/Ferramenta/chiodoLiscio.jpg", "chiodo liscio da 9 cm con testina piatta", "20.00", "Ferramenta",0);
 insert into articolo values
-("ART10", "chiodo elicoidale", "/EdilCommerce_Design/img/categoria/Ferramenta/chiodoelicoidale.jpg", "chiodo elicoidale da 11 cm", "19.90", "Ferramenta");
+("ART10", "chiodo elicoidale", "/EdilCommerce_Design/img/categoria/Ferramenta/chiodoelicoidale.jpg", "chiodo elicoidale da 11 cm", "19.90", "Ferramenta",0);
 insert into articolo values
-("ART42", "bulloni esagonali", "/EdilCommerce_Design/img/categoria/Ferramenta/bullone.jpg", "bulloni esagonali M30", "2.90", "Ferramenta");
+("ART42", "bulloni esagonali", "/EdilCommerce_Design/img/categoria/Ferramenta/bullone.jpg", "bulloni esagonali M30", "2.90", "Ferramenta",0);
 insert into articolo values
-("ART43", "bulloni esagonali in acciao zincato 8.8", "/EdilCommerce_Design/img/categoria/Ferramenta/bullone8.jpg", "bulloni esagonali in acciao zincato 8.8", "3.90", "Ferramenta");
+("ART43", "bulloni esagonali in acciao zincato 8.8", "/EdilCommerce_Design/img/categoria/Ferramenta/bullone8.jpg", "bulloni esagonali in acciao zincato 8.8", "3.90", "Ferramenta",0);
 insert into articolo values
-("ART55", "viti svasate truciolari", "/EdilCommerce_Design/img/categoria/Ferramenta/viti.jpg", "viti svasate truciolari", "4.50", "Ferramenta");
+("ART55", "viti svasate truciolari", "/EdilCommerce_Design/img/categoria/Ferramenta/viti.jpg", "viti svasate truciolari", "4.50", "Ferramenta",0);
 insert into articolo values
-("ART44", "viti per legno", "/EdilCommerce_Design/img/categoria/Ferramenta/vitilegno.jpg", "Vite per fissaggi di Staffe, collari e supporti per tubi, Questa specifico tipo di vite ÃÂÃÂ¨ indicata per realizzare fissaggi di collari, staffe, ...", "3.50", "Ferramenta");
+("ART44", "viti per legno", "/EdilCommerce_Design/img/categoria/Ferramenta/vitilegno.jpg", "Vite per fissaggi di Staffe, collari e supporti per tubi, Questa specifico tipo di vite ÃÂÃÂÃÂÃÂ¨ indicata per realizzare fissaggi di collari, staffe, ...", "3.50", "Ferramenta",0);
 
 # Utensileria
 insert into articolo values
-("ART11", "trapano a percussione", "/EdilCommerce_Design/img/categoria/Utensileria/trapanopercussione.jpg", "trapano a percussione adatto a materiali piÃÂ¹ resistenti", "136.04", "Utensileria");
+("ART11", "trapano a percussione", "/EdilCommerce_Design/img/categoria/Utensileria/trapanopercussione.jpg", "trapano a percussione adatto a materiali piÃÂÃÂ¹ resistenti", "136.04", "Utensileria",0);
 insert into articolo values
-("ART12", "trapano a batterie", "/EdilCommerce_Design/img/categoria/Utensileria/trapanobatteria.jpg", "trapano a batteria per fissaggi di qualunque tipo", "59.90", "Utensileria");
+("ART12", "trapano a batterie", "/EdilCommerce_Design/img/categoria/Utensileria/trapanobatteria.jpg", "trapano a batteria per fissaggi di qualunque tipo", "59.90", "Utensileria",0);
 insert into articolo values
-("ART46", "smerigliatrice", "/EdilCommerce_Design/img/categoria/Utensileria/smerigliatrice.jpg", "Smerigliatrice Angolare, 230 V, 850 W, Diametro disco 125 mm", "26.90", "Utensileria");
+("ART46", "smerigliatrice", "/EdilCommerce_Design/img/categoria/Utensileria/smerigliatrice.jpg", "Smerigliatrice Angolare, 230 V, 850 W, Diametro disco 125 mm", "26.90", "Utensileria",0);
 insert into articolo values
-("ART47", "pinza per tubi", "/EdilCommerce_Design/img/categoria/Utensileria/pinzatubi.jpg", "Pinza regolabile per tubi e dadi (400 mm) 87 01 400", "50.75", "Utensileria");
+("ART47", "pinza per tubi", "/EdilCommerce_Design/img/categoria/Utensileria/pinzatubi.jpg", "Pinza regolabile per tubi e dadi (400 mm) 87 01 400", "50.75", "Utensileria",0);
 insert into articolo values
-("ART48", "set di chiavi", "/EdilCommerce_Design/img/categoria/Utensileria/chiavi.jpg", "Set Chiavi Fisse e Ad Anello da 10 Pezzi con Cricchetto, 8-19 mm, Acciaio al Cromo Vanadio, Borsa da Trasporto", "115.00", "Utensileria");
+("ART48", "set di chiavi", "/EdilCommerce_Design/img/categoria/Utensileria/chiavi.jpg", "Set Chiavi Fisse e Ad Anello da 10 Pezzi con Cricchetto, 8-19 mm, Acciaio al Cromo Vanadio, Borsa da Trasporto", "115.00", "Utensileria",0);
 insert into articolo values
-("ART49", "set pezzi avvitatore esagonale", "/EdilCommerce_Design/img/categoria/Utensileria/avvitatore.jpg", "10 Pezzi Adattatore Esagonale Chiavi Bussola Sostituibile Rapido in Inch1/4 Metrico 6mm - 15mm per Trapano Avvitatore Pistola Pneumatica", "16.99", "Utensileria");
+("ART49", "set pezzi avvitatore esagonale", "/EdilCommerce_Design/img/categoria/Utensileria/avvitatore.jpg", "10 Pezzi Adattatore Esagonale Chiavi Bussola Sostituibile Rapido in Inch1/4 Metrico 6mm - 15mm per Trapano Avvitatore Pistola Pneumatica", "16.99", "Utensileria",0);
 insert into articolo values
-("ART50", "pistola pneumatica", "/EdilCommerce_Design/img/categoria/Utensileria/pistolapneumatica.jpg", "Pistola pneumatica reversibile Beta Tools 1927P super potente", "261.70", "Utensileria");
+("ART50", "pistola pneumatica", "/EdilCommerce_Design/img/categoria/Utensileria/pistolapneumatica.jpg", "Pistola pneumatica reversibile Beta Tools 1927P super potente", "261.70", "Utensileria",0);
 
 
 # Materiali
 insert into articolo values
-("ART13", "mattoni", "/EdilCommerce_Design/img/categoria/Materiali/mattone.jpg", "mattone di dimensione 15x18", "2.99", "Materiali");
+("ART13", "mattoni", "/EdilCommerce_Design/img/categoria/Materiali/mattone.jpg", "mattone di dimensione 15x18", "2.99", "Materiali",0);
 insert into articolo values
-("ART14", "cemento", "/EdilCommerce_Design/img/categoria/Materiali/cemento.jpg", "cemento da 25 kg", "11.90", "Materiali");
+("ART14", "cemento", "/EdilCommerce_Design/img/categoria/Materiali/cemento.jpg", "cemento da 25 kg", "11.90", "Materiali",0);
 insert into articolo values
-("ART52", "calcestruzzo", "/EdilCommerce_Design/img/categoria/Materiali/calce.jpg", "La vendita di questo prodotto ÃÂ¨ possibile solo su richiesta", "12.00", "Materiali");
+("ART52", "calcestruzzo", "/EdilCommerce_Design/img/categoria/Materiali/calce.jpg", "La vendita di questo prodotto ÃÂÃÂ¨ possibile solo su richiesta", "12.00", "Materiali",0);
 insert into articolo values
-("ART53", "marmo", "/EdilCommerce_Design/img/categoria/Materiali/marmo.jpg", "La vendita di questo prodotto ÃÂ¨ possibile solo su richiesta", "11.50", "Materiali");
+("ART53", "marmo", "/EdilCommerce_Design/img/categoria/Materiali/marmo.jpg", "La vendita di questo prodotto ÃÂÃÂ¨ possibile solo su richiesta", "11.50", "Materiali",0);
 insert into articolo values
-("ART54", "granito", "/EdilCommerce_Design/img/categoria/Materiali/granito.jpg", "La vendita di questo prodotto ÃÂ¨ possibile solo su richiesta", "14.90", "Materiali");
+("ART54", "granito", "/EdilCommerce_Design/img/categoria/Materiali/granito.jpg", "La vendita di questo prodotto ÃÂÃÂ¨ possibile solo su richiesta", "14.90", "Materiali",0);
 
 # Copertura 
 insert into articolo values
-("ART15", "tegole", "/EdilCommerce_Design/img/categoria/Copertura/tegola.jpg", "tegola da 12x17", "3.00", "Copertura");
+("ART15", "tegole", "/EdilCommerce_Design/img/categoria/Copertura/tegola.jpg", "tegola da 12x17", "3.00", "Copertura",0);
 insert into articolo values
-("ART16", "pannelli", "/EdilCommerce_Design/img/categoria/Copertura/pannello.jpg", "panello da 15x19", "4.00", "Copertura");
+("ART16", "pannelli", "/EdilCommerce_Design/img/categoria/Copertura/pannello.jpg", "panello da 15x19", "4.00", "Copertura",0);
 insert into articolo values
-("ART58", "copertura per terrazzi", "/EdilCommerce_Design/img/categoria/Copertura/coperturaterrazzo.jpg", "copertura da esterni elegante e ben raffinato in legno di betulla", "339.00", "Copertura");
+("ART58", "copertura per terrazzi", "/EdilCommerce_Design/img/categoria/Copertura/coperturaterrazzo.jpg", "copertura da esterni elegante e ben raffinato in legno di betulla", "339.00", "Copertura",0);
 insert into articolo values
-("ART59", "copertura in vetro", "/EdilCommerce_Design/img/categoria/Copertura/coperturavetro.jpg", "copertura in vetro poliestere per resistere ad alte temperatura estive e rigide temperature invernali, cosÃÂ¬ da garantire sicurezza e affidabilitÃÂ ", "359.90", "Copertura");
+("ART59", "copertura in vetro", "/EdilCommerce_Design/img/categoria/Copertura/coperturavetro.jpg", "copertura in vetro poliestere per resistere ad alte temperatura estive e rigide temperature invernali, cosÃÂÃÂ¬ da garantire sicurezza e affidabilitÃÂÃÂ ", "359.90", "Copertura",0);
 insert into articolo values
-("ART60", "tendone automatico", "/EdilCommerce_Design/img/categoria/Copertura/tendone.jpg", "tendone automatico utile per garantire una giornata all'aperto e proteggersi dal calore", "235.00", "Copertura");
+("ART60", "tendone automatico", "/EdilCommerce_Design/img/categoria/Copertura/tendone.jpg", "tendone automatico utile per garantire una giornata all'aperto e proteggersi dal calore", "235.00", "Copertura",0);
 
 #Struttura
 insert into articolo values
-("ART17", "puntello", "/EdilCommerce_Design/img/categoria/Struttura/puntello.jpg", "IÃÂ puntelli vengono usati prevalentemente per sostenere le casseforme per solai. Molti dettagli pratici ne accelerano l'impiego e ne aumentano la sicurezza: dalla forma della ghiera di regolazione, che indica il corretto verso di rotazione, alla spina di sicurezza ergonomica, a forma di G, progettata per non incepparsi. Inoltre, la zincatura a caldo garantisce una lunga durata. Nel caso in cui i puntelli vengano comunque danneggiati dalle rigide condizioni d'impiego in cantiere, il tubo esterno e quello interno possono essere sostituiti separatamente.", "17.99", "Struttura");
+("ART17", "puntello", "/EdilCommerce_Design/img/categoria/Struttura/puntello.jpg", "IÃÂÃÂ puntelli vengono usati prevalentemente per sostenere le casseforme per solai. Molti dettagli pratici ne accelerano l'impiego e ne aumentano la sicurezza: dalla forma della ghiera di regolazione, che indica il corretto verso di rotazione, alla spina di sicurezza ergonomica, a forma di G, progettata per non incepparsi. Inoltre, la zincatura a caldo garantisce una lunga durata. Nel caso in cui i puntelli vengano comunque danneggiati dalle rigide condizioni d'impiego in cantiere, il tubo esterno e quello interno possono essere sostituiti separatamente.", "17.99", "Struttura",0);
 insert into articolo values
-("ART18", "trave", "/EdilCommerce_Design/img/categoria/Struttura/trave.jpg", "La trave per casseforme ha una capacitÃÂ ÃÂ  di carico e resistenza a flessione elevata. Abbinata a casseforme per pareti, pilastri e solai oppure a casseforme speciali, permette di ridurre sia la quantitÃÂ  di attrezzatura necessaria che i tempi di lavoro.", "14.90", "Struttura");
+("ART18", "trave", "/EdilCommerce_Design/img/categoria/Struttura/trave.jpg", "La trave per casseforme ha una capacitÃÂÃÂ ÃÂÃÂ  di carico e resistenza a flessione elevata. Abbinata a casseforme per pareti, pilastri e solai oppure a casseforme speciali, permette di ridurre sia la quantitÃÂÃÂ  di attrezzatura necessaria che i tempi di lavoro.", "14.90", "Struttura",0);
 /*
 insert into articolo values
 ("ART65", "", "/EdilCommerce_Design/img/categoria/Struttura/", "", "", "Struttura");
