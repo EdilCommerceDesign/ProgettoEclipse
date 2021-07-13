@@ -10,7 +10,12 @@ header {
 header a {
 	color: #acd0fa;
 }
-
+#body{
+	background-repeat: no-repeat;
+	background-image: url("/EdilCommerce_Design/img/home01.jpg");
+	background-size: 2000px 680px;
+	
+}
 #left {
 	float: left;
 }
@@ -106,6 +111,14 @@ hr{
 	margin-top: 90px;
 }
 
+.chiSiamoL img{
+	float: left;
+	
+}
+.chiSiamoR{
+	float: right;
+	
+}
 #categorie {
 	
 	width: 700px;

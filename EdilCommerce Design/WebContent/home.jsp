@@ -71,8 +71,13 @@
 		%>
 		</header>
 		<div id="body">
-		<img alt="logo-edil" src="/EdilCommerce_Design/img/logo.png" id="mainLogo">
-	
+		<!--  
+		<div class="chiSiamoL">
+			<img alt="info" src="/EdilCommerce_Design/img/home0.jpg">
+		</div>
+		-->
+		
+		<img alt="logo-edil" src="/EdilCommerce_Design/img/logo.png" id="mainLogo">		
 		<div class="center">
 		<form action="<%=response.encodeURL("/EdilCommerce_Design/Search")%>" method="get">
 		<input id="search" type="search"  name="criterioRicerca" size="30" placeholder="Cerca in EdilCommerce Design">
@@ -81,6 +86,7 @@
 	 
 	
 	<script type="text/javascript" src="/EdilCommerce_Design/script/scroll.js"></script>
+	
 	<div class="slideCategorie">
 		<input type="button" value="&lt" onclick="scrollL()">
 		<div id="categorie">
