@@ -28,10 +28,11 @@ header a {
 }
 #center{
 	display: inline-block;
-	font-size: 40px;
+	font-size: 50px;
 	font-family: French Script MT;
 	margin-top: 10px;
-	color: #00ff00;
+	color: #808080;
+    text-shadow: -1px -1px 1px white;
 	margin-left: 60px;
 }
 #rigth  {
@@ -80,13 +81,13 @@ img#mainLogo {
 
 div.center {
 	position: relative;
-	left: calc(50% - 150px);
+	left: calc(50% - 162.5px);
 	margin-top:70px;
 	text-align:center;
 	margin-top:50px;
 	padding: 0;
 	border: 1px solid #888;
-	width: 300px;
+	width: 325px;
 }
 
 #search {
@@ -120,8 +121,9 @@ hr{
 	
 }
 #categorie {
-	
-	width: 700px;
+	border: 2px solid white;
+	background: rgb(172, 208, 250, 0.3);
+	width: 900px;
 	overflow: hidden;
 	white-space: nowrap;
 	scroll-behavior:smooth;
