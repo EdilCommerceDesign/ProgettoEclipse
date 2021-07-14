@@ -35,6 +35,12 @@
 			if(headerUserRole.equals(true) || headerAdminRole.equals(true) ){
 		%>
 		<ul>
+			<%if(headerAdminRole.equals(true)) {
+			%>
+			<li><a href="<%=response.encodeURL("/EdilCommerce_Design/admin/admin.jsp")%>" title="Area dell'admin"><img alt="admin" src="/EdilCommerce_Design/img/admin.png"></a></li>
+			<%
+			}
+			%>
 			<li><a href="<%=response.encodeURL("/EdilCommerce_Design/user/profilo.jsp")%>" title="Profilo di <%=headerBean.getUsername()%>"><img alt="profilo" src="/EdilCommerce_Design/img/profilo.png"></a></li>
 			<li><a href="<%=response.encodeURL("/EdilCommerce_Design/Logout")%>" title="Logout"><img alt="logout" src="/EdilCommerce_Design/img/logout.png"></a></li>
 			<li><a href="<%=response.encodeURL("/EdilCommerce_Design/user/carrello.jsp")%>" title="Carrello">  <img alt="carrello" src="/EdilCommerce_Design/img/carrello.png"></a></li>

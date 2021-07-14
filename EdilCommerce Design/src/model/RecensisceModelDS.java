@@ -204,6 +204,23 @@ public class RecensisceModelDS implements ModelRelationInterface<RecensisceBean>
 		String UpdateSQL = "UPDATE recensisce SET data=NOW(), valore=?, testo=? WHERE username=? AND codiceArticolo=?";
 		
 			try {
+				
+				String UpdateMediaSQL = "UPDATE (select codiceArticolo, count(codiceArticolo) count from articolo NATURAL JOIN recensisce WHERE codiceArticolo = ? group by codiceArticolo) c, articolo a, recensisce r SET mediaRecensioni = ((mediaRecensioni * (count)) - r.valore + ?)/count WHERE a.codiceArticolo = ? AND r.codiceArticolo = a.codiceArticolo AND r.username = ?";
+				
+				con = ds.getConnection();
+				ps = con.prepareStatement(UpdateMediaSQL);
+
+				ps.setString(1, item.getCodiceArticolo());
+				ps.setInt(2, item.getValore());
+				ps.setString(3, item.getCodiceArticolo());
+				ps.setString(4, item.getUsername());
+				
+				Utility.print("doUpdateMediaRecensioni: " + ps.toString());
+				
+				ps.executeUpdate();
+				
+				ps.close();
+				
 				con = ds.getConnection();
 				ps = con.prepareStatement(UpdateSQL);
 
@@ -213,21 +230,6 @@ public class RecensisceModelDS implements ModelRelationInterface<RecensisceBean>
 				ps.setString(4, item.getCodiceArticolo());
 				Utility.print("doUpdate: " + ps.toString());
 
-				ps.executeUpdate();
-
-				ps.close();
-
-				String UpdateMediaSQL = "UPDATE (select codiceArticolo, count(codiceArticolo) count from articolo NATURAL JOIN recensisce WHERE codiceArticolo = ? group by codiceArticolo) a, articolo SET mediaRecensioni = ((mediaRecensioni * (count - 1)) + ?)/count WHERE articolo.codiceArticolo = ?";
-				
-				con = ds.getConnection();
-				ps = con.prepareStatement(UpdateMediaSQL);
-
-				ps.setString(1, item.getCodiceArticolo());
-				ps.setInt(2, item.getValore());
-				ps.setString(3, item.getCodiceArticolo());
-				
-				Utility.print("doUpdateMediaRecensioni: " + ps.toString());
-				
 				ps.executeUpdate();
 
 			} finally {

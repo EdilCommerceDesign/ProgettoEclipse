@@ -1,0 +1,206 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1" import="javax.sql.*,model.*,utils.*,java.text.*"%>
+<%@page session="false" %>
+<!DOCTYPE html>
+<%
+HttpSession session = request.getSession(false);
+if(session == null) {
+	response.sendRedirect(response.encodeRedirectURL("/EdilCommerce_Design/login.jsp"));
+	return;
+} else {
+	Boolean adminRole = (Boolean) session.getAttribute("adminRole");
+	if((adminRole == null) || (!adminRole.booleanValue())) {
+		response.sendRedirect(response.encodeRedirectURL("/EdilCommerce_Design/login.jsp"));
+		return;
+	}
+}
+%>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link href="/EdilCommerce_Design/css/default.css" rel="stylesheet" type="text/css">
+<link href="/EdilCommerce_Design/css/profilo.css" rel="stylesheet" type="text/css">
+<title>EdilCommerce Design</title>
+</head>
+<body>
+	<script type="text/javascript" src="/EdilCommerce_Design/script/profiloScripts.js"></script>
+	<div id="holder">
+		<%@ include file="../header.jsp" %>
+		<div id="body">
+	
+			<ul>
+				<li onclick="visualizza('inserisciArticolo')"><h2>Inserisci articolo</h2></li>
+					<div class="container" id="inserisciArticolo" style="display:none">
+						<form action="<%=response.encodeURL("/EdilCommerce_Design/InserisciArticolo")%>" method="POST">
+							<div class="flex">
+					  			<div class="col-50">
+									<label for="nome">Nome dell'articolo</label>
+									<input type="text" name="nome" maxlength="50" required>
+									
+									<label for="nome">Codice</label>
+									<input type="text" name="codice" maxlength="5" required>
+									
+									<label for="nome">Categoria</label>
+									<select name="categorie" id="categorie" required>
+									  <option value="Arredamento interni">Arredamento interni</option>
+									  <option value="Arredamento esterni">Arredamento esterni</option>
+									  <option value="Rivestimenti">Rivestimenti</option>
+									  <option value="Vernici">Vernici</option>
+									  <option value="Ferramenta">Ferramenta</option>
+									  <option value="Utensileria">Utensileria</option>
+									  <option value="Materiali">Materiali</option>
+									  <option value="Copertura">Copertura</option>
+									  <option value="Struttura">Struttura</option>
+									</select>
+									
+									<label for="nome">Foto</label>
+									<input type="text" name="imagine" required>
+									
+									<label for="nome">Descrizione</label>
+									<textarea cols="40" rows="5" maxlength="1000" required></textarea>
+									
+									<label for="nome">Costo (&euro;)</label>
+									<input type="number" name="costo" required>
+								</div>
+							</div>									
+							<input type="submit" value="Aggiungi">&nbsp;<input type="reset">
+						</form>
+					</div>
+					
+				<li onclick="visualizza('modificaArticolo')"><h2>Modifica articolo</h2></li>
+					<div class="container" id="modificaArticolo" style="display:none">
+						<form action="">
+							<div class="flex">
+					  			<div class="col-50">
+									<select name="articolo" id="articolo" required>
+									<% 
+									DataSource ds = (DataSource) getServletContext().getAttribute("DataSource");
+										
+									ArticoloModelDS aModel = new ArticoloModelDS(ds);
+										
+									LinkedList<ArticoloBean> collection = (LinkedList<ArticoloBean>) aModel.doRetriveAll("");
+									Iterator<ArticoloBean> iter = collection.iterator();
+									while(iter.hasNext()){
+									ArticoloBean aBean = iter.next();
+									%>
+										<option value="<%=aBean.getCodiceArticolo()%>"><%=aBean.getNome()%></option>
+									<% 
+									}
+									%>			
+									</select>
+							
+									<label for="nome">Nome dell'articolo</label>
+									<input type="text" name="nome" maxlength="50" required>
+									
+									<label for="nome">Codice</label>
+									<input type="text" name="codice" maxlength="5" required>
+									
+									<label for="nome">Categoria</label>
+									<select name="categorie" id="categorie" required>
+									  <option value="Arredamento interni">Arredamento interni</option>
+									  <option value="Arredamento esterni">Arredamento esterni</option>
+									  <option value="Rivestimenti">Rivestimenti</option>
+									  <option value="Vernici">Vernici</option>
+									  <option value="Ferramenta">Ferramenta</option>
+									  <option value="Utensileria">Utensileria</option>
+									  <option value="Materiali">Materiali</option>
+									  <option value="Copertura">Copertura</option>
+									  <option value="Struttura">Struttura</option>
+									</select>
+									
+									<label for="nome">Foto</label>
+									<input type="text" name="imagine" required>
+									
+									<label for="nome">Descrizione</label>
+									<textarea cols="40" rows="5" maxlength="1000" required></textarea>
+									
+									<label for="nome">Costo (&euro;)</label>
+									<input type="number" name="costo" required>
+								</div>
+							</div>									
+							<input type="submit" value="Aggiungi">&nbsp;<input type="reset">
+						</form>
+					</div>
+					
+				<li onclick="visualizza('ordini')"><h2>Visualizza ordini</h2></li>
+					<div class="container" id="ordini" style="display:none">
+				<%
+				
+					OrdineModelDS oModel = new OrdineModelDS(ds);
+					PagamentoModelDS pModel = new PagamentoModelDS(ds);
+					ComponeModelDS cModel = new ComponeModelDS(ds);
+					CartaModelDS caModel = new CartaModelDS(ds);
+					ContrassegnoModelDS coModel = new ContrassegnoModelDS(ds);
+					DecimalFormat df = new DecimalFormat("#0.00");
+					
+					LinkedList<OrdineBean> oList = (LinkedList<OrdineBean>) oModel.doRetriveAll("");
+					
+					boolean primoOrdine = true;
+				
+					Iterator<OrdineBean> it = oList.iterator();
+					if(!it.hasNext()) {
+				%>
+				<h3>Nessun ordine effettuato</h3>
+				<%			
+					}
+					while(it.hasNext()) {
+						 if(primoOrdine==true) {
+							 primoOrdine = false;
+						 } else {
+						%><hr><%
+						 }
+						OrdineBean oBean = it.next();
+					
+						PagamentoBean pBean = (PagamentoBean) pModel.doRetriveByNumeroOrdine(oBean.getNumeroOrdine());
+						
+						CartaBean caBean = caModel.doRetriveByKey(pBean.getNumeroPagamento());
+						ContrassegnoBean coBean = coModel.doRetriveByKey(pBean.getNumeroPagamento());
+						
+				%>
+					<div>
+					<h2>Codice Ordine: <%=oBean.getNumeroOrdine()%></h2>
+					<h3>Cliente: <%=oBean.getUsername() %></h3>
+					<h3>Metodo di pagamento: 
+				<%
+					if(caBean.isEmpty()){ 
+				%> 
+						Contrassegno
+				<%
+					}else{
+				%> 
+						<%="Carta NumeroCarta:****" + caBean.getNumero().substring(caBean.getNumero().length() - 4) + " Intestario carta:" + caBean.getIntestatario()%>
+				<%
+					}
+				 %>
+					</h3>
+					<h3>Importo ordine: <%=df.format(pBean.getImporto())%>&euro;</h3>
+				<%
+						
+						LinkedList<ComponeBean> cList = (LinkedList<ComponeBean>) cModel.doRetriveByOneKey(oBean.getNumeroOrdine() + "");
+						Iterator<ComponeBean> it1 = cList.iterator(); 
+				%>
+					<h3>Articoli che compongono l'ordine:</h3><ul>
+				<%		
+				
+						while(it1.hasNext()){
+							ComponeBean cBean = it1.next();
+							ArticoloBean aBean = aModel.doRetriveByKey(cBean.getCodiceArticolo()); 
+				%>
+					<li><a href="<%=response.encodeURL("/EdilCommerce_Design/articolo.jsp?articolo=" + aBean.getCodiceArticolo())%>"><%=aBean.getNome()%></a>, quantità:<%=cBean.getQuantità()%></li>
+				<%			
+						}
+				%>
+					</ul></div>
+				<%
+					}
+					
+				%>
+			</div>
+			</ul>
+			
+		</div>
+	
+		<%@ include file="../footer.jsp" %>
+	</div>
+</body>
+</html>

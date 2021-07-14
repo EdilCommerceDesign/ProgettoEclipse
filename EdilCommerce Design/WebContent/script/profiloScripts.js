@@ -27,7 +27,14 @@ function controllaPass(pass1, pass2, sub) {
 }
 
 function visualizza(id) {
-  	var x = document.getElementById(id);
+	var all = document.getElementsByClassName("container");
+	var l = all.length;
+	var x = document.getElementById(id);
+	for(var i = 0; i < l; i++) {
+		if(all[i] != x)
+			all[i].style.display = "none";
+	}	
+  	
   	if (x.style.display === "none") {
     x.style.display = "block";
   } else {
