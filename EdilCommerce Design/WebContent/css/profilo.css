@@ -36,3 +36,12 @@ label {
 ul {
 	list-style-type: disclosure-closed;
 }
+
+span .fa-star {
+	color: grey;
+	font-size: 19px;
+}
+
+span .checked {
+	color: orange;
+}

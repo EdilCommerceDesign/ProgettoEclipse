@@ -178,6 +178,54 @@ if (bean == null) {
 					
 				%>
 			</div>
+			<li onclick="visualizza('recensioni')"><h2>Recensioni effettuate</h2></li>
+			<div class="container" id="recensioni" style="display:none">
+				<%
+					RecensisceModelDS rModel = new RecensisceModelDS(ds);
+					aModel = new ArticoloModelDS(ds);
+										
+					LinkedList<RecensisceBean> rList = (LinkedList<RecensisceBean>) rModel.doRetriveByOneKey(bean.getUsername());
+					
+					boolean primaRecensione = true;
+				
+					Iterator<RecensisceBean> iter= rList.iterator();
+					if(!iter.hasNext()) {
+				%>
+				<h3>Non hai ancora effettuato una recensione</h3>
+				<%			
+					}
+					while(iter.hasNext()) {
+						 if(primaRecensione==true) {
+							 primaRecensione = false;
+						 } else {
+						%><hr><%
+						 }
+						 RecensisceBean rBean = iter.next();
+						 
+						
+						ArticoloBean aBean= aModel.doRetriveByKey(rBean.getCodiceArticolo());
+				%>
+					<div>
+					<li> <h2>Articolo:<a href="<%=response.encodeURL("/EdilCommerce_Design/articolo.jsp?articolo=" + aBean.getCodiceArticolo())%>"><%=aBean.getNome()%></a></h2></li>
+					 <h3>Data: <%=rBean.getDate()%></h3>
+					 <span class="stelle">
+						<%
+						for(int i=1; i<6; i++) {
+							%>
+							<span class="fa fa-star <%=rBean.getValore()>=i?"checked":"" %>"></span>
+							<%
+						}
+						%>
+						</span>
+					 <h3>Recensione: <%=rBean.getTesto()%></h3>
+					</div>
+						<%
+					}
+					
+					%>
+				
+				
+			</div>
 	</ul>
 	</div>
 	<%@ include file="../footer.jsp" %>

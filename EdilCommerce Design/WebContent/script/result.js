@@ -50,12 +50,31 @@ function aggiorna(codice) {
 		}
 	}
 	
-	xhttp.open("GET", "/EdilCommerce_Design/AggiornaSearch?criterioRicerca=" + codice + "&prezzo=" + prezzo + "&ordine=" + ordine, true);
+	list= document.getElementsByName("mediaRecensioni");
+	l = list.length;
+	for(var i=0; i<l; i++) {
+		if(list[i].checked == true) {
+			mediaRecensioni = list[i].value;
+			break;
+		}
+	}
+	
+	xhttp.open("GET", "/EdilCommerce_Design/AggiornaSearch?criterioRicerca=" + codice + "&prezzo=" + prezzo + "&ordine=" + ordine /*+ "&=mediaRecensioni" + mediaRecensioni*/, true);
 	xhttp.send();
 }
 
 function mutua(value) {
 	var check = document.getElementsByName("prezzo");
+	var l=check.length;
+	for(var i=0; i<l; i++) {
+		if(check[i].value != value){
+			check[i].checked = false;
+		}
+	}
+}
+
+function mutuaR(value) {
+	var check = document.getElementsByName("mediaRecensioni");
 	var l=check.length;
 	for(var i=0; i<l; i++) {
 		if(check[i].value != value){

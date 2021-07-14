@@ -37,6 +37,7 @@ public class AggiornaSearch extends HttpServlet {
 		String criterio = request.getParameter("criterioRicerca");
 		String ordine = request.getParameter("ordine");
 		String prezzo = request.getParameter("prezzo");
+		//String mediaRecensioni = request.getParameter("mediaRecensioni");
 		if(criterio== null) {
 			response.sendRedirect(response.encodeRedirectURL("/EdilCommerce_Design/"));
 		}else if(criterio.isBlank()) {
@@ -90,6 +91,13 @@ public class AggiornaSearch extends HttpServlet {
 				count++;
 				buffer.append("		<tr class=\"pagina" + pag +" pagina\"onclick=\"document.location = '" + response.encodeURL("/EdilCommerce_Design/articolo.jsp?articolo=" + bean.getCodiceArticolo()) + "';\"><td><img alt=\"" + bean.getNome() + "\" src=\"" + bean.getImmagine() + "\"></td>\n"
 				+ "		<td><h4>" + bean.getNome() + "</h4>\n"
+				+"	<span class=\"float-left\">\r\n"
+				
+				+"for(int i=1; i<6; i++) { "
+				+ "<span class=\"fa fa-star <%=bean.getMediaRecensioni()>=i?\"checked\":\"\" %>\"></span>"
+				+ "}"
+				
+				+ "		</span>"
 				+ "		<h5>" + df.format(bean.getCosto()) + "&euro;</h5></td></tr>\n");
 				}
 				buffer.append("		</table>"

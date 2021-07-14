@@ -127,3 +127,12 @@ div.paginazione a{
 	background-color: #272F38 !important;
 	color: white !important;
 }
+
+ .fa-star {
+	color: grey;
+	font-size: 19px;
+}
+
+ .checked {
+	color: orange;
+}
