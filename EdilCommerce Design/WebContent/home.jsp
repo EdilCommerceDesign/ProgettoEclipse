@@ -13,6 +13,7 @@
 	<link href="/EdilCommerce_Design/css/default.css" rel="stylesheet" type="text/css">
 	<link href="/EdilCommerce_Design/css/home.css" rel="stylesheet" type="text/css">
 	<title>Benvenuto in Edil Commerce Design</title>
+	<script type="text/javascript" src="/EdilCommerce_Design/script/autocomplete.js"></script>
 </head>
 <body>	
 	<script type="text/javascript" src="/EdilCommerce_Design/script/home.js"></script>
@@ -77,18 +78,15 @@
 		%>
 		</header>
 		<div id="body">
-		<!--  
-		<div class="chiSiamoL">
-			<img alt="info" src="/EdilCommerce_Design/img/home0.jpg">
-		</div>
-		-->
+		
 		
 		<img alt="logo-edil" src="/EdilCommerce_Design/img/logo.png" id="mainLogo">		
 		<div class="center">
 		<form action="<%=response.encodeURL("/EdilCommerce_Design/Search")%>" method="get">
-		<input id="search" type="search"  name="criterioRicerca" size="30" placeholder="Cerca in EdilCommerce Design">
-		</form>
-		</div> 
+		<input id="search" type="text"  name="criterioRicerca" size="30" placeholder="Cerca in EdilCommerce Design" onkeyup="autocomp()">
+		</form> 
+		<div id="suggerimenti"></div>
+		</div>
 	 
 	
 	<script type="text/javascript" src="/EdilCommerce_Design/script/scroll.js"></script>
@@ -119,17 +117,17 @@
 
 		<div class="mySlides fade">
 		  <div class="numbertext">1 / 3</div>
-		  <img src="/EdilCommerce_Design/img/home1.jpg" style="width:800px; height: 500px">
+		  <img src="/EdilCommerce_Design/img/home1.jpg" style="width:1000px; height: 600px">
 		</div>
 		
 		<div class="mySlides fade">
 		  <div class="numbertext">2 / 3</div>
-		  <img src="/EdilCommerce_Design/img/home2.jpg" style="width:800px; height: 500px">
+		  <img src="/EdilCommerce_Design/img/home2.jpg" style="width:1000px; height: 600px">
 		</div>
 		
 		<div class="mySlides fade">
 		  <div class="numbertext">3 / 3</div>
-		  <img src="/EdilCommerce_Design/img/home3.jpg" style="width:800px; height: 500px">
+		  <img src="/EdilCommerce_Design/img/home3.jpg" style="width:1000px; height: 600px">
 		</div>
 		
 		</div>

@@ -90,15 +90,20 @@ public class AggiornaSearch extends HttpServlet {
 				bean=it.next();
 				count++;
 				buffer.append("		<tr class=\"pagina" + pag +" pagina\"onclick=\"document.location = '" + response.encodeURL("/EdilCommerce_Design/articolo.jsp?articolo=" + bean.getCodiceArticolo()) + "';\"><td><img alt=\"" + bean.getNome() + "\" src=\"" + bean.getImmagine() + "\"></td>\n"
-				+ "		<td><h4>" + bean.getNome() + "</h4>\n"
-				+"	<span class=\"float-left\">\r\n"
+				+ "		<td><h4>" + bean.getNome() + "</h4>\n");
+				/*+"	<span class=\"float-left\">\r\n");
+				int i;
+				for(i=1; i<6; i++) { 
+					buffer.append("<span class=\"fa fa-star") ;
+					if(bean.getMediaRecensioni()>=i)
+						buffer.append("checked");
+					else buffer.append("");
+					buffer.append("></span>");
+				}
 				
-				+"for(int i=1; i<6; i++) { "
-				+ "<span class=\"fa fa-star <%=bean.getMediaRecensioni()>=i?\"checked\":\"\" %>\"></span>"
-				+ "}"
 				
-				+ "		</span>"
-				+ "		<h5>" + df.format(bean.getCosto()) + "&euro;</h5></td></tr>\n");
+				buffer.append("		</span>\r\n");*/
+				buffer.append( "		<h5>" + df.format(bean.getCosto()) + "&euro;</h5></td></tr>\n");
 				}
 				buffer.append("		</table>"
 						+ "		</div>"

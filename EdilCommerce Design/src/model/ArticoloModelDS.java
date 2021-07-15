@@ -207,7 +207,7 @@ public class ArticoloModelDS implements ModelInterface<ArticoloBean> {
 			con = ds.getConnection();
 			ps = con.prepareStatement(selectCodeSQL);
 			
-			ps.setString(1, "%"+code+"%");
+			ps.setString(1, code+"%");
 			
 			Utility.print("doRetriveByCategory: " + ps.toString());
 			

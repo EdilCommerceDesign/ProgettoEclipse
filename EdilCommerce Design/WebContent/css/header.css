@@ -109,6 +109,35 @@ header a {
     outline: 0;
 }
 
+#suggerimenti{
+	z-index: 1;
+	position: absolute;
+	
+}
+#suggerimenti ul{
+	background:  #f2f2f2;
+	text-align: left;
+	margin-top: 0;
+	list-style-type: none;
+	width: 460px;
+	font-size: 16px;
+}
+#suggerimenti li:hover{
+	background:  #acd0fa ;
+	
+}
+#suggerimenti li{
+	 padding-top: 2.5px;
+	 padding-bottom: 2.5px;
+	
+}
+   
+#suggerimenti a{
+	color:  black;
+	text-decoration: none;
+	
+}
+
 @media all and (max-width: 600px) {
   .bottom a:not(:first-child) {display: none;}
   .bottom a.icon {

@@ -6,6 +6,7 @@
 <head>
 <link href="/EdilCommerce_Design/css/header.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script type="text/javascript" src="/EdilCommerce_Design/script/autocomplete.js"></script>
 </head>
 <body>
 	<%
@@ -26,8 +27,9 @@
 		<div id="left"><a href="/EdilCommerce_Design/home.jsp" title="Home"><img alt="ECD_Logo" src="/EdilCommerce_Design/img/logo_mini.png"></a></div>
 		<div id="centro"> <img alt="lente" src="/EdilCommerce_Design/img/lente.png" width=30px height=30px>
 		<form action="<%=response.encodeURL("/EdilCommerce_Design/Search")%>" method="get">
-		<input id="search" type="search"  name="criterioRicerca" size="30" placeholder="Cerca in EdilCommerce Design">
+		<input id="search" type="text"  name="criterioRicerca" size="30" placeholder="Cerca in EdilCommerce Design" onkeyup="autocomp()">
 		</form>
+		<div id="suggerimenti"></div>
 		</div>
 		<div id = "rigth">
 		<% 
@@ -92,6 +94,7 @@ function myFunction() {
     x.className = "bottom";
   }
 }
+
 </script>
 </body>
 </html>
