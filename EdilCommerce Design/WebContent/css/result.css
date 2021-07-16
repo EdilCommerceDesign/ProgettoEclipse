@@ -57,6 +57,9 @@ td .fa-star {
 	font-size: 18px;
 }
 
+td .space {
+	margin-right: 3.624px;
+}
 td .checked {
 	color: orange;
 }

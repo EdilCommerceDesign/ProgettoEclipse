@@ -10,6 +10,11 @@ body {
 .error{
 	border-color: red !important;
 }
+
+.errorMessage {
+	color: red !important;
+}
+
 html,body{
     height: 100%
 }

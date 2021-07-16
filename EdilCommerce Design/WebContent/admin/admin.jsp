@@ -14,6 +14,17 @@ if(session == null) {
 		return;
 	}
 }
+
+String errore = (String) session.getAttribute("AdminError");
+session.removeAttribute("AdminError");
+
+String mess = (String) session.getAttribute("Messaggio");
+session.removeAttribute("Messaggio");
+
+ArticoloBean unsaved = (ArticoloBean) session.getAttribute("UnsavedBean");
+session.removeAttribute("UnsavedBean");
+if(unsaved == null)
+	unsaved = new ArticoloBean();
 %>
 <html>
 <head>
@@ -27,24 +38,25 @@ if(session == null) {
 	<div id="holder">
 		<%@ include file="../header.jsp" %>
 		<div id="body">
+		<%=errore!=null?"<h3 class=\"errorMessage\">" + errore + "</h3>":(mess!=null?"<h3>" + mess + "</h3>":"")%>
 	
 			<ul>
 				<li onclick="visualizza('inserisciArticolo')"><h2>Inserisci articolo</h2></li>
 					<div class="container" id="inserisciArticolo" style="display:none">
-						<form action="<%=response.encodeURL("/EdilCommerce_Design/InserisciArticolo")%>" method="POST">
+						<form action="<%=response.encodeURL("/EdilCommerce_Design/AggiungiArticolo")%>" method="POST">
 							<div class="flex">
 					  			<div class="col-50">
 									<label for="nome">Nome dell'articolo</label>
-									<input type="text" name="nome" maxlength="50" required>
+									<input type="text" name="nome" maxlength="50" value="<%=unsaved.getNome()%>" required>
 									
-									<label for="nome">Codice</label>
-									<input type="text" name="codice" maxlength="5" required>
+									<label for="codice">Codice</label>
+									<input type="text" name="codice" maxlength="5" value="<%=unsaved.getCodiceArticolo()%>" required>
 									
-									<label for="nome">Categoria</label>
-									<select name="categorie" id="categorie" required>
-									  <option value="Arredamento interni">Arredamento interni</option>
-									  <option value="Arredamento esterni">Arredamento esterni</option>
-									  <option value="Rivestimenti">Rivestimenti</option>
+									<label for="categorie">Categoria</label>
+									<select name="categorie" id="categorie" value="<%=unsaved.getNomeCategoria()%>" required>
+									  <option value="Arredamento interno">Arredamento interno</option>
+									  <option value="Arredamento esterno">Arredamento esterno</option>
+									  <option value="Rivestimento">Rivestimento</option>
 									  <option value="Vernici">Vernici</option>
 									  <option value="Ferramenta">Ferramenta</option>
 									  <option value="Utensileria">Utensileria</option>
@@ -53,14 +65,14 @@ if(session == null) {
 									  <option value="Struttura">Struttura</option>
 									</select>
 									
-									<label for="nome">Foto</label>
-									<input type="text" name="imagine" required>
+									<label for="immagine">Foto</label>
+									<input type="text" name="immagine" value="<%=unsaved.getImmagine()%>" required>
 									
-									<label for="nome">Descrizione</label>
-									<textarea cols="40" rows="5" maxlength="1000" required></textarea>
+									<label for="testo">Descrizione</label>
+									<textarea name="testo" cols="40" rows="5" maxlength="1000" required><%=unsaved.getDescrizione()%></textarea>
 									
-									<label for="nome">Costo (&euro;)</label>
-									<input type="number" name="costo" required>
+									<label for="costo">Costo (&euro;)</label>
+									<input type="number" name="costo" min="0" step="0.01" value="<%=unsaved.getCosto()%>" required>
 								</div>
 							</div>									
 							<input type="submit" value="Aggiungi">&nbsp;<input type="reset">
@@ -92,10 +104,10 @@ if(session == null) {
 									<label for="nome">Nome dell'articolo</label>
 									<input type="text" name="nome" maxlength="50" required>
 									
-									<label for="nome">Codice</label>
+									<label for="codice">Codice</label>
 									<input type="text" name="codice" maxlength="5" required>
 									
-									<label for="nome">Categoria</label>
+									<label for="categorie">Categoria</label>
 									<select name="categorie" id="categorie" required>
 									  <option value="Arredamento interni">Arredamento interni</option>
 									  <option value="Arredamento esterni">Arredamento esterni</option>
@@ -108,14 +120,14 @@ if(session == null) {
 									  <option value="Struttura">Struttura</option>
 									</select>
 									
-									<label for="nome">Foto</label>
-									<input type="text" name="imagine" required>
+									<label for="immagine">Foto</label>
+									<input type="text" name="immagine" required>
 									
-									<label for="nome">Descrizione</label>
-									<textarea cols="40" rows="5" maxlength="1000" required></textarea>
+									<label for="testo">Descrizione</label>
+									<textarea name="testo" cols="40" rows="5" maxlength="1000" required></textarea>
 									
-									<label for="nome">Costo (&euro;)</label>
-									<input type="number" name="costo" required>
+									<label for="costo">Costo (&euro;)</label>
+									<input type="number" name="costo" min="0.01" required>
 								</div>
 							</div>									
 							<input type="submit" value="Aggiungi">&nbsp;<input type="reset">

@@ -27,7 +27,7 @@
   text-align: left;
 }
 
-input[type=text], input[type=password], input[type=email] {
+#body input[type=text], #body input[type=password], #body input[type=email] {
   width: 70%;
   margin-bottom: 20px;
   padding: 12px;

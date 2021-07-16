@@ -29,9 +29,9 @@
 		<label><input type="radio" name="ordine" value="costo DESC" onchange="aggiorna('<%=request.getParameter("criterioRicerca")%>')">Decrescente</label><br>
 		<hr>
 		<b>Prezzo</b><br>
-		<label><input type="checkbox" name="prezzo" value="BETWEEN 0.0 AND 50.0" onclick="mutua('BETWEEN 0.0 AND 50.0')" onchange="aggiorna('<%=request.getParameter("criterioRicerca")%>')">0-50&euro;</label><br>
-		<label><input type="checkbox" name="prezzo" value="BETWEEN 50.01 AND 200.0" onclick="mutua('BETWEEN 50.01 AND 200.0')" onchange="aggiorna('<%=request.getParameter("criterioRicerca")%>')">50-200&euro;</label><br>
-		<label><input type="checkbox" name="prezzo" value="BETWEEN 200.01 AND 99999.0" onclick="mutua('BETWEEN 200.01 AND 99999.0')" onchange="aggiorna('<%=request.getParameter("criterioRicerca")%>')">>200&euro;</label><br>
+		<label><input type="checkbox" name="prezzo" value="costo BETWEEN 0.0 AND 50.0" onclick="mutua('costo BETWEEN 0.0 AND 50.0')" onchange="aggiorna('<%=request.getParameter("criterioRicerca")%>')">0-50&euro;</label><br>
+		<label><input type="checkbox" name="prezzo" value="costo BETWEEN 50.01 AND 200.0" onclick="mutua('costo BETWEEN 50.01 AND 200.0')" onchange="aggiorna('<%=request.getParameter("criterioRicerca")%>')">50-200&euro;</label><br>
+		<label><input type="checkbox" name="prezzo" value="costo BETWEEN 200.01 AND 99999.0" onclick="mutua('costo BETWEEN 200.01 AND 99999.0')" onchange="aggiorna('<%=request.getParameter("criterioRicerca")%>')">>200&euro;</label><br>
 		<hr>
 		<b>Gradimento</b><br>
 		<label>
@@ -40,28 +40,28 @@
 		<span class="fa fa-star checked" ></span>
 		<span class="fa fa-star checked" ></span>
 		<span class="fa fa-star" ></span>
-		<label><input type="checkbox" name="mediaRecensioni" value="4" onclick="mutuaR('4')" onchange="aggiorna('<%=request.getParameter("criterioRicerca")%>')"></label><br>
+		<label><input type="checkbox" name="mediaRecensioni" value="mediaRecensioni >= 4" onclick="mutuaR('mediaRecensioni >= 4')" onchange="aggiorna('<%=request.getParameter("criterioRicerca")%>')"></label><br>
 		<label>
 		<span class="fa fa-star checked" ></span>	
 		<span class="fa fa-star checked" ></span>
 		<span class="fa fa-star checked" ></span>
 		<span class="fa fa-star " ></span>
 		<span class="fa fa-star" ></span>
-		<label><input type="checkbox" name="mediaRecensioni" value="3" onclick="mutuaR('3')" onchange="aggiorna('<%=request.getParameter("criterioRicerca")%>')"></label><br>
+		<label><input type="checkbox" name="mediaRecensioni" value="mediaRecensioni >= 3" onclick="mutuaR('mediaRecensioni >= 3')" onchange="aggiorna('<%=request.getParameter("criterioRicerca")%>')"></label><br>
 		<label>
 		<span class="fa fa-star checked" ></span>	
 		<span class="fa fa-star checked" ></span>
 		<span class="fa fa-star " ></span>
 		<span class="fa fa-star " ></span>
 		<span class="fa fa-star" ></span>
-		<label><input type="checkbox" name="mediaRecensioni" value="2" onclick="mutuaR('2')" onchange="aggiorna('<%=request.getParameter("criterioRicerca")%>')"></label><br>
+		<label><input type="checkbox" name="mediaRecensioni" value="mediaRecensioni >= 2" onclick="mutuaR('mediaRecensioni >= 2')" onchange="aggiorna('<%=request.getParameter("criterioRicerca")%>')"></label><br>
 		<label>
 		<span class="fa fa-star checked" ></span>	
 		<span class="fa fa-star " ></span>
 		<span class="fa fa-star " ></span>
 		<span class="fa fa-star " ></span>
 		<span class="fa fa-star" ></span>
-		<label><input type="checkbox" name="mediaRecensioni" value="1" onclick="mutuaR('1')" onchange="aggiorna('<%=request.getParameter("criterioRicerca")%>')"></label><br>
+		<label><input type="checkbox" name="mediaRecensioni" value="mediaRecensioni >= 1" onclick="mutuaR('mediaRecensioni >= 1')" onchange="aggiorna('<%=request.getParameter("criterioRicerca")%>')"></label><br>
 													
 			
 			</span>

@@ -37,7 +37,7 @@ public class AggiornaSearch extends HttpServlet {
 		String criterio = request.getParameter("criterioRicerca");
 		String ordine = request.getParameter("ordine");
 		String prezzo = request.getParameter("prezzo");
-		//String mediaRecensioni = request.getParameter("mediaRecensioni");
+		String mediaRecensioni = request.getParameter("mediaRecensioni");
 		if(criterio== null) {
 			response.sendRedirect(response.encodeRedirectURL("/EdilCommerce_Design/"));
 		}else if(criterio.isBlank()) {
@@ -54,6 +54,13 @@ public class AggiornaSearch extends HttpServlet {
 					isCategory = true;
 				}
 			}
+			
+			if(!mediaRecensioni.isBlank())
+				prezzo = mediaRecensioni;
+			else if(!prezzo.isBlank() && !mediaRecensioni.isBlank())
+					prezzo = prezzo + " AND " + mediaRecensioni;
+			
+			
 			
 			if(isCategory==true) {
 				collection=modelA.doRetriveByCategory(criterio, prezzo, ordine);
@@ -90,19 +97,19 @@ public class AggiornaSearch extends HttpServlet {
 				bean=it.next();
 				count++;
 				buffer.append("		<tr class=\"pagina" + pag +" pagina\"onclick=\"document.location = '" + response.encodeURL("/EdilCommerce_Design/articolo.jsp?articolo=" + bean.getCodiceArticolo()) + "';\"><td><img alt=\"" + bean.getNome() + "\" src=\"" + bean.getImmagine() + "\"></td>\n"
-				+ "		<td><h4>" + bean.getNome() + "</h4>\n");
-				/*+"	<span class=\"float-left\">\r\n");
-				int i;
-				for(i=1; i<6; i++) { 
-					buffer.append("<span class=\"fa fa-star") ;
-					if(bean.getMediaRecensioni()>=i)
-						buffer.append("checked");
+				+ "		<td><h4>" + bean.getNome() + "</h4>\n"
+				+ "	<span class=\"float-left\">\r\n");
+				int j;
+				for(j=1; j<6; j++) { 
+					buffer.append("<span class=\"fa fa-star space") ;
+					if(bean.getMediaRecensioni()>=j)
+						buffer.append(" checked");
 					else buffer.append("");
-					buffer.append("></span>");
+					buffer.append("\"></span>");
 				}
 				
 				
-				buffer.append("		</span>\r\n");*/
+				buffer.append("		</span> \n");
 				buffer.append( "		<h5>" + df.format(bean.getCosto()) + "&euro;</h5></td></tr>\n");
 				}
 				buffer.append("		</table>"

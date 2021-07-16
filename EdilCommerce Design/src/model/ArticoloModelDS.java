@@ -76,13 +76,13 @@ public class ArticoloModelDS implements ModelInterface<ArticoloBean> {
 		ResultSet rs = null;
 		Collection<ArticoloBean> collection = new LinkedList<ArticoloBean>();
 		
-		String selectCodeSQL = "SELECT * FROM articolo";
+		String selectCodeSQL = "SELECT * FROM articolo ORDER BY nome";
 		
 		try {
 			con = ds.getConnection();
 			ps = con.prepareStatement(selectCodeSQL);
 			
-			Utility.print("doRetriveByCategory: " + ps.toString());
+			Utility.print("doRetriveAll: " + ps.toString());
 			
 			rs = ps.executeQuery();
 			
@@ -116,8 +116,35 @@ public class ArticoloModelDS implements ModelInterface<ArticoloBean> {
 
 	@Override
 	public void doSave(ArticoloBean item) throws SQLException {
-		// TODO Auto-generated method stub
+		Connection con = null;
+		PreparedStatement ps = null;
 		
+		String InsertSQL = "INSERT INTO articolo VALUES (?,?,?,?,?,?,?)";
+		
+		try {
+			con = ds.getConnection();
+			ps = con.prepareStatement(InsertSQL);
+			
+			ps.setString(1, item.getCodiceArticolo());
+			ps.setString(2, item.getNome());
+			ps.setString(3, item.getImmagine());
+			ps.setString(4, item.getDescrizione());
+			ps.setDouble(5, item.getCosto());
+			ps.setString(6, item.getNomeCategoria());
+			ps.setDouble(7, item.getMediaRecensioni());
+			
+			Utility.print("doSave: " + ps.toString());
+			
+			ps.executeUpdate();
+		} finally {
+			try {
+				if(ps != null)
+					ps.close();
+			} finally {
+				if(con != null)
+					con.close();
+			}
+		}		
 	}
 
 	@Override
@@ -141,7 +168,7 @@ public class ArticoloModelDS implements ModelInterface<ArticoloBean> {
 		String selectCodeSQL = "SELECT * FROM articolo WHERE ";
 		
 		if(!(prezzo.isBlank())) 
-			selectCodeSQL = selectCodeSQL + " costo " + prezzo + " AND "; 
+			selectCodeSQL = selectCodeSQL + prezzo + " AND "; 
 		
 		selectCodeSQL = selectCodeSQL + " nomeCategoria=? ";
 		
@@ -209,7 +236,7 @@ public class ArticoloModelDS implements ModelInterface<ArticoloBean> {
 			
 			ps.setString(1, code+"%");
 			
-			Utility.print("doRetriveByCategory: " + ps.toString());
+			Utility.print("doSearchByNome: " + ps.toString());
 			
 			rs = ps.executeQuery();
 			
@@ -241,4 +268,49 @@ public class ArticoloModelDS implements ModelInterface<ArticoloBean> {
 		return collection;
 	}
 
+	public Collection<ArticoloBean> doRetriveByImmagine(String code) throws SQLException {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		Collection<ArticoloBean> collection = new LinkedList<ArticoloBean>();
+		
+		String selectCodeSQL = "SELECT * FROM articolo WHERE immagine=?";
+		
+		try {
+			con = ds.getConnection();
+			ps = con.prepareStatement(selectCodeSQL);
+			
+			ps.setString(1, code);
+			
+			Utility.print("doRetriveByImmagine: " + ps.toString());
+			
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				ArticoloBean bean = new ArticoloBean();
+				
+				bean.setCodiceArticolo(rs.getString("codiceArticolo"));
+				bean.setNome(rs.getString("nome"));
+				bean.setImmagine(rs.getString("immagine"));
+				bean.setDescrizione(rs.getString("descrizione"));
+				bean.setCosto(rs.getDouble("costo"));
+				bean.setNomeCategoria(rs.getString("nomeCategoria"));
+				bean.setMediaRecensioni(rs.getInt("mediaRecensioni"));
+				
+				collection.add(bean);
+			}
+		} finally {
+			try {
+				if(ps != null)
+					ps.close();
+			} finally {
+				if(con != null)
+					con.close();
+				if (rs != null)
+					rs.close();
+			}
+		}
+		
+		return collection;
+	}
 }

@@ -14,7 +14,7 @@ public class ArticoloBean {
 	public ArticoloBean(){
 		codiceArticolo= "";
 		nome= "";
-		immagine= null;
+		immagine = "";
 		descrizione= "";
 		costo= 0;
 		nomeCategoria= "";

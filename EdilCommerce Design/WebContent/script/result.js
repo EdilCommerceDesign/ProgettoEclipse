@@ -31,7 +31,7 @@ function aggiorna(codice) {
 		}
 	};
 	
-	var prezzo="", ordine="", l;
+	var prezzo="", ordine="", mediaRecensioni="", l;
 	var list = document.getElementsByName("prezzo");
 	l = list.length;
 	for(var i=0; i<l; i++) {
@@ -59,7 +59,7 @@ function aggiorna(codice) {
 		}
 	}
 	
-	xhttp.open("GET", "/EdilCommerce_Design/AggiornaSearch?criterioRicerca=" + codice + "&prezzo=" + prezzo + "&ordine=" + ordine /*+ "&=mediaRecensioni" + mediaRecensioni*/, true);
+	xhttp.open("GET", "/EdilCommerce_Design/AggiornaSearch?criterioRicerca=" + codice + "&prezzo=" + prezzo + "&ordine=" + ordine + "&mediaRecensioni=" + mediaRecensioni, true);
 	xhttp.send();
 }
 

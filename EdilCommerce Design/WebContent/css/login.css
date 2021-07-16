@@ -10,14 +10,14 @@
   
 }
 
-input[type=text], input[type=password]{
+#body input[type=text], #body input[type=password]{
   width: 70%;
   margin-bottom: 20px;
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 30px;
 }
-input:focus{
+#body input:focus{
  box-shadow: 0 0 0 1pt black;
  outline: none;
 
