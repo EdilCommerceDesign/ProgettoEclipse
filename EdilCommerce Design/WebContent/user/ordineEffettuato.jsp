@@ -5,6 +5,8 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link href="/EdilCommerce_Design/css/default.css" rel="stylesheet" type="text/css">
+<link href="/EdilCommerce_Design/css/ordineEffettuato.css" rel="stylesheet" type="text/css">
 <title>Ordine Effettuato</title>
 </head>
 <body>
@@ -29,15 +31,22 @@
 	<%
 	if(Integer.parseInt( request.getParameter("suc")) == 1) {
 	%>
-		<p>Ordine effettuato con successo.
+	
+		<p>Ordine effettuato con successo.</p>
+		<div class="rotate-scale-up">
+		<img alt="successo" src="/EdilCommerce_Design/img/spunta-verde.png">
+		</div>
+		<p>Continua ad effettuare nuovi acquisti...</p>
+		<p>Per vedre i tuoi acquisti vai nella tua aria personale <a href="<%=response.encodeURL("/EdilCommerce_Design/user/profilo.jsp")%>" title="Profilo di <%=headerBean.getUsername()%>"><img alt="profilo" src="/EdilCommerce_Design/img/profilo.png"></a>.</p>
+	
 	<%	
 	} else {
 	%>
-		<p>Ordine non effettuato.
+		<p>Ordine non effettuato.</p>
 	<%		
 	}
 	%>
-	</p>
+	
 	</div>
 	<%@ include file="../footer.jsp" %>
 	</div>
