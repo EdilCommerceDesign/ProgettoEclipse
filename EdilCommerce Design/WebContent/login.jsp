@@ -8,6 +8,7 @@
 <link href="/EdilCommerce_Design/css/default.css" rel="stylesheet" type="text/css">
 <link href="/EdilCommerce_Design/css/login.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script type="text/javascript" src="/EdilCommerce_Design/script/login.js"></script>
 
 <title>Login</title>
 </head>
@@ -43,6 +44,7 @@
 						<input type="text" name="username" placeholder="ex. Rossi" required >
 						
 						<label for="password"><i class="fa fa-lock"></i> Password</label>
+						<img id="showP" alt="show" src="/EdilCommerce_Design/img/occhio.png" onclick="mostraPasss()">
 						<input id="pass" type="password" name="password" placeholder="Password" required >
 							
 					<div class="all"><br><input type="submit" value="Login">&nbsp;<input type="reset" value="Reset"></div>
