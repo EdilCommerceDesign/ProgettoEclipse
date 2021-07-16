@@ -29,4 +29,6 @@
   <li>Fare il sito responsive</li>
   <li>✅Inserire le stelle per gli articoli nella ricerca</li>
   <li>✅Far vedere le recensioni nella pagina del prifilo</li>
+  <li>Codificare i criteri di ricerca, per evitare l'sqlInjection</li>
+  <li>Creare il path per le immagini quando si salvano</li>
 </ul>
