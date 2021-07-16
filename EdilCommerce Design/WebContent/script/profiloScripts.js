@@ -30,14 +30,19 @@ function visualizza(id) {
 	var all = document.getElementsByClassName("container");
 	var l = all.length;
 	var x = document.getElementById(id);
+	var list = x.classList;
 	for(var i = 0; i < l; i++) {
-		if(all[i] != x)
-			all[i].style.display = "none";
-	}	
-  	
-  	if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
+		if(all[i] != x && !all[i].classList.contains("start"))
+			all[i].classList.add("close");
+			all[i].classList.remove("open");
+	}
+		
+  	if(list.contains("start")){
+		list.replace("start", "open");
+	} else if (list.contains("close")) {
+		list.replace("close", "open");
+	} else {
+		list.remove("open");
+		list.add("close");
   }
 }

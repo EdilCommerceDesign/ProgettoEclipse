@@ -56,7 +56,7 @@ if (bean == null) {
 	<h2>Benvenuto <%=bean.getUsername() %>, qui puoi modificare le tue informazioni personali</h2>
 	<ul>
 		<li onclick="visualizza('infoP')"><h2>Informazioni personali</h2></li>
-		<div class="container" id="infoP" style="display: none;">
+		<div class="container start" id="infoP">
 			<h2 style="text-align: center">Informazioni personali</h2>
 			<form id="profilo" method="post" action="<%=response.encodeURL("/EdilCommerce_Design//Modifica")%>" onsubmit="event.preventDefault(); validateRegistrazione(this)">
 				<div class="flex">
@@ -104,7 +104,7 @@ if (bean == null) {
 			</form>
 		</div>
 		<li onclick="visualizza('ordiniE')"><h2>Ordini effettuati</h2></li>
-			<div class="container" id="ordiniE" style="display:none">
+			<div class="container start" id="ordiniE">
 				<%
 					DataSource ds = (DataSource) getServletContext().getAttribute("DataSource");
 				
@@ -179,7 +179,7 @@ if (bean == null) {
 				%>
 			</div>
 			<li onclick="visualizza('recensioni')"><h2>Recensioni effettuate</h2></li>
-			<div class="container" id="recensioni" style="display:none">
+			<div class="container start" id="recensioni">
 				<%
 					RecensisceModelDS rModel = new RecensisceModelDS(ds);
 					aModel = new ArticoloModelDS(ds);
@@ -227,6 +227,7 @@ if (bean == null) {
 				
 			</div>
 	</ul>
+
 	</div>
 	<%@ include file="../footer.jsp" %>
 	</div>

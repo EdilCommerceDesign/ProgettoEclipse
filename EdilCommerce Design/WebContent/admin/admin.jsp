@@ -38,11 +38,12 @@ if(unsaved == null)
 	<div id="holder">
 		<%@ include file="../header.jsp" %>
 		<div id="body">
-		<%=errore!=null?"<h3 class=\"errorMessage\">" + errore + "</h3>":(mess!=null?"<h3>" + mess + "</h3>":"")%>
+		<%=errore!=null?"<h3 class=\"errorMessage\">Errore:" + errore + "</h3>":(mess!=null?"<h3>" + mess + "</h3>":"")%>
 	
+		<h2>Scegli un'operazione:</h2>
 			<ul>
 				<li onclick="visualizza('inserisciArticolo')"><h2>Inserisci articolo</h2></li>
-					<div class="container" id="inserisciArticolo" style="display:none">
+					<div class="container start" id="inserisciArticolo">
 						<form action="<%=response.encodeURL("/EdilCommerce_Design/AggiungiArticolo")%>" method="POST">
 							<div class="flex">
 					  			<div class="col-50">
@@ -80,7 +81,7 @@ if(unsaved == null)
 					</div>
 					
 				<li onclick="visualizza('modificaArticolo')"><h2>Modifica articolo</h2></li>
-					<div class="container" id="modificaArticolo" style="display:none">
+					<div class="container start" id="modificaArticolo">
 						<form action="">
 							<div class="flex">
 					  			<div class="col-50">
@@ -135,7 +136,7 @@ if(unsaved == null)
 					</div>
 					
 				<li onclick="visualizza('ordini')"><h2>Visualizza ordini</h2></li>
-					<div class="container" id="ordini" style="display:none">
+					<div class="container start" id="ordini">
 				<%
 				
 					OrdineModelDS oModel = new OrdineModelDS(ds);
