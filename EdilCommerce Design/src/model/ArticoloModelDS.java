@@ -76,7 +76,15 @@ public class ArticoloModelDS implements ModelInterface<ArticoloBean> {
 		ResultSet rs = null;
 		Collection<ArticoloBean> collection = new LinkedList<ArticoloBean>();
 		
-		String selectCodeSQL = "SELECT * FROM articolo ORDER BY nome";
+		String selectCodeSQL = "SELECT * FROM articolo";
+		
+		if(order!= null) {
+			if(!order.isBlank())
+				selectCodeSQL = selectCodeSQL + " ORDER BY "+ order ;
+			else
+				 selectCodeSQL = "SELECT * FROM articolo ORDER BY nome";
+		} else 
+			 selectCodeSQL = "SELECT * FROM articolo ORDER BY nome";
 		
 		try {
 			con = ds.getConnection();
