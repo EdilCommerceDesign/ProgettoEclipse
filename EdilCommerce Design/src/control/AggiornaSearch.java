@@ -38,6 +38,19 @@ public class AggiornaSearch extends HttpServlet {
 		String ordine = request.getParameter("ordine");
 		String prezzo = request.getParameter("prezzo");
 		String mediaRecensioni = request.getParameter("mediaRecensioni");
+		
+		if(ordine != null)
+			if(!ordine.isBlank())
+				ordine = codificaOrdine(Integer.parseInt(ordine));
+		
+		if(prezzo != null)
+			if(!prezzo.isBlank())
+				prezzo = codificaPrezzo(Integer.parseInt(prezzo));
+		
+		if(mediaRecensioni != null)
+			if(!mediaRecensioni.isBlank())
+				mediaRecensioni = codificaGradimento(Integer.parseInt(mediaRecensioni));
+		
 		if(criterio== null) {
 			response.sendRedirect(response.encodeRedirectURL("/EdilCommerce_Design/"));
 		}else if(criterio.isBlank()) {
@@ -126,6 +139,36 @@ public class AggiornaSearch extends HttpServlet {
 				
 			}
 			response.getWriter().write(buffer.toString());
+			
+	}
+	
+	private String codificaPrezzo(int index){
+		switch (index) {
+			case 1 : return "costo BETWEEN 0.0 AND 50.0";
+			case 2 : return "costo BETWEEN 50.01 AND 200.0";
+			case 3 : return "costo BETWEEN 200.01 AND 99999.0";
+		}
+		return null;
+	}
+	
+	private String codificaGradimento(int index){
+		switch (index) {
+			case 1 : return "mediaRecensioni >= 4";
+			case 2 : return "mediaRecensioni >= 3";
+			case 3 : return "mediaRecensioni >= 2";
+			case 4 : return "mediaRecensioni >= 1";
+		}
+		return null;
+	}
+
+	private String codificaOrdine(int index){
+		switch (index) {
+			case 1 : return "nome ASC";
+			case 2 : return "nome DESC";
+			case 3 : return "costo ASC";
+			case 4 : return "costo DESC";
+		}
+		return null;
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
