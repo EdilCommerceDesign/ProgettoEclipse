@@ -25,7 +25,7 @@
   <li>✅Aggiornare i bean di cliente e aggiungere i nuovi bean di info fatturazione, carta e contrassegno</li>
   <li>✅Controllare la ricerca con i criteri di ordine, fare l'arrotondamento al 2° numero decimale per gli ordini</li>
   <li>✅Fare le funzioni js per le stelle e poi per la submit della recensione</li>
-  <li>Controllo password</li>
+  <li>✅Controllo password</li>
   <li>Fare il sito responsive</li>
   <li>✅Inserire le stelle per gli articoli nella ricerca</li>
   <li>✅Far vedere le recensioni nella pagina del prifilo</li>
