@@ -41,6 +41,8 @@ function aggiorna(codice) {
 		}
 	}
 	
+	
+	
 	list= document.getElementsByName("ordine");
 	l = list.length;
 	for(var i=0; i<l; i++) {

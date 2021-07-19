@@ -35,6 +35,7 @@ if(unsaved == null)
 </head>
 <body>
 	<script type="text/javascript" src="/EdilCommerce_Design/script/profiloScripts.js"></script>
+	<script type="text/javascript" src="/EdilCommerce_Design/script/admin.js"></script>
 	<div id="holder">
 		<%@ include file="../header.jsp" %>
 		<div id="body">
@@ -82,10 +83,12 @@ if(unsaved == null)
 					
 				<li onclick="visualizza('modificaArticolo')"><h2>Modifica articolo</h2></li>
 					<div class="container start" id="modificaArticolo">
-						<form action="">
+						
 							<div class="flex">
 					  			<div class="col-50">
+					  				<label for="articolo"><h3>Seleziona l'articolo da modificare</h3></label>
 									<select name="articolo" id="articolo" required>
+									<option value="" selected></option>
 									<% 
 									DataSource ds = (DataSource) getServletContext().getAttribute("DataSource");
 										
@@ -96,43 +99,48 @@ if(unsaved == null)
 									while(iter.hasNext()){
 									ArticoloBean aBean = iter.next();
 									%>
-										<option value="<%=aBean.getCodiceArticolo()%>"><%=aBean.getNome()%></option>
+										<option value="<%=aBean.getCodiceArticolo()%>"><%=aBean.getCodiceArticolo() + " " + aBean.getNome()%></option>
 									<% 
 									}
 									%>			
 									</select>
-							
-									<label for="nome">Nome dell'articolo</label>
-									<input type="text" name="nome" maxlength="50" required>
-									
-									<label for="codice">Codice</label>
-									<input type="text" name="codice" maxlength="5" required>
-									
-									<label for="categorie">Categoria</label>
-									<select name="categorie" id="categorie" required>
-									  <option value="Arredamento interni">Arredamento interni</option>
-									  <option value="Arredamento esterni">Arredamento esterni</option>
-									  <option value="Rivestimenti">Rivestimenti</option>
-									  <option value="Vernici">Vernici</option>
-									  <option value="Ferramenta">Ferramenta</option>
-									  <option value="Utensileria">Utensileria</option>
-									  <option value="Materiali">Materiali</option>
-									  <option value="Copertura">Copertura</option>
-									  <option value="Struttura">Struttura</option>
-									</select>
-									
-									<label for="immagine">Foto</label>
-									<input type="text" name="immagine" required>
-									
-									<label for="testo">Descrizione</label>
-									<textarea name="testo" cols="40" rows="5" maxlength="1000" required></textarea>
-									
-									<label for="costo">Costo (&euro;)</label>
-									<input type="number" name="costo" min="0.01" required>
+								<div id="formModificaA">
+									<form action="<%=response.encodeURL("/EdilCommerce_Design/ModificaArticolo")%>">
+										<label for="nome">Nome dell'articolo</label>
+										<input type="text" name="nome" maxlength="50" required>
+										
+										<label for="codice">Codice</label>
+										<input type="text" name="codice" maxlength="5" required>
+										
+										<label for="categorie">Categoria</label>
+										<select name="categorie" id="categorie" required>
+										  <option value="Arredamento interni">Arredamento interni</option>
+										  <option value="Arredamento esterni">Arredamento esterni</option>
+										  <option value="Rivestimenti">Rivestimenti</option>
+										  <option value="Vernici">Vernici</option>
+										  <option value="Ferramenta">Ferramenta</option>
+										  <option value="Utensileria">Utensileria</option>
+										  <option value="Materiali">Materiali</option>
+										  <option value="Copertura">Copertura</option>
+										  <option value="Struttura">Struttura</option>
+										</select>
+										
+										<label for="immagine">Foto</label>
+										<input type="text" name="immagine" required>
+										
+										<label for="testo">Descrizione</label>
+										<textarea name="testo" cols="40" rows="5" maxlength="1000" required></textarea>
+										
+										<label for="costo">Costo (&euro;)</label>
+										<input type="number" name="costo" min="0.01" required>
+										
+										<br><br><input type="submit" value="Aggiungi">&nbsp;<input type="reset">
+									</form>
 								</div>
-							</div>									
-							<input type="submit" value="Aggiungi">&nbsp;<input type="reset">
-						</form>
+							</div>
+						</div>									
+							
+						
 					</div>
 					
 				<li onclick="visualizza('ordini')"><h2>Visualizza ordini</h2></li>
