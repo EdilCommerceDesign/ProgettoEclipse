@@ -183,7 +183,7 @@ hr{
 .numbertext {
   color: black;
   font-size: 12px;
-  padding: 8px 120px;
+  padding: 18px 50px;
   position: absolute;
   top: 0;
 }
@@ -239,4 +239,40 @@ hr{
 	color:  black;
 	text-decoration: none;
 	
+}
+.chiSiamo{
+	float: left;
+	width: 400px;
+	height: auto;
+	font-size: 18px;
+	border: 1px solid #272F38;
+	font-family: cursive;
+	padding: 7px;
+	background-color: #f2f2f2;
+	box-shadow: 5px 5px #272F38;
+}
+.chiSiamo h2, .cheFacciamo h2{
+	font-weight: bolder;
+	color: #272F38;
+}
+.cheFacciamo{
+	float: right;
+	width: 400px;
+	height: auto;
+	font-size: 18px;
+	border: 1px solid #272F38;
+	font-family: cursive;
+	padding: 7px;
+	background-color: #f2f2f2;
+	box-shadow: 5px 5px #272F38;
+}
+#center2 {
+	
+    display: inline-block;
+    font-size: 70px;
+    font-family: French Script MT;
+    margin-bottom: 8px;
+    color: #272F38;
+    text-shadow: -2px -2px 2px #f2f2f2;
+    margin-left: 37%;
 }

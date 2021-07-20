@@ -113,6 +113,26 @@
 		<input type="button" value="&gt" onclick="scrollR()">
 	</div>
 	<hr>
+	<div id="center2">Edil Commerce Design</div>
+	<br>
+	<div class="chiSiamo">
+	<h2>Chi siamo:</h2>
+	<p>
+		Edil Commerce Design &egrave; il pi&ugrave; grande eCommerce di articoli per l'edilizia e non...<br>
+		Da circa 20 anni ci occupiamo di ricercare e vendere i migliori prodotti esistenti sul mercato.<br>
+		Mettendo sempre in primo piano la felicit&agrave; dei nostri clienti, garantendo materiali di prima scelta.
+	</p>
+	
+	</div>
+	<div class="cheFacciamo">
+	<h2>Che facciamo:</h2>
+		<p>
+		    Edil Commerce Design, nasce per aiutare i clienti nella scelta per la realizzazione della casa ideale.<br>
+			Offre ottimi meccanismi per i pagamenti, per i tracciamenti degli ordini e per le ricerche pi&ugrave; minuziose,
+			con la comodit&agrave; di effettuare tutto da casa con PC e smartphone.
+		</p>
+	
+	</div>
 	<div class="slideshow-container">
 
 		<div class="mySlides fade">
