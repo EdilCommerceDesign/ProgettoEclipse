@@ -88,7 +88,6 @@ if(unsaved == null)
 					  			<div class="col-50">
 					  				<label for="articolo"><h3>Seleziona l'articolo da modificare</h3></label>
 									<select name="articolo" id="articolo" required>
-									<option value="" selected></option>
 									<% 
 									DataSource ds = (DataSource) getServletContext().getAttribute("DataSource");
 										
@@ -102,40 +101,10 @@ if(unsaved == null)
 										<option value="<%=aBean.getCodiceArticolo()%>"><%=aBean.getCodiceArticolo() + " " + aBean.getNome()%></option>
 									<% 
 									}
-									%>			
+									%>		
 									</select>
+									&nbsp;<input type="button" onclick="selezionaArticolo('1')" value="Seleziona articolo"><br>
 								<div id="formModificaA">
-									<form action="<%=response.encodeURL("/EdilCommerce_Design/ModificaArticolo")%>">
-										<label for="nome">Nome dell'articolo</label>
-										<input type="text" name="nome" maxlength="50" required>
-										
-										<label for="codice">Codice</label>
-										<input type="text" name="codice" maxlength="5" required>
-										
-										<label for="categorie">Categoria</label>
-										<select name="categorie" id="categorie" required>
-										  <option value="Arredamento interni">Arredamento interni</option>
-										  <option value="Arredamento esterni">Arredamento esterni</option>
-										  <option value="Rivestimenti">Rivestimenti</option>
-										  <option value="Vernici">Vernici</option>
-										  <option value="Ferramenta">Ferramenta</option>
-										  <option value="Utensileria">Utensileria</option>
-										  <option value="Materiali">Materiali</option>
-										  <option value="Copertura">Copertura</option>
-										  <option value="Struttura">Struttura</option>
-										</select>
-										
-										<label for="immagine">Foto</label>
-										<input type="text" name="immagine" required>
-										
-										<label for="testo">Descrizione</label>
-										<textarea name="testo" cols="40" rows="5" maxlength="1000" required></textarea>
-										
-										<label for="costo">Costo (&euro;)</label>
-										<input type="number" name="costo" min="0.01" required>
-										
-										<br><br><input type="submit" value="Aggiungi">&nbsp;<input type="reset">
-									</form>
 								</div>
 							</div>
 						</div>									

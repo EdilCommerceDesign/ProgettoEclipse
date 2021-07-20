@@ -149,8 +149,34 @@ public class ArticoloModelDS implements ModelInterface<ArticoloBean> {
 
 	@Override
 	public void doUpdate(ArticoloBean item, String code) throws SQLException {
-		// TODO Auto-generated method stub
+		Connection con = null;
+		PreparedStatement ps = null;
 		
+		String UpdateSQL = "UPDATE articolo SET nome=?, immagine=?, descrizione=?, costo=?, nomeCategoria=? WHERE codiceArticolo=?";
+		
+		try {
+			con = ds.getConnection();
+			ps = con.prepareStatement(UpdateSQL);
+			
+			ps.setString(1, item.getNome());
+			ps.setString(2, item.getImmagine());
+			ps.setString(3, item.getDescrizione());
+			ps.setDouble(4, item.getCosto());
+			ps.setString(5, item.getNomeCategoria());
+			ps.setString(6, code);
+			
+			Utility.print("doUpdate: " + ps.toString());
+			
+			ps.executeUpdate();
+		} finally {
+			try {
+				if(ps != null)
+					ps.close();
+			} finally {
+				if(con != null)
+					con.close();
+			}
+		}
 	}
 
 	@Override

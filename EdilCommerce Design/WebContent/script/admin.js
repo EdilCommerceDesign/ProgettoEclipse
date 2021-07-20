@@ -22,13 +22,15 @@ function getXmlHttpRequest() {
 	return xhr;
 }
 
-function selezionaArticolo(codice, op) {
+function selezionaArticolo(op) {
+	var select = document.getElementById("articolo");
+	var selected = select.options[select.selectedIndex].value;
 	var xhttp = getXmlHttpRequest();
 		xhttp.onreadystatechange = function() {
 		if(xhttp.readyState == 4 && xhttp.status == 200) {
 			document.getElementById("formModificaA").innerHTML = xhttp.responseText;
 		}
 	};
-	xhttp.open("GET", "/EdilCommerce_Design/ModificaArticolo?codice=" + codice + "&op=" + op, true);
+	xhttp.open("GET", "/EdilCommerce_Design/ModificaArticolo?codice=" + selected + "&op=" + op, true);
 	xhttp.send();
 }

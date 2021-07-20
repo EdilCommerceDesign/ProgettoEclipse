@@ -3,6 +3,7 @@ package control;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.LinkedList;
 
 import javax.servlet.ServletException;
@@ -10,10 +11,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 import model.ArticoloBean;
 import model.ArticoloModelDS;
+import model.CategoriaBean;
+import model.CategoriaModelDS;
 import utils.Utility;
 
 @WebServlet("/ModificaArticolo")
@@ -22,7 +26,13 @@ public class ModificaArticolo extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		DataSource ds = (DataSource) getServletContext().getAttribute("DataSource");
-		Collection<ArticoloBean> collection = new LinkedList<ArticoloBean>();
+		
+		HttpSession session = request.getSession(false);
+		if(session == null) {
+			response.sendRedirect(response.encodeRedirectURL("/EdilCommerce_Design/"));
+		}
+		
+		Collection<CategoriaBean> categorie = (Collection<CategoriaBean>) getServletContext().getAttribute("Categorie");
 		
 		ArticoloModelDS modelA = new ArticoloModelDS(ds);
 		
@@ -30,9 +40,10 @@ public class ModificaArticolo extends HttpServlet {
 		
 		String op = request.getParameter("op");
 		String codice = request.getParameter("codice");
+		StringBuffer buffer = new StringBuffer();
 		
 		if(op != null) {
-			if(Integer.parseInt(op) == 1) {
+			if(Integer.parseInt(op) == 1) {//Autocompila i form
 				try {
 					aBean = modelA.doRetriveByKey(codice);
 				} catch (SQLException e) {
@@ -40,7 +51,7 @@ public class ModificaArticolo extends HttpServlet {
 					request.setAttribute("error", e.getMessage());
 				}
 				
-				StringBuffer buffer = new StringBuffer();
+				
 				response.setContentType("text/xml");
 				
 				buffer.append("<form action=" + response.encodeURL("/EdilCommerce_Design/ModificaArticolo") + ">\r\n"
@@ -48,34 +59,63 @@ public class ModificaArticolo extends HttpServlet {
 						+ "										<input type=\"text\" name=\"nome\" maxlength=\"50\" required value=" + aBean.getNome() + ">\r\n"
 						+ "										\r\n"
 						+ "										<label for=\"codice\">Codice</label>\r\n"
-						+ "										<input type=\"text\" name=\"codice\" maxlength=\"5\" required value=" + aBean.getCodiceArticolo() + ">\r\n"
+						+ "										<input type=\"text\" name=\"codice\" maxlength=\"5\" required readonly value=" + aBean.getCodiceArticolo() + ">\r\n"
 						+ "										\r\n"
 						+ "										<label for=\"categorie\">Categoria</label>\r\n"
-						+ "										<select name=\"categorie\" id=\"categorie\" required>\r\n");
-						buffer.append("										  <option value=\"Arredamento interni\">Arredamento interni</option>\r\n"
-						+ "										  <option value=\"Arredamento esterni\">Arredamento esterni</option>\r\n"
-						+ "										  <option value=\"Rivestimenti\">Rivestimenti</option>\r\n"
-						+ "										  <option value=\"Vernici\">Vernici</option>\r\n"
-						+ "										  <option value=\"Ferramenta\">Ferramenta</option>\r\n"
-						+ "										  <option value=\"Utensileria\">Utensileria</option>\r\n"
-						+ "										  <option value=\"Materiali\">Materiali</option>\r\n"
-						+ "										  <option value=\"Copertura\">Copertura</option>\r\n"
-						+ "										  <option value=\"Struttura\">Struttura</option>\r\n"
-						+ "										</select>\r\n"
-						+ "										\r\n");
-						buffer.append("										<label for=\"immagine\">Foto</label>\r\n"
-						+ "										<input type=\"text\" name=\"immagine\" required>\r\n"
+						+ "										<select name=\"categorie\" id=\"categorieM\" required>\r\n");
+				Iterator<CategoriaBean> it = categorie.iterator();
+				while(it.hasNext()) {
+					CategoriaBean cBean = it.next();
+					buffer.append("										  <option value=\"" + cBean.getNome() + "\" ");
+					if(aBean.getNomeCategoria().equals(cBean.getNome()))
+						buffer.append("selected");
+					buffer.append(">" + cBean.getNome() + "</option>\r\n");
+				}
+				String[] img = aBean.getImmagine().split("/");
+				buffer.append("										</select>\r\n"
+						+ "										\r\n"
+						+ "										<label for=\"immagine\">Foto</label>\r\n"
+						+ "										<input type=\"text\" name=\"immagine\" required value=" + img[5] + ">\r\n"
 						+ "										\r\n"
 						+ "										<label for=\"testo\">Descrizione</label>\r\n"
-						+ "										<textarea name=\"testo\" cols=\"40\" rows=\"5\" maxlength=\"1000\" required></textarea>\r\n"
+						+ "										<textarea name=\"testo\" cols=\"40\" rows=\"5\" maxlength=\"1000\" required>" + aBean.getDescrizione() + "</textarea>\r\n"
 						+ "										\r\n"
 						+ "										<label for=\"costo\">Costo (&euro;)</label>\r\n"
-						+ "										<input type=\"number\" name=\"costo\" min=\"0.01\" required>\r\n"
+						+ "										<input type=\"number\" name=\"costo\" min=\"0.00\" required value=" + aBean.getCosto() + ">\r\n"
 						+ "										\r\n"
-						+ "										<br><br><input type=\"submit\" value=\"Aggiungi\">&nbsp;<input type=\"reset\">\r\n"
+						+ "										<br><br><input type=\"submit\" value=\"Modifica\">&nbsp;<input type=\"reset\">\r\n"
 						+ "									</form>");
 			}
+			response.getWriter().write(buffer.toString());
+		} else {
+			String nome = request.getParameter("nome");
+			String categoria = request.getParameter("categorie");
+			String immagine = request.getParameter("immagine");
+			String testo = request.getParameter("testo");
+			Double costo = Double.parseDouble(request.getParameter("costo"));
+			String[] cat = categoria.split(" ");
+			String cat1 = cat[0] + cat[1].substring(0, 1).toUpperCase() + cat[1].substring(1);
+			immagine = "/EdilCommerce_Design/img/categoria/" + cat1 + "/" + immagine;
+			
+			aBean.setCodiceArticolo(codice);
+			aBean.setCosto(costo);
+			aBean.setDescrizione(testo);
+			aBean.setImmagine(immagine);
+			aBean.setNome(nome);
+			aBean.setNomeCategoria(categoria);
+			
+			try {
+				modelA.doUpdate(aBean, codice);
+			} catch (SQLException e) {
+				Utility.print(e);
+				request.setAttribute("error", e.getMessage());
+			}
+			
+			session.setAttribute("Messaggio", "Articolo " + aBean.getCodiceArticolo() + " modificato con successo");
+			response.sendRedirect(response.encodeRedirectURL("/EdilCommerce_Design/admin/admin.jsp"));
+			return;
 		}
+		return;
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
