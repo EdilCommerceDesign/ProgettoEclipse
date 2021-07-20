@@ -68,10 +68,11 @@ public class AggiornaSearch extends HttpServlet {
 				}
 			}
 			
-			if(!mediaRecensioni.isBlank())
-				prezzo = mediaRecensioni;
-			else if(!prezzo.isBlank() && !mediaRecensioni.isBlank())
-					prezzo = prezzo + " AND " + mediaRecensioni;
+					if(!prezzo.isBlank()) {
+						if(!mediaRecensioni.isBlank())
+							prezzo = prezzo + " AND " + mediaRecensioni;}
+				    else if(!mediaRecensioni.isBlank())
+							prezzo = mediaRecensioni;
 			
 			
 			

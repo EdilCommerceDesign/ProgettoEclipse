@@ -57,7 +57,7 @@ if(unsaved == null)
 									ArticoloBean aBean = collection.getLast();
 									%>
 									<label for="codice">Codice</label>
-									<input type="text" name="codice" maxlength="5" value="<%=unsaved.isEmpty()?"ART"+ Integer.toString(Integer.parseInt(aBean.getCodiceArticolo().substring(3))+1):unsaved.getCodiceArticolo() %>" disabled="disabled" >
+									<input type="text" name="codice" maxlength="5" value="<%=unsaved.isEmpty()?"ART"+ Integer.toString(Integer.parseInt(aBean.getCodiceArticolo().substring(3))+1):unsaved.getCodiceArticolo() %>" readonly="readonly" >
 									
 									<label for="categorie">Categoria</label>
 									<select name="categorie" id="categorie" value="<%=unsaved.getNomeCategoria()%>" required>
