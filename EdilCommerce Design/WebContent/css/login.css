@@ -40,3 +40,9 @@ h4 {
     margin-top: 0.06em;
     cursor: pointer;
 }
+
+@media all and (max-width: 800px) {
+	#showP{
+		margin-left: 340px;
+	}
+}

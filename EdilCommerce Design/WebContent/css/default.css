@@ -28,3 +28,9 @@ html,body{
     padding-bottom: 400px;
     margin: 8px;
 }
+
+@media all and (max-width: 800px) {
+	#body{
+		font-size: 130%;
+	}
+}

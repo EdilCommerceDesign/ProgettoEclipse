@@ -3,9 +3,14 @@
 img.articolo {
 	height: 500px;
 	width: 500px;
-	float:left;
+	display: inline-block;
 	margin-right: 15px;
 	box-shadow: grey  10px 10px 10px;
+}
+
+.articoloBody {
+	vertical-align: top;
+	display: inline-block;
 }
 
 h2 {
@@ -70,4 +75,21 @@ div.recensioni {
 
 .data {
 	color: gray;
+}
+
+.visualizzazione {
+	font-size: 100%
+}
+
+@media all and (max-width: 800px) {
+	img.articolo {
+	max-height: 40vw;
+	height: 500px;
+	
+	width: 500px;
+	max-width: 40vw;
+	}
+	.articoloBody {
+	display: block;
+}
 }

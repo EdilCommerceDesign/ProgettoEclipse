@@ -29,7 +29,7 @@
 		
 		<div class="visualizzazione">
 			<img alt="<%=bean.getNome()%>" src="<%=bean.getImmagine()%>" class="articolo">
-			 <div class="checkout">
+			<div class="checkout">
 				<h3>Prezzo: <%=bean.getCosto() %>&euro;</h3>
 				<form action="<%=response.encodeURL("/EdilCommerce_Design/Aggiungi")%>" method="get">
 					<input type="hidden" name="codice" value="<%=bean.getCodiceArticolo() %>">
@@ -39,8 +39,12 @@
 			 	<hr style="margin: 20px 0">
 			 	<h4>Articoli venduti e certificati da EdilCommerce Design</h4>
 			 </div>
+			<div class="articoloBody">
 			<h2><%=bean.getNome() %></h2>
 			<p><%=bean.getDescrizione()%></p>
+			</div>
+			 
+			
 		</div>
 		<div class="recensioni">
 		<div id="scriviRecensione">

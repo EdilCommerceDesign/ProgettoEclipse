@@ -69,9 +69,8 @@ td .checked {
 }
 
 #result{
-	
 	margin-left:250px;
-	margin-right: 250px;
+	margin-right: 7%;
 }
 
 #result img{
@@ -124,6 +123,7 @@ div.paginazione a{
 
 .standard-table-size {
 	height: 1285px;
+	margin-left: 30px;
 }
 
 .current {
@@ -138,4 +138,20 @@ div.paginazione a{
 
  .checked {
 	color: orange;
+}
+
+@media  all and (max-width: 800px) {
+	#scelte{
+		float:none;
+		width:98%;
+	}
+	#result {
+		margin: 0;
+	}
+	table {
+		width:100%;
+	}
+	.standard-table-size {
+	margin: 0;
+	}
 }
