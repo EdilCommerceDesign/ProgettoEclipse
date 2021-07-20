@@ -25,7 +25,10 @@ public class AggiungiArticolo extends HttpServlet {
 		String nome = request.getParameter("nome");
 		String codice = request.getParameter("codice");
 		String categorie = request.getParameter("categorie");
-		String immagine = request.getParameter("immagine");
+		String[] cat =categorie.split(" ");
+		String cat1= cat[0] + cat[1].substring(0, 1).toUpperCase() + cat[1].substring(1);
+		String immagine = "/EdilCommerce_Design/img/categoria/"+cat1+"/"+request.getParameter("immagine");
+		
 		String testo = request.getParameter("testo");
 		Double costo = Double.parseDouble(request.getParameter("costo"));
 		

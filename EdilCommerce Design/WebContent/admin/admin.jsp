@@ -50,9 +50,14 @@ if(unsaved == null)
 					  			<div class="col-50">
 									<label for="nome">Nome dell'articolo</label>
 									<input type="text" name="nome" maxlength="50" value="<%=unsaved.getNome()%>" required>
-									
+									<%
+									DataSource ds = (DataSource) getServletContext().getAttribute("DataSource");
+									ArticoloModelDS aModel = new ArticoloModelDS(ds);
+									LinkedList<ArticoloBean> collection = (LinkedList<ArticoloBean>) aModel.doRetriveAll("codiceArticolo");
+									ArticoloBean aBean = collection.getLast();
+									%>
 									<label for="codice">Codice</label>
-									<input type="text" name="codice" maxlength="5" value="<%=unsaved.getCodiceArticolo()%>" required>
+									<input type="text" name="codice" maxlength="5" value="<%=unsaved.isEmpty()?"ART"+ Integer.toString(Integer.parseInt(aBean.getCodiceArticolo().substring(3))+1):unsaved.getCodiceArticolo() %>" readonly="readonly" >
 									
 									<label for="categorie">Categoria</label>
 									<select name="categorie" id="categorie" value="<%=unsaved.getNomeCategoria()%>" required>
@@ -89,14 +94,14 @@ if(unsaved == null)
 					  				<label for="articolo"><h3>Seleziona l'articolo da modificare</h3></label>
 									<select name="articolo" id="articolo" required>
 									<% 
-									DataSource ds = (DataSource) getServletContext().getAttribute("DataSource");
+									 ds = (DataSource) getServletContext().getAttribute("DataSource");
 										
-									ArticoloModelDS aModel = new ArticoloModelDS(ds);
+									 aModel = new ArticoloModelDS(ds);
 										
-									LinkedList<ArticoloBean> collection = (LinkedList<ArticoloBean>) aModel.doRetriveAll("");
+									 collection = (LinkedList<ArticoloBean>) aModel.doRetriveAll("");
 									Iterator<ArticoloBean> iter = collection.iterator();
 									while(iter.hasNext()){
-									ArticoloBean aBean = iter.next();
+									 aBean = iter.next();
 									%>
 										<option value="<%=aBean.getCodiceArticolo()%>"><%=aBean.getCodiceArticolo() + " " + aBean.getNome()%></option>
 									<% 
@@ -174,7 +179,7 @@ if(unsaved == null)
 				
 						while(it1.hasNext()){
 							ComponeBean cBean = it1.next();
-							ArticoloBean aBean = aModel.doRetriveByKey(cBean.getCodiceArticolo()); 
+							 aBean = aModel.doRetriveByKey(cBean.getCodiceArticolo()); 
 				%>
 					<li><a href="<%=response.encodeURL("/EdilCommerce_Design/articolo.jsp?articolo=" + aBean.getCodiceArticolo())%>"><%=aBean.getNome()%></a>, quantità:<%=cBean.getQuantità()%></li>
 				<%			

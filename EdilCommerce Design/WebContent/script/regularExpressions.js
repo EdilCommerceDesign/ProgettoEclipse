@@ -15,7 +15,7 @@ function checkEmail(inputtxt){
 	 return false;
 }
 function checkPass(inputtxt){
-	 var pass= /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+	 var pass= /^(\w{4,10})+$/;
 	 if(inputtxt.value.match(pass))	
 		return true;
 	 return false;
@@ -98,14 +98,14 @@ function validateRegistrazione(obj){
 	}else{
 		email.classList.remove("error")
 	}
-	/*
-	var pass= document.getElementsByName("password")[0];
-	if(!checkPass(pass)){
+	
+	var password= document.getElementsByName("password")[0];
+	if(!checkPass(password)){
 		valid= false;
 		password.classList.add("error");
 	}else{
 		password.classList.remove("error")
-	}*/
+	}
 	
 	var phone= document.getElementsByName("telefono")[0];
 	if(!(checkPhone(phone) || checkPhone2(phone))){
