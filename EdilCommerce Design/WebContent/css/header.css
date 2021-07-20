@@ -139,23 +139,33 @@ header a {
 }
 
 @media all and (max-width: 800px) {
-  .bottom a:not(:first-child) {display: none;}
+  .bottom a{display: none;}
+  .bottom a:last-child {
+  width: 100%;
+  }
   .bottom a.icon {
     float: right;
     display: block;
   }
-}
-
-@media all and (max-width: 800px) {
-  .bottom.responsive {position: relative;}
+  .bottom.responsive {
+  position: relative;
+  height: auto;
+  }
   .bottom.responsive .icon {
     position: absolute;
     right: 0;
     top: 0;
   }
-  .bottom.responsive a {
+  .bottom.responsive a:not(:last-child) {
     float: none;
     display: block;
     text-align: left;
   }
+  .bottom.responsive a:last-child {
+ 	width: auto;
+    display: block;
   }
+  #centro {
+  	width: 50vw;
+  }
+ }
