@@ -124,30 +124,22 @@
 	</p>
 	
 	</div>
-	<div class="cheFacciamo">
-	<h2>Che facciamo:</h2>
-		<p>
-		    Edil Commerce Design, nasce per aiutare i clienti nella scelta per la realizzazione della casa ideale.<br>
-			Offre ottimi meccanismi per i pagamenti, per i tracciamenti degli ordini e per le ricerche pi&ugrave; minuziose,
-			con la comodit&agrave; di effettuare tutto da casa con PC e smartphone.
-		</p>
 	
-	</div>
 	<div class="slideshow-container">
 
 		<div class="mySlides fade">
 		  <div class="numbertext">1 / 3</div>
-		  <img src="/EdilCommerce_Design/img/home1.jpg" style="width:1000px; height: 600px">
+		  <img src="/EdilCommerce_Design/img/home1.jpg" >
 		</div>
 		
 		<div class="mySlides fade">
 		  <div class="numbertext">2 / 3</div>
-		  <img src="/EdilCommerce_Design/img/home2.jpg" style="width:1000px; height: 600px">
+		  <img src="/EdilCommerce_Design/img/home2.jpg" >
 		</div>
 		
 		<div class="mySlides fade">
 		  <div class="numbertext">3 / 3</div>
-		  <img src="/EdilCommerce_Design/img/home3.jpg" style="width:1000px; height: 600px">
+		  <img src="/EdilCommerce_Design/img/home3.jpg" >
 		</div>
 		
 		</div>
@@ -157,6 +149,15 @@
 		  <span class="dot"></span> 
 		  <span class="dot"></span> 
 		  <span class="dot"></span> 
+	
+	</div>
+	<div class="cheFacciamo">
+	<h2>Che facciamo:</h2>
+		<p>
+		    Edil Commerce Design, nasce per aiutare i clienti nella scelta per la realizzazione della casa ideale.<br>
+			Offre ottimi meccanismi per i pagamenti, per i tracciamenti degli ordini e per le ricerche pi&ugrave; minuziose,
+			con la comodit&agrave; di effettuare tutto da casa con PC e smartphone.
+		</p>
 	
 	</div>
 	<script type="text/javascript">
