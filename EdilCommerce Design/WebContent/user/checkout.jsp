@@ -130,9 +130,6 @@ if(carrello.getItems().isEmpty()) {
 	          </div>
 	          
 	        </div>
-	        <label>
-	          <input type="checkbox" checked="checked" name="sameadr"> Indirizzo di spedizione uguale a quello di fatturazione
-	        </label>
 	        <input type="submit" value="Continua al checkout" class="btn">
 	      </form>
 	    </div>

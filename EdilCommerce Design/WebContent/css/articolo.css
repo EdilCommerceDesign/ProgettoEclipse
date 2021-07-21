@@ -11,6 +11,7 @@ img.articolo {
 .articoloBody {
 	vertical-align: top;
 	display: inline-block;
+	font-size: 125%;
 }
 
 h2 {
@@ -43,6 +44,9 @@ div.recensioni {
 
 #scriviRecensione .fa-star {
 	cursor: pointer;
+}
+#scriviRecensione h3{
+	font-size: 1.25em;
 }
 
 .recensioni .fa-star {

@@ -46,7 +46,7 @@ public class Autocomplete extends HttpServlet {
 			buffer.append("<ul>");
 			while(it.hasNext()){
 				ArticoloBean bean = it.next();
-			buffer.append("<li><a href='/EdilCommerce_Design/articolo.jsp?articolo="+ bean.getCodiceArticolo()+"'>"+bean.getNome() +"</a></li>");
+			buffer.append("<a href='/EdilCommerce_Design/articolo.jsp?articolo="+ bean.getCodiceArticolo()+"'><li>"+bean.getNome() +"</li></a>");
 			}
 			buffer.append("</ul>");
 		response.getWriter().println(buffer.toString());
