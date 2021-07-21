@@ -1,15 +1,15 @@
 @charset "ISO-8859-1";
 
 .flex {
-  display: -ms-flexbox; /* IE10 */
+  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap; /* IE10 */
+  -ms-flex-wrap: wrap; 
   flex-wrap: wrap;
   margin: 0 -16px;
 }
 
 .col-50 {
-  -ms-flex: 50%; /* IE10 */
+  -ms-flex: 50%;
   flex: 50%;
 }
 
@@ -103,5 +103,17 @@ div .close {
 	height: 0;
 	padding: 0;
 	border: 0;
+	}
+}
+
+@media (max-width: 800px) {
+	.container {
+	width: 70vw;
+	}
+	.flex {
+    flex-direction: column;
+	}
+	.col-25 {
+    margin-bottom: 20px;
 	}
 }
