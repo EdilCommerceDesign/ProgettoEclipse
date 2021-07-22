@@ -70,7 +70,9 @@ div .close {
 	border: 0;
 	overflow: hidden;
 }
-
+select{
+	margin-bottom: 10px;
+}
 @keyframes slide-down {
 	0% {
 	height:0px;

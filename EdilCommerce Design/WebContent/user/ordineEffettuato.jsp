@@ -37,7 +37,7 @@
 		<img alt="successo" src="/EdilCommerce_Design/img/spunta-verde.png">
 		</div>
 		<p>Continua ad effettuare nuovi acquisti...</p>
-		<p>Per vedre i tuoi acquisti vai nella tua aria personale <a href="<%=response.encodeURL("/EdilCommerce_Design/user/profilo.jsp")%>" title="Profilo di <%=headerBean.getUsername()%>"><img alt="profilo" src="/EdilCommerce_Design/img/profilo.png"></a>.</p>
+		<p>Per vedere i tuoi acquisti vai nella tua aria personale <a href="<%=response.encodeURL("/EdilCommerce_Design/user/profilo.jsp")%>" title="Profilo di <%=headerBean.getUsername()%>"><img alt="profilo" src="/EdilCommerce_Design/img/profilo.png"></a>.</p>
 	
 	<%	
 	} else {

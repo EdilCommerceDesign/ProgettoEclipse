@@ -185,13 +185,13 @@ insert into articolo values
 insert into articolo values
 ("ART03", "sdraio", "/EdilCommerce_Design/img/categoria/ArredamentoEsterno/sdraio.jpg", "sdraio per coppie dotato di copertuta per il sole (200x190)", "339.90", "Arredamento esterno",0);
 insert into articolo values
-("ART04", "barbecue", "/EdilCommerce_Design/img/categoria/ArredamentoEsterno/barbecue.jpg", "barbecue moderno adatto a tutte le fasce di etÃÂÃÂ  e facile da utlizzare", "289.99", "Arredamento esterno",0);
+("ART04", "barbecue", "/EdilCommerce_Design/img/categoria/ArredamentoEsterno/barbecue.jpg", "barbecue moderno adatto a tutte le fasce di eta  e facile da utlizzare", "289.99", "Arredamento esterno",0);
 insert into articolo values
-("ART31", "gazebo", "/EdilCommerce_Design/img/categoria/ArredamentoEsterno/gazebo.jpg", "Struttura in acciaio, copertura in poliestere da 180 g/mÃÂÃÂ² L'ampia superficie lo rende ideale per riparare dal sole un tavolo o un coffee set", "179.90", "Arredamento esterno",0);
+("ART31", "gazebo", "/EdilCommerce_Design/img/categoria/ArredamentoEsterno/gazebo.jpg", "Struttura in acciaio, copertura in poliestere da 180 g/m L'ampia superficie lo rende ideale per riparare dal sole un tavolo o un coffee set", "179.90", "Arredamento esterno",0);
 insert into articolo values
 ("ART32", "tavolo esterno", "/EdilCommerce_Design/img/categoria/ArredamentoEsterno/tavoloesterno.jpg", "Tavolo da giardino rettangolare alluminio, 160/240X 90", "399.00", "Arredamento esterno",0);
 insert into articolo values
-("ART33", "sedie esterno", "/EdilCommerce_Design/img/categoria/ArredamentoEsterno/sedieesterno.jpg", "Comode sedie che invitano al relax. Grazie al peso ridotto possono essere trasportate con facilitÃÂÃÂ ÃÂÃÂ  con i comodissimi cuscini in poliestere", "79.00", "Arredamento esterno",0);
+("ART33", "sedie esterno", "/EdilCommerce_Design/img/categoria/ArredamentoEsterno/sedieesterno.jpg", "Comode sedie che invitano al relax. Grazie al peso ridotto possono essere trasportate con facilita con i comodissimi cuscini in poliestere", "79.00", "Arredamento esterno",0);
 insert into articolo values
 ("ART34", "sdraio esterno", "/EdilCommerce_Design/img/categoria/ArredamentoEsterno/sdraioesterno.jpg", "Set 2 Poltroncine da Giardino Reclinabili con Poggiapiedi e Tavolino in PE Rattan Marrone", "599.95", "Arredamento esterno",0);
 
@@ -201,7 +201,7 @@ insert into articolo values
 insert into articolo values 
 ("ART06", "paraschizzi per bagni", "/EdilCommerce_Design/img/categoria/Rivestimento/paraschizziBagno.jpg", "elegante paraschizzi di intarsio grigio", "24.90", "Rivestimento",0);
 insert into articolo values
-("ART37", "rivestimento in pietra naturale", "/EdilCommerce_Design/img/categoria/Rivestimento/rivestimentipietra.jpg", "Se si punta su un design ricercato, una delle idee piÃÂÃÂ¹ affascinanti, quello della pietra naturale ÃÂÃÂ¨ un materiale che offre vantaggi relativi alla facile adattabilitÃÂÃÂ ÃÂÃÂ  ed usabilitÃÂÃÂ ÃÂÃÂ , ma che allo stesso tempo riesce ad essere molto elegante.", "34.90", "Rivestimento",0);
+("ART37", "rivestimento in pietra naturale", "/EdilCommerce_Design/img/categoria/Rivestimento/rivestimentipietra.jpg", "Se si punta su un design ricercato, una delle idee piu affascinanti, quello della pietra naturale e un materiale che offre vantaggi relativi alla facile adattabilita  ed usabilita , ma che allo stesso tempo riesce ad essere molto elegante.", "34.90", "Rivestimento",0);
 insert into articolo values
 ("ART38", "rivestimento in pietra di Stone Age", "/EdilCommerce_Design/img/categoria/Rivestimento/stoneage.jpg", "rivestimento in pietra di Stone Age 15X60 in pietra naturale quarzite bianca", "59.90", "Rivestimento",0);
 insert into articolo values
@@ -239,11 +239,11 @@ insert into articolo values
 insert into articolo values
 ("ART55", "viti svasate truciolari", "/EdilCommerce_Design/img/categoria/Ferramenta/viti.jpg", "viti svasate truciolari", "4.50", "Ferramenta",0);
 insert into articolo values
-("ART44", "viti per legno", "/EdilCommerce_Design/img/categoria/Ferramenta/vitilegno.jpg", "Vite per fissaggi di Staffe, collari e supporti per tubi, Questa specifico tipo di vite ÃÂÃÂÃÂÃÂ¨ indicata per realizzare fissaggi di collari, staffe, ...", "3.50", "Ferramenta",0);
+("ART44", "viti per legno", "/EdilCommerce_Design/img/categoria/Ferramenta/vitilegno.jpg", "Vite per fissaggi di Staffe, collari e supporti per tubi, Questa specifico tipo di vite e indicata per realizzare fissaggi di collari, staffe, ...", "3.50", "Ferramenta",0);
 
 # Utensileria
 insert into articolo values
-("ART11", "trapano a percussione", "/EdilCommerce_Design/img/categoria/Utensileria/trapanopercussione.jpg", "trapano a percussione adatto a materiali piÃÂÃÂ¹ resistenti", "136.04", "Utensileria",0);
+("ART11", "trapano a percussione", "/EdilCommerce_Design/img/categoria/Utensileria/trapanopercussione.jpg", "trapano a percussione adatto a materiali piu resistenti", "136.04", "Utensileria",0);
 insert into articolo values
 ("ART12", "trapano a batterie", "/EdilCommerce_Design/img/categoria/Utensileria/trapanobatteria.jpg", "trapano a batteria per fissaggi di qualunque tipo", "59.90", "Utensileria",0);
 insert into articolo values
@@ -264,11 +264,11 @@ insert into articolo values
 insert into articolo values
 ("ART14", "cemento", "/EdilCommerce_Design/img/categoria/Materiali/cemento.jpg", "cemento da 25 kg", "11.90", "Materiali",0);
 insert into articolo values
-("ART52", "calcestruzzo", "/EdilCommerce_Design/img/categoria/Materiali/calce.jpg", "La vendita di questo prodotto ÃÂÃÂ¨ possibile solo su richiesta", "12.00", "Materiali",0);
+("ART52", "calcestruzzo", "/EdilCommerce_Design/img/categoria/Materiali/calce.jpg", "La vendita di questo prodotto e possibile solo su richiesta", "12.00", "Materiali",0);
 insert into articolo values
-("ART53", "marmo", "/EdilCommerce_Design/img/categoria/Materiali/marmo.jpg", "La vendita di questo prodotto ÃÂÃÂ¨ possibile solo su richiesta", "11.50", "Materiali",0);
+("ART53", "marmo", "/EdilCommerce_Design/img/categoria/Materiali/marmo.jpg", "La vendita di questo prodotto e possibile solo su richiesta", "11.50", "Materiali",0);
 insert into articolo values
-("ART54", "granito", "/EdilCommerce_Design/img/categoria/Materiali/granito.jpg", "La vendita di questo prodotto ÃÂÃÂ¨ possibile solo su richiesta", "14.90", "Materiali",0);
+("ART54", "granito", "/EdilCommerce_Design/img/categoria/Materiali/granito.jpg", "La vendita di questo prodotto e possibile solo su richiesta", "14.90", "Materiali",0);
 
 # Copertura 
 insert into articolo values
@@ -278,15 +278,54 @@ insert into articolo values
 insert into articolo values
 ("ART58", "copertura per terrazzi", "/EdilCommerce_Design/img/categoria/Copertura/coperturaterrazzo.jpg", "copertura da esterni elegante e ben raffinato in legno di betulla", "339.00", "Copertura",0);
 insert into articolo values
-("ART59", "copertura in vetro", "/EdilCommerce_Design/img/categoria/Copertura/coperturavetro.jpg", "copertura in vetro poliestere per resistere ad alte temperatura estive e rigide temperature invernali, cosÃÂÃÂ¬ da garantire sicurezza e affidabilitÃÂÃÂ ", "359.90", "Copertura",0);
+("ART59", "copertura in vetro", "/EdilCommerce_Design/img/categoria/Copertura/coperturavetro.jpg", "copertura in vetro poliestere per resistere ad alte temperatura estive e rigide temperature invernali, cosi da garantire sicurezza e affidabilita ", "359.90", "Copertura",0);
 insert into articolo values
 ("ART60", "tendone automatico", "/EdilCommerce_Design/img/categoria/Copertura/tendone.jpg", "tendone automatico utile per garantire una giornata all'aperto e proteggersi dal calore", "235.00", "Copertura",0);
 
 #Struttura
 insert into articolo values
-("ART17", "puntello", "/EdilCommerce_Design/img/categoria/Struttura/puntello.jpg", "IÃÂÃÂ puntelli vengono usati prevalentemente per sostenere le casseforme per solai. Molti dettagli pratici ne accelerano l'impiego e ne aumentano la sicurezza: dalla forma della ghiera di regolazione, che indica il corretto verso di rotazione, alla spina di sicurezza ergonomica, a forma di G, progettata per non incepparsi. Inoltre, la zincatura a caldo garantisce una lunga durata. Nel caso in cui i puntelli vengano comunque danneggiati dalle rigide condizioni d'impiego in cantiere, il tubo esterno e quello interno possono essere sostituiti separatamente.", "17.99", "Struttura",0);
+("ART17", "puntello", "/EdilCommerce_Design/img/categoria/Struttura/puntello.jpg", "I puntelli vengono usati prevalentemente per sostenere le casseforme per solai. Molti dettagli pratici ne accelerano l'impiego e ne aumentano la sicurezza: dalla forma della ghiera di regolazione, che indica il corretto verso di rotazione, alla spina di sicurezza ergonomica, a forma di G, progettata per non incepparsi. Inoltre, la zincatura a caldo garantisce una lunga durata. Nel caso in cui i puntelli vengano comunque danneggiati dalle rigide condizioni d'impiego in cantiere, il tubo esterno e quello interno possono essere sostituiti separatamente.", "17.99", "Struttura",0);
 insert into articolo values
-("ART18", "trave", "/EdilCommerce_Design/img/categoria/Struttura/trave.jpg", "La trave per casseforme ha una capacitÃÂÃÂ ÃÂÃÂ  di carico e resistenza a flessione elevata. Abbinata a casseforme per pareti, pilastri e solai oppure a casseforme speciali, permette di ridurre sia la quantitÃÂÃÂ  di attrezzatura necessaria che i tempi di lavoro.", "14.90", "Struttura",0);
+("ART18", "trave", "/EdilCommerce_Design/img/categoria/Struttura/trave.jpg", "La trave per casseforme ha una capacita di carico e resistenza a flessione elevata. Abbinata a casseforme per pareti, pilastri e solai oppure a casseforme speciali, permette di ridurre sia la quantita  di attrezzatura necessaria che i tempi di lavoro.", "14.90", "Struttura",0);
+
+INSERT INTO recensisce VALUES ('ART03','admin',NOW() ,4,'bella e comoda');
+UPDATE (select codiceArticolo, count(codiceArticolo) count from articolo NATURAL JOIN recensisce WHERE codiceArticolo = 'ART03' group by codiceArticolo) a, articolo SET mediaRecensioni = ((mediaRecensioni * (count - 1)) + 4)/count WHERE articolo.codiceArticolo = 'ART03';
+
+INSERT INTO recensisce VALUES ('ART31','admin',NOW() ,3,'ottimi materiali');
+UPDATE (select codiceArticolo, count(codiceArticolo) count from articolo NATURAL JOIN recensisce WHERE codiceArticolo = 'ART31' group by codiceArticolo) a, articolo SET mediaRecensioni = ((mediaRecensioni * (count - 1)) + 3)/count WHERE articolo.codiceArticolo = 'ART31';
+
+INSERT INTO recensisce VALUES ('ART32','admin',NOW() ,2,'elegante');
+ UPDATE (select codiceArticolo, count(codiceArticolo) count from articolo NATURAL JOIN recensisce WHERE codiceArticolo = 'ART32' group by codiceArticolo) a, articolo SET mediaRecensioni = ((mediaRecensioni * (count - 1)) + 2)/count WHERE articolo.codiceArticolo = 'ART32';
+ 
+ INSERT INTO ordine (data, username) VALUES (NOW(),'admin');
+ INSERT INTO compone VALUES (1,'ART03',1);
+ INSERT INTO compone VALUES (1,'ART31',1);
+ INSERT INTO compone VALUES (1,'ART10',1);
+ INSERT INTO pagamento (numeroOrdine, importo) VALUES (1,539.6999999999999);
+ INSERT INTO infoFatturazione VALUES (1,'nome','cognome','admin@email.com','089893889','indirizzo','citta','stato','84085');
+ INSERT INTO contrassegno VALUES (1);
+ INSERT INTO ordine (data, username) VALUES (NOW(),'admin');
+ INSERT INTO compone VALUES (2,'ART07',1);
+ INSERT INTO compone VALUES (2,'ART19',1);
+ INSERT INTO compone VALUES (2,'ART21',1);
+ INSERT INTO pagamento (numeroOrdine, importo) VALUES (2,44.7);
+ INSERT INTO infoFatturazione VALUES (2,'nome','cognome','admin@email.com','089893889','indirizzo','citta','stato','84085');
+ INSERT INTO carta VALUES (2,'1234123412341234','nome','01/2022','352');
+ 
+INSERT INTO recensisce VALUES ('ART00','mario',NOW() ,5,'solida e resistente');
+UPDATE (select codiceArticolo, count(codiceArticolo) count from articolo NATURAL JOIN recensisce WHERE codiceArticolo = 'ART00' group by codiceArticolo) a, articolo SET mediaRecensioni = ((mediaRecensioni * (count - 1)) + 5)/count WHERE articolo.codiceArticolo = 'ART00';
+INSERT INTO recensisce VALUES ('ART25','mario',NOW() ,3,'adattabile\n');
+UPDATE (select codiceArticolo, count(codiceArticolo) count from articolo NATURAL JOIN recensisce WHERE codiceArticolo = 'ART25' group by codiceArticolo) a, articolo SET mediaRecensioni = ((mediaRecensioni * (count - 1)) + 3)/count WHERE articolo.codiceArticolo = 'ART25';
+INSERT INTO recensisce VALUES ('ART02','mario',NOW() ,2,'utile e grande');
+UPDATE (select codiceArticolo, count(codiceArticolo) count from articolo NATURAL JOIN recensisce WHERE codiceArticolo = 'ART02' group by codiceArticolo) a, articolo SET mediaRecensioni = ((mediaRecensioni * (count - 1)) + 2)/count WHERE articolo.codiceArticolo = 'ART02';
+INSERT INTO ordine (data, username) VALUES (NOW(),'mario');
+INSERT INTO compone VALUES (3,'ART00',1);
+INSERT INTO compone VALUES (3,'ART25',1);
+INSERT INTO compone VALUES (3,'ART02',1);
+INSERT INTO pagamento (numeroOrdine, importo) VALUES (3,430.39);
+INSERT INTO infoFatturazione VALUES (3,'Mario','Rossi','marioRossi@email.com','089788998','via Roma','Fisciano','Italia','84085');
+INSERT INTO contrassegno VALUES (3);
+
 /*
 insert into articolo values
 ("ART65", "", "/EdilCommerce_Design/img/categoria/Struttura/", "", "", "Struttura");
